@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "28CC339F0C92023E4BD33388F1799F73C5C1B657",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "28CC339F0C92023E4BD33388F1799F73C5C1B657" : 0,
+    "580BE6C86AB491596EC032FCE92AB96976166AF1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "78DAFCEF-11EF-4876-AF80-2D1F4909FDA6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "28CC339F0C92023E4BD33388F1799F73C5C1B657" : "Convenient-Swift\/",
+    "580BE6C86AB491596EC032FCE92AB96976166AF1" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Convenient-Swift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Convenient-Swift.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xuzhou524\/Convenient-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28CC339F0C92023E4BD33388F1799F73C5C1B657"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xuzhou524\/Convenient-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "580BE6C86AB491596EC032FCE92AB96976166AF1"
+    }
+  ]
+}
