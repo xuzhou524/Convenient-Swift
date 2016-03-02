@@ -28,10 +28,6 @@
 		531C23F61C8599420009E0E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531C23F91C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		531C23FB1C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		531C24041C8599420009E0E6 /* Convenient_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenient_SwiftTests.swift; sourceTree = "<group>"; };
-		531C24061C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		531C240F1C8599420009E0E6 /* Convenient_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenient_SwiftUITests.swift; sourceTree = "<group>"; };
-		531C24111C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftNavigationController.swift; sourceTree = "<group>"; };
 		531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftColor.swift; sourceTree = "<group>"; };
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -62,8 +58,6 @@
 				531C241E1C8697AF0009E0E6 /* Controller */,
 				531C241F1C8697AF0009E0E6 /* Model */,
 				531C24201C8697AF0009E0E6 /* View */,
-				531C24031C8599420009E0E6 /* Convenient-SwiftTests */,
-				531C240E1C8599420009E0E6 /* Convenient-SwiftUITests */,
 				531C23ED1C8599420009E0E6 /* Products */,
 				DB78D67925F9E0A07F6190E2 /* Pods */,
 				C74482A3D9F72EF11F6AE50E /* Frameworks */,
@@ -90,24 +84,6 @@
 				531C23FB1C8599420009E0E6 /* Info.plist */,
 			);
 			path = "Convenient-Swift";
-			sourceTree = "<group>";
-		};
-		531C24031C8599420009E0E6 /* Convenient-SwiftTests */ = {
-			isa = PBXGroup;
-			children = (
-				531C24041C8599420009E0E6 /* Convenient_SwiftTests.swift */,
-				531C24061C8599420009E0E6 /* Info.plist */,
-			);
-			path = "Convenient-SwiftTests";
-			sourceTree = "<group>";
-		};
-		531C240E1C8599420009E0E6 /* Convenient-SwiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				531C240F1C8599420009E0E6 /* Convenient_SwiftUITests.swift */,
-				531C24111C8599420009E0E6 /* Info.plist */,
-			);
-			path = "Convenient-SwiftUITests";
 			sourceTree = "<group>";
 		};
 		531C241D1C8697AF0009E0E6 /* Common */ = {
