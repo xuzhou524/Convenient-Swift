@@ -8,6 +8,9 @@
 
 import UIKit
 import Alamofire
+import SnapKit
+import KVOController
+
 
 class ViewController: UIViewController {
 
@@ -25,6 +28,8 @@ class ViewController: UIViewController {
         Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON{ (response) -> Void in
             print("response: \(response)")
         }
+        
+        
         
     }
 

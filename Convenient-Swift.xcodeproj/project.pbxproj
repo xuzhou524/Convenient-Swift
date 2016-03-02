@@ -13,26 +13,12 @@
 		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
 		531C23F71C8599420009E0E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F61C8599420009E0E6 /* Assets.xcassets */; };
 		531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */; };
-		531C24051C8599420009E0E6 /* Convenient_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24041C8599420009E0E6 /* Convenient_SwiftTests.swift */; };
-		531C24101C8599420009E0E6 /* Convenient_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C240F1C8599420009E0E6 /* Convenient_SwiftUITests.swift */; };
+		531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */; };
+		531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */; };
+		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
+		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
+		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		531C24011C8599420009E0E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 531C23E41C8599420009E0E6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 531C23EB1C8599420009E0E6;
-			remoteInfo = "Convenient-Swift";
-		};
-		531C240C1C8599420009E0E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 531C23E41C8599420009E0E6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 531C23EB1C8599420009E0E6;
-			remoteInfo = "Convenient-Swift";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		531C23EC1C8599420009E0E6 /* Convenient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Convenient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,12 +28,15 @@
 		531C23F61C8599420009E0E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531C23F91C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		531C23FB1C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		531C24001C8599420009E0E6 /* Convenient-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Convenient-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C24041C8599420009E0E6 /* Convenient_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenient_SwiftTests.swift; sourceTree = "<group>"; };
 		531C24061C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		531C240B1C8599420009E0E6 /* Convenient-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Convenient-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C240F1C8599420009E0E6 /* Convenient_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenient_SwiftUITests.swift; sourceTree = "<group>"; };
 		531C24111C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftNavigationController.swift; sourceTree = "<group>"; };
+		531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftColor.swift; sourceTree = "<group>"; };
+		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
+		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenient_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -62,20 +51,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		531C23FD1C8599420009E0E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		531C24081C8599420009E0E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,6 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				531C23EE1C8599420009E0E6 /* Convenient-Swift */,
+				531C241D1C8697AF0009E0E6 /* Common */,
+				531C241E1C8697AF0009E0E6 /* Controller */,
+				531C241F1C8697AF0009E0E6 /* Model */,
+				531C24201C8697AF0009E0E6 /* View */,
 				531C24031C8599420009E0E6 /* Convenient-SwiftTests */,
 				531C240E1C8599420009E0E6 /* Convenient-SwiftUITests */,
 				531C23ED1C8599420009E0E6 /* Products */,
@@ -95,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				531C23EC1C8599420009E0E6 /* Convenient-Swift.app */,
-				531C24001C8599420009E0E6 /* Convenient-SwiftTests.xctest */,
-				531C240B1C8599420009E0E6 /* Convenient-SwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +83,7 @@
 			children = (
 				531C23EF1C8599420009E0E6 /* AppDelegate.swift */,
 				531C23F11C8599420009E0E6 /* ViewController.swift */,
+				534926181C86E3A80077A8A6 /* HomeViewController.swift */,
 				531C23F31C8599420009E0E6 /* Main.storyboard */,
 				531C23F61C8599420009E0E6 /* Assets.xcassets */,
 				531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */,
@@ -130,6 +108,54 @@
 				531C24111C8599420009E0E6 /* Info.plist */,
 			);
 			path = "Convenient-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		531C241D1C8697AF0009E0E6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5349260C1C86E29E0077A8A6 /* Extension */,
+				534926111C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell */,
+				531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */,
+				531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		531C241E1C8697AF0009E0E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		531C241F1C8697AF0009E0E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		531C24201C8697AF0009E0E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5349260C1C86E29E0077A8A6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				534926101C86E29E0077A8A6 /* UITableView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		534926111C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell */ = {
+			isa = PBXGroup;
+			children = (
+				534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */,
+			);
+			path = "UITableView+FINAutomaticHeightCell";
 			sourceTree = "<group>";
 		};
 		C74482A3D9F72EF11F6AE50E /* Frameworks */ = {
@@ -172,42 +198,6 @@
 			productReference = 531C23EC1C8599420009E0E6 /* Convenient-Swift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		531C23FF1C8599420009E0E6 /* Convenient-SwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 531C24171C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftTests" */;
-			buildPhases = (
-				531C23FC1C8599420009E0E6 /* Sources */,
-				531C23FD1C8599420009E0E6 /* Frameworks */,
-				531C23FE1C8599420009E0E6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				531C24021C8599420009E0E6 /* PBXTargetDependency */,
-			);
-			name = "Convenient-SwiftTests";
-			productName = "Convenient-SwiftTests";
-			productReference = 531C24001C8599420009E0E6 /* Convenient-SwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		531C240A1C8599420009E0E6 /* Convenient-SwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 531C241A1C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftUITests" */;
-			buildPhases = (
-				531C24071C8599420009E0E6 /* Sources */,
-				531C24081C8599420009E0E6 /* Frameworks */,
-				531C24091C8599420009E0E6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				531C240D1C8599420009E0E6 /* PBXTargetDependency */,
-			);
-			name = "Convenient-SwiftUITests";
-			productName = "Convenient-SwiftUITests";
-			productReference = 531C240B1C8599420009E0E6 /* Convenient-SwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,14 +210,6 @@
 				TargetAttributes = {
 					531C23EB1C8599420009E0E6 = {
 						CreatedOnToolsVersion = 7.2;
-					};
-					531C23FF1C8599420009E0E6 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 531C23EB1C8599420009E0E6;
-					};
-					531C240A1C8599420009E0E6 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 531C23EB1C8599420009E0E6;
 					};
 				};
 			};
@@ -245,8 +227,6 @@
 			projectRoot = "";
 			targets = (
 				531C23EB1C8599420009E0E6 /* Convenient-Swift */,
-				531C23FF1C8599420009E0E6 /* Convenient-SwiftTests */,
-				531C240A1C8599420009E0E6 /* Convenient-SwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,20 +239,6 @@
 				531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */,
 				531C23F71C8599420009E0E6 /* Assets.xcassets in Resources */,
 				531C23F51C8599420009E0E6 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		531C23FE1C8599420009E0E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		531C24091C8599420009E0E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,40 +298,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
+				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
+				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
+				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
 				531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		531C23FC1C8599420009E0E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				531C24051C8599420009E0E6 /* Convenient_SwiftTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		531C24071C8599420009E0E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				531C24101C8599420009E0E6 /* Convenient_SwiftUITests.swift in Sources */,
+				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
+				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		531C24021C8599420009E0E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 531C23EB1C8599420009E0E6 /* Convenient-Swift */;
-			targetProxy = 531C24011C8599420009E0E6 /* PBXContainerItemProxy */;
-		};
-		531C240D1C8599420009E0E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 531C23EB1C8599420009E0E6 /* Convenient-Swift */;
-			targetProxy = 531C240C1C8599420009E0E6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		531C23F31C8599420009E0E6 /* Main.storyboard */ = {
@@ -477,6 +419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -489,54 +432,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		531C24181C8599420009E0E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Convenient-SwiftTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-SwiftTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Convenient-Swift.app/Convenient-Swift";
-			};
-			name = Debug;
-		};
-		531C24191C8599420009E0E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Convenient-SwiftTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-SwiftTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Convenient-Swift.app/Convenient-Swift";
-			};
-			name = Release;
-		};
-		531C241B1C8599420009E0E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Convenient-SwiftUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Convenient-Swift";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		531C241C1C8599420009E0E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Convenient-SwiftUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Convenient-Swift";
-				USES_XCTRUNNER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -557,24 +453,6 @@
 			buildConfigurations = (
 				531C24151C8599420009E0E6 /* Debug */,
 				531C24161C8599420009E0E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		531C24171C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				531C24181C8599420009E0E6 /* Debug */,
-				531C24191C8599420009E0E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		531C241A1C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				531C241B1C8599420009E0E6 /* Debug */,
-				531C241C1C8599420009E0E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

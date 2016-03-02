@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KVOController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Convenient-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>03155536B3F92AD944B1155ED189FF9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0907E5B19474112A86EF1904C95E7539</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0351C05A85BF5B46C4D9DFBE1BB513A</key>
+		<key>9315DCB0E4A83168C384DFF036EAE379</key>
 		<dict>
 			<key>primary</key>
 			<true/>
