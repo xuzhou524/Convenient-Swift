@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        let urlString = "http://op.juhe.cn/onebox/weather/query"
+        
+        let prames = [
+            "cityname" : "北京",
+            "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
+        ]
+        
+    
+        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON{ (response) -> Void in
+            print("response: \(response)")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

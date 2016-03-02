@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03EA6B1EEFCED9E16BE532E7 /* Pods_Convenient_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */; };
 		531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23EF1C8599420009E0E6 /* AppDelegate.swift */; };
 		531C23F21C8599420009E0E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23F11C8599420009E0E6 /* ViewController.swift */; };
 		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
@@ -47,6 +48,9 @@
 		531C240B1C8599420009E0E6 /* Convenient-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Convenient-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C240F1C8599420009E0E6 /* Convenient_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenient_SwiftUITests.swift; sourceTree = "<group>"; };
 		531C24111C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenient_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EA6B1EEFCED9E16BE532E7 /* Pods_Convenient_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,8 @@
 				531C24031C8599420009E0E6 /* Convenient-SwiftTests */,
 				531C240E1C8599420009E0E6 /* Convenient-SwiftUITests */,
 				531C23ED1C8599420009E0E6 /* Products */,
+				DB78D67925F9E0A07F6190E2 /* Pods */,
+				C74482A3D9F72EF11F6AE50E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,23 @@
 			path = "Convenient-SwiftUITests";
 			sourceTree = "<group>";
 		};
+		C74482A3D9F72EF11F6AE50E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB78D67925F9E0A07F6190E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */,
+				5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 531C24141C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-Swift" */;
 			buildPhases = (
+				5906CFA71E12F550FE20C6BD /* Check Pods Manifest.lock */,
 				531C23E81C8599420009E0E6 /* Sources */,
 				531C23E91C8599420009E0E6 /* Frameworks */,
 				531C23EA1C8599420009E0E6 /* Resources */,
+				815989E6BC53C4DB4B4E3839 /* Embed Pods Frameworks */,
+				C89EEEF8A964BDB057275562 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +277,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5906CFA71E12F550FE20C6BD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		815989E6BC53C4DB4B4E3839 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C89EEEF8A964BDB057275562 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		531C23E81C8599420009E0E6 /* Sources */ = {
@@ -395,6 +470,7 @@
 		};
 		531C24151C8599420009E0E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
@@ -406,6 +482,7 @@
 		};
 		531C24161C8599420009E0E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
@@ -482,6 +559,7 @@
 				531C24161C8599420009E0E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		531C24171C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +568,7 @@
 				531C24191C8599420009E0E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		531C241A1C8599420009E0E6 /* Build configuration list for PBXNativeTarget "Convenient-SwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +577,7 @@
 				531C241C1C8599420009E0E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
