@@ -6,6 +6,7 @@ def pods
    pod 'Alamofire', '~> 3.1.4'
    pod 'SnapKit', '~> 0.18.0'
    pod 'KVOController', '~> 1.0.3'
+   pod 'jastor', '~> 0.2.1'
 end
 
 

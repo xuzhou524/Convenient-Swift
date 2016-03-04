@@ -18,6 +18,14 @@
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
+		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
+		53917E671C897B85002200C1 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5D1C897B85002200C1 /* UUBarChart.m */; };
+		53917E681C897B85002200C1 /* UUChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5F1C897B85002200C1 /* UUChart.m */; };
+		53917E691C897B85002200C1 /* UUChartConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E611C897B85002200C1 /* UUChartConst.m */; };
+		53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E631C897B85002200C1 /* UUChartLabel.m */; };
+		53917E6B1C897B85002200C1 /* UULineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E651C897B85002200C1 /* UULineChart.m */; };
+		53917E711C89811D002200C1 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53917E701C89811D002200C1 /* WeatherModel.swift */; };
+		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +40,22 @@
 		531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftColor.swift; sourceTree = "<group>"; };
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
-		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
+		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
+		53917E5A1C897B85002200C1 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
+		53917E5B1C897B85002200C1 /* UUBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBar.m; sourceTree = "<group>"; };
+		53917E5C1C897B85002200C1 /* UUBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBarChart.h; sourceTree = "<group>"; };
+		53917E5D1C897B85002200C1 /* UUBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUBarChart.m; sourceTree = "<group>"; };
+		53917E5E1C897B85002200C1 /* UUChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChart.h; sourceTree = "<group>"; };
+		53917E5F1C897B85002200C1 /* UUChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChart.m; sourceTree = "<group>"; };
+		53917E601C897B85002200C1 /* UUChartConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChartConst.h; sourceTree = "<group>"; };
+		53917E611C897B85002200C1 /* UUChartConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChartConst.m; sourceTree = "<group>"; };
+		53917E621C897B85002200C1 /* UUChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChartLabel.h; sourceTree = "<group>"; };
+		53917E631C897B85002200C1 /* UUChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChartLabel.m; sourceTree = "<group>"; };
+		53917E641C897B85002200C1 /* UULineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UULineChart.h; sourceTree = "<group>"; };
+		53917E651C897B85002200C1 /* UULineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UULineChart.m; sourceTree = "<group>"; };
+		53917E701C89811D002200C1 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
 		5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenient_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				531C23EE1C8599420009E0E6 /* Convenient-Swift */,
+				53917E431C89619C002200C1 /* Libs */,
 				531C241D1C8697AF0009E0E6 /* Common */,
 				531C241E1C8697AF0009E0E6 /* Controller */,
 				531C241F1C8697AF0009E0E6 /* Model */,
@@ -77,7 +101,7 @@
 			children = (
 				531C23EF1C8599420009E0E6 /* AppDelegate.swift */,
 				531C23F11C8599420009E0E6 /* ViewController.swift */,
-				534926181C86E3A80077A8A6 /* HomeViewController.swift */,
+				53917E581C896371002200C1 /* Convenient-Header.h */,
 				531C23F31C8599420009E0E6 /* Main.storyboard */,
 				531C23F61C8599420009E0E6 /* Assets.xcassets */,
 				531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */,
@@ -100,6 +124,7 @@
 		531C241E1C8697AF0009E0E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				534926181C86E3A80077A8A6 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -107,6 +132,7 @@
 		531C241F1C8697AF0009E0E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53917E701C89811D002200C1 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,6 +140,7 @@
 		531C24201C8697AF0009E0E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +159,33 @@
 				534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */,
 			);
 			path = "UITableView+FINAutomaticHeightCell";
+			sourceTree = "<group>";
+		};
+		53917E431C89619C002200C1 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				53917E591C897B85002200C1 /* UUChart */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		53917E591C897B85002200C1 /* UUChart */ = {
+			isa = PBXGroup;
+			children = (
+				53917E5A1C897B85002200C1 /* UUBar.h */,
+				53917E5B1C897B85002200C1 /* UUBar.m */,
+				53917E5C1C897B85002200C1 /* UUBarChart.h */,
+				53917E5D1C897B85002200C1 /* UUBarChart.m */,
+				53917E5E1C897B85002200C1 /* UUChart.h */,
+				53917E5F1C897B85002200C1 /* UUChart.m */,
+				53917E601C897B85002200C1 /* UUChartConst.h */,
+				53917E611C897B85002200C1 /* UUChartConst.m */,
+				53917E621C897B85002200C1 /* UUChartLabel.h */,
+				53917E631C897B85002200C1 /* UUChartLabel.m */,
+				53917E641C897B85002200C1 /* UULineChart.h */,
+				53917E651C897B85002200C1 /* UULineChart.m */,
+			);
+			path = UUChart;
 			sourceTree = "<group>";
 		};
 		C74482A3D9F72EF11F6AE50E /* Frameworks */ = {
@@ -274,11 +328,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
+				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
+				53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */,
+				53917E711C89811D002200C1 /* WeatherModel.swift in Sources */,
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
 				531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */,
 				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
+				53917E661C897B85002200C1 /* UUBar.m in Sources */,
+				53917E691C897B85002200C1 /* UUChartConst.m in Sources */,
+				53917E6B1C897B85002200C1 /* UULineChart.m in Sources */,
+				53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */,
+				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,
 				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Debug;
 		};
@@ -408,7 +470,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Release;
 		};

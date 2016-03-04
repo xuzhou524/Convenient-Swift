@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (3.1.5)
+  - jastor (0.2.1)
   - KVOController (1.0.3)
   - SnapKit (0.18.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.4)
+  - jastor (~> 0.2.1)
   - KVOController (~> 1.0.3)
   - SnapKit (~> 0.18.0)
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
 

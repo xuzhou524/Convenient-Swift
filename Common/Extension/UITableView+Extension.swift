@@ -52,7 +52,14 @@ func getCell<T: UITableViewCell>(tableView:UITableView ,cell: T.Type ,indexPath:
 }
 
 func XZFont(fontSize: CGFloat) -> UIFont {
-    return UIFont.systemFontOfSize(fontSize);
-//    return UIFont(name: "Helvetica", size: fontSize);
+    return UIFont(name: "Helvetica-Bold", size: fontSize)!;
+}
+
+func XZFont2(fontSize: CGFloat) -> UIFont {
+    return UIFont(name: "Helvetica", size: fontSize)!;
+}
+
+func XZFont3(fontSize: CGFloat) -> UIFont {
+    return UIFont(name: "Courier New", size: fontSize)!;
 }
 

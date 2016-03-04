@@ -29,9 +29,15 @@ func createImageWithColor(color:UIColor,size:CGSize) -> UIImage {
 }
 
 class XZSwiftColor: NSObject{
+    
+    static var navignationColor : UIColor{
+        get{
+            return colorWith255RGB(53, g: 144, b: 88);
+        }
+    }
    static var convenientBackgroundColor : UIColor{
         get{
-            return colorWith255RGB(242, g: 243, b: 245);
+            return colorWith255RGB(240, g: 240, b: 240);
         }
     }
     

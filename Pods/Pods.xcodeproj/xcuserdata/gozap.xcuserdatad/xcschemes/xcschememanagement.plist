@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>jastor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -32,7 +37,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0907E5B19474112A86EF1904C95E7539</key>
+		<key>27E343BC7BE4D50A383AFFF8454D720B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9315DCB0E4A83168C384DFF036EAE379</key>
+		<key>AC742C05F744BB0910906D7DB4666A7B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6918C79CB9EAE6C5A63D9B83A84BCEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

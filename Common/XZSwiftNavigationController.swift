@@ -33,10 +33,8 @@ class XZSwiftNavigationController: UINavigationController {
         self.navigationBar.layer.shadowRadius = 0.5;
         self.navigationBar.layer.shadowOffset = CGSizeMake(0, 0.5)
         self.navigationBar.layer.shadowOpacity=0.4
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true);
         
-        
-        self.navigationBar.setBackgroundImage(createImageWithColor(UIColor.clearColor()), forBarMetrics: .Default)
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true);
         
         let maskingView = UIView()
         maskingView.userInteractionEnabled = false
@@ -56,6 +54,13 @@ class XZSwiftNavigationController: UINavigationController {
         self.frostedView!.snp_makeConstraints{ (make) -> Void in
             make.top.bottom.left.right.equalTo(maskingView);
         }
+        
+        self.navigationBar.titleTextAttributes = [
+            NSFontAttributeName : XZFont(18),
+            NSForegroundColorAttributeName : UIColor.whiteColor()
+        ]
+         self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)
+        
 //        self.KVOController.observe(XZSwiftColor.convenientBackgroundColor, keyPath: "style", options: [.Initial,.New]) {[weak self] (nav, color, change) -> Void in
 //            self?.navigationBar.tintColor = XZSwiftColor.convenientBackgroundColor
 //            
