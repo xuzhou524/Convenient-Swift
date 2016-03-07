@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03EA6B1EEFCED9E16BE532E7 /* Pods_Convenient_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */; };
+		530D946B1C8D3308005342BF /* BaseJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D946A1C8D3308005342BF /* BaseJsonModel.swift */; };
 		531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23EF1C8599420009E0E6 /* AppDelegate.swift */; };
 		531C23F21C8599420009E0E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23F11C8599420009E0E6 /* ViewController.swift */; };
 		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530D946A1C8D3308005342BF /* BaseJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseJsonModel.swift; sourceTree = "<group>"; };
 		531C23EC1C8599420009E0E6 /* Convenient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Convenient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C23EF1C8599420009E0E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		531C23F11C8599420009E0E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				53917E701C89811D002200C1 /* WeatherModel.swift */,
+				530D946A1C8D3308005342BF /* BaseJsonModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
 				53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */,
+				530D946B1C8D3308005342BF /* BaseJsonModel.swift in Sources */,
 				53917E711C89811D002200C1 /* WeatherModel.swift in Sources */,
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,

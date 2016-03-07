@@ -7,6 +7,8 @@ def pods
    pod 'SnapKit', '~> 0.18.0'
    pod 'KVOController', '~> 1.0.3'
    pod 'jastor', '~> 0.2.1'
+   pod 'ObjectMapper', '~> 1.1.1'
+   pod 'AlamofireObjectMapper', '~> 2.1.0'
 end
 
 

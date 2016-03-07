@@ -1,19 +1,27 @@
 PODS:
   - Alamofire (3.1.5)
+  - AlamofireObjectMapper (2.1.0):
+    - Alamofire (~> 3.1.0)
+    - ObjectMapper (~> 1.0)
   - jastor (0.2.1)
   - KVOController (1.0.3)
+  - ObjectMapper (1.1.5)
   - SnapKit (0.18.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.4)
+  - AlamofireObjectMapper (~> 2.1.0)
   - jastor (~> 0.2.1)
   - KVOController (~> 1.0.3)
+  - ObjectMapper (~> 1.1.1)
   - SnapKit (~> 0.18.0)
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  AlamofireObjectMapper: 24097576202064f8b0a583452dd934064f78dc0e
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
 
 COCOAPODS: 0.39.0
