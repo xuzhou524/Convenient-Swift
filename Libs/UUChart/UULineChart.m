@@ -320,7 +320,7 @@
         label.frame = CGRectMake(point.x-UUTagLabelwidth/2.0, point.y, UUTagLabelwidth, UUWHeight);
     }
     
-    label.font = [UIFont systemFontOfSize:11];
+    label.font = [UIFont systemFontOfSize:13];
     label.textAlignment = NSTextAlignmentCenter;
     if ( index!=0 ) {
         label.textColor = [UUColor orangeColor];

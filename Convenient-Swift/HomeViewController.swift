@@ -11,11 +11,14 @@ import UIKit
 import Alamofire
 import SnapKit
 import KVOController
+import ObjectMapper
+import AlamofireObjectMapper
 
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    var weather : WeatherModel?
+    var weatherMdoel : WeatherModel?
+    var cycle : DGElasticPullToRefreshLoadingViewCircle?
     
     private var _tableView : UITableView!
     private var tableView :UITableView{
@@ -45,7 +48,25 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.tableView.snp_makeConstraints{ (make) -> Void in
             make.top.right.bottom.left.equalTo(self.view);
         }
+        self.asyncRequestData()
+        self.setupPullToRefreshView(self.tableView)
+    }
+    
+    
+    func setupPullToRefreshView(tableView:UITableView) -> Void{
         
+        self.cycle = DGElasticPullToRefreshLoadingViewCircle()
+        self.cycle!.tintColor=UIColor.whiteColor()
+        tableView.dg_addPullToRefreshWithActionHandler({ () -> Void in
+            tableView.dg_stopLoading()
+            self.asyncRequestData()
+            }, loadingView: self.cycle)
+        self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
+        self.tableView.dg_setPullToRefreshBackgroundColor(UIColor.whiteColor())
+        
+        
+    }
+    func asyncRequestData() -> Void{
         
         //http://www.data321.com/e6bb5a30
         //根据城市名称  获取城市ID
@@ -64,14 +85,17 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
         ]
         
-        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
-            
-            print("responseqqqqq: \(response.result)")
-            
-            self.tableView .reloadData()
+        
+        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("result.data") {
+            (response : Response<WeatherModel,NSError>) in
+            if let model = response.result.value{
+                self.weatherMdoel = model
+                print(self.weatherMdoel)
+                self.tableView.dg_stopLoading()
+                self.tableView .reloadData()
+            }
         }
-        
-        
+
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,7 +106,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         return 3
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return [40,310,200][indexPath.row]
+        return [40,310,150][indexPath.row]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -90,14 +114,23 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         if indexPath.row == 0{
             let titleCell = getCell(tableView, cell: Weather_titleTabeleViewCell.self, indexPath: indexPath)
+            titleCell.bind(self.weatherMdoel)
+            titleCell.selectionStyle = .None
             return titleCell
         }else if indexPath.row == 1{
             let weatherCell = getCell(tableView, cell: WeatherTabeleViewCell.self, indexPath: indexPath)
+             weatherCell.selectionStyle = .None
+            weatherCell.bind(self.weatherMdoel)
             return weatherCell
         }else if indexPath.row == 2{
             let lineCell = getCell(tableView, cell: Weather_LineTabeleViewCell.self, indexPath: indexPath)
+            lineCell.selectionStyle = .None
+            if ((self.weatherMdoel?.weather) != nil){
+                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
+            }
+            
             lineCell.configUI()
-            lineCell.backgroundColor = UIColor.grayColor()
+            lineCell.backgroundColor = UIColor.whiteColor()
             return lineCell
         }
         

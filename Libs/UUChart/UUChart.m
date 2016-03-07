@@ -41,7 +41,7 @@
 -(void)setUpChart{
 	if (self.chartStyle == UUChartStyleLine) {
         if(!_lineChart){
-            _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+            _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, -25, self.frame.size.width, self.frame.size.height + 45)];
             [self addSubview:_lineChart];
         }
         //选择标记范围

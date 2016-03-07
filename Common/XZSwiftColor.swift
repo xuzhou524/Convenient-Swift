@@ -32,7 +32,7 @@ class XZSwiftColor: NSObject{
     
     static var navignationColor : UIColor{
         get{
-            return colorWith255RGB(53, g: 144, b: 88);
+            return colorWith255RGB(80, g: 180, b: 60);
         }
     }
    static var convenientBackgroundColor : UIColor{

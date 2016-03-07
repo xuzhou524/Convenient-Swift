@@ -34,7 +34,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
         pm25BgView.snp_makeConstraints (closure: { (make) -> Void in
             make.left.equalTo(self.contentView).offset(15)
             make.centerY.equalTo(self.contentView).offset(5)
-            make.width.equalTo(90)
+            make.width.equalTo(80)
             make.height.equalTo(30)
          });
         
@@ -49,8 +49,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
         });
         
         self.pm25TiltileLabel = UILabel()
-        self.pm25TiltileLabel!.text = "330  严重"
-        self.pm25TiltileLabel?.font = XZFont2(12)
+        self.pm25TiltileLabel?.font = XZFont2(13)
         pm25BgView.addSubview(self.pm25TiltileLabel!)
         self.pm25TiltileLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo(pm25BgView).offset(-3)
@@ -58,13 +57,19 @@ class Weather_titleTabeleViewCell: UITableViewCell {
          });
         
         self.weatherRefreshLabel = UILabel()
-        self.weatherRefreshLabel!.text = "03-03 09:00 发布"
-        self.weatherRefreshLabel?.font = XZFont2(12)
+        self.weatherRefreshLabel?.font = XZFont2(13)
         self.contentView.addSubview(self.weatherRefreshLabel!)
         self.weatherRefreshLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo(self.contentView).offset(-15)
             make.centerY.equalTo(self.contentView).offset(5)
          });
+    }
+    
+    func bind(model:WeatherModel?)->Void{
+        if model != nil{
+             self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 优"
+             self.weatherRefreshLabel?.text = ((model?.realtime!.date)! as NSString).substringFromIndex(5)+" "+((model?.realtime!.time)! as NSString).substringToIndex(5)+" 发布"
+        }
     }
 }
 
@@ -93,16 +98,14 @@ class WeatherTabeleViewCell: UITableViewCell {
     func subView()->Void{
         
         self.weatherIconIamgeView = UIImageView()
-        self.weatherIconIamgeView?.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.contentView.addSubview(self.weatherIconIamgeView!)
         self.weatherIconIamgeView?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.contentView).offset(25)
-            make.width.height.equalTo(100)
+            make.top.equalTo(self.contentView).offset(20)
+            make.width.height.equalTo(85)
         });
         
         self.weatherLabel = UILabel()
-        self.weatherLabel?.text = "多云"
         self.weatherLabel?.font = XZFont2(15)
         self.contentView.addSubview(self.weatherLabel!)
         self.weatherLabel?.snp_makeConstraints(closure: { (make) -> Void in
@@ -112,7 +115,6 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         
         self.weatherCurrentLabel = UILabel()
-        self.weatherCurrentLabel?.text = "18°"
         self.weatherCurrentLabel?.font = XZFont3(50)
       
         self.contentView.addSubview(self.weatherCurrentLabel!)
@@ -121,50 +123,65 @@ class WeatherTabeleViewCell: UITableViewCell {
             make.top.equalTo((self.weatherIconIamgeView?.snp_bottom)!).offset(15)
         });
         
-        self.windLabel = UILabel()
-        self.windLabel?.text = "东被风 4级"
-        self.windLabel?.font = XZFont2(13)
-        self.contentView.addSubview(self.windLabel!)
-        self.windLabel?.snp_makeConstraints(closure: { (make) -> Void in
-            make.left.equalTo((self.weatherIconIamgeView?.snp_centerX)!).offset(15)
-            make.top.equalTo(self.weatherCurrentLabel!).offset(10)
-        });
         
         
         self.humidityLabel = UILabel()
-        self.humidityLabel?.text = "湿度 8%"
         self.humidityLabel?.font = XZFont2(13)
         self.contentView.addSubview(self.humidityLabel!)
         self.humidityLabel?.snp_makeConstraints(closure: { (make) -> Void in
-            make.left.equalTo(self.windLabel!)
+            make.left.equalTo((self.weatherIconIamgeView?.snp_centerX)!).offset(20)
+            make.top.equalTo(self.weatherCurrentLabel!).offset(10)
+        });
+        
+        self.windLabel = UILabel()
+        self.windLabel?.font = XZFont2(13)
+        self.contentView.addSubview(self.windLabel!)
+        self.windLabel?.snp_makeConstraints(closure: { (make) -> Void in
+            make.left.equalTo(self.humidityLabel!)
             make.bottom.equalTo(self.weatherCurrentLabel!).offset(-10)
         });
         
         self.warmPromptLabel = UILabel()
-        self.warmPromptLabel?.text = "空气不太好，在室内休息休息吧！"
         self.warmPromptLabel?.font = XZFont2(13)
         self.warmPromptLabel?.numberOfLines=0
         self.warmPromptLabel?.textAlignment = .Center
         self.contentView.addSubview(self.warmPromptLabel!)
         self.warmPromptLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo((self.humidityLabel?.snp_bottom)!).offset(30)
+            make.top.equalTo((self.windLabel?.snp_bottom)!).offset(30)
             make.left.equalTo(self.contentView).offset(15)
             make.right.equalTo(self.contentView).offset(-15)
         });
    
     }
+    
+    func bind(weathermodel:WeatherModel?)->Void{
+        if weathermodel != nil{
+            
+             //let model =  weathermodel?.weather![0]
+            
+            //let image  = model.info.day[0] as! String
+            
+            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (weathermodel?.realtime!.weather!.img)!)
+            self.weatherLabel?.text = weathermodel!.realtime!.weather!.info
+            self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
+            self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
+            self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
+            self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
+            
+        }
+    }
 }
-
-
 
 class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
+    internal var weakWeatherArray =  [weather_weatherModel]()
+    
     var chartView : UUChart?
-    var _maxWeatherArray : NSMutableArray?
-    var _minWeatherArray : NSMutableArray?
-    var _maxWeatherStr : NSString?
-    var _minWeatherStr : NSString?
+    var maxWeatherArray : NSMutableArray?
+    var minWeatherArray : NSMutableArray?
+    var maxWeatherStr : NSString?
+    var minWeatherStr : NSString?
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -177,11 +194,13 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
     func configUI()->Void{
         
+        print(self.weakWeatherArray)
+        
         if (chartView  != nil){
             chartView?.removeFromSuperview()
             chartView = nil
         }
-        chartView = UUChart.init(frame: CGRectMake(0,0,UIScreen.mainScreen().bounds.size.width, 200), dataSource: self, style: .Line)
+        chartView = UUChart.init(frame: CGRectMake(0,0,UIScreen.mainScreen().bounds.size.width, 150), dataSource: self, style: .Line)
     
         chartView?.showInView(self.contentView)
         
@@ -198,11 +217,23 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
 //    //pragma mark - @required
     func chartConfigAxisXLabel(chart: UUChart) -> [AnyObject] {
-        return self.getXTitles(7)
+        return self.getXTitles(6)
     }
 //
     func chartConfigAxisYValue(chart: UUChart) -> [AnyObject] {
-        return [[-10,1,51,41,20,1,50],[10,11,1,21,30,22,18]]
+        
+        self.minWeatherArray = NSMutableArray()
+        self.maxWeatherArray = NSMutableArray()
+        
+        for var i = 0 ; i < self.weakWeatherArray.count - 1; i++ {
+            let model = self.weakWeatherArray[i]
+            
+            self.maxWeatherArray?.addObject((model.info?.day![2])!)
+            self.minWeatherArray?.addObject((model.info?.night![2])!)
+        }
+        
+        
+        return [self.minWeatherArray!,self.maxWeatherArray!]
     }
 
 
@@ -212,7 +243,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     }
     
     func chartRange(chart: UUChart) -> CGRange {
-        return CGRangeMake(51 + 10, -10 - 10);
+        return CGRangeMake(10 + 10, 0 - 10);
     }
     
 

@@ -45,7 +45,6 @@ class XZSwiftNavigationController: UINavigationController {
             make.left.bottom.right.equalTo(maskingView.superview!)
             make.top.equalTo(maskingView.superview!).offset(-20);
         }
-        
         self.frostedView = UIToolbar()
         self.frostedView!.userInteractionEnabled = false
         self.frostedView!.clipsToBounds = true
