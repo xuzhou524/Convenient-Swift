@@ -28,17 +28,26 @@ func createImageWithColor(color:UIColor,size:CGSize) -> UIImage {
     return theImage;
 }
 
-class XZSwiftColor: NSObject{
+class XZSwiftColor: UIColor{
     
     static var navignationColor : UIColor{
         get{
-            return colorWith255RGB(80, g: 180, b: 60);
+            return colorWith255RGB(142 ,g: 103, b: 118);
         }
     }
-   static var convenientBackgroundColor : UIColor{
+    static var convenientBackgroundColor : UIColor{
         get{
-            return colorWith255RGB(240, g: 240, b: 240);
+            return colorWith255RGB(245, g: 245, b: 245);
         }
     }
-    
+    static var xzGlay230 : UIColor{
+        get{
+            return colorWith255RGB(230, g: 230, b: 230);
+        }
+    }
+    static var yellow255_194_50 : UIColor{
+        get{
+            return colorWith255RGB(255, g: 194, b: 50);
+        }
+    }
 }

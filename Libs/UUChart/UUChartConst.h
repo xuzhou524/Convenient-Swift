@@ -41,4 +41,6 @@ static const CGRange CGRangeZero = {0,0};
 +(UIColor *)red;
 +(UIColor *)green;
 +(UIColor *)brown;
++(UIColor *)brownOne;
++(UIColor *)yellow;
 @end

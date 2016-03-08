@@ -10,6 +10,7 @@
 #import "UUChartConst.h"
 #import "UUChartLabel.h"
 
+
 @implementation UULineChart {
     NSHashTable *_chartLabelsForX;
 }
@@ -233,8 +234,8 @@
         
         UIBezierPath *progressline = [UIBezierPath bezierPath];
         CGFloat firstValue = [[childAry objectAtIndex:0] floatValue];
-        CGFloat xPosition = (UUYLabelwidth + _xLabelWidth/2.0);
-        CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
+        CGFloat xPosition = (UULabelHeight + _xLabelWidth/2.0);
+        CGFloat chartCavanHeight = self.frame.size.height - UUWHeight*3;
         
         float grade = ((float)firstValue-_yValueMin) / ((float)_yValueMax-_yValueMin);
        
@@ -247,13 +248,13 @@
                 isShowMaxAndMinPoint = YES;
             }
         }
-        [self addPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)
+        [self addPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UUWHeight)
                  index:i
                 isShow:isShowMaxAndMinPoint
                  value:firstValue];
 
         
-        [progressline moveToPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)];
+        [progressline moveToPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UUWHeight)];
         [progressline setLineWidth:2.0];
         [progressline setLineCapStyle:kCGLineCapRound];
         [progressline setLineJoinStyle:kCGLineJoinRound];
@@ -263,7 +264,7 @@
             float grade =([valueString floatValue]-_yValueMin) / ((float)_yValueMax-_yValueMin);
             if (index != 0) {
                 
-                CGPoint point = CGPointMake(xPosition+index*_xLabelWidth, chartCavanHeight - grade * chartCavanHeight+UULabelHeight);
+                CGPoint point = CGPointMake(xPosition+index*_xLabelWidth, chartCavanHeight - grade * chartCavanHeight+UUWHeight);
                 [progressline addLineToPoint:point];
                 
                 BOOL isShowMaxAndMinPoint = YES;
@@ -323,10 +324,10 @@
     label.font = [UIFont systemFontOfSize:13];
     label.textAlignment = NSTextAlignmentCenter;
     if ( index!=0 ) {
-        label.textColor = [UUColor orangeColor];
+        label.textColor = [UUColor yellow];
     
     }else{
-        label.textColor = [UUColor green];
+        label.textColor = [UUColor brownOne];
     }
     
     label.text = [NSString stringWithFormat:@"%d℃",(int)value];

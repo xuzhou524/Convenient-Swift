@@ -120,6 +120,16 @@
 		530D955A1C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D95551C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift */; };
 		530D955B1C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D95561C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift */; };
 		530D955C1C8D7F91005342BF /* DGElasticPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D95571C8D7F91005342BF /* DGElasticPullToRefreshView.swift */; };
+		531BA0461C8E7AA60019FFA9 /* 良_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA03C1C8E7AA60019FFA9 /* 良_彩色@2x.png */; };
+		531BA0471C8E7AA60019FFA9 /* 良_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA03D1C8E7AA60019FFA9 /* 良_彩色@3x.png */; };
+		531BA0481C8E7AA60019FFA9 /* 轻_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA03E1C8E7AA60019FFA9 /* 轻_彩色@2x.png */; };
+		531BA0491C8E7AA60019FFA9 /* 轻_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA03F1C8E7AA60019FFA9 /* 轻_彩色@3x.png */; };
+		531BA04A1C8E7AA60019FFA9 /* 优_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0401C8E7AA60019FFA9 /* 优_彩色@2x.png */; };
+		531BA04B1C8E7AA60019FFA9 /* 优_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0411C8E7AA60019FFA9 /* 优_彩色@3x.png */; };
+		531BA04C1C8E7AA60019FFA9 /* 中_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0421C8E7AA60019FFA9 /* 中_彩色@2x.png */; };
+		531BA04D1C8E7AA60019FFA9 /* 中_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0431C8E7AA60019FFA9 /* 中_彩色@3x.png */; };
+		531BA04E1C8E7AA60019FFA9 /* 重_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0441C8E7AA60019FFA9 /* 重_彩色@2x.png */; };
+		531BA04F1C8E7AA60019FFA9 /* 重_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */; };
 		531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23EF1C8599420009E0E6 /* AppDelegate.swift */; };
 		531C23F21C8599420009E0E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23F11C8599420009E0E6 /* ViewController.swift */; };
 		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
@@ -253,6 +263,16 @@
 		530D95551C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingView.swift; sourceTree = "<group>"; };
 		530D95561C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingViewCircle.swift; sourceTree = "<group>"; };
 		530D95571C8D7F91005342BF /* DGElasticPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshView.swift; sourceTree = "<group>"; };
+		531BA03C1C8E7AA60019FFA9 /* 良_彩色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "良_彩色@2x.png"; sourceTree = "<group>"; };
+		531BA03D1C8E7AA60019FFA9 /* 良_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "良_彩色@3x.png"; sourceTree = "<group>"; };
+		531BA03E1C8E7AA60019FFA9 /* 轻_彩色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轻_彩色@2x.png"; sourceTree = "<group>"; };
+		531BA03F1C8E7AA60019FFA9 /* 轻_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轻_彩色@3x.png"; sourceTree = "<group>"; };
+		531BA0401C8E7AA60019FFA9 /* 优_彩色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优_彩色@2x.png"; sourceTree = "<group>"; };
+		531BA0411C8E7AA60019FFA9 /* 优_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "优_彩色@3x.png"; sourceTree = "<group>"; };
+		531BA0421C8E7AA60019FFA9 /* 中_彩色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中_彩色@2x.png"; sourceTree = "<group>"; };
+		531BA0431C8E7AA60019FFA9 /* 中_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中_彩色@3x.png"; sourceTree = "<group>"; };
+		531BA0441C8E7AA60019FFA9 /* 重_彩色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "重_彩色@2x.png"; sourceTree = "<group>"; };
+		531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "重_彩色@3x.png"; sourceTree = "<group>"; };
 		531C23EC1C8599420009E0E6 /* Convenient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Convenient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C23EF1C8599420009E0E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		531C23F11C8599420009E0E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +320,16 @@
 		530D946F1C8D6B64005342BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				531BA03C1C8E7AA60019FFA9 /* 良_彩色@2x.png */,
+				531BA03D1C8E7AA60019FFA9 /* 良_彩色@3x.png */,
+				531BA03E1C8E7AA60019FFA9 /* 轻_彩色@2x.png */,
+				531BA03F1C8E7AA60019FFA9 /* 轻_彩色@3x.png */,
+				531BA0401C8E7AA60019FFA9 /* 优_彩色@2x.png */,
+				531BA0411C8E7AA60019FFA9 /* 优_彩色@3x.png */,
+				531BA0421C8E7AA60019FFA9 /* 中_彩色@2x.png */,
+				531BA0431C8E7AA60019FFA9 /* 中_彩色@3x.png */,
+				531BA0441C8E7AA60019FFA9 /* 重_彩色@2x.png */,
+				531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */,
 				530D94701C8D6B64005342BF /* WIcon */,
 			);
 			path = Resources;
@@ -642,18 +672,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531BA04A1C8E7AA60019FFA9 /* 优_彩色@2x.png in Resources */,
 				530D95331C8D6B64005342BF /* w27.png in Resources */,
 				530D952F1C8D6B64005342BF /* w23.png in Resources */,
+				531BA0471C8E7AA60019FFA9 /* 良_彩色@3x.png in Resources */,
 				530D953A1C8D6B64005342BF /* w33.png in Resources */,
 				530D952A1C8D6B64005342BF /* w19.png in Resources */,
 				530D95321C8D6B64005342BF /* w26.png in Resources */,
 				530D95081C8D6B64005342BF /* cm_weathericon_29@3x.png in Resources */,
 				530D94F91C8D6B64005342BF /* cm_weathericon_22@2x.png in Resources */,
+				531BA0461C8E7AA60019FFA9 /* 良_彩色@2x.png in Resources */,
 				530D94E41C8D6B64005342BF /* cm_weathericon_12@3x.png in Resources */,
 				530D951E1C8D6B64005342BF /* cm_weathericon_9@3x.png in Resources */,
 				530D950B1C8D6B64005342BF /* cm_weathericon_30@2x.png in Resources */,
 				530D94E21C8D6B64005342BF /* cm_weathericon_11@3x.png in Resources */,
 				530D95341C8D6B64005342BF /* w28.png in Resources */,
+				531BA04F1C8E7AA60019FFA9 /* 重_彩色@3x.png in Resources */,
 				530D94E91C8D6B64005342BF /* cm_weathericon_15@2x.png in Resources */,
 				530D95411C8D6B64005342BF /* w5.png in Resources */,
 				530D95161C8D6B64005342BF /* cm_weathericon_5@3x.png in Resources */,
@@ -671,6 +705,7 @@
 				530D94EC1C8D6B64005342BF /* cm_weathericon_16@3x.png in Resources */,
 				530D94DF1C8D6B64005342BF /* cm_weathericon_10@2x.png in Resources */,
 				530D952C1C8D6B64005342BF /* w20.png in Resources */,
+				531BA04D1C8E7AA60019FFA9 /* 中_彩色@3x.png in Resources */,
 				530D95211C8D6B64005342BF /* w10.png in Resources */,
 				530D94FE1C8D6B64005342BF /* cm_weathericon_24@3x.png in Resources */,
 				530D95351C8D6B64005342BF /* w29.png in Resources */,
@@ -694,13 +729,16 @@
 				530D95311C8D6B64005342BF /* w25.png in Resources */,
 				530D95171C8D6B64005342BF /* cm_weathericon_6@2x.png in Resources */,
 				530D95111C8D6B64005342BF /* cm_weathericon_3@2x.png in Resources */,
+				531BA04C1C8E7AA60019FFA9 /* 中_彩色@2x.png in Resources */,
 				530D94E31C8D6B64005342BF /* cm_weathericon_12@2x.png in Resources */,
 				530D952B1C8D6B64005342BF /* w2.png in Resources */,
 				530D95041C8D6B64005342BF /* cm_weathericon_27@3x.png in Resources */,
 				530D953F1C8D6B64005342BF /* w38.png in Resources */,
 				530D95011C8D6B64005342BF /* cm_weathericon_26@2x.png in Resources */,
 				530D94EB1C8D6B64005342BF /* cm_weathericon_16@2x.png in Resources */,
+				531BA04E1C8E7AA60019FFA9 /* 重_彩色@2x.png in Resources */,
 				530D95071C8D6B64005342BF /* cm_weathericon_29@2x.png in Resources */,
+				531BA0481C8E7AA60019FFA9 /* 轻_彩色@2x.png in Resources */,
 				530D95391C8D6B64005342BF /* w32.png in Resources */,
 				530D95421C8D6B64005342BF /* w6.png in Resources */,
 				530D94EE1C8D6B64005342BF /* cm_weathericon_17@3x.png in Resources */,
@@ -715,6 +753,7 @@
 				530D95281C8D6B64005342BF /* w17.png in Resources */,
 				530D94ED1C8D6B64005342BF /* cm_weathericon_17@2x.png in Resources */,
 				530D95371C8D6B64005342BF /* w30.png in Resources */,
+				531BA0491C8E7AA60019FFA9 /* 轻_彩色@3x.png in Resources */,
 				530D95131C8D6B64005342BF /* cm_weathericon_4@2x.png in Resources */,
 				530D94F01C8D6B64005342BF /* cm_weathericon_18@3x.png in Resources */,
 				530D95181C8D6B64005342BF /* cm_weathericon_6@3x.png in Resources */,
@@ -739,6 +778,7 @@
 				530D94E11C8D6B64005342BF /* cm_weathericon_11@2x.png in Resources */,
 				530D94E01C8D6B64005342BF /* cm_weathericon_10@3x.png in Resources */,
 				530D95441C8D6B64005342BF /* w8.png in Resources */,
+				531BA04B1C8E7AA60019FFA9 /* 优_彩色@3x.png in Resources */,
 				530D95021C8D6B64005342BF /* cm_weathericon_26@3x.png in Resources */,
 				530D94F81C8D6B64005342BF /* cm_weathericon_21@3x.png in Resources */,
 				530D950C1C8D6B64005342BF /* cm_weathericon_30@3x.png in Resources */,

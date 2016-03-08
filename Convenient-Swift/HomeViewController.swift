@@ -33,7 +33,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 regClass(self.tableView, cell: Weather_titleTabeleViewCell.self)
                 regClass(self.tableView, cell: WeatherTabeleViewCell.self)
                 regClass(self.tableView, cell: Weather_LineTabeleViewCell.self)
-                
+                regClass(self.tableView, cell: Weather_TimeTabeleViewCell.self)
+                regClass(self.tableView, cell: Weather_WeekTabeleViewCell.self)
                 return _tableView
             }
           return _tableView
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             self.asyncRequestData()
             }, loadingView: self.cycle)
         self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
-        self.tableView.dg_setPullToRefreshBackgroundColor(UIColor.whiteColor())
+        self.tableView.dg_setPullToRefreshBackgroundColor(XZSwiftColor.convenientBackgroundColor)
         
         
     }
@@ -84,13 +85,14 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             "cityname" : "北京",
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
         ]
-        
-        
+//        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
+//            print(response)
+//        }
+  
         Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("result.data") {
             (response : Response<WeatherModel,NSError>) in
             if let model = response.result.value{
                 self.weatherMdoel = model
-                print(self.weatherMdoel)
                 self.tableView.dg_stopLoading()
                 self.tableView .reloadData()
             }
@@ -103,10 +105,10 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return [40,310,150][indexPath.row]
+        return [40,300,35,120,35][indexPath.row]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -123,6 +125,12 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             weatherCell.bind(self.weatherMdoel)
             return weatherCell
         }else if indexPath.row == 2{
+            let weatherTimeCell = getCell(tableView, cell: Weather_TimeTabeleViewCell.self, indexPath: indexPath)
+            weatherTimeCell.selectionStyle = .None
+            weatherTimeCell.bind(self.weatherMdoel)
+            return weatherTimeCell
+        }
+        else if indexPath.row == 3{
             let lineCell = getCell(tableView, cell: Weather_LineTabeleViewCell.self, indexPath: indexPath)
             lineCell.selectionStyle = .None
             if ((self.weatherMdoel?.weather) != nil){
@@ -132,6 +140,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             lineCell.configUI()
             lineCell.backgroundColor = UIColor.whiteColor()
             return lineCell
+        }else if indexPath.row == 4{
+            let weekTimeCell = getCell(tableView, cell: Weather_WeekTabeleViewCell.self, indexPath: indexPath)
+            weekTimeCell.selectionStyle = .None
+            weekTimeCell.binde(self.weatherMdoel)
+            return weekTimeCell
         }
         
         return UITableViewCell()

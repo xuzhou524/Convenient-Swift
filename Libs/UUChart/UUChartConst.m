@@ -47,9 +47,14 @@
 {
     return [UIColor colorWithRed:119.0/255.0 green:107.0/255.0 blue:95.0/255.0 alpha:1.0f];
 }
-
++(UIColor *)brownOne{
+    return [UIColor colorWithRed:142.0/255.0 green:103.0/255.0 blue:118.0/255.0 alpha:1.0f];
+}
 + (CGFloat)getRandomByNum:(int)num {
     
     return (arc4random()%num + 100)/255.0;
+}
++(UIColor *)yellow{
+    return [UIColor colorWithRed:255.0/255.0 green:194.0/255.0 blue:50.0/255.0 alpha:1.0f];
 }
 @end
