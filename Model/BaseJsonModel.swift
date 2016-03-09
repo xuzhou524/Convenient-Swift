@@ -9,9 +9,6 @@
 import UIKit
 import ObjectMapper
 
-
-
-
 class BaseJsonModel: Mappable {
     required init?(_ map: Map) {
         
@@ -21,8 +18,3 @@ class BaseJsonModel: Mappable {
     }
 
 }
-
-//protocol BaseHtmlModelProtocol {
-//    init(rootNode:JiNode)
-//}
-

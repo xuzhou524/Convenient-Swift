@@ -43,7 +43,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "北京"
+        self.navigationItem.title = XZClient.sharedInstance.username
         
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
@@ -51,8 +51,41 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         self.asyncRequestData()
         self.setupPullToRefreshView(self.tableView)
+        
+        
+        let leftButton = UIButton()
+        leftButton.frame = CGRectMake(0, 0, 40, 40)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
+        leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        //leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
+        
+        let rightButton = UIButton()
+        rightButton.frame = CGRectMake(0, 0, 21, 21)
+        rightButton.contentMode = .Center
+        rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightButton.setImage(UIImage(named: "share"), forState: .Normal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
+        rightButton.addTarget(self, action: Selector("rightClick"), forControlEvents: .TouchUpInside)
+        
+        self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
+            print(XZClient.sharedInstance.username)
+            self!.asyncRequestData()
+        }
+
     }
-    
+    func rightClick(){
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), false, 1);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+       
+        self.navigationController!.view.drawViewHierarchyInRect(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), afterScreenUpdates: false)
+        
+        
+        let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
+        UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
+        print(viewImage)
+        
+    }
     
     func setupPullToRefreshView(tableView:UITableView) -> Void{
         
@@ -76,13 +109,19 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //得到ID  获取天气图标对应的值
         //http://tq.91.com/api/?act=210&city=101180712&sv=3.15.3
         
+        
+        //搜索城市
+        //http://zhwnlapi.etouch.cn/Ecalender/api/city?keyword=%E6%B8%85%E8%BF%9C&timespan=1457518656.715996&type=search
+        
         //获取天气信息
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
         
-        let urlString = "http://op.juhe.cn/onebox/weather/query"
         
+        
+        let urlString = "http://op.juhe.cn/onebox/weather/query"
+        let cityname :String = XZClient.sharedInstance.username!
         let prames = [
-            "cityname" : "北京",
+            "cityname" : cityname,
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
         ]
 //        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
@@ -93,9 +132,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             (response : Response<WeatherModel,NSError>) in
             if let model = response.result.value{
                 self.weatherMdoel = model
-                self.tableView.dg_stopLoading()
                 self.tableView .reloadData()
             }
+            self.tableView.dg_stopLoading()
         }
 
     }

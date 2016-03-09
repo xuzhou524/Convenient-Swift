@@ -55,7 +55,7 @@ class XZSwiftNavigationController: UINavigationController {
         }
         
         self.navigationBar.titleTextAttributes = [
-            NSFontAttributeName : XZFont(18),
+            NSFontAttributeName : XZFont(16),
             NSForegroundColorAttributeName : UIColor.whiteColor()
         ]
          self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)

@@ -41,7 +41,6 @@ class Weather_titleTabeleViewCell: UITableViewCell {
          });
         
         self.pm25IconImageView = UIImageView()
-        self.pm25IconImageView!.backgroundColor = UIColor.redColor()
         self.pm25IconImageView!.layer.cornerRadius = 10
         pm25BgView.addSubview(self.pm25IconImageView!)
         self.pm25IconImageView!.snp_makeConstraints(closure: { (make) -> Void in
@@ -178,15 +177,15 @@ class WeatherTabeleViewCell: UITableViewCell {
         self.warmPromptLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self.contentView)
             make.top.equalTo((self.windLabel?.snp_bottom)!).offset(50)
-            make.left.equalTo(self.contentView).offset(15)
-            make.right.equalTo(self.contentView).offset(-15)
+            make.left.greaterThanOrEqualTo(self.contentView).offset(15)
+            make.right.greaterThanOrEqualTo(self.contentView).offset(-15)
         });
         
       
         warmBgView.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(self.warmPromptLabel!).offset(10)
+            make.left.equalTo(self.warmPromptLabel!).offset(0)
             make.top.equalTo(self.warmPromptLabel!).offset(-5)
-            make.right.equalTo(self.warmPromptLabel!).offset(-10)
+            make.right.equalTo(self.warmPromptLabel!).offset(-0)
             make.bottom.equalTo(self.warmPromptLabel!).offset(5)
         }
    
@@ -282,11 +281,8 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
                 if minString.intValue > model.info?.day![2].intValue {
                     self.minWeatherStr = (model.info?.night![2])! as? String
                 }
-     
             }
-            
         }
-        
         return [self.minWeatherArray!,self.maxWeatherArray!]
     }
     //pragma mark - @optional
@@ -313,10 +309,9 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
                 
                 let minString = NSString(string: self.minWeatherStr!)
                 
-                if minString.integerValue < model.info?.day![2].integerValue {
+                if minString.integerValue > model.info?.day![2].integerValue {
                     self.minWeatherStr = (model.info?.night![2])! as? String
                 }
-                
             }
             
         }
@@ -337,7 +332,6 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     func chart(chart: UUChart!, showHorizonLineAtIndex index: Int) -> Bool {
         return true
     }
-
 }
 
 class Weather_TimeTabeleViewCell: UITableViewCell {

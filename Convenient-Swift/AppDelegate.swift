@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
     var window: UIWindow?
-
-
+    var currLocation : CLLocation!
+    //用于定位服务管理类，它能够给我们提供位置信息和高度信息，也可以监控设备进入或离开某个区域，还可以获得设备的运行方向
+    var locationManager : CLLocationManager = CLLocationManager()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        locationManager.delegate = self
+        //设备使用电池供电时最高的精度
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //精确到1000米,距离过滤器，定义了设备移动后获得位置信息的最小距离
+        locationManager.distanceFilter = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
         self.window = UIWindow();
         self.window?.frame=UIScreen.mainScreen().bounds;
         self.window?.backgroundColor = XZSwiftColor.convenientBackgroundColor;
@@ -25,9 +37,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = centerNav;
         
         return true
-
     }
-
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currLocation = locations.last! as CLLocation
+        let geocder = CLGeocoder()
+        var p:CLPlacemark?
+        geocder.reverseGeocodeLocation(currLocation) { (placemarks, error) -> Void in
+            if error != nil {
+                return
+            }
+            let pm = placemarks! as [CLPlacemark]
+            if pm.count > 0{
+                p = placemarks![0] as CLPlacemark
+                
+                let lenght :Int = ((p?.locality)! as String).Lenght - 1
+                if p?.locality?.Lenght > 0 {
+                   XZSetting.sharedInstance[KplacemarkName] = ((p?.locality)! as NSString).substringToIndex(lenght)
+                }
+            }
+        }
+       locationManager.stopUpdatingLocation()
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -49,7 +80,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
