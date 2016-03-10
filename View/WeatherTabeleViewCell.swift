@@ -317,7 +317,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
         }
         if let maxStr = self.maxWeatherStr , let max = NSInteger(maxStr) ,let minStr = self.minWeatherStr , let min = NSInteger(minStr){
             
-            return CGRangeMake(CGFloat( max + 5 ), CGFloat( min - 1 ))
+            return CGRangeMake(CGFloat( max + 6 ), CGFloat( min - 1 ))
         }
         return CGRangeMake(0, 0)
     }

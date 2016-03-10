@@ -153,7 +153,11 @@
 		53E713161C8FC5DF002D4238 /* share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713141C8FC5DF002D4238 /* share@3x.png */; };
 		53E713181C8FF68C002D4238 /* XZSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E713171C8FF68C002D4238 /* XZSetting.swift */; };
 		53E7131A1C8FFC93002D4238 /* XZClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E713191C8FFC93002D4238 /* XZClient.swift */; };
+		53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1A1C910CB500307BAE /* CityViewController.swift */; };
+		53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */; };
 		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
+		53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */; };
+		53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD858B1C91647900BCF3EF /* CityMdoel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -312,7 +316,11 @@
 		53E713141C8FC5DF002D4238 /* share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@3x.png"; sourceTree = "<group>"; };
 		53E713171C8FF68C002D4238 /* XZSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSetting.swift; sourceTree = "<group>"; };
 		53E713191C8FFC93002D4238 /* XZClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZClient.swift; sourceTree = "<group>"; };
+		53EF6C1A1C910CB500307BAE /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
+		53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
+		53FD858B1C91647900BCF3EF /* CityMdoel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMdoel.swift; sourceTree = "<group>"; };
 		5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Convenient_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -548,6 +556,8 @@
 			isa = PBXGroup;
 			children = (
 				534926181C86E3A80077A8A6 /* HomeViewController.swift */,
+				53EF6C1A1C910CB500307BAE /* CityViewController.swift */,
+				53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -557,6 +567,7 @@
 			children = (
 				53917E701C89811D002200C1 /* WeatherModel.swift */,
 				530D946A1C8D3308005342BF /* BaseJsonModel.swift */,
+				53FD858B1C91647900BCF3EF /* CityMdoel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -565,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */,
+				53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -873,8 +885,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
 				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
+				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
 				53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */,
 				530D95591C8D7F91005342BF /* DGElasticPullToRefreshExtensions.swift in Sources */,
@@ -884,6 +898,7 @@
 				53E713181C8FF68C002D4238 /* XZSetting.swift in Sources */,
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
+				53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */,
 				531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */,
 				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
 				53917E661C897B85002200C1 /* UUBar.m in Sources */,
@@ -891,6 +906,7 @@
 				53E7131A1C8FFC93002D4238 /* XZClient.swift in Sources */,
 				53917E6B1C897B85002200C1 /* UULineChart.m in Sources */,
 				530D955B1C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
+				53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */,
 				530D955A1C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift in Sources */,
 				53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */,
 				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,

@@ -58,7 +58,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
         leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        //leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
         
         let rightButton = UIButton()
         rightButton.frame = CGRectMake(0, 0, 21, 21)
@@ -69,22 +69,23 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightButton.addTarget(self, action: Selector("rightClick"), forControlEvents: .TouchUpInside)
         
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
-            print(XZClient.sharedInstance.username)
             self!.asyncRequestData()
         }
-
     }
+    func leftClick(){
+        let cityVC = CityViewController()
+        self.navigationController?.pushViewController(cityVC, animated: true)
+    }
+    
+    
     func rightClick(){
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), false, 1);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
        
         self.navigationController!.view.drawViewHierarchyInRect(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), afterScreenUpdates: false)
         
-        
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
         UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
-        print(viewImage)
-        
     }
     
     func setupPullToRefreshView(tableView:UITableView) -> Void{

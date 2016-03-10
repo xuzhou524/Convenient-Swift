@@ -34,6 +34,7 @@ class XZSwiftNavigationController: UINavigationController {
         self.navigationBar.layer.shadowOffset = CGSizeMake(0, 0.5)
         self.navigationBar.layer.shadowOpacity=0.4
         
+        
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true);
         
         let maskingView = UIView()
@@ -55,47 +56,19 @@ class XZSwiftNavigationController: UINavigationController {
         }
         
         self.navigationBar.titleTextAttributes = [
-            NSFontAttributeName : XZFont(16),
+            NSFontAttributeName : XZFont2(17),
             NSForegroundColorAttributeName : UIColor.whiteColor()
         ]
          self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)
         
-//        self.KVOController.observe(XZSwiftColor.convenientBackgroundColor, keyPath: "style", options: [.Initial,.New]) {[weak self] (nav, color, change) -> Void in
-//            self?.navigationBar.tintColor = XZSwiftColor.convenientBackgroundColor
-//            
-//            self?.navigationBar.titleTextAttributes = [
-//                NSFontAttributeName : XZFont(18),
-//                NSForegroundColorAttributeName : XZSwiftColor.convenientBackgroundColor
-//            ]
-        
-//            if V2EXColor.sharedInstance.style == V2EXColor.V2EXColorStyleDefault {
-//                self?.frostedView!.barStyle = .Default
-//                UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true);
-//            }
-//            else{
-//                self?.frostedView!.barStyle = .Black
-//                UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true);
-//            }
-//        }
+        self.navigationBar.barStyle = .Default;
+        self.navigationBar.tintColor = XZSwiftColor.whiteColor()
 
-
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
