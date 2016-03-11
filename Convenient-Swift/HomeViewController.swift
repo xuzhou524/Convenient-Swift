@@ -13,7 +13,8 @@ import SnapKit
 import KVOController
 import ObjectMapper
 import AlamofireObjectMapper
-
+import TMCache
+let kTMCacheWeatherModel = "kTMCacheWeatherModel"
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -118,26 +119,16 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
         
         
-        
         let urlString = "http://op.juhe.cn/onebox/weather/query"
-        let cityname :String = XZClient.sharedInstance.username!
-        let prames = [
-            "cityname" : cityname,
-            "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
-        ]
-//        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
-//            print(response)
-//        }
-  
-        Alamofire.request(.POST, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("result.data") {
-            (response : Response<WeatherModel,NSError>) in
-            if let model = response.result.value{
-                self.weatherMdoel = model
-                self.tableView .reloadData()
-            }
-            self.tableView.dg_stopLoading()
-        }
-
+         self.weatherMdoel = WeatherModel()
+         self.weatherMdoel?.like(urlString, success: { (model) -> Void in
+            self.weatherMdoel = model
+            TMCache.sharedCache().setObject(model, forKey: "kTMCacheWeatherModel")
+            print(TMCache.sharedCache().objectForKey("kTMCacheWeatherModel"))
+            self.tableView .reloadData()
+            }, failure: { (error) -> Void in
+            print(error)
+         })
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -173,9 +164,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         else if indexPath.row == 3{
             let lineCell = getCell(tableView, cell: Weather_LineTabeleViewCell.self, indexPath: indexPath)
             lineCell.selectionStyle = .None
-            if ((self.weatherMdoel?.weather) != nil){
-                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
-            }
+//            if ((self.weatherMdoel?.weather) != nil){
+//                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
+//            }
             
             lineCell.configUI()
             lineCell.backgroundColor = UIColor.whiteColor()

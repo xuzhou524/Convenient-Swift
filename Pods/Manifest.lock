@@ -7,6 +7,7 @@ PODS:
   - KVOController (1.0.3)
   - ObjectMapper (1.1.5)
   - SnapKit (0.18.0)
+  - TMCache (1.2.4)
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.4)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - KVOController (~> 1.0.3)
   - ObjectMapper (~> 1.1.1)
   - SnapKit (~> 0.18.0)
+  - TMCache (~> 1.2.0)
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
@@ -23,5 +25,6 @@ SPEC CHECKSUMS:
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
 
 COCOAPODS: 0.39.0

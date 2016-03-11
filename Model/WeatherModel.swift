@@ -8,8 +8,10 @@
 import UIKit
 import jastor
 import ObjectMapper
+import AlamofireObjectMapper
+import Alamofire
 
-class WeatherModel: BaseJsonModel{
+class WeatherModel: BaseModel {
     var date : String?
     var isForeign : String?
     var life : Weather_lifeModel?
@@ -17,29 +19,28 @@ class WeatherModel: BaseJsonModel{
     var realtime : Weather_realtimeModel?
     var weather : [weather_weatherModel]?
     
-    override func mapping(map: Map) {
-        date <- map["date"]
-        isForeign <- map["isForeign"]
-        life <- map["life"]
-        pm25 <- map["pm25"]
-        realtime <- map["realtime"]
-        weather <- map["weather"]
+
+    let urlString = "http://op.juhe.cn/onebox/weather/query"
+    let prames = [
+        "cityname" : XZClient.sharedInstance.username!,
+        "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
+    ]
+
+     func like(id: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
+        requestModel(.POST, String(format: urlString), parameters: prames, success: success, failure: failure)
+        
     }
 }
 
 
-class Weather_lifeModel: BaseJsonModel {
+class Weather_lifeModel: BaseModel {
     var date : String?
     var info : life_infoModel!
-    
-    override func mapping(map: Map) {
-        date <- map["date"]
-        info <- map["info"]
-    }
+
 }
 
 
-class life_infoModel: BaseJsonModel {
+class life_infoModel: BaseModel {
     var chuanyi : NSMutableArray?
     var ganmao : NSMutableArray?
     var kongtiao : NSMutableArray?
@@ -47,56 +48,31 @@ class life_infoModel: BaseJsonModel {
     var xiche : NSMutableArray?
     var yundong : NSMutableArray?
     var ziwaixian : NSMutableArray?
-    
-    override func mapping(map: Map) {
-        chuanyi <- map["chuanyi"]
-        ganmao <- map["ganmao"]
-        kongtiao <- map["kongtiao"]
-        wuran <- map["pm25"]
-        xiche <- map["xiche"]
-        yundong <- map["yundong"]
-        ziwaixian <- map["ziwaixian"]
-    }
+
 }
 
 
-class Weather_pm25Model: BaseJsonModel {
+class Weather_pm25Model: BaseModel {
     var cityName : String?
     var dateTime : String?
     var key : String?
     var pm25 : pm25_pam25Model?
     var show_desc : String?
-    
-    override func mapping(map: Map) {
-        cityName <- map["cityName"]
-        dateTime <- map["dateTime"]
-        key <- map["key"]
-        pm25 <- map["pm25"]
-        show_desc <- map["show_desc"]
-    }
 }
 
 
-class pm25_pam25Model: BaseJsonModel {
+class pm25_pam25Model: BaseModel {
     var curPm : String?
     var des : String?
     var level : String?
     var pm10 : String?
     var pm25 : String?
     var quality : String?
-    override func mapping(map: Map) {
-        curPm <- map["curPm"]
-        des <- map["des"]
-        level <- map["level"]
-        pm25 <- map["pm25"]
-        pm10 <- map["pm10"]
-        quality <- map["quality"]
-    }
 }
 
 
 
-class Weather_realtimeModel: BaseJsonModel {
+class Weather_realtimeModel: BaseModel {
     var city_code : String?
     var city_name : String?
     var dataUptime : String?
@@ -108,76 +84,56 @@ class Weather_realtimeModel: BaseJsonModel {
     var week : String?
     var wind : realtime_windModel?
     
-    override func mapping(map: Map) {
-        city_code <- map["city_code"]
-        city_name <- map["city_name"]
-        dataUptime <- map["dataUptime"]
-        date <- map["date"]
-        moon <- map["moon"]
-        weather <- map["weather"]
-        time <- map["time"]
-        week <- map["week"]
-        wind <- map["wind"]
-    }
 }
 
-class realtime_weatherModel: BaseJsonModel {
+class realtime_weatherModel: BaseModel {
     var humidity : String?
     var img : String?
     var info : String?
     var temperature : String?
     
-    override func mapping(map: Map) {
-        humidity <- map["humidity"]
-        img <- map["img"]
-        info <- map["info"]
-        temperature <- map["temperature"]
-    }
 }
 
-class realtime_windModel: BaseJsonModel {
+class realtime_windModel: BaseModel {
     var direct : String?
     var offset : String?
     var power : String?
     var windspeed : String?
-    
-    override func mapping(map: Map) {
-        direct <- map["direct"]
-        offset <- map["offset"]
-        power <- map["power"]
-        windspeed <- map["windspeed"]
-    }
 }
 
 
-class weather_weatherModel: BaseJsonModel {
+class weather_weatherModel: BaseModel {
     var date : String?
     var info : weather_infoModel?
     var nongli : String?
     var week : String?
-    
-    override func mapping(map: Map) {
-        date <- map["date"]
-        info <- map["info"]
-        nongli <- map["nongli"]
-        week <- map["week"]
-    }
+
 }
-class weather_infoModel: BaseJsonModel {
+class weather_infoModel: BaseModel {
     var day : NSMutableArray?
     var night : NSMutableArray?
     
-    override func mapping(map: Map) {
-        day <- map["day"]
-        night <- map["night"]
-    }
 }
 
+func requestModel< T: BaseModel >(method: Alamofire.Method, _ URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil, success: (T) -> Void, failure: (NSError?) -> Void) {
 
+    Alamofire.request(.POST, URLString , parameters: parameters, encoding: .URL).responseJSON{ (response) -> Void in
+        print(response)
+        if response.result.error == nil {
+            if let dict = response.result.value as? NSDictionary {
+                if let dicts = dict["result"] as? NSDictionary {
+                    
+                    if let dictss = dicts["data"] as? NSDictionary {
+                        if let model = T(dictionary: dictss as [NSObject : AnyObject]) {
+                            success(model)
+                            return
+                        }
+                    }
 
-
-
-
-
+                }
+            }
+        }
+    }
+}
 
 

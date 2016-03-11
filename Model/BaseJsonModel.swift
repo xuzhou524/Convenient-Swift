@@ -9,8 +9,15 @@
 import UIKit
 import ObjectMapper
 
-class BaseJsonModel: Mappable {
+
+class BaseJsonModel:NSObject, NSCoding, Mappable {
     required init?(_ map: Map) {
+        
+    }
+    required init?(coder aDecoder: NSCoder){
+        super.init()
+    }
+    func encodeWithCoder(aCoder: NSCoder){
         
     }
     func mapping(map: Map) {

@@ -9,6 +9,7 @@ def pods
    pod 'jastor', '~> 0.2.1'
    pod 'ObjectMapper', '~> 1.1.1'
    pod 'AlamofireObjectMapper', '~> 2.1.0'
+   pod 'TMCache', '~> 1.2.0'
 end
 
 

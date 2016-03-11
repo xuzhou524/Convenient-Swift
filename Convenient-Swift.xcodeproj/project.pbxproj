@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		03EA6B1EEFCED9E16BE532E7 /* Pods_Convenient_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */; };
+		530778321C92B9B40010E65C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778311C92B9B40010E65C /* BaseModel.m */; };
+		530778501C92BAF60010E65C /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778371C92BAF60010E65C /* JSONModel.m */; };
+		530778511C92BAF60010E65C /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778391C92BAF60010E65C /* JSONModelArray.m */; };
+		530778521C92BAF60010E65C /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307783B1C92BAF60010E65C /* JSONModelClassProperty.m */; };
+		530778531C92BAF60010E65C /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307783D1C92BAF60010E65C /* JSONModelError.m */; };
+		530778541C92BAF60010E65C /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778401C92BAF60010E65C /* NSArray+JSONModel.m */; };
+		530778551C92BAF60010E65C /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778441C92BAF60010E65C /* JSONAPI.m */; };
+		530778561C92BAF60010E65C /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778461C92BAF60010E65C /* JSONHTTPClient.m */; };
+		530778571C92BAF60010E65C /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778481C92BAF60010E65C /* JSONModel+networking.m */; };
+		530778581C92BAF60010E65C /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307784B1C92BAF60010E65C /* JSONKeyMapper.m */; };
+		530778591C92BAF60010E65C /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307784D1C92BAF60010E65C /* JSONValueTransformer.m */; };
+		5307785A1C92BAF60010E65C /* LICENSE_jsonmodel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5307784E1C92BAF60010E65C /* LICENSE_jsonmodel.txt */; };
+		5307785B1C92BAF60010E65C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5307784F1C92BAF60010E65C /* README.md */; };
 		530D946B1C8D3308005342BF /* BaseJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D946A1C8D3308005342BF /* BaseJsonModel.swift */; };
 		530D94DD1C8D6B64005342BF /* cm_weathericon_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530D94721C8D6B64005342BF /* cm_weathericon_0@2x.png */; };
 		530D94DE1C8D6B64005342BF /* cm_weathericon_0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 530D94731C8D6B64005342BF /* cm_weathericon_0@3x.png */; };
@@ -161,6 +174,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530778301C92B9B40010E65C /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		530778311C92B9B40010E65C /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		530778361C92BAF60010E65C /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		530778371C92BAF60010E65C /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		530778381C92BAF60010E65C /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
+		530778391C92BAF60010E65C /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
+		5307783A1C92BAF60010E65C /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		5307783B1C92BAF60010E65C /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		5307783C1C92BAF60010E65C /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		5307783D1C92BAF60010E65C /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		5307783F1C92BAF60010E65C /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		530778401C92BAF60010E65C /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		530778411C92BAF60010E65C /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		530778431C92BAF60010E65C /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		530778441C92BAF60010E65C /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		530778451C92BAF60010E65C /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		530778461C92BAF60010E65C /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		530778471C92BAF60010E65C /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		530778481C92BAF60010E65C /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		5307784A1C92BAF60010E65C /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		5307784B1C92BAF60010E65C /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		5307784C1C92BAF60010E65C /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		5307784D1C92BAF60010E65C /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
+		5307784E1C92BAF60010E65C /* LICENSE_jsonmodel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_jsonmodel.txt; sourceTree = "<group>"; };
+		5307784F1C92BAF60010E65C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		530D946A1C8D3308005342BF /* BaseJsonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseJsonModel.swift; sourceTree = "<group>"; };
 		530D94721C8D6B64005342BF /* cm_weathericon_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_0@2x.png"; sourceTree = "<group>"; };
 		530D94731C8D6B64005342BF /* cm_weathericon_0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_0@3x.png"; sourceTree = "<group>"; };
@@ -338,6 +376,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		530778331C92BAF60010E65C /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				530778341C92BAF60010E65C /* JSONModel */,
+				5307784E1C92BAF60010E65C /* LICENSE_jsonmodel.txt */,
+				5307784F1C92BAF60010E65C /* README.md */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		530778341C92BAF60010E65C /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				530778351C92BAF60010E65C /* JSONModel */,
+				5307783E1C92BAF60010E65C /* JSONModelCategories */,
+				530778411C92BAF60010E65C /* JSONModelLib.h */,
+				530778421C92BAF60010E65C /* JSONModelNetworking */,
+				530778491C92BAF60010E65C /* JSONModelTransformations */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		530778351C92BAF60010E65C /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				530778361C92BAF60010E65C /* JSONModel.h */,
+				530778371C92BAF60010E65C /* JSONModel.m */,
+				530778381C92BAF60010E65C /* JSONModelArray.h */,
+				530778391C92BAF60010E65C /* JSONModelArray.m */,
+				5307783A1C92BAF60010E65C /* JSONModelClassProperty.h */,
+				5307783B1C92BAF60010E65C /* JSONModelClassProperty.m */,
+				5307783C1C92BAF60010E65C /* JSONModelError.h */,
+				5307783D1C92BAF60010E65C /* JSONModelError.m */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		5307783E1C92BAF60010E65C /* JSONModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				5307783F1C92BAF60010E65C /* NSArray+JSONModel.h */,
+				530778401C92BAF60010E65C /* NSArray+JSONModel.m */,
+			);
+			path = JSONModelCategories;
+			sourceTree = "<group>";
+		};
+		530778421C92BAF60010E65C /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				530778431C92BAF60010E65C /* JSONAPI.h */,
+				530778441C92BAF60010E65C /* JSONAPI.m */,
+				530778451C92BAF60010E65C /* JSONHTTPClient.h */,
+				530778461C92BAF60010E65C /* JSONHTTPClient.m */,
+				530778471C92BAF60010E65C /* JSONModel+networking.h */,
+				530778481C92BAF60010E65C /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		530778491C92BAF60010E65C /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				5307784A1C92BAF60010E65C /* JSONKeyMapper.h */,
+				5307784B1C92BAF60010E65C /* JSONKeyMapper.m */,
+				5307784C1C92BAF60010E65C /* JSONValueTransformer.h */,
+				5307784D1C92BAF60010E65C /* JSONValueTransformer.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
 		530D946F1C8D6B64005342BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +650,7 @@
 		531C241D1C8697AF0009E0E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				530778331C92BAF60010E65C /* JSONModel */,
 				5349260C1C86E29E0077A8A6 /* Extension */,
 				534926111C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell */,
 				531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */,
@@ -568,6 +677,8 @@
 				53917E701C89811D002200C1 /* WeatherModel.swift */,
 				530D946A1C8D3308005342BF /* BaseJsonModel.swift */,
 				53FD858B1C91647900BCF3EF /* CityMdoel.swift */,
+				530778301C92B9B40010E65C /* BaseModel.h */,
+				530778311C92B9B40010E65C /* BaseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -804,6 +915,7 @@
 				530D95101C8D6B64005342BF /* cm_weathericon_33@3x.png in Resources */,
 				530D95431C8D6B64005342BF /* w7.png in Resources */,
 				530D953C1C8D6B64005342BF /* w35.png in Resources */,
+				5307785A1C92BAF60010E65C /* LICENSE_jsonmodel.txt in Resources */,
 				530D95061C8D6B64005342BF /* cm_weathericon_28@3x.png in Resources */,
 				53E713081C8FBDEA002D4238 /* fujindizhi@3x.png in Resources */,
 				530D951B1C8D6B64005342BF /* cm_weathericon_8@2x.png in Resources */,
@@ -885,32 +997,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530778561C92BAF60010E65C /* JSONHTTPClient.m in Sources */,
+				530778531C92BAF60010E65C /* JSONModelError.m in Sources */,
 				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
 				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
+				530778551C92BAF60010E65C /* JSONAPI.m in Sources */,
 				53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */,
+				530778541C92BAF60010E65C /* NSArray+JSONModel.m in Sources */,
 				530D95591C8D7F91005342BF /* DGElasticPullToRefreshExtensions.swift in Sources */,
 				530D955C1C8D7F91005342BF /* DGElasticPullToRefreshView.swift in Sources */,
 				530D946B1C8D3308005342BF /* BaseJsonModel.swift in Sources */,
 				53917E711C89811D002200C1 /* WeatherModel.swift in Sources */,
+				530778521C92BAF60010E65C /* JSONModelClassProperty.m in Sources */,
+				530778321C92B9B40010E65C /* BaseModel.m in Sources */,
 				53E713181C8FF68C002D4238 /* XZSetting.swift in Sources */,
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
 				53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */,
+				530778511C92BAF60010E65C /* JSONModelArray.m in Sources */,
 				531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */,
 				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
 				53917E661C897B85002200C1 /* UUBar.m in Sources */,
 				53917E691C897B85002200C1 /* UUChartConst.m in Sources */,
 				53E7131A1C8FFC93002D4238 /* XZClient.swift in Sources */,
 				53917E6B1C897B85002200C1 /* UULineChart.m in Sources */,
+				530778591C92BAF60010E65C /* JSONValueTransformer.m in Sources */,
 				530D955B1C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
+				530778581C92BAF60010E65C /* JSONKeyMapper.m in Sources */,
+				5307785B1C92BAF60010E65C /* README.md in Sources */,
 				53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */,
 				530D955A1C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift in Sources */,
 				53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */,
+				530778571C92BAF60010E65C /* JSONModel+networking.m in Sources */,
 				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,
 				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
+				530778501C92BAF60010E65C /* JSONModel.m in Sources */,
 				530D95581C8D7F91005342BF /* DGElasticPullToRefreshConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

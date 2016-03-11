@@ -89,6 +89,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Convenient-Swift/KVOController.framework"
   install_framework "Pods-Convenient-Swift/ObjectMapper.framework"
   install_framework "Pods-Convenient-Swift/SnapKit.framework"
+  install_framework "Pods-Convenient-Swift/TMCache.framework"
   install_framework "Pods-Convenient-Swift/jastor.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -97,5 +98,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Convenient-Swift/KVOController.framework"
   install_framework "Pods-Convenient-Swift/ObjectMapper.framework"
   install_framework "Pods-Convenient-Swift/SnapKit.framework"
+  install_framework "Pods-Convenient-Swift/TMCache.framework"
   install_framework "Pods-Convenient-Swift/jastor.framework"
 fi

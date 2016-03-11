@@ -69,26 +69,26 @@ class Weather_titleTabeleViewCell: UITableViewCell {
     }
     
     func bind(model:WeatherModel?)->Void{
-        if model != nil{
-             self.weatherRefreshLabel?.text = ((model?.realtime!.date)! as NSString).substringFromIndex(5)+" "+((model?.realtime!.time)! as NSString).substringToIndex(5)+" 发布"
-            
-            if Int((model?.pm25?.pm25?.pm25)!) < 50 {
-                self.pm25IconImageView?.image = UIImage(named:"优_彩色")
-                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 完美"
-            }else if Int((model?.pm25?.pm25?.pm25)!) < 105{
-                self.pm25IconImageView?.image = UIImage(named:"良_彩色")
-                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 良好"
-            }else if Int((model?.pm25?.pm25?.pm25)!) < 150{
-                self.pm25IconImageView?.image = UIImage(named:"轻_彩色")
-                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 轻度"
-            }else if Int((model?.pm25?.pm25?.pm25)!) < 250{
-                self.pm25IconImageView?.image = UIImage(named:"中_彩色")
-                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 中度"
-            }else{
-                self.pm25IconImageView?.image = UIImage(named:"重_彩色")
-                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 严重"
-            }
-        }
+//        if model != nil{
+//             self.weatherRefreshLabel?.text = ((model?.realtime!.date)! as NSString).substringFromIndex(5)+" "+((model?.realtime!.time)! as NSString).substringToIndex(5)+" 发布"
+//            
+//            if Int((model?.pm25?.pm25?.pm25)!) < 50 {
+//                self.pm25IconImageView?.image = UIImage(named:"优_彩色")
+//                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 完美"
+//            }else if Int((model?.pm25?.pm25?.pm25)!) < 105{
+//                self.pm25IconImageView?.image = UIImage(named:"良_彩色")
+//                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 良好"
+//            }else if Int((model?.pm25?.pm25?.pm25)!) < 150{
+//                self.pm25IconImageView?.image = UIImage(named:"轻_彩色")
+//                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 轻度"
+//            }else if Int((model?.pm25?.pm25?.pm25)!) < 250{
+//                self.pm25IconImageView?.image = UIImage(named:"中_彩色")
+//                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 中度"
+//            }else{
+//                self.pm25IconImageView?.image = UIImage(named:"重_彩色")
+//                self.pm25TiltileLabel?.text = model!.pm25!.pm25!.pm25! + " 严重"
+//            }
+//        }
     }
 }
 
@@ -192,20 +192,20 @@ class WeatherTabeleViewCell: UITableViewCell {
     }
     
     func bind(weathermodel:WeatherModel?)->Void{
-        if weathermodel != nil{
-            
-             //let model =  weathermodel?.weather![0]
-            
-            //let image  = model.info.day[0] as! String
-            
-            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (weathermodel?.realtime!.weather!.img)!)
-            self.weatherLabel?.text = weathermodel!.realtime!.weather!.info
-            self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
-            self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
-            self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
-            self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
-            
-        }
+//        if weathermodel != nil{
+//            
+//             //let model =  weathermodel?.weather![0]
+//            
+//            //let image  = model.info.day[0] as! String
+//            
+//            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (weathermodel?.realtime!.weather!.img)!)
+//            self.weatherLabel?.text = weathermodel!.realtime!.weather!.info
+//            self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
+//            self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
+//            self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
+//            self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
+//            
+//        }
     }
 }
 
@@ -376,49 +376,49 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
         }
     }
     func bind(weathermodel:WeatherModel?)->Void{
-        if weathermodel != nil{
-            for var i = 0; i < self.tiltileLabelArray?.count; i++ {
-                var label =  UILabel()
-                label = self.tiltileLabelArray![i] as! UILabel
-                
-                let model = weathermodel?.weather![i]
-                let str = ((model!.date)! as NSString).substringFromIndex(5);
-                
-                switch (i) {
-                    case 0:
-                        label.text = "今天";
-                        break;
-                    case 1:
-                        label.text = "明天";
-                        break;
-                    default:
-                         label.text = str;
-                        break;
-                }
-                label = self.weatherLabelArray![i] as! UILabel
-                label.text = model?.info?.day![1] as? String
-                
-            }
-        }
+//        if weathermodel != nil{
+//            for var i = 0; i < self.tiltileLabelArray?.count; i++ {
+//                var label =  UILabel()
+//                label = self.tiltileLabelArray![i] as! UILabel
+//                
+//                let model = weathermodel?.weather![i]
+//                let str = ((model!.date)! as NSString).substringFromIndex(5);
+//                
+//                switch (i) {
+//                    case 0:
+//                        label.text = "今天";
+//                        break;
+//                    case 1:
+//                        label.text = "明天";
+//                        break;
+//                    default:
+//                         label.text = str;
+//                        break;
+//                }
+//                label = self.weatherLabelArray![i] as! UILabel
+//                label.text = model?.info?.day![1] as? String
+//                
+//            }
+//        }
     }
     
 }
 
 class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
   func binde(weathermodel:WeatherModel?)->Void{
-        if weathermodel != nil{
-            for var i = 0; i < self.weatherLabelArray?.count; i++ {
-                var label =  UILabel()
-                label = self.weatherLabelArray![i] as! UILabel
-                
-                let model = weathermodel?.weather![i]
-                label.text = "周" + (model?.week)!
-                
-                label = self.tiltileLabelArray![i] as! UILabel
-                label.text = model?.info?.night![1] as? String
-                
-            }
-        }
+//        if weathermodel != nil{
+//            for var i = 0; i < self.weatherLabelArray?.count; i++ {
+//                var label =  UILabel()
+//                label = self.weatherLabelArray![i] as! UILabel
+//                
+//                let model = weathermodel?.weather![i]
+//                label.text = "周" + (model?.week)!
+//                
+//                label = self.tiltileLabelArray![i] as! UILabel
+//                label.text = model?.info?.night![1] as? String
+//                
+//            }
+//        }
     }
 }
 

@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TMCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>jastor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>06A1EDA5D1679C5742CE1AAAA99137D4</key>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<key>6CC19B51EE9ECE1F7FE9E7A6ABCA3581</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7DEE7A5014168C86EFB963C4ECCFC24D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C760D80945E4FB2BD79BC394C70C6B2D</key>
+		<key>E19ED8D03D817A959F28EB83782A0542</key>
 		<dict>
 			<key>primary</key>
 			<true/>
