@@ -103,7 +103,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.cycle = DGElasticPullToRefreshLoadingViewCircle()
         self.cycle!.tintColor=UIColor.whiteColor()
         tableView.dg_addPullToRefreshWithActionHandler({ () -> Void in
-            tableView.dg_stopLoading()
             self.asyncRequestData()
             }, loadingView: self.cycle)
         self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
@@ -148,6 +147,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
             print(TMCache.sharedCache().objectForKey(kTMCacheWeatherArray))
+            self.tableView.dg_stopLoading()
             self.tableView .reloadData()
             }, failure: { (error) -> Void in
                 print(error)
