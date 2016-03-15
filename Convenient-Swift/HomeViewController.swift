@@ -120,8 +120,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         
         let urlString = "http://op.juhe.cn/onebox/weather/query"
-         self.weatherMdoel = WeatherModel()
+
+        self.weatherMdoel = WeatherModel()
+    
          self.weatherMdoel?.like(urlString, success: { (model) -> Void in
+
             self.weatherMdoel = model
             TMCache.sharedCache().setObject(model, forKey: "kTMCacheWeatherModel")
             print(TMCache.sharedCache().objectForKey("kTMCacheWeatherModel"))
@@ -136,7 +139,10 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if (self.weatherMdoel?.life) != nil {
+            return 5
+        }
+        return 0
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return [40,300,35,120,35][indexPath.row]
@@ -147,6 +153,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         if indexPath.row == 0{
             let titleCell = getCell(tableView, cell: Weather_titleTabeleViewCell.self, indexPath: indexPath)
+            
             titleCell.bind(self.weatherMdoel)
             titleCell.selectionStyle = .None
             return titleCell
@@ -164,9 +171,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         else if indexPath.row == 3{
             let lineCell = getCell(tableView, cell: Weather_LineTabeleViewCell.self, indexPath: indexPath)
             lineCell.selectionStyle = .None
-//            if ((self.weatherMdoel?.weather) != nil){
-//                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
-//            }
+            if ((self.weatherMdoel?.weather) != nil){
+                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
+            }
             
             lineCell.configUI()
             lineCell.backgroundColor = UIColor.whiteColor()

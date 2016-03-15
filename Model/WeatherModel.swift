@@ -17,7 +17,7 @@ class WeatherModel: BaseModel {
     var life : Weather_lifeModel?
     var pm25 : Weather_pm25Model?
     var realtime : Weather_realtimeModel?
-    var weather : [weather_weatherModel]?
+    var weather : NSMutableArray = [weather_weatherModel()]
     
 
     let urlString = "http://op.juhe.cn/onebox/weather/query"
@@ -26,7 +26,7 @@ class WeatherModel: BaseModel {
         "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
     ]
 
-     func like(id: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
+    func like(id: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
         requestModel(.POST, String(format: urlString), parameters: prames, success: success, failure: failure)
         
     }
@@ -125,7 +125,9 @@ func requestModel< T: BaseModel >(method: Alamofire.Method, _ URLString: URLStri
                     
                     if let dictss = dicts["data"] as? NSDictionary {
                         if let model = T(dictionary: dictss as [NSObject : AnyObject]) {
+                            
                             success(model)
+                            
                             return
                         }
                     }
