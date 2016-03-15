@@ -73,11 +73,13 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityCell.selectionStyle = .None
         cityCell.bind(self.weatherArray[indexPath.row] as! WeatherModel)
         cityCell.shanChuView?.tag = indexPath.row + 100
-        
+        cityCell.bgScrollView?.tag = indexPath.row + 1000
        // if cityCell.shanChuView?.gestureRecognizers?.count == 0{
             let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("deleteLocalCity:"))
             cityCell.shanChuView!.addGestureRecognizer(tapGestureRecognizer)
       //  }
+        let scrollViewRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("selectModel:"))
+        cityCell.bgScrollView!.addGestureRecognizer(scrollViewRecognizer)
         
         return cityCell
 
@@ -89,7 +91,6 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
                 self.tableView.reloadData()
                 self.myFunc!(cityName: cityName);
-                
             })
             self.navigationController?.pushViewController(addCityVC, animated: true)
         }
@@ -100,6 +101,13 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.weatherArray.removeObjectAtIndex(((tap.view?.tag)! - 100))
         TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
         self.tableView.reloadData()
+        
+    }
+    func selectModel(tap:UITapGestureRecognizer){
+        
+        let weatherModel = self.weatherArray[((tap.view?.tag)! - 1000)]  as! WeatherModel
+        self.myFunc!(cityName: (weatherModel.realtime?.city_name)!);
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     override func didReceiveMemoryWarning() {
