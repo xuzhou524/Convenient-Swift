@@ -28,6 +28,7 @@
     return self;
 }
 
+
 -(void)setGradePercent:(float)gradePercent
 {
     if (gradePercent==0)

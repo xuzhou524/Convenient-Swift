@@ -132,11 +132,15 @@ class CityTableViewCell: UITableViewCell {
         }
         
     }
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func bind(weathermodel:WeatherModel) ->Void{
+        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (weathermodel.realtime!.weather!.img)!)
+        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
+        self.cityNameLabel?.text = weathermodel.realtime!.city_name
+        let modelDic = weathermodel.weather[0]
+        self.weatherSLabel?.text =  (modelDic["info"]!!["night"]!![2] as? String)! + "° ~ " + (modelDic["info"]!!["day"]!![2] as? String)! + "°"
     }
+  
 }
 class addCityNullTabelView: UITableViewCell {
     

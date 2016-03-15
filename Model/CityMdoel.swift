@@ -30,6 +30,5 @@ class CityDataMdoel: BaseJsonModel {
         country <- map["country"]
         name <- map["name"]
         prov <- map["prov"]
-        prov <- map["prov"]
     }
 }

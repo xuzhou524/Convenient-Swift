@@ -14,11 +14,14 @@ import KVOController
 import ObjectMapper
 import AlamofireObjectMapper
 import TMCache
-let kTMCacheWeatherModel = "kTMCacheWeatherModel"
+
+
+let kTMCacheWeatherArray = "kTMCacheWeatherArray"
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    var weatherMdoel : WeatherModel?
+    var weatherMdoel = WeatherModel()
+    var weatherArray = NSMutableArray()
     var cycle : DGElasticPullToRefreshLoadingViewCircle?
     
     private var _tableView : UITableView!
@@ -50,9 +53,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.tableView.snp_makeConstraints{ (make) -> Void in
             make.top.right.bottom.left.equalTo(self.view);
         }
-        self.asyncRequestData()
-        self.setupPullToRefreshView(self.tableView)
         
+        self.setupPullToRefreshView(self.tableView)
         
         let leftButton = UIButton()
         leftButton.frame = CGRectMake(0, 0, 40, 40)
@@ -111,26 +113,20 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //得到ID  获取天气图标对应的值
         //http://tq.91.com/api/?act=210&city=101180712&sv=3.15.3
         
-        
         //搜索城市
         //http://zhwnlapi.etouch.cn/Ecalender/api/city?keyword=%E6%B8%85%E8%BF%9C&timespan=1457518656.715996&type=search
         
         //获取天气信息
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
-        
-        
-        let urlString = "http://op.juhe.cn/onebox/weather/query"
-
-        self.weatherMdoel = WeatherModel()
     
-         self.weatherMdoel?.like(urlString, success: { (model) -> Void in
-
+        WeatherModel.like(XZClient.sharedInstance.username!, success: { (model) -> Void in
             self.weatherMdoel = model
-            TMCache.sharedCache().setObject(model, forKey: "kTMCacheWeatherModel")
-            print(TMCache.sharedCache().objectForKey("kTMCacheWeatherModel"))
+            self.weatherArray.addObject(self.weatherMdoel)
+            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+            print(TMCache.sharedCache().objectForKey(kTMCacheWeatherArray))
             self.tableView .reloadData()
             }, failure: { (error) -> Void in
-            print(error)
+                print(error)
          })
     }
     
@@ -139,7 +135,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (self.weatherMdoel?.life) != nil {
+        if (self.weatherMdoel.life) != nil {
             return 5
         }
         return 0
@@ -149,8 +145,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        
         if indexPath.row == 0{
             let titleCell = getCell(tableView, cell: Weather_titleTabeleViewCell.self, indexPath: indexPath)
             
@@ -171,10 +165,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         else if indexPath.row == 3{
             let lineCell = getCell(tableView, cell: Weather_LineTabeleViewCell.self, indexPath: indexPath)
             lineCell.selectionStyle = .None
-            if ((self.weatherMdoel?.weather) != nil){
-                lineCell.weakWeatherArray = (self.weatherMdoel?.weather)!
-            }
-            
+            lineCell.weakWeatherArray = self.weatherMdoel.weather
             lineCell.configUI()
             lineCell.backgroundColor = UIColor.whiteColor()
             return lineCell

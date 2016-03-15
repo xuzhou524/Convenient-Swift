@@ -7,8 +7,6 @@
 //
 import UIKit
 import jastor
-import ObjectMapper
-import AlamofireObjectMapper
 import Alamofire
 
 class WeatherModel: BaseModel {
@@ -20,25 +18,23 @@ class WeatherModel: BaseModel {
     var weather : NSMutableArray = [weather_weatherModel()]
     
 
-    let urlString = "http://op.juhe.cn/onebox/weather/query"
-    let prames = [
-        "cityname" : XZClient.sharedInstance.username!,
-        "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
-    ]
-
-    func like(id: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
+    
+   
+   class func like(cityname: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
+        let urlString = "http://op.juhe.cn/onebox/weather/query"
+        let prames = [
+            "cityname" : cityname,
+            "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
+        ]
         requestModel(.POST, String(format: urlString), parameters: prames, success: success, failure: failure)
-        
     }
 }
-
 
 class Weather_lifeModel: BaseModel {
     var date : String?
     var info : life_infoModel!
 
 }
-
 
 class life_infoModel: BaseModel {
     var chuanyi : NSMutableArray?
@@ -48,9 +44,7 @@ class life_infoModel: BaseModel {
     var xiche : NSMutableArray?
     var yundong : NSMutableArray?
     var ziwaixian : NSMutableArray?
-
 }
-
 
 class Weather_pm25Model: BaseModel {
     var cityName : String?
@@ -60,7 +54,6 @@ class Weather_pm25Model: BaseModel {
     var show_desc : String?
 }
 
-
 class pm25_pam25Model: BaseModel {
     var curPm : String?
     var des : String?
@@ -69,8 +62,6 @@ class pm25_pam25Model: BaseModel {
     var pm25 : String?
     var quality : String?
 }
-
-
 
 class Weather_realtimeModel: BaseModel {
     var city_code : String?
@@ -83,7 +74,6 @@ class Weather_realtimeModel: BaseModel {
     var weather : realtime_weatherModel?
     var week : String?
     var wind : realtime_windModel?
-    
 }
 
 class realtime_weatherModel: BaseModel {
@@ -91,7 +81,6 @@ class realtime_weatherModel: BaseModel {
     var img : String?
     var info : String?
     var temperature : String?
-    
 }
 
 class realtime_windModel: BaseModel {
@@ -107,31 +96,24 @@ class weather_weatherModel: BaseModel {
     var info : weather_infoModel?
     var nongli : String?
     var week : String?
-
 }
 class weather_infoModel: BaseModel {
     var day : NSMutableArray?
     var night : NSMutableArray?
-    
 }
 
 func requestModel< T: BaseModel >(method: Alamofire.Method, _ URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil, success: (T) -> Void, failure: (NSError?) -> Void) {
-
     Alamofire.request(.POST, URLString , parameters: parameters, encoding: .URL).responseJSON{ (response) -> Void in
         print(response)
         if response.result.error == nil {
             if let dict = response.result.value as? NSDictionary {
                 if let dicts = dict["result"] as? NSDictionary {
-                    
                     if let dictss = dicts["data"] as? NSDictionary {
                         if let model = T(dictionary: dictss as [NSObject : AnyObject]) {
-                            
                             success(model)
-                            
                             return
                         }
                     }
-
                 }
             }
         }

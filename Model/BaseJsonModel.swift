@@ -23,5 +23,4 @@ class BaseJsonModel:NSObject, NSCoding, Mappable {
     func mapping(map: Map) {
         
     }
-
 }

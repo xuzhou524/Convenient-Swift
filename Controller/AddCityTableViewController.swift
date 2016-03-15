@@ -8,10 +8,12 @@
 
 import UIKit
 import Alamofire
+import TMCache
 
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
     var citySearchBar: addCitySearchTabelView?
+    var weatherArray = NSMutableArray()
     var cityMdoel: CityMdoel?
     private var _tableView: UITableView!
     private var tableView: UITableView{
@@ -83,16 +85,11 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             }
         }
     }
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-       print("22222")
-    }
-    
     func backupgroupTap(){
         UIApplication.sharedApplication() .sendAction(Selector("resignFirstResponder"), to: nil, from: nil, forEvent: nil)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
         return 1
     }
 
@@ -101,7 +98,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
              return Int((self.cityMdoel?.data?.count)!)
         }
         return 0
-       
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
@@ -114,11 +110,22 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         }
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let model = self.cityMdoel?.data![indexPath.row]
+        
+        WeatherModel.like((model?.name)!, success: { (model) -> Void in
+            self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+            self.weatherArray.addObject(model)
+            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+            self.tableView .reloadData()
+            }, failure: { (error) -> Void in
+                print(error)
+        })
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
 }

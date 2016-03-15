@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import TMCache
 
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    var weatherArray = NSMutableArray()
     private var _tableView: UITableView!
     private var tableView: UITableView{
         get{
@@ -35,6 +36,8 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.tableView.snp_makeConstraints{ (make) -> Void in
             make.top.right.bottom.left.equalTo(self.view);
         }
+        
+        self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,7 +45,7 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.weatherArray.count + 1
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -50,8 +53,7 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 3{
+        if indexPath.row == self.weatherArray.count{
             let addCell = getCell(tableView, cell: addCityNullTabelView.self, indexPath: indexPath)
             addCell.selectionStyle = .None
             return addCell
@@ -59,11 +61,12 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let cityCell = getCell(tableView, cell: CityTableViewCell.self, indexPath: indexPath)
         cityCell.selectionStyle = .None
+        cityCell.bind(self.weatherArray[indexPath.row] as! WeatherModel)
         return cityCell
 
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 3{
+        if indexPath.row == self.weatherArray.count{
             self.navigationController?.pushViewController(AddCityTableViewController(), animated: true)
         }
     }
