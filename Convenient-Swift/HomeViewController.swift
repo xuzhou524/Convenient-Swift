@@ -121,7 +121,25 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
         WeatherModel.like(XZClient.sharedInstance.username!, success: { (model) -> Void in
             self.weatherMdoel = model
-            self.weatherArray.addObject(self.weatherMdoel)
+            if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
+                self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+            }
+            
+            //去重
+            var tempBool = true
+            for  var i = 0 ; i < self.weatherArray.count; i++ {
+                let model = self.weatherArray[i] as! WeatherModel
+                if model.realtime?.city_code == self.weatherMdoel.realtime?.city_code{
+                    self.weatherArray.removeObjectAtIndex(i)
+                    self.weatherArray.insertObject(self.weatherMdoel, atIndex: i)
+                    tempBool = false
+                    break
+                }
+            }
+            if tempBool{
+                self.weatherArray.addObject(self.weatherMdoel)
+            }
+            
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
             print(TMCache.sharedCache().objectForKey(kTMCacheWeatherArray))
             self.tableView .reloadData()

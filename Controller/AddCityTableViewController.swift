@@ -115,7 +115,19 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         
         WeatherModel.like((model?.name)!, success: { (model) -> Void in
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
-            self.weatherArray.addObject(model)
+            //去重
+            var tempBool = true
+            for  var i = 0 ; i < self.weatherArray.count - 1; i++ {
+                let models = self.weatherArray[i] as! WeatherModel
+                if models.realtime?.city_code == model.realtime?.city_code{
+                    self.weatherArray.removeObjectAtIndex(i)
+                    self.weatherArray.insertObject(model, atIndex: i)
+                    tempBool = false
+                }
+            }
+            if tempBool{
+                self.weatherArray.addObject(model)
+            }
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
             self.tableView .reloadData()
             }, failure: { (error) -> Void in
