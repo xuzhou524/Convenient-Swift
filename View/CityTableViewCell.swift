@@ -66,6 +66,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.weatherImageView = UIImageView()
         self.weatherImageView?.image = UIImage(named: "cm_weathericon_0")
+        self.weatherImageView?.userInteractionEnabled = true
         bgView.addSubview(self.weatherImageView!)
         self.weatherImageView?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(bgView)
@@ -75,6 +76,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.weatherLabel = UILabel()
         self.weatherLabel?.text = "10°"
+        self.weatherLabel?.userInteractionEnabled = false
         self.weatherLabel?.textColor = XZSwiftColor.navignationColor
         self.weatherLabel?.font = XZFont3(16)
         bgView.addSubview(self.weatherLabel!)
@@ -84,6 +86,7 @@ class CityTableViewCell: UITableViewCell {
         });
         
         let linView = UIView()
+        linView.userInteractionEnabled = false
         linView.backgroundColor = XZSwiftColor.navignationColor
         bagBGview.addSubview(linView)
         linView.snp_makeConstraints { (make) -> Void in
@@ -95,6 +98,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.cityNameLabel = UILabel()
         self.cityNameLabel?.text = "北京"
+        self.cityNameLabel!.userInteractionEnabled = false
         self.cityNameLabel?.textColor = XZSwiftColor.navignationColor
         self.cityNameLabel?.font = XZFont2(17)
         bagBGview.addSubview(self.cityNameLabel!)
@@ -104,6 +108,7 @@ class CityTableViewCell: UITableViewCell {
         });
         self.weatherSLabel = UILabel()
         self.weatherSLabel?.text = "5° ~ 15°"
+        self.weatherSLabel!.userInteractionEnabled = false
         self.weatherSLabel?.textColor = XZSwiftColor.navignationColor
         self.weatherSLabel?.font = XZFont3(17)
         bagBGview.addSubview(self.weatherSLabel!)
@@ -114,6 +119,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.shanChuView = UIView()
         self.shanChuView?.backgroundColor = XZSwiftColor.navignationColor
+        self.shanChuView?.userInteractionEnabled = true
         self.bgScrollView?.addSubview(self.shanChuView!)
         self.shanChuView?.snp_makeConstraints(closure: { (make) -> Void in
             make.width.equalTo(hight)
@@ -123,6 +129,7 @@ class CityTableViewCell: UITableViewCell {
         });
         self.bgScrollView?.sendSubviewToBack(self.shanChuView!)
         let shanChuLabel = UILabel()
+    
         shanChuLabel.text = "删除"
         shanChuLabel.font = XZFont2(17)
         shanChuLabel.textColor = XZSwiftColor.whiteColor()

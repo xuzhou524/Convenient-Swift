@@ -72,6 +72,13 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let cityCell = getCell(tableView, cell: CityTableViewCell.self, indexPath: indexPath)
         cityCell.selectionStyle = .None
         cityCell.bind(self.weatherArray[indexPath.row] as! WeatherModel)
+        cityCell.shanChuView?.tag = indexPath.row + 100
+        
+       // if cityCell.shanChuView?.gestureRecognizers?.count == 0{
+            let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("deleteLocalCity:"))
+            cityCell.shanChuView!.addGestureRecognizer(tapGestureRecognizer)
+      //  }
+        
         return cityCell
 
     }
@@ -87,7 +94,14 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
             self.navigationController?.pushViewController(addCityVC, animated: true)
         }
     }
-
+    
+    func deleteLocalCity(tap:UITapGestureRecognizer){
+        
+        self.weatherArray.removeObjectAtIndex(((tap.view?.tag)! - 100))
+        TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+        self.tableView.reloadData()
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
