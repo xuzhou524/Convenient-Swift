@@ -10,8 +10,18 @@ import UIKit
 import Alamofire
 import TMCache
 
+
+typealias callbackfunc=(cityName:NSString)->Void
+
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
+    
+    var myFunc = callbackfunc?()
+    
+    func initBack(mathFunction:(cityName:NSString)->Void ){
+        myFunc = mathFunction
+    }
+    
     var citySearchBar: addCitySearchTabelView?
     var weatherArray = NSMutableArray()
     var cityMdoel: CityMdoel?
@@ -112,7 +122,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let model = self.cityMdoel?.data![indexPath.row]
-        
         WeatherModel.like((model?.name)!, success: { (model) -> Void in
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
             //去重
@@ -129,12 +138,14 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 self.weatherArray.addObject(model)
             }
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-            self.tableView .reloadData()
+            
+            self.myFunc!(cityName: (model.realtime?.city_name)!);
+            self.navigationController?.popViewControllerAnimated(true)
+            
             }, failure: { (error) -> Void in
                 print(error)
         })
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

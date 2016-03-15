@@ -9,7 +9,17 @@
 import UIKit
 import TMCache
 
+
+typealias cityViewbackfunc=(cityName:NSString)->Void
+
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
+    var myFunc = cityViewbackfunc?()
+    
+    func cityViewBack(mathFunction:(cityName:NSString)->Void ){
+        myFunc = mathFunction
+    }
+    
     var weatherArray = NSMutableArray()
     private var _tableView: UITableView!
     private var tableView: UITableView{
@@ -67,7 +77,14 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == self.weatherArray.count{
-            self.navigationController?.pushViewController(AddCityTableViewController(), animated: true)
+            let addCityVC = AddCityTableViewController()
+            addCityVC.initBack({ (cityName) -> Void in
+                self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+                self.tableView.reloadData()
+                self.myFunc!(cityName: cityName);
+                
+            })
+            self.navigationController?.pushViewController(addCityVC, animated: true)
         }
     }
 

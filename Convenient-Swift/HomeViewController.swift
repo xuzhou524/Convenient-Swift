@@ -21,6 +21,7 @@ let kTMCacheWeatherArray = "kTMCacheWeatherArray"
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var weatherMdoel = WeatherModel()
+    var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
     var cycle : DGElasticPullToRefreshLoadingViewCircle?
     
@@ -77,6 +78,12 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     func leftClick(){
         let cityVC = CityViewController()
+        
+        cityVC.cityViewBack { (cityname) -> Void in
+            self.requCityName = cityname as String
+            self.navigationItem.title = self.requCityName
+            self.asyncRequestData()
+        }
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
     
@@ -119,12 +126,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //获取天气信息
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
     
-        WeatherModel.like(XZClient.sharedInstance.username!, success: { (model) -> Void in
+        WeatherModel.like(self.requCityName, success: { (model) -> Void in
             self.weatherMdoel = model
             if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
                 self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
             }
-            
             //去重
             var tempBool = true
             for  var i = 0 ; i < self.weatherArray.count; i++ {
