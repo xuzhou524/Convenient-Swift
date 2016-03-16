@@ -64,13 +64,22 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
         
-        let rightButton = UIButton()
-        rightButton.frame = CGRectMake(0, 0, 21, 21)
-        rightButton.contentMode = .Center
-        rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
-        rightButton.setImage(UIImage(named: "share"), forState: .Normal)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-        rightButton.addTarget(self, action: Selector("rightClick"), forControlEvents: .TouchUpInside)
+        let rightShareButton = UIButton()
+        rightShareButton.frame = CGRectMake(0, 0, 21, 21)
+        rightShareButton.contentMode = .Center
+        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightShareButton.setImage(UIImage(named: "share"), forState: .Normal)
+        rightShareButton.addTarget(self, action: Selector("rightShareClick"), forControlEvents: .TouchUpInside)
+        
+        let rightMoreButton = UIButton()
+        rightMoreButton.frame = CGRectMake(0, 0, 21, 21)
+        rightMoreButton.contentMode = .Center
+        rightMoreButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightMoreButton.setImage(UIImage(named: "gengduo"), forState: .Normal)
+        rightMoreButton.addTarget(self, action: Selector("rightMoreClick"), forControlEvents: .TouchUpInside)
+        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
+        
         
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
             self!.asyncRequestData()
@@ -88,7 +97,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     
-    func rightClick(){
+    func rightShareClick(){
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), false, 1);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
        
         self.navigationController!.view.drawViewHierarchyInRect(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), afterScreenUpdates: false)
@@ -96,6 +105,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
         UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
+    }
+    
+    func rightMoreClick(){
+        let moreVC = MoreTableViewController()
+        self.navigationController?.pushViewController(moreVC, animated: true)
     }
     
     func setupPullToRefreshView(tableView:UITableView) -> Void{

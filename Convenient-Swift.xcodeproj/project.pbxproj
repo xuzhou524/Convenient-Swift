@@ -150,6 +150,10 @@
 		531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */; };
 		531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */; };
 		531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */; };
+		5329A9FA1C995BAD003B7364 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9F91C995BAD003B7364 /* icon.png */; };
+		5329A9FD1C996329003B7364 /* about_criticism.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FB1C996329003B7364 /* about_criticism.png */; };
+		5329A9FE1C996329003B7364 /* about_praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FC1C996329003B7364 /* about_praise.png */; };
+		5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */; };
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
@@ -181,6 +185,10 @@
 		53B502831C9944F900A024DE /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B502821C9944F900A024DE /* libstdc++.tbd */; };
 		53B502851C99450400A024DE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B502841C99450400A024DE /* JavaScriptCore.framework */; };
 		53B502871C99451C00A024DE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B502861C99451C00A024DE /* MessageUI.framework */; };
+		53B502961C99555500A024DE /* gengduo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B502941C99555500A024DE /* gengduo@2x.png */; };
+		53B502971C99555500A024DE /* gengduo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B502951C99555500A024DE /* gengduo@3x.png */; };
+		53B5029C1C99577000A024DE /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5029B1C99577000A024DE /* MoreTableViewController.swift */; };
+		53B5029E1C99580100A024DE /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5029D1C99580100A024DE /* MoreTableViewCell.swift */; };
 		53E713081C8FBDEA002D4238 /* fujindizhi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */; };
 		53E7130A1C8FBE10002D4238 /* fujindizhi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713091C8FBE10002D4238 /* fujindizhi@2x.png */; };
 		53E713151C8FC5DF002D4238 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713131C8FC5DF002D4238 /* share@2x.png */; };
@@ -351,6 +359,10 @@
 		531C23FB1C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftNavigationController.swift; sourceTree = "<group>"; };
 		531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftColor.swift; sourceTree = "<group>"; };
+		5329A9F91C995BAD003B7364 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		5329A9FB1C996329003B7364 /* about_criticism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_criticism.png; sourceTree = "<group>"; };
+		5329A9FC1C996329003B7364 /* about_praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_praise.png; sourceTree = "<group>"; };
+		5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
@@ -403,6 +415,10 @@
 		53B502821C9944F900A024DE /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		53B502841C99450400A024DE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/PrivateFrameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		53B502861C99451C00A024DE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		53B502941C99555500A024DE /* gengduo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gengduo@2x.png"; sourceTree = "<group>"; };
+		53B502951C99555500A024DE /* gengduo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gengduo@3x.png"; sourceTree = "<group>"; };
+		53B5029B1C99577000A024DE /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		53B5029D1C99580100A024DE /* MoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
 		53E712FE1C8FB800002D4238 /* webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = webfont.ttf; sourceTree = "<group>"; };
 		53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fujindizhi@3x.png"; sourceTree = "<group>"; };
 		53E713091C8FBE10002D4238 /* fujindizhi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fujindizhi@2x.png"; sourceTree = "<group>"; };
@@ -521,10 +537,15 @@
 		530D946F1C8D6B64005342BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5329A9FB1C996329003B7364 /* about_criticism.png */,
+				5329A9FC1C996329003B7364 /* about_praise.png */,
+				5329A9F91C995BAD003B7364 /* icon.png */,
 				53E713091C8FBE10002D4238 /* fujindizhi@2x.png */,
 				53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */,
 				53E713131C8FC5DF002D4238 /* share@2x.png */,
 				53E713141C8FC5DF002D4238 /* share@3x.png */,
+				53B502941C99555500A024DE /* gengduo@2x.png */,
+				53B502951C99555500A024DE /* gengduo@3x.png */,
 				531BA03C1C8E7AA60019FFA9 /* 良_彩色@2x.png */,
 				531BA03D1C8E7AA60019FFA9 /* 良_彩色@3x.png */,
 				531BA03E1C8E7AA60019FFA9 /* 轻_彩色@2x.png */,
@@ -739,6 +760,7 @@
 				534926181C86E3A80077A8A6 /* HomeViewController.swift */,
 				53EF6C1A1C910CB500307BAE /* CityViewController.swift */,
 				53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */,
+				53B5029B1C99577000A024DE /* MoreTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -760,6 +782,8 @@
 			children = (
 				53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */,
 				53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */,
+				53B5029D1C99580100A024DE /* MoreTableViewCell.swift */,
+				5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +1019,7 @@
 				530D953A1C8D6B64005342BF /* w33.png in Resources */,
 				530D952A1C8D6B64005342BF /* w19.png in Resources */,
 				530D95321C8D6B64005342BF /* w26.png in Resources */,
+				53B502961C99555500A024DE /* gengduo@2x.png in Resources */,
 				530D95081C8D6B64005342BF /* cm_weathericon_29@3x.png in Resources */,
 				530D94F91C8D6B64005342BF /* cm_weathericon_22@2x.png in Resources */,
 				531BA0461C8E7AA60019FFA9 /* 良_彩色@2x.png in Resources */,
@@ -1013,6 +1038,7 @@
 				530D953E1C8D6B64005342BF /* w37.png in Resources */,
 				530D951D1C8D6B64005342BF /* cm_weathericon_9@2x.png in Resources */,
 				530D95231C8D6B64005342BF /* w12.png in Resources */,
+				5329A9FA1C995BAD003B7364 /* icon.png in Resources */,
 				530D951C1C8D6B64005342BF /* cm_weathericon_8@3x.png in Resources */,
 				530D94E61C8D6B64005342BF /* cm_weathericon_13@3x.png in Resources */,
 				531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */,
@@ -1024,6 +1050,7 @@
 				530D94DF1C8D6B64005342BF /* cm_weathericon_10@2x.png in Resources */,
 				530D952C1C8D6B64005342BF /* w20.png in Resources */,
 				531BA04D1C8E7AA60019FFA9 /* 中_彩色@3x.png in Resources */,
+				5329A9FD1C996329003B7364 /* about_criticism.png in Resources */,
 				53B502761C99441100A024DE /* ShareSDK.bundle in Resources */,
 				530D95211C8D6B64005342BF /* w10.png in Resources */,
 				530D94FE1C8D6B64005342BF /* cm_weathericon_24@3x.png in Resources */,
@@ -1038,6 +1065,7 @@
 				530D94F61C8D6B64005342BF /* cm_weathericon_20@3x.png in Resources */,
 				530D95291C8D6B64005342BF /* w18.png in Resources */,
 				530D94FF1C8D6B64005342BF /* cm_weathericon_25@2x.png in Resources */,
+				53B502971C99555500A024DE /* gengduo@3x.png in Resources */,
 				530D94E51C8D6B64005342BF /* cm_weathericon_13@2x.png in Resources */,
 				530D95151C8D6B64005342BF /* cm_weathericon_5@2x.png in Resources */,
 				530D94EA1C8D6B64005342BF /* cm_weathericon_15@3x.png in Resources */,
@@ -1085,6 +1113,7 @@
 				530D951F1C8D6B64005342BF /* w0.png in Resources */,
 				530D94DE1C8D6B64005342BF /* cm_weathericon_0@3x.png in Resources */,
 				530D94DD1C8D6B64005342BF /* cm_weathericon_0@2x.png in Resources */,
+				5329A9FE1C996329003B7364 /* about_praise.png in Resources */,
 				530D94FA1C8D6B64005342BF /* cm_weathericon_22@3x.png in Resources */,
 				530D95141C8D6B64005342BF /* cm_weathericon_4@3x.png in Resources */,
 				530D95101C8D6B64005342BF /* cm_weathericon_33@3x.png in Resources */,
@@ -1191,6 +1220,7 @@
 				530778531C92BAF60010E65C /* JSONModelError.m in Sources */,
 				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
 				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
+				5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
@@ -1212,6 +1242,7 @@
 				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
 				53917E661C897B85002200C1 /* UUBar.m in Sources */,
 				53917E691C897B85002200C1 /* UUChartConst.m in Sources */,
+				53B5029E1C99580100A024DE /* MoreTableViewCell.swift in Sources */,
 				53E7131A1C8FFC93002D4238 /* XZClient.swift in Sources */,
 				53917E6B1C897B85002200C1 /* UULineChart.m in Sources */,
 				530778591C92BAF60010E65C /* JSONValueTransformer.m in Sources */,
@@ -1221,6 +1252,7 @@
 				53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */,
 				530D955A1C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift in Sources */,
 				53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */,
+				53B5029C1C99577000A024DE /* MoreTableViewController.swift in Sources */,
 				530778571C92BAF60010E65C /* JSONModel+networking.m in Sources */,
 				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,
 				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
