@@ -165,7 +165,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         return 0
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return [40,300,35,120,35][indexPath.row]
+        return [40,320,35,120,35][indexPath.row]
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

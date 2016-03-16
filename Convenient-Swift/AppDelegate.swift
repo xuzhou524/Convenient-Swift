@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -36,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         let centerNav = XZSwiftNavigationController(rootViewController: HomeViewController());
     
         self.window?.rootViewController = centerNav;
-        
+        Fabric.with([Crashlytics.self])
+      //  Fabric.sharedSDK().debug = true
         return true
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

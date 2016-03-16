@@ -116,6 +116,7 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     func subView()->Void{
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        
         self.weatherIconIamgeView = UIImageView()
         self.contentView.addSubview(self.weatherIconIamgeView!)
         self.weatherIconIamgeView?.snp_makeConstraints(closure: { (make) -> Void in

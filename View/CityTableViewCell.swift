@@ -48,7 +48,7 @@ class CityTableViewCell: UITableViewCell {
 //        self.bgScrollView?.layer.shadowOffset = CGSizeMake(0, 0);
 //        self.bgScrollView?.layer.shadowOpacity = 1;
 //        self.bgScrollView?.layer.shadowRadius = 2;
-        self.bgScrollView?.layer.borderColor = XZSwiftColor.navignationColor.CGColor
+        self.bgScrollView?.layer.borderColor = XZSwiftColor.whiteColor().CGColor
         self.contentView.addSubview(self.bgScrollView!)
         
         let bagBGview = UIView.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width - 20,  hight))
@@ -156,12 +156,20 @@ class addCityNullTabelView: UITableViewCell {
     }
     
     func sebView(){
-        let hight: CGFloat = 80
-        let bgView = UIView.init(frame:CGRectMake(10, 10, UIScreen.mainScreen().bounds.size.width - 20,  hight))
+        self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        
+        let bgView = UIView()
         bgView.layer.borderWidth = 0.5
         bgView.layer.cornerRadius = 3.0;
         bgView.layer.borderColor = XZSwiftColor.navignationColor.CGColor
+        bgView.backgroundColor = XZSwiftColor.whiteColor()
         self.contentView.addSubview(bgView)
+        bgView.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(self.contentView).offset(10)
+            make.right.equalTo(self.contentView).offset(-10)
+            make.top.equalTo(self.contentView).offset(10)
+            make.bottom.equalTo(self.contentView).offset(-10)
+        }
         
         let linView = UIView()
         linView.backgroundColor = XZSwiftColor.navignationColor

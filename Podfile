@@ -10,6 +10,8 @@ def pods
    pod 'ObjectMapper', '~> 1.1.1'
    pod 'AlamofireObjectMapper', '~> 2.1.0'
    pod 'TMCache', '~> 1.2.0'
+   pod 'Fabric'
+   pod 'Crashlytics'
 end
 
 
