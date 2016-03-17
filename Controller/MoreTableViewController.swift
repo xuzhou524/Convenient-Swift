@@ -39,18 +39,20 @@ class MoreTableViewController: UITableViewController {
             return 100
         }
         if indexPath.row == 2{
-            return 10
+            return 15
         }
-        return 60
+        return 50
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let moreCell = getCell(tableView, cell: MoreTableViewCell.self, indexPath: indexPath)
+            moreCell.selectionStyle = .None
             return moreCell
         }
         if indexPath.row == 1{
             let interCell = getCell(tableView, cell: More_InterTableViewCell.self, indexPath: indexPath)
+            interCell.selectionStyle = .None
             return interCell
 
         }
@@ -58,9 +60,11 @@ class MoreTableViewController: UITableViewController {
         if indexPath.row == 2{
             let cell = UITableViewCell()
             cell.backgroundColor = XZSwiftColor.convenientBackgroundColor
+            cell.selectionStyle = .None
             return cell
         }
         let baseCell = getCell(tableView, cell: BaseTableViewCell.self, indexPath: indexPath)
+        baseCell.selectionStyle = .None
         return baseCell
     }
 
