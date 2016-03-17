@@ -119,7 +119,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         tableView.dg_addPullToRefreshWithActionHandler({ () -> Void in
             self.asyncRequestData()
             }, loadingView: self.cycle)
-        self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
+        self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.textColor)
         self.tableView.dg_setPullToRefreshBackgroundColor(XZSwiftColor.convenientBackgroundColor)
         
         

@@ -51,7 +51,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
         
         self.pm25TiltileLabel = UILabel()
         self.pm25TiltileLabel?.font = XZFont2(13)
-        self.pm25TiltileLabel?.textColor = XZSwiftColor.navignationColor
+        self.pm25TiltileLabel?.textColor = XZSwiftColor.textColor
         pm25BgView.addSubview(self.pm25TiltileLabel!)
         self.pm25TiltileLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo(pm25BgView).offset(-3)
@@ -60,7 +60,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
         
         self.weatherRefreshLabel = UILabel()
         self.weatherRefreshLabel?.font = XZFont2(13)
-        self.weatherRefreshLabel?.textColor = XZSwiftColor.navignationColor
+        self.weatherRefreshLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.weatherRefreshLabel!)
         self.weatherRefreshLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo(self.contentView).offset(-15)
@@ -127,7 +127,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         self.weatherLabel = UILabel()
         self.weatherLabel?.font = XZFont2(16)
-        self.weatherLabel?.textColor = XZSwiftColor.navignationColor
+        self.weatherLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.weatherLabel!)
         self.weatherLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo((self.weatherIconIamgeView?.snp_right)!).offset(10)
@@ -148,7 +148,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         self.humidityLabel = UILabel()
         self.humidityLabel?.font = XZFont2(14)
-        self.humidityLabel?.textColor = XZSwiftColor.navignationColor
+        self.humidityLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.humidityLabel!)
         self.humidityLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo((self.weatherIconIamgeView?.snp_centerX)!).offset(20)
@@ -157,7 +157,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         self.windLabel = UILabel()
         self.windLabel?.font = XZFont2(14)
-        self.windLabel?.textColor = XZSwiftColor.navignationColor
+        self.windLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.windLabel!)
         self.windLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo(self.humidityLabel!)
@@ -172,7 +172,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         self.warmPromptLabel = UILabel()
         self.warmPromptLabel?.font = XZFont2(14)
         self.warmPromptLabel?.numberOfLines=0
-        self.warmPromptLabel?.textColor = XZSwiftColor.navignationColor
+        self.warmPromptLabel?.textColor = XZSwiftColor.textColor
         self.warmPromptLabel?.textAlignment = .Center
         self.contentView.addSubview(self.warmPromptLabel!)
         self.warmPromptLabel?.snp_makeConstraints(closure: { (make) -> Void in
@@ -289,7 +289,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     //pragma mark - @optional
      func chartConfigColors(chart: UUChart) ->  [AnyObject] {
 
-        return [XZSwiftColor.navignationColor,XZSwiftColor.yellow255_194_50,UUColor.green()];
+        return [XZSwiftColor.textColor,XZSwiftColor.yellow255_194_50,UUColor.green()];
     }
     
     func chartRange(chart: UUChart) -> CGRange {
@@ -363,14 +363,14 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
             self.tiltileLabel = UILabel.init(frame: CGRectMake(CGFloat(i) * xLabelWidth, self.frame.origin.y, xLabelWidth,15))
             self.tiltileLabel?.font = XZFont2(13)
             self.tiltileLabel?.textAlignment = .Center
-            self.tiltileLabel?.textColor = XZSwiftColor.navignationColor
+            self.tiltileLabel?.textColor = XZSwiftColor.textColor
             self.contentView.addSubview(self.tiltileLabel!)
             self.tiltileLabelArray?.addObject(self.tiltileLabel!)
             
             self.weatherLabel = UILabel.init(frame: CGRectMake(CGFloat(i) * xLabelWidth, self.frame.origin.y + 18, xLabelWidth,15))
             self.weatherLabel?.font = XZFont2(13)
             self.weatherLabel?.textAlignment = .Center
-            self.weatherLabel?.textColor = XZSwiftColor.navignationColor
+            self.weatherLabel?.textColor = XZSwiftColor.textColor
             self.contentView.addSubview(self.weatherLabel!)
             self.weatherLabelArray?.addObject(self.weatherLabel!)
 

@@ -144,7 +144,6 @@
 		531BA04E1C8E7AA60019FFA9 /* 重_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0441C8E7AA60019FFA9 /* 重_彩色@2x.png */; };
 		531BA04F1C8E7AA60019FFA9 /* 重_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */; };
 		531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23EF1C8599420009E0E6 /* AppDelegate.swift */; };
-		531C23F21C8599420009E0E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23F11C8599420009E0E6 /* ViewController.swift */; };
 		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
 		531C23F71C8599420009E0E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F61C8599420009E0E6 /* Assets.xcassets */; };
 		531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */; };
@@ -352,7 +351,6 @@
 		531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "重_彩色@3x.png"; sourceTree = "<group>"; };
 		531C23EC1C8599420009E0E6 /* Convenient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Convenient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C23EF1C8599420009E0E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		531C23F11C8599420009E0E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		531C23F41C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		531C23F61C8599420009E0E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531C23F91C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -730,7 +728,6 @@
 			isa = PBXGroup;
 			children = (
 				531C23EF1C8599420009E0E6 /* AppDelegate.swift */,
-				531C23F11C8599420009E0E6 /* ViewController.swift */,
 				53917E581C896371002200C1 /* Convenient-Header.h */,
 				531C23F31C8599420009E0E6 /* Main.storyboard */,
 				531C23F61C8599420009E0E6 /* Assets.xcassets */,
@@ -1219,7 +1216,6 @@
 				530778561C92BAF60010E65C /* JSONHTTPClient.m in Sources */,
 				530778531C92BAF60010E65C /* JSONModelError.m in Sources */,
 				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
-				531C23F21C8599420009E0E6 /* ViewController.swift in Sources */,
 				5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
@@ -1369,6 +1365,7 @@
 			baseConfigurationReference = F97BD5A7DBB8DEF42CFF8E5D /* Pods-Convenient-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1387,7 +1384,7 @@
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1410,6 +1407,7 @@
 			baseConfigurationReference = 5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1428,7 +1426,7 @@
 					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

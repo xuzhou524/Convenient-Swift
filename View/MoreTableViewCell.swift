@@ -37,7 +37,7 @@ class MoreTableViewCell: UITableViewCell {
         self.titleLabel = UILabel()
         self.titleLabel?.text = "想容易,就用易"
         self.titleLabel?.font = XZFont2(14)
-        self.titleLabel?.textColor = XZSwiftColor.navignationColor
+        self.titleLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.titleLabel!)
         self.titleLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self.contentView)
@@ -96,7 +96,7 @@ class More_InterTableViewCell: UITableViewCell {
         });
     
         let linView = UIView()
-        linView.backgroundColor = XZSwiftColor.navignationColor
+        linView.backgroundColor = XZSwiftColor.textColor
         self.contentView.addSubview(linView)
         linView.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.contentView)

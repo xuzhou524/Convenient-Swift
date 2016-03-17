@@ -75,7 +75,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.weatherLabel = UILabel()
         self.weatherLabel?.text = "10°"
-        self.weatherLabel?.textColor = XZSwiftColor.navignationColor
+        self.weatherLabel?.textColor = XZSwiftColor.textColor
         self.weatherLabel?.font = XZFont3(16)
         bgView.addSubview(self.weatherLabel!)
         self.weatherLabel?.snp_makeConstraints(closure: { (make) -> Void in
@@ -84,7 +84,7 @@ class CityTableViewCell: UITableViewCell {
         });
         
         let linView = UIView()
-        linView.backgroundColor = XZSwiftColor.navignationColor
+        linView.backgroundColor = XZSwiftColor.textColor
         bagBGview.addSubview(linView)
         linView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(bgView).offset(15)
@@ -95,7 +95,7 @@ class CityTableViewCell: UITableViewCell {
         
         self.cityNameLabel = UILabel()
         self.cityNameLabel?.text = "北京"
-        self.cityNameLabel?.textColor = XZSwiftColor.navignationColor
+        self.cityNameLabel?.textColor = XZSwiftColor.textColor
         self.cityNameLabel?.font = XZFont2(17)
         bagBGview.addSubview(self.cityNameLabel!)
         self.cityNameLabel?.snp_makeConstraints(closure: { (make) -> Void in
@@ -104,7 +104,7 @@ class CityTableViewCell: UITableViewCell {
         });
         self.weatherSLabel = UILabel()
         self.weatherSLabel?.text = "5° ~ 15°"
-        self.weatherSLabel?.textColor = XZSwiftColor.navignationColor
+        self.weatherSLabel?.textColor = XZSwiftColor.textColor
         self.weatherSLabel?.font = XZFont3(17)
         bagBGview.addSubview(self.weatherSLabel!)
         self.weatherSLabel?.snp_makeConstraints(closure: { (make) -> Void in
@@ -113,7 +113,7 @@ class CityTableViewCell: UITableViewCell {
         });
         
         self.shanChuView = UIView()
-        self.shanChuView?.backgroundColor = XZSwiftColor.navignationColor
+        self.shanChuView?.backgroundColor = XZSwiftColor.textColor
         self.shanChuView?.userInteractionEnabled = true
         self.bgScrollView?.addSubview(self.shanChuView!)
         self.shanChuView?.snp_makeConstraints(closure: { (make) -> Void in
@@ -161,7 +161,7 @@ class addCityNullTabelView: UITableViewCell {
         let bgView = UIView()
         bgView.layer.borderWidth = 0.5
         bgView.layer.cornerRadius = 3.0;
-        bgView.layer.borderColor = XZSwiftColor.navignationColor.CGColor
+        bgView.layer.borderColor = XZSwiftColor.textColor.CGColor
         bgView.backgroundColor = XZSwiftColor.whiteColor()
         self.contentView.addSubview(bgView)
         bgView.snp_makeConstraints { (make) -> Void in
@@ -172,7 +172,7 @@ class addCityNullTabelView: UITableViewCell {
         }
         
         let linView = UIView()
-        linView.backgroundColor = XZSwiftColor.navignationColor
+        linView.backgroundColor = XZSwiftColor.textColor
         bgView.addSubview(linView)
         linView.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(bgView)
@@ -181,7 +181,7 @@ class addCityNullTabelView: UITableViewCell {
         }
         
         let linsView = UIView()
-        linsView.backgroundColor = XZSwiftColor.navignationColor
+        linsView.backgroundColor = XZSwiftColor.textColor
         bgView.addSubview(linsView)
         linsView.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(bgView)
@@ -240,7 +240,7 @@ class citySearch_ResultsTabelView: UITableViewCell {
         
         self.searchNameLabel = UILabel()
         self.searchNameLabel?.font = XZFont2(15)
-        self.searchNameLabel?.textColor = XZSwiftColor.navignationColor
+        self.searchNameLabel?.textColor = XZSwiftColor.textColor
         self.contentView.addSubview(self.searchNameLabel!)
         self.searchNameLabel?.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo(self.contentView).offset(15)
@@ -248,7 +248,7 @@ class citySearch_ResultsTabelView: UITableViewCell {
         });
         
         let linsView = UIView()
-        linsView.backgroundColor = XZSwiftColor.navignationColor
+        linsView.backgroundColor = XZSwiftColor.textColor
         self.contentView.addSubview(linsView)
         linsView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.contentView).offset(15)
