@@ -28,7 +28,7 @@ If you have questions about any aspect of this project, please feel free to cont
 
 ##Screenshots
 ![](http://i12.tietuku.cn/df8dcca77a38829c.png)
-![](http://i12.tietuku.cn/7368a87d97bdc8f3.png)
+![](http://i13.tietuku.cn/61180b8d2258eb19.png)
 ![](http://i12.tietuku.cn/6eb0d400328df965.png)
 ![](http://i12.tietuku.cn/76e9992329ab1075.png)
 
