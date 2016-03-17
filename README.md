@@ -15,3 +15,13 @@ $ git clone https://github.com/xuzhou524/Convenient-Swift.git
 $ open "Convenient-Swift.xcworkspace"
 ```
 3) Compile and run the app in your simulator or iOS device
+
+##Requirements
+* Xcode 7.2+
+* iOS8+
+
+## Questions
+If you have questions about any aspect of this project, please feel free to contact me with the following email
+<br/>Email: xuuohz@163.com
+<br/>or Weibo: <a href = 'http://weibo.com/u/2305459493' >@徐_Aaron</a>
+<br/>
