@@ -144,15 +144,14 @@
 		531BA04E1C8E7AA60019FFA9 /* 重_彩色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0441C8E7AA60019FFA9 /* 重_彩色@2x.png */; };
 		531BA04F1C8E7AA60019FFA9 /* 重_彩色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */; };
 		531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C23EF1C8599420009E0E6 /* AppDelegate.swift */; };
-		531C23F51C8599420009E0E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F31C8599420009E0E6 /* Main.storyboard */; };
 		531C23F71C8599420009E0E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F61C8599420009E0E6 /* Assets.xcassets */; };
-		531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */; };
 		531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */; };
 		531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */; };
 		5329A9FA1C995BAD003B7364 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9F91C995BAD003B7364 /* icon.png */; };
 		5329A9FD1C996329003B7364 /* about_criticism.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FB1C996329003B7364 /* about_criticism.png */; };
 		5329A9FE1C996329003B7364 /* about_praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FC1C996329003B7364 /* about_praise.png */; };
 		5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */; };
+		533D6D821C9A8E7B00262DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533D6D801C9A8E7B00262DC1 /* Main.storyboard */; };
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
@@ -351,9 +350,7 @@
 		531BA0451C8E7AA60019FFA9 /* 重_彩色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "重_彩色@3x.png"; sourceTree = "<group>"; };
 		531C23EC1C8599420009E0E6 /* Convenient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Convenient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		531C23EF1C8599420009E0E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		531C23F41C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		531C23F61C8599420009E0E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		531C23F91C8599420009E0E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		531C23FB1C8599420009E0E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		531C24211C869BB90009E0E6 /* XZSwiftNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftNavigationController.swift; sourceTree = "<group>"; };
 		531C24231C86BAD10009E0E6 /* XZSwiftColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSwiftColor.swift; sourceTree = "<group>"; };
@@ -361,6 +358,7 @@
 		5329A9FB1C996329003B7364 /* about_criticism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_criticism.png; sourceTree = "<group>"; };
 		5329A9FC1C996329003B7364 /* about_praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_praise.png; sourceTree = "<group>"; };
 		5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		533D6D811C9A8E7B00262DC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
@@ -729,9 +727,8 @@
 			children = (
 				531C23EF1C8599420009E0E6 /* AppDelegate.swift */,
 				53917E581C896371002200C1 /* Convenient-Header.h */,
-				531C23F31C8599420009E0E6 /* Main.storyboard */,
+				533D6D801C9A8E7B00262DC1 /* Main.storyboard */,
 				531C23F61C8599420009E0E6 /* Assets.xcassets */,
-				531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */,
 				531C23FB1C8599420009E0E6 /* Info.plist */,
 			);
 			path = "Convenient-Swift";
@@ -1038,7 +1035,6 @@
 				5329A9FA1C995BAD003B7364 /* icon.png in Resources */,
 				530D951C1C8D6B64005342BF /* cm_weathericon_8@3x.png in Resources */,
 				530D94E61C8D6B64005342BF /* cm_weathericon_13@3x.png in Resources */,
-				531C23FA1C8599420009E0E6 /* LaunchScreen.storyboard in Resources */,
 				530D952E1C8D6B64005342BF /* w22.png in Resources */,
 				530D94F51C8D6B64005342BF /* cm_weathericon_20@2x.png in Resources */,
 				530D94EF1C8D6B64005342BF /* cm_weathericon_18@2x.png in Resources */,
@@ -1106,7 +1102,6 @@
 				530D95241C8D6B64005342BF /* w13.png in Resources */,
 				530D95001C8D6B64005342BF /* cm_weathericon_25@3x.png in Resources */,
 				530D95461C8D6B64005342BF /* w99.png in Resources */,
-				531C23F51C8599420009E0E6 /* Main.storyboard in Resources */,
 				530D951F1C8D6B64005342BF /* w0.png in Resources */,
 				530D94DE1C8D6B64005342BF /* cm_weathericon_0@3x.png in Resources */,
 				530D94DD1C8D6B64005342BF /* cm_weathericon_0@2x.png in Resources */,
@@ -1122,6 +1117,7 @@
 				530D95061C8D6B64005342BF /* cm_weathericon_28@3x.png in Resources */,
 				53E713081C8FBDEA002D4238 /* fujindizhi@3x.png in Resources */,
 				530D951B1C8D6B64005342BF /* cm_weathericon_8@2x.png in Resources */,
+				533D6D821C9A8E7B00262DC1 /* Main.storyboard in Resources */,
 				530D95401C8D6B64005342BF /* w4.png in Resources */,
 				530D94F31C8D6B64005342BF /* cm_weathericon_1@2x.png in Resources */,
 				530D95201C8D6B64005342BF /* w1.png in Resources */,
@@ -1260,20 +1256,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		531C23F31C8599420009E0E6 /* Main.storyboard */ = {
+		533D6D801C9A8E7B00262DC1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				531C23F41C8599420009E0E6 /* Base */,
+				533D6D811C9A8E7B00262DC1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		531C23F81C8599420009E0E6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				531C23F91C8599420009E0E6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

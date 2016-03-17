@@ -12,6 +12,7 @@ def pods
    pod 'TMCache', '~> 1.2.0'
    pod 'Fabric'
    pod 'Crashlytics'
+   pod 'SVProgressHUD', '~> 1.1.3'
 end
 
 

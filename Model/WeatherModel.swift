@@ -116,6 +116,8 @@ func requestModel< T: BaseModel >(method: Alamofire.Method, _ URLString: URLStri
                     }
                 }
             }
+        }else{
+            failure(response.result.error)
         }
     }
 }

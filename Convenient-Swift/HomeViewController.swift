@@ -14,7 +14,7 @@ import KVOController
 import ObjectMapper
 import AlamofireObjectMapper
 import TMCache
-
+import SVProgressHUD
 
 let kTMCacheWeatherArray = "kTMCacheWeatherArray"
 
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     var weatherMdoel = WeatherModel()
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
+    var weatherlocalArray = NSMutableArray()
     var cycle : DGElasticPullToRefreshLoadingViewCircle?
     
     private var _tableView : UITableView!
@@ -61,6 +62,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         leftButton.frame = CGRectMake(0, 0, 40, 40)
         leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
         leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
+        leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
         
@@ -68,6 +70,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightShareButton.frame = CGRectMake(0, 0, 21, 21)
         rightShareButton.contentMode = .Center
         rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightShareButton.adjustsImageWhenHighlighted = false
         rightShareButton.setImage(UIImage(named: "share"), forState: .Normal)
         rightShareButton.addTarget(self, action: Selector("rightShareClick"), forControlEvents: .TouchUpInside)
         
@@ -76,6 +79,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightMoreButton.contentMode = .Center
         rightMoreButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
         rightMoreButton.setImage(UIImage(named: "gengduo"), forState: .Normal)
+        rightMoreButton.adjustsImageWhenHighlighted = false
         rightMoreButton.addTarget(self, action: Selector("rightMoreClick"), forControlEvents: .TouchUpInside)
         
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
@@ -83,6 +87,11 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
             self!.asyncRequestData()
+        }
+        
+        self.weatherlocalArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        if self.weatherlocalArray.count > 0 {
+            self.weatherMdoel = self.weatherlocalArray[0] as! WeatherModel
         }
     }
     func leftClick(){
@@ -98,9 +107,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     
     func rightShareClick(){
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), false, 1);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
        
-        self.navigationController!.view.drawViewHierarchyInRect(CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)), afterScreenUpdates: false)
+        UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
@@ -119,7 +128,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         tableView.dg_addPullToRefreshWithActionHandler({ () -> Void in
             self.asyncRequestData()
             }, loadingView: self.cycle)
-        self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.textColor)
+        self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
         self.tableView.dg_setPullToRefreshBackgroundColor(XZSwiftColor.convenientBackgroundColor)
         
         
@@ -138,7 +147,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         //获取天气信息
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
-    
         WeatherModel.like(self.requCityName, success: { (model) -> Void in
             self.weatherMdoel = model
             if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
@@ -164,7 +172,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             self.tableView.dg_stopLoading()
             self.tableView .reloadData()
             }, failure: { (error) -> Void in
-                print(error)
+                self.tableView.dg_stopLoading()
+                SVProgressHUD.showErrorWithStatus("请求失败")
          })
     }
     

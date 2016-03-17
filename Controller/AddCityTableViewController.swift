@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import TMCache
-
+import SVProgressHUD
 
 typealias callbackfunc=(cityName:NSString)->Void
 
@@ -85,12 +85,17 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             Alamofire.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
                 print(response)
             }
-            
+            SVProgressHUD.show()
             Alamofire.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("") {
                 (response : Response<CityMdoel,NSError>) in
                 if let model = response.result.value{
-                    self.cityMdoel = model
-                    self.tableView .reloadData()
+                    if model.data?.count > 0{
+                        self.cityMdoel = model
+                         SVProgressHUD.dismiss()
+                        self.tableView .reloadData()
+                    }else{
+                        SVProgressHUD.showErrorWithStatus("请输入正确城市")
+                    }
                 }
             }
         }
