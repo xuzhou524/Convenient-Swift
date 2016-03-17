@@ -65,6 +65,16 @@ class MoreTableViewController: UITableViewController {
         }
         let baseCell = getCell(tableView, cell: BaseTableViewCell.self, indexPath: indexPath)
         baseCell.selectionStyle = .None
+        
+        let infoDict = NSBundle.mainBundle().infoDictionary
+        if let info = infoDict {
+            // app版本
+            let appVersion = info["CFBundleShortVersionString"] as! String!
+            baseCell.detaileLabel?.text = "v" + appVersion
+            
+        }
+        
+        
         return baseCell
     }
 
