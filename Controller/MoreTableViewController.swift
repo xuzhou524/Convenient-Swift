@@ -19,18 +19,16 @@ class MoreTableViewController: UITableViewController {
         regClass(self.tableView, cell: MoreTableViewCell.self)
         regClass(self.tableView, cell: More_InterTableViewCell.self)
         regClass(self.tableView, cell: BaseTableViewCell.self)
-        
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+       return 4
     }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 220
@@ -54,7 +52,6 @@ class MoreTableViewController: UITableViewController {
             let interCell = getCell(tableView, cell: More_InterTableViewCell.self, indexPath: indexPath)
             interCell.selectionStyle = .None
             return interCell
-
         }
         
         if indexPath.row == 2{
@@ -71,13 +68,9 @@ class MoreTableViewController: UITableViewController {
             // app版本
             let appVersion = info["CFBundleShortVersionString"] as! String!
             baseCell.detaileLabel?.text = "v" + appVersion
-            
         }
-        
-        
         return baseCell
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

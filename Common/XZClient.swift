@@ -18,6 +18,7 @@ class XZClient: NSObject {
         super.init()
         self.setupInMainThread()
     }
+    
     func setupInMainThread() {
         if NSThread.isMainThread() {
             self.setup()
@@ -28,6 +29,7 @@ class XZClient: NSObject {
             })
         }
     }
+    
     func setup(){
         if (XZSetting.sharedInstance[KplacemarkName] == nil){
             self.username = "北京"
@@ -36,6 +38,4 @@ class XZClient: NSObject {
         }
         
     }
-
-    
 }

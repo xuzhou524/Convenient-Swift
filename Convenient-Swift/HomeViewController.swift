@@ -41,7 +41,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 regClass(self.tableView, cell: Weather_LineTabeleViewCell.self)
                 regClass(self.tableView, cell: Weather_TimeTabeleViewCell.self)
                 regClass(self.tableView, cell: Weather_WeekTabeleViewCell.self)
-                return _tableView
             }
           return _tableView
         }
@@ -88,12 +87,14 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
             self!.asyncRequestData()
         }
-        
-        self.weatherlocalArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
+            self.weatherlocalArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        }
         if self.weatherlocalArray.count > 0 {
             self.weatherMdoel = self.weatherlocalArray[0] as! WeatherModel
         }
     }
+    
     func leftClick(){
         let cityVC = CityViewController()
         
@@ -105,12 +106,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
     
-    
     func rightShareClick(){
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0);     //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
-       
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
         UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
         UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
@@ -130,8 +128,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }, loadingView: self.cycle)
         self.tableView.dg_setPullToRefreshFillColor(XZSwiftColor.navignationColor)
         self.tableView.dg_setPullToRefreshBackgroundColor(XZSwiftColor.convenientBackgroundColor)
-        
-        
     }
     func asyncRequestData() -> Void{
         
@@ -187,6 +183,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         return 0
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return [40,320,35,120,35][indexPath.row]
     }
@@ -222,8 +219,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             weekTimeCell.binde(self.weatherMdoel)
             return weekTimeCell
         }
-        
         return UITableViewCell()
     }
-    
 }

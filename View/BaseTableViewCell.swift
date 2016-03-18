@@ -17,7 +17,6 @@ class BaseTableViewCell: UITableViewCell {
         self.sebView()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.sebView()
@@ -33,8 +32,6 @@ class BaseTableViewCell: UITableViewCell {
             make.left.equalTo(self.contentView).offset(15)
             make.centerY.equalTo(self.contentView)
         });
-        
-  
         
         self.detaileLabel = UILabel()
         self.detaileLabel?.text = "v1.0.0"

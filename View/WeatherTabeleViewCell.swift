@@ -100,7 +100,6 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     var windLabel : UILabel?
     var humidityLabel : UILabel?
-    
     var warmPromptLabel : UILabel?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -143,8 +142,6 @@ class WeatherTabeleViewCell: UITableViewCell {
             make.right.equalTo((self.weatherIconIamgeView?.snp_centerX)!).offset(-15)
             make.top.equalTo((self.weatherIconIamgeView?.snp_bottom)!).offset(15)
         });
-        
-        
         
         self.humidityLabel = UILabel()
         self.humidityLabel?.font = XZFont2(14)
@@ -194,18 +191,12 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     func bind(weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
-            
-             //let model =  weathermodel?.weather![0]
-            
-            //let image  = model.info.day[0] as! String
-            
             self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (weathermodel?.realtime!.weather!.img)!)
             self.weatherLabel?.text = weathermodel!.realtime!.weather!.info
             self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
             self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
             self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
             self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
-            
         }
     }
 }

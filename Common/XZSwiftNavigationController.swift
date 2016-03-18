@@ -34,7 +34,6 @@ class XZSwiftNavigationController: UINavigationController {
         self.navigationBar.layer.shadowOffset = CGSizeMake(0, 0.5)
         self.navigationBar.layer.shadowOpacity=0.4
         
-        
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true);
         
         let maskingView = UIView()
@@ -59,16 +58,13 @@ class XZSwiftNavigationController: UINavigationController {
             NSFontAttributeName : XZFont2(18),
             NSForegroundColorAttributeName : UIColor.whiteColor()
         ]
-         self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)
-        
+        self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)
         self.navigationBar.barStyle = .Default;
         self.navigationBar.tintColor = XZSwiftColor.whiteColor()
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }

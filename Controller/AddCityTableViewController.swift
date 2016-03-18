@@ -15,7 +15,6 @@ typealias callbackfunc=(cityName:NSString)->Void
 
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
-    
     var myFunc = callbackfunc?()
     
     func initBack(mathFunction:(cityName:NSString)->Void ){
@@ -36,8 +35,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 _tableView?.dataSource = self
                 
                 regClass(_tableView, cell:citySearch_ResultsTabelView.self)
-                
-                return _tableView
             }
             return _tableView
         }
@@ -47,6 +44,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         super.viewWillDisappear(animated)
         self.backupgroupTap()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "选择城市"
@@ -66,7 +64,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             make.top.equalTo((self.citySearchBar?.snp_bottom)!).offset(5)
         }
     
-        
         let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("backupgroupTap"))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGestureRecognizer)
@@ -81,10 +78,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 "timespan" : "1457518656000",
                 "type" : "search"
             ]
-            
-            Alamofire.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseJSON { (response) -> Void in
-                print(response)
-            }
             SVProgressHUD.show()
             Alamofire.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("") {
                 (response : Response<CityMdoel,NSError>) in
@@ -100,6 +93,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             }
         }
     }
+    
     func backupgroupTap(){
         UIApplication.sharedApplication() .sendAction(Selector("resignFirstResponder"), to: nil, from: nil, forEvent: nil)
     }
@@ -114,9 +108,11 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         }
         return 0
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 40
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = getCell(tableView, cell: citySearch_ResultsTabelView.self, indexPath: indexPath)
         cell.selectionStyle = .None
@@ -125,6 +121,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         }
         return cell
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let model = self.cityMdoel?.data![indexPath.row]
         WeatherModel.like((model?.name)!, success: { (model) -> Void in

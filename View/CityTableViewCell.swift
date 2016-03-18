@@ -113,7 +113,7 @@ class CityTableViewCell: UITableViewCell {
         });
         
         self.shanChuView = UIView()
-        self.shanChuView?.backgroundColor = XZSwiftColor.textColor
+        self.shanChuView?.backgroundColor = XZSwiftColor.navignationColor
         self.shanChuView?.userInteractionEnabled = true
         self.bgScrollView?.addSubview(self.shanChuView!)
         self.shanChuView?.snp_makeConstraints(closure: { (make) -> Void in
@@ -132,7 +132,6 @@ class CityTableViewCell: UITableViewCell {
         shanChuLabel.snp_makeConstraints { (make) -> Void in
             make.center.equalTo(self.shanChuView!)
         }
-        
     }
     
     func bind(weathermodel:WeatherModel) ->Void{
@@ -142,8 +141,8 @@ class CityTableViewCell: UITableViewCell {
         let modelDic = weathermodel.weather[0]
         self.weatherSLabel?.text =  (modelDic["info"]!!["night"]!![2] as? String)! + "° ~ " + (modelDic["info"]!!["day"]!![2] as? String)! + "°"
     }
-  
 }
+
 class addCityNullTabelView: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -196,7 +195,6 @@ class addCitySearchTabelView: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         self.sebView()
     }
     

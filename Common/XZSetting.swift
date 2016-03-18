@@ -9,6 +9,7 @@
 import UIKit
 
 let keyPrefix =  "me.XZ.XZSetting."
+
 class XZSetting: NSObject {
     static let sharedInstance = XZSetting()
     

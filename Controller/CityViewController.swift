@@ -9,7 +9,6 @@
 import UIKit
 import TMCache
 
-
 typealias cityViewbackfunc=(cityName:NSString)->Void
 
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
@@ -33,8 +32,6 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 
                 regClass(_tableView, cell: CityTableViewCell.self)
                 regClass(_tableView, cell: addCityNullTabelView.self)
-                
-                return _tableView
             }
             return _tableView
         }
@@ -46,8 +43,9 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.tableView.snp_makeConstraints{ (make) -> Void in
             make.top.right.bottom.left.equalTo(self.view);
         }
-        
-        self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
+            self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -74,10 +72,10 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityCell.bind(self.weatherArray[indexPath.row] as! WeatherModel)
         cityCell.shanChuView?.tag = indexPath.row + 100
         cityCell.bgScrollView?.tag = indexPath.row + 1000
-       // if cityCell.shanChuView?.gestureRecognizers?.count == 0{
-            let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("deleteLocalCity:"))
-            cityCell.shanChuView!.addGestureRecognizer(tapGestureRecognizer)
-      //  }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("deleteLocalCity:"))
+        cityCell.shanChuView!.addGestureRecognizer(tapGestureRecognizer)
+   
         let scrollViewRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("selectModel:"))
         cityCell.bgScrollView!.addGestureRecognizer(scrollViewRecognizer)
         

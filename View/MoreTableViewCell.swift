@@ -43,10 +43,8 @@ class MoreTableViewCell: UITableViewCell {
             make.centerX.equalTo(self.contentView)
             make.top.equalTo((self.iconImageView?.snp_bottom)!).offset(10)
         });
-        
     }
 }
-
 
 class More_InterTableViewCell: UITableViewCell {
     var zanImageView: UIImageView?
@@ -132,6 +130,5 @@ class More_InterTableViewCell: UITableViewCell {
             make.centerX.equalTo(twoView)
             make.top.equalTo((self.tuImageView?.snp_bottom)!).offset(10)
         });
- 
     }
 }
