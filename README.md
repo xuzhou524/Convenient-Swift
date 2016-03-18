@@ -27,9 +27,9 @@ If you have questions about any aspect of this project, please feel free to cont
 <br/>
 
 ##Screenshots
-![](http://ww2.sinaimg.cn/large/0060lm7Tgw1f1zpp9kabmj30af0ijt9u.jpg)
-![](http://ww4.sinaimg.cn/large/0060lm7Tgw1f1zpp9juaaj30af0ijdgd.jpg)
-![](http://ww3.sinaimg.cn/large/0060lm7Tgw1f1zpp9b606j30af0ijwfb.jpg)
-![](http://ww1.sinaimg.cn/large/0060lm7Tgw1f1zpp9n53lj30af0ijwex.jpg)
+![](http://i12.tietuku.cn/df8dcca77a38829c.png)
+![](http://i13.tietuku.cn/61180b8d2258eb19.png)
+![](http://i12.tietuku.cn/6eb0d400328df965.png)
+![](http://i12.tietuku.cn/76e9992329ab1075.png)
 
 <br/>
