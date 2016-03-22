@@ -31,12 +31,15 @@ class ShareView: UIView {
     }
     
     func sebView(){
+        
+        self.frame = CGRectMake(0,0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        
         self.backGroundView = UIView()
-        self.backGroundView?.backgroundColor = XZSwiftColor.whiteColor()
+        self.backGroundView?.backgroundColor = XZSwiftColor.blackColor()
         self.addSubview(self.backGroundView!)
         self.backGroundView?.alpha = 0.0
         
-        let groundViewtap = UITapGestureRecognizer.init(target: self, action: (selector:"cancelClick"))
+        let groundViewtap = UITapGestureRecognizer.init(target: self, action: Selector("cancelClick"))
         self.backGroundView?.addGestureRecognizer(groundViewtap)
         self.backGroundView?.snp_makeConstraints(closure: { (make) -> Void in
             make.top.left.right.bottom.equalTo(self)
@@ -49,7 +52,7 @@ class ShareView: UIView {
         self.addSubview(self.panelView!)
         
         let titleLabel = UILabel()
-        titleLabel.text = "您想分享到哪？悉听尊便！"
+        titleLabel.text = "亲 关心一下身边的人"
         titleLabel.font = XZFont2(16)
         titleLabel.textColor = XZSwiftColor.xzGlay142
         self.panelView?.addSubview(titleLabel)
@@ -59,34 +62,42 @@ class ShareView: UIView {
         }
         
         let btnTitleArray = ["微信好友","微信朋友圈","新浪微博","QQ好友","QZone","复制天气"]
-        let btnIamgeArray = ["","","","","",""]
+        let btnIamgeArray = ["fenxiang_weixin","fenxiang_pengyouquan","fenxiang_weibo","fenxiang_QQ","fenxiang_kongjian","fenxiang_fuzhi"]
         
+        let btnActionArray = ["WXShare","WXPShare","SinaWeiBoShare","QQShare","QZoneShare","TencentShare"]
         
+
         let btnArray = NSMutableArray()
         
         for var i = 0 ; i < 6 ; i++ {
             let aswitch = i % 3
             let ah = i / 3
             let panel = UIView()
+            
             self.panelView?.addSubview(panel)
+            
             panel.snp_makeConstraints(closure: { (make) -> Void in
-                make.width.equalTo(self).multipliedBy(0.33)
+                make.width.equalTo(UIScreen.mainScreen().bounds.size.width/3.0)
                 make.height.equalTo(106)
-                make.top.equalTo(titleLabel).offset(ah * 80 + 10)
+                make.top.equalTo(titleLabel.snp_bottom).offset(ah * 80 + 10)
+                
                 if aswitch == 0{
                     make.left.equalTo(self.panelView!)
-                }else if aswitch == 1 {
+                }
+                
+                else if aswitch == 1 {
                     make.centerX.equalTo(self.panelView!)
                 }else{
                     make.right.equalTo(self.panelView!)
                 }
             });
-            
             let btn = ShareBaseView()
             btn.label?.text = btnTitleArray[i]
             btn.label?.font = XZFont2(12)
-//            btn.btn?.setImage(UIImage.imageNamed(btnIamgeArray[i]), forState: .Normal)
+            btn.btn?.setImage(UIImage(named: btnIamgeArray[i]), forState:.Normal)
+            btn.btn?.addTarget(self, action: Selector(btnActionArray[i]), forControlEvents: .TouchUpInside)
             panel.addSubview(btn)
+            
             btn.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(70)
                 make.height.equalTo(75)
@@ -180,11 +191,11 @@ class ShareView: UIView {
         let app = UIApplication.sharedApplication().delegate  as! AppDelegate
         app.window?.addSubview(self)
         if animated {
-            var frame = self.panelView?.frame
-            frame?.origin.y  = UIScreen.mainScreen().bounds.size.height
+            var frames:CGRect = (self.panelView?.frame)!
+            frames.origin.y = UIScreen.mainScreen().bounds.size.height - frames.size.height;
             UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                 self.backGroundView?.alpha = 0.3
-                self.panelView?.frame = frame!
+                self.panelView?.frame = frames
                 }, completion: nil)
         }
     }

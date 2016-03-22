@@ -107,11 +107,15 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func rightShareClick(){
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
-        UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
-        UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
+//        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+//        UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
+//        UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
+        
+        let shareView = ShareView()
+        shareView.title = "想容易，就用易"
+        shareView.showInWindowAnimated(true)
     }
     
     func rightMoreClick(){
