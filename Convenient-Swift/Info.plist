@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx96ad3427da325ef7</string>
+				<string>wx88234dc1246eb81b</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,7 +35,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41D3E983</string>
+				<string>QQ41E132D6</string>
 			</array>
 		</dict>
 		<dict>
@@ -43,7 +43,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb1375179551</string>
+				<string>wb3112753426</string>
 			</array>
 		</dict>
 	</array>
@@ -64,26 +64,21 @@
 		</array>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
-	<dict>
-		<key>item0</key>
-		<string>mqqopensdkapiV2</string>
-		<key>item1</key>
-		<string>weibosdk</string>
-		<key>item2</key>
-		<string>sinaweibohd</string>
-		<key>item3</key>
+	<array>
+		<string>mqzone</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>weibosdk2.5</string>
 		<string>sinaweibosso</string>
-		<key>item4</key>
 		<string>sinaweibo</string>
-		<key>item5</key>
-		<string>mqqapi</string>
-		<key>item6</key>
 		<string>mqq</string>
-		<key>item7</key>
-		<string>weixin</string>
-		<key>item8</key>
 		<string>wechat</string>
-	</dict>
+		<string>weibosdk</string>
+		<string>sinaweibosso</string>
+		<string>mqqapi</string>
+		<string>weixin</string>
+		<string>mqqopensdkapiV2</string>
+		<string>sinaweibohd</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

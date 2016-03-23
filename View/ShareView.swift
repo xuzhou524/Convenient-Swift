@@ -45,15 +45,15 @@ class ShareView: UIView {
             make.top.left.right.bottom.equalTo(self)
         });
         
-        self.panelView = UIView.init(frame: CGRectMake(0, UIScreen.mainScreen().bounds.size.height, UIScreen.mainScreen().bounds.size.width, 235))
+        self.panelView = UIView.init(frame: CGRectMake(0, UIScreen.mainScreen().bounds.size.height, UIScreen.mainScreen().bounds.size.width, 220))
         self.panelView?.backgroundColor = XZSwiftColor.whiteColor()
         self.panelView!.layer.cornerRadius = 5
         self.panelView?.layer.masksToBounds = true
         self.addSubview(self.panelView!)
         
         let titleLabel = UILabel()
-        titleLabel.text = "亲 关心一下身边的人"
-        titleLabel.font = XZFont2(16)
+        titleLabel.text = "亲  关心一下身边的人"
+        titleLabel.font = XZFont(16)
         titleLabel.textColor = XZSwiftColor.xzGlay142
         self.panelView?.addSubview(titleLabel)
         titleLabel.snp_makeConstraints { (make) -> Void in
@@ -79,7 +79,7 @@ class ShareView: UIView {
             panel.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(UIScreen.mainScreen().bounds.size.width/3.0)
                 make.height.equalTo(106)
-                make.top.equalTo(titleLabel.snp_bottom).offset(ah * 80 + 10)
+                make.top.equalTo(titleLabel.snp_bottom).offset(ah * 75)
                 
                 if aswitch == 0{
                     make.left.equalTo(self.panelView!)
@@ -144,13 +144,9 @@ class ShareView: UIView {
         var publishContent: ISSContent
         
         
-        self.content = "用易content"
+        self.content = "想容易，就用易"
         self.url = "www.xzzai.com"
     
-        
-        
-        
-        
         if type == ShareTypeWeixiTimeline || type == ShareTypeQQ {
  
              publishContent = ShareSDK.content(self.content! as String,
