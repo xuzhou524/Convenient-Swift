@@ -154,7 +154,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }
             //去重
             var tempBool = true
-            for  var i = 0 ; i < self.weatherArray.count; i++ {
+            for  i in 0  ..< self.weatherArray.count {
                 let model = self.weatherArray[i] as! WeatherModel
                 if model.realtime?.city_code == self.weatherMdoel.realtime?.city_code{
                     self.weatherArray.removeObjectAtIndex(i)

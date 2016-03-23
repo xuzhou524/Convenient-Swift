@@ -251,7 +251,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
         
         self.minWeatherArray = NSMutableArray()
         self.maxWeatherArray = NSMutableArray()
-        for var i = 0 ; i < self.weakWeatherArray.count - 1; i++ {
+        for i in 0  ..< self.weakWeatherArray.count - 1 {
             let model = self.weakWeatherArray[i]
             let infoDic =  (model.objectForKey("info"))! as! NSMutableDictionary
             let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
@@ -287,7 +287,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
     func chartRange(chart: UUChart) -> CGRange {
     
-        for var i = 0 ; i < self.weakWeatherArray.count - 1; i++ {
+        for i in 0  ..< self.weakWeatherArray.count - 1 {
             let model = self.weakWeatherArray[i]
             
             let infoDic =  (model.objectForKey("info"))! as! NSMutableDictionary
@@ -356,7 +356,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
         let xLabelWidth : CGFloat
         
         xLabelWidth = (UIScreen.mainScreen().bounds.size.width)/6.0;
-        for var i = 0; i < 6; i++ {
+        for i in 0 ..< 6 {
             self.tiltileLabel = UILabel.init(frame: CGRectMake(CGFloat(i) * xLabelWidth, self.frame.origin.y, xLabelWidth,15))
             self.tiltileLabel?.font = XZFont2(13)
             self.tiltileLabel?.textAlignment = .Center
@@ -415,6 +415,7 @@ class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
                 let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
                 
                 label.text = "周" + (model!.objectForKey("week") as? String)!
+                
                 label = self.tiltileLabelArray![i] as! UILabel
                 label.text = nightArray[1] as? String
                 
