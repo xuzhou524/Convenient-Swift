@@ -39,7 +39,7 @@ class ShareView: UIView {
         self.addSubview(self.backGroundView!)
         self.backGroundView?.alpha = 0.0
         
-        let groundViewtap = UITapGestureRecognizer.init(target: self, action: Selector("cancelClick"))
+        let groundViewtap = UITapGestureRecognizer.init(target: self, action: #selector(ShareView.cancelClick))
         self.backGroundView?.addGestureRecognizer(groundViewtap)
         self.backGroundView?.snp_makeConstraints(closure: { (make) -> Void in
             make.top.left.right.bottom.equalTo(self)
@@ -64,12 +64,12 @@ class ShareView: UIView {
         let btnTitleArray = ["微信好友","微信朋友圈","新浪微博","QQ好友","QZone","复制天气"]
         let btnIamgeArray = ["fenxiang_weixin","fenxiang_pengyouquan","fenxiang_weibo","fenxiang_QQ","fenxiang_kongjian","fenxiang_fuzhi"]
         
-        let btnActionArray = ["WXShare","WXPShare","SinaWeiBoShare","QQShare","QZoneShare","TencentShare"]
+        let btnActionArray = ["WXShare","WXPShare","SinaWeiBoShare","QQShare","QZoneShare","didChangeCapyForFriend"]
         
 
         let btnArray = NSMutableArray()
         
-        for var i = 0 ; i < 6 ; i++ {
+        for i in 0  ..< 6  {
             let aswitch = i % 3
             let ah = i / 3
             let panel = UIView()
@@ -95,7 +95,7 @@ class ShareView: UIView {
             btn.label?.text = btnTitleArray[i]
             btn.label?.font = XZFont2(12)
             btn.btn?.setImage(UIImage(named: btnIamgeArray[i]), forState:.Normal)
-            btn.btn?.addTarget(self, action: Selector(btnActionArray[i]), forControlEvents: .TouchUpInside)
+            btn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:Selector(btnActionArray[i])))
             panel.addSubview(btn)
             
             btn.snp_makeConstraints(closure: { (make) -> Void in
@@ -136,16 +136,20 @@ class ShareView: UIView {
     func QZoneShare(){
          self.share(ShareTypeQQSpace)
     }
-    func TencentShare(){
-         self.share(ShareTypeTencentWeibo)
-    }
-    
     func share(type: ShareType) -> Void{
         self.removeFromWindowAnmated(true)
         if type == ShareTypeSMS{
             
         }
         var publishContent: ISSContent
+        
+        
+        self.content = "用易content"
+        self.url = "www.xzzai.com"
+    
+        
+        
+        
         
         if type == ShareTypeWeixiTimeline || type == ShareTypeQQ {
  

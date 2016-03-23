@@ -43,7 +43,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             Fabric.with([Crashlytics.self])
         #endif
       //  Fabric.sharedSDK().debug = true
+        
+        WXApi.registerApp("wx96ad3427da325ef7", withDescription: "用易")
+        self.shareSetup()
+        
         return true
+    }
+    func shareSetup(){
+        ShareSDK.registerApp("10ceb4d796c88")
+        //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
+        ShareSDK.connectSinaWeiboWithAppKey("3112753426", appSecret: "8d827d8c5849b1d763f2d077d20e109e", redirectUri: "www.xzzai.com")
+        
+        //添加QQ空间应用  注册网址  http://connect.qq.com/intro/login/
+        ShareSDK.connectQZoneWithAppKey("100371282",appSecret:"aed9b0303e3ed1e27bae87c33761161d",qqApiInterfaceCls:QQApiInterface.self,tencentOAuthCls:TencentOAuth.self)
+        
+
+        //添加QQ应用  注册网址  http://open.qq.com/
+        ShareSDK.connectQQWithQZoneAppKey("1104406915",qqApiInterfaceCls:QQApiInterface.self,tencentOAuthCls:TencentOAuth.self)
+
+        //添加微信应用 注册网址 http://open.weixin.qq.com
+        ShareSDK.connectWeChatWithAppId("wx96ad3427da325ef7",appSecret:"62f813deed12407560466d724937900e",wechatCls:WXApi.self)
+        
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currLocation = locations.last! as CLLocation
@@ -64,6 +84,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             }
         }
        locationManager.stopUpdatingLocation()
+    }
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return ShareSDK.handleOpenURL(url, wxDelegate: self)
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return ShareSDK.handleOpenURL(url, sourceApplication: sourceApplication, annotation: annotation, wxDelegate: self)
     }
     
     func applicationWillResignActive(application: UIApplication) {
