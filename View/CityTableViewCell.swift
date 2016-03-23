@@ -135,11 +135,13 @@ class CityTableViewCell: UITableViewCell {
     }
     
     func bind(weathermodel:WeatherModel) ->Void{
-        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (weathermodel.realtime!.weather!.img)!)
-        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
-        self.cityNameLabel?.text = weathermodel.realtime!.city_name
-        let modelDic = weathermodel.weather[0]
-        self.weatherSLabel?.text =  (modelDic["info"]!!["night"]!![2] as? String)! + "° ~ " + (modelDic["info"]!!["day"]!![2] as? String)! + "°"
+//        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (weathermodel.realtime!.weather!.img)!)
+//        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
+//        self.cityNameLabel?.text = weathermodel.realtime!.city_name
+//        let modelDic = weathermodel.weather[0]
+//        let dayArray:NSMutableArray = modelDic["info"]!!["day"]
+//        let nightArray:NSMutableArray = modelDic["info"]!!["night"]
+//        self.weatherSLabel?.text =  (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
     }
 }
 

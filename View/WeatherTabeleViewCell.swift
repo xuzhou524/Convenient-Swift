@@ -253,25 +253,27 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
         self.maxWeatherArray = NSMutableArray()
         for var i = 0 ; i < self.weakWeatherArray.count - 1; i++ {
             let model = self.weakWeatherArray[i]
-            
-            self.maxWeatherArray?.addObject(model["info"]!!["day"]!![2])
-            self.minWeatherArray?.addObject(model["info"]!!["night"]!![2])
+            let infoDic =  (model.objectForKey("info"))! as! NSMutableDictionary
+            let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
+            self.maxWeatherArray?.addObject(dayArray[2])
+            self.minWeatherArray?.addObject(nightArray[2])
             
             if i == 0{
-                self.maxWeatherStr = (model["info"]!!["day"]!![2])! as? String
-                self.minWeatherStr = (model["info"]!!["night"]!![2])! as? String
+                self.maxWeatherStr = dayArray[2] as? String
+                self.minWeatherStr = nightArray[2] as? String
             }else{
-                
+
                 let maxString = NSString(string: self.maxWeatherStr!)
                 
-                if maxString.intValue > model["info"]!!["day"]!![2].intValue {
-                    self.maxWeatherStr = (model["info"]!!["day"]!![2])! as? String
+                if maxString.intValue > dayArray[2].intValue {
+                    self.maxWeatherStr = dayArray[2] as? String
                 }
-                
+
                 let minString = NSString(string: self.minWeatherStr!)
                 
-                if minString.intValue > model["info"]!!["night"]!![2].intValue {
-                    self.minWeatherStr = (model["info"]!!["night"]!![2])! as? String
+                if minString.intValue > nightArray[2].intValue {
+                    self.minWeatherStr = nightArray[2] as? String
                 }
             }
         }
@@ -284,25 +286,29 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     }
     
     func chartRange(chart: UUChart) -> CGRange {
-        
-        
+    
         for var i = 0 ; i < self.weakWeatherArray.count - 1; i++ {
             let model = self.weakWeatherArray[i]
+            
+            let infoDic =  (model.objectForKey("info"))! as! NSMutableDictionary
+            let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
+            
             if i == 0{
-                self.maxWeatherStr = (model["info"]!!["day"]!![2])! as? String
-                self.minWeatherStr = (model["info"]!!["night"]!![2])! as? String
+                self.maxWeatherStr = dayArray[2] as? String
+                self.minWeatherStr = nightArray[2] as? String
             }else{
                 
                 let maxString = NSString(string: self.maxWeatherStr!)
                 
-                if maxString.integerValue < model["info"]!!["day"]!![2].integerValue {
-                    self.maxWeatherStr = (model["info"]!!["day"]!![2])! as? String
+                if maxString.integerValue < dayArray[2].integerValue {
+                    self.maxWeatherStr = dayArray[2] as? String
                 }
                 
                 let minString = NSString(string: self.minWeatherStr!)
                 
-                if minString.integerValue > model["info"]!!["night"]!![2].integerValue {
-                    self.minWeatherStr = (model["info"]!!["night"]!![2])! as? String
+                if minString.integerValue > nightArray[2].integerValue {
+                    self.minWeatherStr = nightArray[2] as? String
                 }
             }
             
@@ -375,7 +381,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
                 
                 let model = weathermodel?.weather[i]
                 print(model)
-                let str = (model!["date"] as! NSString).substringFromIndex(5)
+                let str = (model?.objectForKey("date") as! NSString).substringFromIndex(5)
                 
                 switch (i) {
                     case 0:
@@ -389,8 +395,9 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
                         break;
                 }
                 label = self.weatherLabelArray![i] as! UILabel
-                label.text = model!["info"]!!["day"]!![1] as? String
-                
+                let infoDic =  (model?.objectForKey("info"))! as! NSMutableDictionary
+                let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+                label.text = dayArray[1] as? String
             }
         }
     }
@@ -404,10 +411,12 @@ class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
                 label = self.weatherLabelArray![i] as! UILabel
                 
                 let model = weathermodel?.weather[i]
-                label.text = "周" + (model!["week"] as? String)!
+                let infoDic =  (model!.objectForKey("info"))! as! NSMutableDictionary
+                let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
                 
+                label.text = "周" + (model!.objectForKey("week") as? String)!
                 label = self.tiltileLabelArray![i] as! UILabel
-                label.text = model!["info"]!!["night"]!![1] as? String
+                label.text = nightArray[1] as? String
                 
             }
         }
