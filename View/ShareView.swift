@@ -12,7 +12,7 @@ import SVProgressHUD
 class ShareView: UIView {
     
     var  content: String?
-    var  image: String?
+    var  image: UIImage?
     var  title: String?
     var  url: String?
     var  descriptions: String?
@@ -143,15 +143,18 @@ class ShareView: UIView {
         }
         var publishContent: ISSContent
         
+        if (self.content == nil) {
+            self.content = "想容易，就用易"
+        }
+        if (self.url == nil) {
+             self.url = "www.xzzai.com"
+        }
         
-        self.content = "想容易，就用易"
-        self.url = "www.xzzai.com"
-    
         if type == ShareTypeWeixiTimeline || type == ShareTypeQQ {
  
              publishContent = ShareSDK.content(self.content! as String,
                 defaultContent: self.content! as String,
-                image:ShareSDK.imageWithUrl(self.image),
+                image:ShareSDK.pngImageWithImage(self.image),
                 title: self.title! as String,
                 url: self.url! as String,
                 description: self.content! as String,
@@ -159,7 +162,7 @@ class ShareView: UIView {
         }else if type == ShareTypeWeixiSession{
              publishContent = ShareSDK.content(self.content! as String,
                 defaultContent: self.content! as String,
-                image:ShareSDK.imageWithUrl(self.image),
+                image:ShareSDK.pngImageWithImage(self.image),
                 title:"用易",
                 url: self.url! as String,
                 description: self.content! as String,
@@ -167,7 +170,7 @@ class ShareView: UIView {
         }else{
             publishContent = ShareSDK.content(self.content! as String,
                 defaultContent: "用易",
-                image:ShareSDK.imageWithUrl(self.image),
+                image:ShareSDK.pngImageWithImage(self.image),
                 title:"用易分享",
                 url: self.url! as String,
                 description: self.content! as String,

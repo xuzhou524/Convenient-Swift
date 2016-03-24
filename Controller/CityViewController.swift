@@ -73,10 +73,10 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityCell.shanChuView?.tag = indexPath.row + 100
         cityCell.bgScrollView?.tag = indexPath.row + 1000
         
-        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("deleteLocalCity:"))
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(CityViewController.deleteLocalCity(_:)))
         cityCell.shanChuView!.addGestureRecognizer(tapGestureRecognizer)
    
-        let scrollViewRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("selectModel:"))
+        let scrollViewRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(CityViewController.selectModel(_:)))
         cityCell.bgScrollView!.addGestureRecognizer(scrollViewRecognizer)
         
         return cityCell

@@ -63,7 +63,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        leftButton.addTarget(self, action: Selector("leftClick"), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
         
         let rightShareButton = UIButton()
         rightShareButton.frame = CGRectMake(0, 0, 21, 21)
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
         rightShareButton.adjustsImageWhenHighlighted = false
         rightShareButton.setImage(UIImage(named: "share"), forState: .Normal)
-        rightShareButton.addTarget(self, action: Selector("rightShareClick"), forControlEvents: .TouchUpInside)
+        rightShareButton.addTarget(self, action: #selector(HomeViewController.rightShareClick), forControlEvents: .TouchUpInside)
         
         let rightMoreButton = UIButton()
         rightMoreButton.frame = CGRectMake(0, 0, 21, 21)
@@ -79,7 +79,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightMoreButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
         rightMoreButton.setImage(UIImage(named: "gengduo"), forState: .Normal)
         rightMoreButton.adjustsImageWhenHighlighted = false
-        rightMoreButton.addTarget(self, action: Selector("rightMoreClick"), forControlEvents: .TouchUpInside)
+        rightMoreButton.addTarget(self, action: #selector(HomeViewController.rightMoreClick), forControlEvents: .TouchUpInside)
         
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
         
@@ -107,14 +107,24 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func rightShareClick(){
-//        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
-//        UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
-//        UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);//然后将该图片保存到图片图
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(UIApplication.sharedApplication().keyWindow!.frame), CGRectGetHeight(UIApplication.sharedApplication().keyWindow!.frame)), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+        UIApplication.sharedApplication().keyWindow!.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
+   
         
         let shareView = ShareView()
-        shareView.title = "想容易，就用易"
+        shareView.title = "用易"
+        shareView.image = viewImage
+        
+        let modelDic = self.weatherMdoel.weather[0]
+        let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
+        let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+        let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
+        
+        let str: String = "  " + (nightArray[2] as? String)! + "℃ ~ " + (dayArray[2] as? String)! + "℃  想容易，就用易"
+        
+        shareView.content = modelDic.objectForKey("date") as! String  + (self.weatherMdoel.realtime?.city_name)! + " " + (self.weatherMdoel.realtime?.weather?.info)! + str
         shareView.showInWindowAnimated(true)
     }
     
