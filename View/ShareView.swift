@@ -116,6 +116,9 @@ class ShareView: UIView {
     //复制
     func didChangeCapyForFriend(){
         let paseteboard = UIPasteboard.generalPasteboard()
+        if (self.content == nil) {
+            self.content = "想容易，就用易"
+        }
         paseteboard.string = self.content
         SVProgressHUD.showSuccessWithStatus("复制成功")
         self.removeFromWindowAnmated(true)
