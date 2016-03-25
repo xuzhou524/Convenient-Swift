@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class Weather_titleTabeleViewCell: UITableViewCell {
     var pm25IconImageView : UIImageView?
     var pm25TiltileLabel : UILabel?
@@ -110,7 +109,6 @@ class WeatherTabeleViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.subView()
-
     }
     
     func subView()->Void{
@@ -179,14 +177,12 @@ class WeatherTabeleViewCell: UITableViewCell {
             make.right.greaterThanOrEqualTo(self.contentView).offset(-15)
         });
         
-      
         warmBgView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(self.warmPromptLabel!).offset(0)
             make.top.equalTo(self.warmPromptLabel!).offset(-5)
             make.right.equalTo(self.warmPromptLabel!).offset(-0)
             make.bottom.equalTo(self.warmPromptLabel!).offset(5)
         }
-   
     }
     
     func bind(weathermodel:WeatherModel?)->Void{
@@ -210,8 +206,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     var minWeatherArray : NSMutableArray?
     var maxWeatherStr : String?
     var minWeatherStr : String?
-    
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -222,14 +217,11 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
     func configUI()->Void{
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
-        print(self.weakWeatherArray)
-        
         if (chartView  != nil){
             chartView?.removeFromSuperview()
             chartView = nil
         }
         chartView = UUChart.init(frame: CGRectMake(0,0,UIScreen.mainScreen().bounds.size.width, 120), dataSource: self, style: .Line)
-    
         chartView?.showInView(self.contentView)
     }
     
@@ -418,7 +410,6 @@ class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
                 
                 label = self.tiltileLabelArray![i] as! UILabel
                 label.text = nightArray[1] as? String
-                
             }
         }
     }

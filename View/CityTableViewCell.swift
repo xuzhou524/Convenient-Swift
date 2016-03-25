@@ -154,6 +154,7 @@ class addCityNullTabelView: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebView()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.sebView()
@@ -219,9 +220,7 @@ class addCitySearchTabelView: UITableViewCell {
             make.top.equalTo(self.contentView)
             make.height.equalTo(40)
         });
-        
     }
-    
 }
 
 class citySearch_ResultsTabelView: UITableViewCell {
@@ -229,7 +228,6 @@ class citySearch_ResultsTabelView: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         self.sebView()
     }
     
