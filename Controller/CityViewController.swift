@@ -95,18 +95,16 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func deleteLocalCity(tap:UITapGestureRecognizer){
-        
         self.weatherArray.removeObjectAtIndex(((tap.view?.tag)! - 100))
         TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
         self.tableView.reloadData()
         
     }
+    
     func selectModel(tap:UITapGestureRecognizer){
-        
         let weatherModel = self.weatherArray[((tap.view?.tag)! - 1000)]  as! WeatherModel
         self.myFunc!(cityName: (weatherModel.realtime?.city_name)!);
         self.navigationController?.popViewControllerAnimated(true)
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

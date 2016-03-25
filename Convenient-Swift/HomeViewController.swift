@@ -82,8 +82,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         rightMoreButton.addTarget(self, action: #selector(HomeViewController.rightMoreClick), forControlEvents: .TouchUpInside)
         
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
-        
-        
+    
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
             self!.asyncRequestData()
         }
@@ -112,7 +111,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
    
-        
         let shareView = ShareView()
         shareView.title = "用易"
         shareView.image = viewImage

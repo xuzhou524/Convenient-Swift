@@ -95,7 +95,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     func backupgroupTap(){
-        UIApplication.sharedApplication() .sendAction(Selector("resignFirstResponder"), to: nil, from: nil, forEvent: nil)
+        UIApplication.sharedApplication() .sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -128,7 +128,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
             //去重
             var tempBool = true
-            for  var i = 0 ; i < self.weatherArray.count - 1; i++ {
+            for  i in 0  ..< self.weatherArray.count - 1 {
                 let models = self.weatherArray[i] as! WeatherModel
                 if models.realtime?.city_code == model.realtime?.city_code{
                     self.weatherArray.removeObjectAtIndex(i)
