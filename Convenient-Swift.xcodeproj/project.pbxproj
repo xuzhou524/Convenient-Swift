@@ -219,6 +219,8 @@
 		53E713161C8FC5DF002D4238 /* share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713141C8FC5DF002D4238 /* share@3x.png */; };
 		53E713181C8FF68C002D4238 /* XZSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E713171C8FF68C002D4238 /* XZSetting.swift */; };
 		53E7131A1C8FFC93002D4238 /* XZClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E713191C8FFC93002D4238 /* XZClient.swift */; };
+		53EE33011CA914E50034127F /* arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EE32FF1CA914E50034127F /* arrow_right@2x.png */; };
+		53EE33021CA914E50034127F /* arrow_right@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EE33001CA914E50034127F /* arrow_right@3x.png */; };
 		53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1A1C910CB500307BAE /* CityViewController.swift */; };
 		53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */; };
 		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
@@ -473,6 +475,8 @@
 		53E713141C8FC5DF002D4238 /* share@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@3x.png"; sourceTree = "<group>"; };
 		53E713171C8FF68C002D4238 /* XZSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZSetting.swift; sourceTree = "<group>"; };
 		53E713191C8FFC93002D4238 /* XZClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XZClient.swift; sourceTree = "<group>"; };
+		53EE32FF1CA914E50034127F /* arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@2x.png"; sourceTree = "<group>"; };
+		53EE33001CA914E50034127F /* arrow_right@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@3x.png"; sourceTree = "<group>"; };
 		53EF6C1A1C910CB500307BAE /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
@@ -607,6 +611,8 @@
 				532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */,
 				532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */,
 				532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */,
+				53EE32FF1CA914E50034127F /* arrow_right@2x.png */,
+				53EE33001CA914E50034127F /* arrow_right@3x.png */,
 				5329A9FB1C996329003B7364 /* about_criticism.png */,
 				5329A9FC1C996329003B7364 /* about_praise.png */,
 				5329A9F91C995BAD003B7364 /* icon.png */,
@@ -1099,6 +1105,7 @@
 				530D952F1C8D6B64005342BF /* w23.png in Resources */,
 				531BA0471C8E7AA60019FFA9 /* 良_彩色@3x.png in Resources */,
 				530D953A1C8D6B64005342BF /* w33.png in Resources */,
+				53EE33021CA914E50034127F /* arrow_right@3x.png in Resources */,
 				532406AF1CA158CA00CE03CD /* fenxiang_fuzhi@2x.png in Resources */,
 				530D952A1C8D6B64005342BF /* w19.png in Resources */,
 				532406B11CA158CA00CE03CD /* fenxiang_kongjian@2x.png in Resources */,
@@ -1191,6 +1198,7 @@
 				530D95281C8D6B64005342BF /* w17.png in Resources */,
 				530D94ED1C8D6B64005342BF /* cm_weathericon_17@2x.png in Resources */,
 				530D95371C8D6B64005342BF /* w30.png in Resources */,
+				53EE33011CA914E50034127F /* arrow_right@2x.png in Resources */,
 				531BA0491C8E7AA60019FFA9 /* 轻_彩色@3x.png in Resources */,
 				530D95131C8D6B64005342BF /* cm_weathericon_4@2x.png in Resources */,
 				5382DED11C9BC2DC00F08BAD /* Resource.bundle in Resources */,
