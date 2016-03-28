@@ -48,6 +48,7 @@ class BaseTableViewCell: UITableViewCell {
         self.detaileLabel?.text = "v1.0.0"
         self.detaileLabel?.textColor = XZSwiftColor.textColor
         self.detaileLabel?.font = XZFont2(14)
+        self.detaileLabel?.textAlignment = .Right;
         self.contentView.addSubview(self.detaileLabel!)
         self.detaileLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo((self.rightImage?.snp_left)!).offset(-5)
