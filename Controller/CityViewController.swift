@@ -8,16 +8,20 @@
 
 import UIKit
 import TMCache
+import GoogleMobileAds
 
 typealias cityViewbackfunc=(cityName:NSString)->Void
 
-class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,GADBannerViewDelegate {
     
     var myFunc = cityViewbackfunc?()
+    
+    var bannerImageView: GADBannerView!
     
     func cityViewBack(mathFunction:(cityName:NSString)->Void ){
         myFunc = mathFunction
     }
+    
     
     var weatherArray = NSMutableArray()
     private var _tableView: UITableView!
@@ -43,9 +47,24 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.tableView.snp_makeConstraints{ (make) -> Void in
             make.top.right.bottom.left.equalTo(self.view);
         }
+        
+        self.bannerImageView = GADBannerView()
+        self.view.addSubview(self.bannerImageView)
+        self.bannerImageView.snp_makeConstraints { (make) in
+            make.right.bottom.left.equalTo(self.view);
+            make.height.equalTo(60)
+        }
+        self.bannerImageView.delegate = self
+        self.bannerImageView.adUnitID = "ca-app-pub-3469552292226288/9081240452";
+        self.bannerImageView.rootViewController = self
+        self.bannerImageView.loadRequest(GADRequest())
+        
+        
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
         }
+        
+    
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
