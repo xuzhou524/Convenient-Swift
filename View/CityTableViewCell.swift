@@ -70,7 +70,8 @@ class CityTableViewCell: UITableViewCell {
         self.weatherImageView?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(bgView)
             make.top.equalTo(bgView).offset(10)
-            make.width.height.equalTo(35)
+            make.height.equalTo(35)
+            make.width.equalTo(45)
         });
         
         self.weatherLabel = UILabel()
@@ -135,15 +136,16 @@ class CityTableViewCell: UITableViewCell {
     }
     
     func bind(weathermodel:WeatherModel) ->Void{
-        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (weathermodel.realtime!.weather!.img)!)
-        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
-        self.cityNameLabel?.text = weathermodel.realtime!.city_name
         let modelDic = weathermodel.weather[0]
-    
         let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
         let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
         let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
-
+        
+        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
+        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
+        self.cityNameLabel?.text = weathermodel.realtime!.city_name
+        
+        
         self.weatherSLabel?.text =  (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
     }
 }

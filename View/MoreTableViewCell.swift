@@ -94,7 +94,7 @@ class More_InterTableViewCell: UITableViewCell {
         });
     
         let linView = UIView()
-        linView.backgroundColor = XZSwiftColor.textColor
+        linView.backgroundColor = XZSwiftColor.xzGlay230
         self.contentView.addSubview(linView)
         linView.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.contentView)

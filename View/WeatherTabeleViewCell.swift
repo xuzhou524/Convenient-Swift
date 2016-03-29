@@ -119,7 +119,8 @@ class WeatherTabeleViewCell: UITableViewCell {
         self.weatherIconIamgeView?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self.contentView)
             make.top.equalTo(self.contentView).offset(20)
-            make.width.height.equalTo(80)
+            make.height.equalTo(80)
+            make.width.equalTo(105)
         });
         
         self.weatherLabel = UILabel()
@@ -187,8 +188,12 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     func bind(weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
-            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (weathermodel?.realtime!.weather!.img)!)
-            self.weatherLabel?.text = weathermodel!.realtime!.weather!.info
+            let modelDic = weathermodel!.weather[0]
+            let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
+            let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            
+            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
+            self.weatherLabel?.text = dayArray[1] as? String
             self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
             self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
             self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!

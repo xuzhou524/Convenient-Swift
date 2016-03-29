@@ -69,7 +69,7 @@ class MoreTableViewController: UITableViewController {
         }
         if indexPath.row == 4 {
             baseCell.titleLabel?.text = "新浪微博"
-            baseCell.detaileLabel?.text = "Aaron_徐"
+            baseCell.detaileLabel?.text = "徐_Aaron"
         }
         if indexPath.row == 5 {
             baseCell.titleLabel?.text = "服务QQ"
