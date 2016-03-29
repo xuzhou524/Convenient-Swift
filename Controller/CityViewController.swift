@@ -15,13 +15,11 @@ typealias cityViewbackfunc=(cityName:NSString)->Void
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,GADBannerViewDelegate {
     
     var myFunc = cityViewbackfunc?()
-    
     var bannerImageView: GADBannerView!
     
     func cityViewBack(mathFunction:(cityName:NSString)->Void ){
         myFunc = mathFunction
     }
-    
     
     var weatherArray = NSMutableArray()
     private var _tableView: UITableView!
@@ -59,12 +57,9 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.bannerImageView.rootViewController = self
         self.bannerImageView.loadRequest(GADRequest())
         
-        
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
         }
-        
-    
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
