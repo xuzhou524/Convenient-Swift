@@ -55,7 +55,13 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.bannerImageView.delegate = self
         self.bannerImageView.adUnitID = "ca-app-pub-3469552292226288/9081240452";
         self.bannerImageView.rootViewController = self
+        
+        //let request = GADRequest()
+        //request.testDevices = ["f84968b686cb1f266b37ce5cc92db60f"]
+        //self.bannerImageView.loadRequest(request)
+
         self.bannerImageView.loadRequest(GADRequest())
+        
         
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
