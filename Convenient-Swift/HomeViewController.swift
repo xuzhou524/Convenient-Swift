@@ -19,7 +19,7 @@ import SVProgressHUD
 let kTMCacheWeatherArray = "kTMCacheWeatherArray"
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    //text
+    
     var weatherMdoel = WeatherModel()
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
