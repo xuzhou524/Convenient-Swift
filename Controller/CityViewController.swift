@@ -15,6 +15,9 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var myFunc = cityViewbackfunc?()
     
+    
+    
+    
     func cityViewBack(mathFunction:(cityName:NSString)->Void ){
         myFunc = mathFunction
     }
