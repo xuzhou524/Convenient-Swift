@@ -120,7 +120,7 @@ class WeatherTabeleViewCell: UITableViewCell {
             make.centerX.equalTo(self.contentView)
             make.top.equalTo(self.contentView).offset(20)
             make.height.equalTo(80)
-            make.width.equalTo(105)
+            make.width.equalTo(80)
         });
         
         self.weatherLabel = UILabel()
