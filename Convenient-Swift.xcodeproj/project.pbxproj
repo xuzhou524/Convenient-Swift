@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		03EA6B1EEFCED9E16BE532E7 /* Pods_Convenient_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B006B6B36DBE9A7F413E4AE0 /* Pods_Convenient_Swift.framework */; };
+		5301C6231CAD4D7000634670 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5301C6191CAD4D7000634670 /* GoogleMobileAds.framework */; };
+		5301C6241CAD4D7000634670 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5301C6211CAD4D7000634670 /* README.txt */; };
+		5301C6251CAD4D7000634670 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5301C6221CAD4D7000634670 /* README.txt */; };
 		530778321C92B9B40010E65C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778311C92B9B40010E65C /* BaseModel.m */; };
 		530778501C92BAF60010E65C /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778371C92BAF60010E65C /* JSONModel.m */; };
 		530778511C92BAF60010E65C /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 530778391C92BAF60010E65C /* JSONModelArray.m */; };
@@ -229,6 +232,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5301C6191CAD4D7000634670 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5301C61B1CAD4D7000634670 /* GADMAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		5301C61C1CAD4D7000634670 /* GADMAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		5301C61D1CAD4D7000634670 /* GADMediationAdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMediationAdRequest.h; sourceTree = "<group>"; };
+		5301C61E1CAD4D7000634670 /* GADMEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMEnums.h; sourceTree = "<group>"; };
+		5301C61F1CAD4D7000634670 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		5301C6201CAD4D7000634670 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		5301C6211CAD4D7000634670 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5301C6221CAD4D7000634670 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		530778301C92B9B40010E65C /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		530778311C92B9B40010E65C /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		530778361C92BAF60010E65C /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
@@ -498,6 +510,7 @@
 				53B502851C99450400A024DE /* JavaScriptCore.framework in Frameworks */,
 				53B502831C9944F900A024DE /* libstdc++.tbd in Frameworks */,
 				5382DED31C9BC2DC00F08BAD /* TencentOpenAPI.framework in Frameworks */,
+				5301C6231CAD4D7000634670 /* GoogleMobileAds.framework in Frameworks */,
 				5382DEC91C9BC2DC00F08BAD /* QQConnection.framework in Frameworks */,
 				5382DED81C9BC2DC00F08BAD /* ShareSDK.framework in Frameworks */,
 				5382DED01C9BC2DC00F08BAD /* MOBFoundation.framework in Frameworks */,
@@ -526,6 +539,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5301C6181CAD4D7000634670 /* GoogleMobileAdsSdkiOS-7.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5301C6191CAD4D7000634670 /* GoogleMobileAds.framework */,
+				5301C61A1CAD4D7000634670 /* Mediation Adapters */,
+				5301C6221CAD4D7000634670 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.7.0";
+			sourceTree = "<group>";
+		};
+		5301C61A1CAD4D7000634670 /* Mediation Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				5301C61B1CAD4D7000634670 /* GADMAdNetworkAdapterProtocol.h */,
+				5301C61C1CAD4D7000634670 /* GADMAdNetworkConnectorProtocol.h */,
+				5301C61D1CAD4D7000634670 /* GADMediationAdRequest.h */,
+				5301C61E1CAD4D7000634670 /* GADMEnums.h */,
+				5301C61F1CAD4D7000634670 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */,
+				5301C6201CAD4D7000634670 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */,
+				5301C6211CAD4D7000634670 /* README.txt */,
+			);
+			path = "Mediation Adapters";
+			sourceTree = "<group>";
+		};
 		530778331C92BAF60010E65C /* JSONModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +947,7 @@
 		53917E431C89619C002200C1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				5301C6181CAD4D7000634670 /* GoogleMobileAdsSdkiOS-7.7.0 */,
 				5382DE971C9BC2DC00F08BAD /* ShareSDK */,
 				530D95521C8D7F91005342BF /* DGElasticPullToRefresh */,
 				53917E591C897B85002200C1 /* UUChart */,
@@ -1162,6 +1200,7 @@
 				5382DEDE1C9BC2DC00F08BAD /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				530D95221C8D6B64005342BF /* w11.png in Resources */,
 				532406BA1CA158CA00CE03CD /* fenxiang_weixin@3x.png in Resources */,
+				5301C6241CAD4D7000634670 /* README.txt in Resources */,
 				53B7B9E81CAA349400072029 /* cm_weathericon_33@2x.png in Resources */,
 				53B7B9DD1CAA349400072029 /* cm_weathericon_27@3x.png in Resources */,
 				530D95361C8D6B64005342BF /* w3.png in Resources */,
@@ -1176,6 +1215,7 @@
 				53B7B9D51CAA349400072029 /* cm_weathericon_23@3x.png in Resources */,
 				530D95311C8D6B64005342BF /* w25.png in Resources */,
 				531BA04C1C8E7AA60019FFA9 /* 中_彩色@2x.png in Resources */,
+				5301C6251CAD4D7000634670 /* README.txt in Resources */,
 				530D952B1C8D6B64005342BF /* w2.png in Resources */,
 				53B7B9DF1CAA349400072029 /* cm_weathericon_28@3x.png in Resources */,
 				530D953F1C8D6B64005342BF /* w38.png in Resources */,
@@ -1494,6 +1534,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Core",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.7.0",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1543,6 +1584,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Core",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.7.0",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
