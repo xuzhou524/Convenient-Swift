@@ -46,6 +46,12 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
             make.top.right.bottom.left.equalTo(self.view);
         }
         
+        self.bannerImageView = GADBannerView()
+        self.view.addSubview(self.bannerImageView)
+        self.bannerImageView.snp_makeConstraints { (make) in
+            make.right.bottom.left.equalTo(self.view);
+            make.height.equalTo(60)
+        }
         self.bannerImageView.delegate = self
         self.bannerImageView.adUnitID = "ca-app-pub-3469552292226288/9081240452";
         self.bannerImageView.rootViewController = self
