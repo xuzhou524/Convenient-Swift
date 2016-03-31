@@ -93,6 +93,9 @@
 		532406B81CA158CA00CE03CD /* fenxiang_weibo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */; };
 		532406B91CA158CA00CE03CD /* fenxiang_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */; };
 		532406BA1CA158CA00CE03CD /* fenxiang_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */; };
+		532757001CAA88D40082D370 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532756F61CAA88D40082D370 /* GoogleMobileAds.framework */; };
+		532757011CAA88D40082D370 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 532756FE1CAA88D40082D370 /* README.txt */; };
+		532757021CAA88D40082D370 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 532756FF1CAA88D40082D370 /* README.txt */; };
 		5329A9FA1C995BAD003B7364 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9F91C995BAD003B7364 /* icon.png */; };
 		5329A9FD1C996329003B7364 /* about_criticism.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FB1C996329003B7364 /* about_criticism.png */; };
 		5329A9FE1C996329003B7364 /* about_praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FC1C996329003B7364 /* about_praise.png */; };
@@ -328,6 +331,15 @@
 		532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weibo@3x.png"; sourceTree = "<group>"; };
 		532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@2x.png"; sourceTree = "<group>"; };
 		532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@3x.png"; sourceTree = "<group>"; };
+		532756F61CAA88D40082D370 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		532756F81CAA88D40082D370 /* GADMAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		532756F91CAA88D40082D370 /* GADMAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		532756FA1CAA88D40082D370 /* GADMediationAdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMediationAdRequest.h; sourceTree = "<group>"; };
+		532756FB1CAA88D40082D370 /* GADMEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMEnums.h; sourceTree = "<group>"; };
+		532756FC1CAA88D40082D370 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		532756FD1CAA88D40082D370 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		532756FE1CAA88D40082D370 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		532756FF1CAA88D40082D370 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		5329A9F91C995BAD003B7364 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5329A9FB1C996329003B7364 /* about_criticism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_criticism.png; sourceTree = "<group>"; };
 		5329A9FC1C996329003B7364 /* about_praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_praise.png; sourceTree = "<group>"; };
@@ -498,6 +510,7 @@
 				53B502851C99450400A024DE /* JavaScriptCore.framework in Frameworks */,
 				53B502831C9944F900A024DE /* libstdc++.tbd in Frameworks */,
 				5382DED31C9BC2DC00F08BAD /* TencentOpenAPI.framework in Frameworks */,
+				532757001CAA88D40082D370 /* GoogleMobileAds.framework in Frameworks */,
 				5382DEC91C9BC2DC00F08BAD /* QQConnection.framework in Frameworks */,
 				5382DED81C9BC2DC00F08BAD /* ShareSDK.framework in Frameworks */,
 				5382DED01C9BC2DC00F08BAD /* MOBFoundation.framework in Frameworks */,
@@ -790,6 +803,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		532756F51CAA88D40082D370 /* GoogleMobileAdsSdkiOS-7.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				532756F61CAA88D40082D370 /* GoogleMobileAds.framework */,
+				532756F71CAA88D40082D370 /* Mediation Adapters */,
+				532756FF1CAA88D40082D370 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.7.0";
+			sourceTree = "<group>";
+		};
+		532756F71CAA88D40082D370 /* Mediation Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				532756F81CAA88D40082D370 /* GADMAdNetworkAdapterProtocol.h */,
+				532756F91CAA88D40082D370 /* GADMAdNetworkConnectorProtocol.h */,
+				532756FA1CAA88D40082D370 /* GADMediationAdRequest.h */,
+				532756FB1CAA88D40082D370 /* GADMEnums.h */,
+				532756FC1CAA88D40082D370 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */,
+				532756FD1CAA88D40082D370 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */,
+				532756FE1CAA88D40082D370 /* README.txt */,
+			);
+			path = "Mediation Adapters";
+			sourceTree = "<group>";
+		};
 		5349260C1C86E29E0077A8A6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +947,7 @@
 		53917E431C89619C002200C1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				532756F51CAA88D40082D370 /* GoogleMobileAdsSdkiOS-7.7.0 */,
 				5382DE971C9BC2DC00F08BAD /* ShareSDK */,
 				530D95521C8D7F91005342BF /* DGElasticPullToRefresh */,
 				53917E591C897B85002200C1 /* UUChart */,
@@ -1162,6 +1200,7 @@
 				5382DEDE1C9BC2DC00F08BAD /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				530D95221C8D6B64005342BF /* w11.png in Resources */,
 				532406BA1CA158CA00CE03CD /* fenxiang_weixin@3x.png in Resources */,
+				532757011CAA88D40082D370 /* README.txt in Resources */,
 				53B7B9E81CAA349400072029 /* cm_weathericon_33@2x.png in Resources */,
 				53B7B9DD1CAA349400072029 /* cm_weathericon_27@3x.png in Resources */,
 				530D95361C8D6B64005342BF /* w3.png in Resources */,
@@ -1176,6 +1215,7 @@
 				53B7B9D51CAA349400072029 /* cm_weathericon_23@3x.png in Resources */,
 				530D95311C8D6B64005342BF /* w25.png in Resources */,
 				531BA04C1C8E7AA60019FFA9 /* 中_彩色@2x.png in Resources */,
+				532757021CAA88D40082D370 /* README.txt in Resources */,
 				530D952B1C8D6B64005342BF /* w2.png in Resources */,
 				53B7B9DF1CAA349400072029 /* cm_weathericon_28@3x.png in Resources */,
 				530D953F1C8D6B64005342BF /* w38.png in Resources */,
@@ -1494,6 +1534,8 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Core",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAds",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.7.0",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1508,6 +1550,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAds",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1543,6 +1586,8 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Core",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAds",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.7.0",
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1557,6 +1602,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAds",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Convenient.Convenient-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";

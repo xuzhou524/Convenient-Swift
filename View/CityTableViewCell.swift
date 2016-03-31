@@ -69,9 +69,9 @@ class CityTableViewCell: UITableViewCell {
         bgView.addSubview(self.weatherImageView!)
         self.weatherImageView?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(bgView)
-            make.top.equalTo(bgView).offset(10)
-            make.height.equalTo(35)
-            make.width.equalTo(45)
+            make.top.equalTo(bgView).offset(15)
+            make.height.equalTo(30)
+            make.width.equalTo(30)
         });
         
         self.weatherLabel = UILabel()
