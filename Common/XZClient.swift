@@ -8,12 +8,16 @@
 
 import UIKit
 let KplacemarkName = "me.XZ.placemarkName"
-
+let KweatherTefurbishTime = "me.XZ.weatherTefurbishTime"
 
 
 class XZClient: NSObject {
    static let sharedInstance = XZClient()
-   dynamic var username:String?
+    
+   dynamic var username: String?
+    dynamic var weatherTefurbishTime: String?
+    
+    
    private override init() {
         super.init()
         self.setupInMainThread()
@@ -35,6 +39,12 @@ class XZClient: NSObject {
             self.username = "北京"
         }else{
             self.username = XZSetting.sharedInstance[KplacemarkName]
+        }
+        
+        if (XZSetting.sharedInstance[KweatherTefurbishTime] == nil){
+            self.weatherTefurbishTime = "2016-01-01"
+        }else{
+            self.weatherTefurbishTime = XZSetting.sharedInstance[KweatherTefurbishTime]
         }
         
     }

@@ -176,14 +176,18 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }
             
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-            print(TMCache.sharedCache().objectForKey(kTMCacheWeatherArray))
+            
+            let date = NSDate()
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "MM-dd HH:mm"
+            let strNowTime = timeFormatter.stringFromDate(date) as String
+            
+            XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
+            
             self.tableView.dg_stopLoading()
             self.tableView .reloadData()
             }, failure: { (error) -> Void in
                 self.tableView.dg_stopLoading()
-                
-                
-                
          })
     }
     
