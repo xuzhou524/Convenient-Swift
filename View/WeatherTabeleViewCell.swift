@@ -69,7 +69,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
     
     func bind(model:WeatherModel?)->Void{
         if model != nil{
-             self.weatherRefreshLabel?.text = XZSetting.sharedInstance[KweatherTefurbishTime]! + " 发布"
+             self.weatherRefreshLabel?.text = XZSetting.sharedInstance[KweatherTefurbishTime]! + " 更新"
             
             if Int((model?.pm25?.pm25?.pm25)!) < 50 {
                 self.pm25IconImageView?.image = UIImage(named:"优_彩色")

@@ -44,10 +44,6 @@ class CityTableViewCell: UITableViewCell {
         self.bgScrollView?.showsHorizontalScrollIndicator = false
         self.bgScrollView?.layer.borderWidth = 0.5
         self.bgScrollView!.layer.cornerRadius = 3.0;
-//        self.bgScrollView?.layer.shadowColor = XZSwiftColor.navignationColor.CGColor
-//        self.bgScrollView?.layer.shadowOffset = CGSizeMake(0, 0);
-//        self.bgScrollView?.layer.shadowOpacity = 1;
-//        self.bgScrollView?.layer.shadowRadius = 2;
         self.bgScrollView?.layer.borderColor = XZSwiftColor.whiteColor().CGColor
         self.contentView.addSubview(self.bgScrollView!)
         
