@@ -96,7 +96,6 @@
 		532406B81CA158CA00CE03CD /* fenxiang_weibo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */; };
 		532406B91CA158CA00CE03CD /* fenxiang_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */; };
 		532406BA1CA158CA00CE03CD /* fenxiang_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */; };
-		5329A9FA1C995BAD003B7364 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9F91C995BAD003B7364 /* icon.png */; };
 		5329A9FD1C996329003B7364 /* about_criticism.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FB1C996329003B7364 /* about_criticism.png */; };
 		5329A9FE1C996329003B7364 /* about_praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FC1C996329003B7364 /* about_praise.png */; };
 		5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */; };
@@ -226,6 +225,8 @@
 		53EE33021CA914E50034127F /* arrow_right@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EE33001CA914E50034127F /* arrow_right@3x.png */; };
 		53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1A1C910CB500307BAE /* CityViewController.swift */; };
 		53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */; };
+		53F86B3A1CB6475300B8FE07 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53F86B381CB6475300B8FE07 /* Icon-60@2x.png */; };
+		53F86B3B1CB6475300B8FE07 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53F86B391CB6475300B8FE07 /* Icon-60@3x.png */; };
 		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
 		53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */; };
 		53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD858B1C91647900BCF3EF /* CityMdoel.swift */; };
@@ -340,7 +341,6 @@
 		532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weibo@3x.png"; sourceTree = "<group>"; };
 		532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@2x.png"; sourceTree = "<group>"; };
 		532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@3x.png"; sourceTree = "<group>"; };
-		5329A9F91C995BAD003B7364 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5329A9FB1C996329003B7364 /* about_criticism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_criticism.png; sourceTree = "<group>"; };
 		5329A9FC1C996329003B7364 /* about_praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_praise.png; sourceTree = "<group>"; };
 		5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -491,6 +491,8 @@
 		53EE33001CA914E50034127F /* arrow_right@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@3x.png"; sourceTree = "<group>"; };
 		53EF6C1A1C910CB500307BAE /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		53F86B381CB6475300B8FE07 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		53F86B391CB6475300B8FE07 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
 		53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
 		53FD858B1C91647900BCF3EF /* CityMdoel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMdoel.swift; sourceTree = "<group>"; };
@@ -652,7 +654,8 @@
 				53EE33001CA914E50034127F /* arrow_right@3x.png */,
 				5329A9FB1C996329003B7364 /* about_criticism.png */,
 				5329A9FC1C996329003B7364 /* about_praise.png */,
-				5329A9F91C995BAD003B7364 /* icon.png */,
+				53F86B381CB6475300B8FE07 /* Icon-60@2x.png */,
+				53F86B391CB6475300B8FE07 /* Icon-60@3x.png */,
 				53E713091C8FBE10002D4238 /* fujindizhi@2x.png */,
 				53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */,
 				53E713131C8FC5DF002D4238 /* share@2x.png */,
@@ -1177,7 +1180,6 @@
 				53B7B9BC1CAA349400072029 /* cm_weathericon_12@2x.png in Resources */,
 				530D95231C8D6B64005342BF /* w12.png in Resources */,
 				53B7B9D11CAA349400072029 /* cm_weathericon_21@3x.png in Resources */,
-				5329A9FA1C995BAD003B7364 /* icon.png in Resources */,
 				530D952E1C8D6B64005342BF /* w22.png in Resources */,
 				530D952C1C8D6B64005342BF /* w20.png in Resources */,
 				53B7B9CF1CAA349400072029 /* cm_weathericon_20@3x.png in Resources */,
@@ -1269,6 +1271,7 @@
 				532406B71CA158CA00CE03CD /* fenxiang_weibo@2x.png in Resources */,
 				53E713081C8FBDEA002D4238 /* fujindizhi@3x.png in Resources */,
 				53B7B9DC1CAA349400072029 /* cm_weathericon_27@2x.png in Resources */,
+				53F86B3A1CB6475300B8FE07 /* Icon-60@2x.png in Resources */,
 				533D6D821C9A8E7B00262DC1 /* Main.storyboard in Resources */,
 				530D95401C8D6B64005342BF /* w4.png in Resources */,
 				530D95201C8D6B64005342BF /* w1.png in Resources */,
@@ -1282,6 +1285,7 @@
 				532406B41CA158CA00CE03CD /* fenxiang_pengyouquan@3x.png in Resources */,
 				530D95271C8D6B64005342BF /* w16.png in Resources */,
 				53B7B9EC1CAA349400072029 /* cm_weathericon_4@2x.png in Resources */,
+				53F86B3B1CB6475300B8FE07 /* Icon-60@3x.png in Resources */,
 				530D953D1C8D6B64005342BF /* w36.png in Resources */,
 				532406B81CA158CA00CE03CD /* fenxiang_weibo@3x.png in Resources */,
 				53B7B9ED1CAA349400072029 /* cm_weathericon_4@3x.png in Resources */,
