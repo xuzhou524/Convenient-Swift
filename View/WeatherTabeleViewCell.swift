@@ -188,12 +188,37 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     func bind(weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
+
             let modelDic = weathermodel!.weather[0]
             let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
             let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
             
-            self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
-            self.weatherLabel?.text = dayArray[1] as? String
+            //当前时间戳
+            let date = NSDate()
+            let dateStamp:NSTimeInterval = date.timeIntervalSince1970
+            let dateSt:Int = Int(dateStamp)
+ 
+            let dfmatter = NSDateFormatter()
+            dfmatter.dateFormat="yyyy-MM-dd HH:mm"
+            //日出时间戳
+            let dayStr = dfmatter.dateFromString(modelDic.objectForKey("date") as! String + " " + (dayArray[5] as! String))
+            let dayStamp:NSTimeInterval = dayStr!.timeIntervalSince1970
+            let daySt:Int = Int(dayStamp)
+  
+            //日落时间戳
+            let nightStr = dfmatter.dateFromString(modelDic.objectForKey("date") as! String + " " + (nightArray[5] as! String))
+            let nightStamp:NSTimeInterval = nightStr!.timeIntervalSince1970
+            let nightSt:Int = Int(nightStamp)
+
+            if dateSt >= daySt && dateSt <= nightSt {
+                self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
+                self.weatherLabel?.text = dayArray[1] as? String
+            }else{
+                self.weatherIconIamgeView?.image = UIImage(named:"cm_weathericon_" + (nightArray[0] as! String))
+                self.weatherLabel?.text = nightArray[1] as? String
+            }
+            
             self.weatherCurrentLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
             self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
             self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
