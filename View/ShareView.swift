@@ -262,7 +262,7 @@ class ShareBaseView: UIView {
         
         self.label?.snp_makeConstraints(closure: { (make) -> Void in
             make.centerX.equalTo(self)
-            make.top.equalTo((self.btn?.snp_bottom)!).offset(-15)
+            make.top.equalTo((self.btn?.snp_bottom)!).offset(-10)
         });
     }
     

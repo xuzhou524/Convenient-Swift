@@ -26,6 +26,7 @@ class MoreTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.iconImageView = UIImageView()
         self.iconImageView!.layer.cornerRadius = 15.0;
+        self.iconImageView?.layer.masksToBounds = true
         self.iconImageView?.image = UIImage(named: "Icon-60")
         self.contentView.addSubview(self.iconImageView!)
         self.iconImageView?.snp_makeConstraints(closure: { (make) -> Void in
