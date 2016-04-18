@@ -62,6 +62,7 @@ class MoreTableViewController: UITableViewController {
         }
         let baseCell = getCell(tableView, cell: BaseTableViewCell.self, indexPath: indexPath)
         baseCell.selectionStyle = .None
+        baseCell.rightImage?.hidden = true
         
         if indexPath.row == 3 {
             baseCell.titleLabel?.text = "服务热线"
@@ -81,6 +82,7 @@ class MoreTableViewController: UITableViewController {
                 // app版本
                 let appVersion = info["CFBundleShortVersionString"] as! String!
                 baseCell.detaileLabel?.text = "v" + appVersion
+                baseCell.rightImage?.hidden = false
             }
         }
         return baseCell
