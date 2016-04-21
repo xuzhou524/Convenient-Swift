@@ -77,6 +77,7 @@ class More_InterTableViewCell: UITableViewCell {
         
         self.zanImageView = UIImageView()
         self.zanImageView!.layer.cornerRadius = 15.0;
+        self.zanImageView?.userInteractionEnabled = true
         self.zanImageView?.image = UIImage(named: "about_praise")
         oneView.addSubview(self.zanImageView!)
         self.zanImageView?.snp_makeConstraints(closure: { (make) -> Void in
@@ -115,6 +116,7 @@ class More_InterTableViewCell: UITableViewCell {
         
         self.tuImageView = UIImageView()
         self.tuImageView!.layer.cornerRadius = 15.0;
+        self.tuImageView?.userInteractionEnabled = true
         self.tuImageView?.image = UIImage(named: "about_criticism")
         twoView.addSubview(self.tuImageView!)
         self.tuImageView?.snp_makeConstraints(closure: { (make) -> Void in
