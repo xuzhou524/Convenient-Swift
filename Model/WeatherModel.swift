@@ -104,7 +104,6 @@ class weather_infoModel: BaseModel {
 
 func requestModel< T: BaseModel >(method: Alamofire.Method, _ URLString: URLStringConvertible, parameters: [String: AnyObject]? = nil, success: (T) -> Void, failure: (NSError?) -> Void) {
     Alamofire.request(.POST, URLString , parameters: parameters, encoding: .URL).responseJSON{ (response) -> Void in
-        print(response)
         if response.result.error == nil {
             if let dict = response.result.value as? NSDictionary {
                 if let dicts = dict["result"] as? NSDictionary {

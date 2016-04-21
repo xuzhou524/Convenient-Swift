@@ -402,7 +402,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
                 label = self.tiltileLabelArray![i] as! UILabel
                 
                 let model = weathermodel?.weather[i]
-                print(model)
+
                 let str = (model?.objectForKey("date") as! NSString).substringFromIndex(5)
                 
                 switch (i) {

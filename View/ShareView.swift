@@ -181,10 +181,9 @@ class ShareView: UIView {
         }
         ShareSDK.clientShareContent(publishContent, type: type, statusBarTips: true) { (type:ShareType,state:SSResponseState,statusInfo:ISSPlatformShareInfo!,error:ICMErrorInfo!,end:Bool) -> Void in
             if state == SSResponseStateSuccess{
-                print("分享成功")
+               
             }else if state == SSResponseStateFail {
-                print(error.errorCode())
-                print(error.errorDescription())
+                
             }
         }
     }
