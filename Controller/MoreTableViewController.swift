@@ -50,6 +50,8 @@ class MoreTableViewController: UITableViewController {
         }
         if indexPath.row == 1{
             let interCell = getCell(tableView, cell: More_InterTableViewCell.self, indexPath: indexPath)
+            interCell.zanImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(MoreTableViewController.zanImageViewTap)))
+            interCell.tuImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(MoreTableViewController.tuImageView)))
             interCell.selectionStyle = .None
             return interCell
         }
@@ -87,14 +89,20 @@ class MoreTableViewController: UITableViewController {
         }
         return baseCell
     }
-    
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 3{
             UIApplication.sharedApplication().openURL(NSURL(string:"tel://18514235240")!);
         }
         if indexPath.row == 5{
             UIApplication.sharedApplication().openURL(NSURL(string:"mqq://im/chat?chat_type=wpa&uin=1043037904&version=1&src_type=web")!);
         }
+    }
+    
+    func zanImageViewTap(){
+        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/app/id1106215431")!);
+    }
+    func tuImageView(){
+        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1106215431")!);
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

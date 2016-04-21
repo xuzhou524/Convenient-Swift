@@ -150,7 +150,7 @@ class ShareView: UIView {
             self.content = "想容易，就用易"
         }
         if (self.url == nil) {
-             self.url = "www.xzzai.com"
+             self.url = "https://itunes.apple.com/cn/app/id1106215431"
         }
         
         if type == ShareTypeWeixiTimeline || type == ShareTypeQQ {

@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         #else
             Fabric.with([Crashlytics.self])
         #endif
-      //  Fabric.sharedSDK().debug = true
         
         WXApi.registerApp("wx88234dc1246eb81b", withDescription: "用易")
         self.shareSetup()

@@ -64,7 +64,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             make.top.equalTo((self.citySearchBar?.snp_bottom)!).offset(5)
         }
     
-        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("backupgroupTap"))
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(AddCityTableViewController.backupgroupTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGestureRecognizer)
         tapGestureRecognizer.cancelsTouchesInView = false
