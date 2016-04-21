@@ -1,9 +1,9 @@
 
-platform:ios,'8.0'
+platform:ios,’8.0’
 use_frameworks!
 
 def pods
-   pod 'Alamofire', '~> 3.1.4'
+   pod 'Alamofire', '~> 3.1.4’
    pod 'SnapKit', '~> 0.18.0'
    pod 'KVOController', '~> 1.0.3'
    pod 'jastor', '~> 0.2.1'

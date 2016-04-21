@@ -145,7 +145,6 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             self.navigationController?.popViewControllerAnimated(true)
             
             }, failure: { (error) -> Void in
-                print(error)
         })
     }
     override func didReceiveMemoryWarning() {
