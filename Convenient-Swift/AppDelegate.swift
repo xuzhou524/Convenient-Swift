@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         let centerNav = XZSwiftNavigationController(rootViewController: HomeViewController());
     
         self.window?.rootViewController = centerNav;
+    
         #if DEBUG
         #else
             Fabric.with([Crashlytics.self])
