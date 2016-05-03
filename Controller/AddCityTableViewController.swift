@@ -11,13 +11,13 @@ import Alamofire
 import TMCache
 import SVProgressHUD
 
-typealias callbackfunc=(cityName:NSString)->Void
+typealias callbackfunc=(weatherModel:WeatherModel)->Void
 
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
     var myFunc = callbackfunc?()
     
-    func initBack(mathFunction:(cityName:NSString)->Void ){
+    func initBack(mathFunction:(weatherModel:WeatherModel)->Void ){
         myFunc = mathFunction
     }
     
@@ -141,7 +141,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             }
             TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
             
-            self.myFunc!(cityName: (model.realtime?.city_name)!);
+            self.myFunc!(weatherModel:model);
             self.navigationController?.popViewControllerAnimated(true)
             
             }, failure: { (error) -> Void in
