@@ -144,6 +144,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     func asyncRequestData() -> Void{
         
+        
         //http://www.data321.com/e6bb5a30
         //根据城市名称  获取城市ID
         //http://apistore.baidu.com/microservice/cityinfo?cityname=北京
