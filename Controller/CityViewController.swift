@@ -10,14 +10,14 @@ import UIKit
 import TMCache
 import GoogleMobileAds
 
-typealias cityViewbackfunc=(cityName:NSString)->Void
+typealias cityViewbackfunc=(weatherModel:WeatherModel)->Void
 
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,GADBannerViewDelegate{
     
     var myFunc = cityViewbackfunc?()
     var bannerImageView: GADBannerView!
     
-    func cityViewBack(mathFunction:(cityName:NSString)->Void ){
+    func cityViewBack(mathFunction:(weatherModel:WeatherModel)->Void ){
         myFunc = mathFunction
     }
     
@@ -100,10 +100,10 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == self.weatherArray.count{
             let addCityVC = AddCityTableViewController()
-            addCityVC.initBack({ (cityName) -> Void in
+            addCityVC.initBack({ (weatherModel) -> Void in
                 self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
                 self.tableView.reloadData()
-                self.myFunc!(cityName: cityName);
+                self.myFunc!(weatherModel: weatherModel);
             })
             self.navigationController?.pushViewController(addCityVC, animated: true)
         }
@@ -118,7 +118,7 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func selectModel(tap:UITapGestureRecognizer){
         let weatherModel = self.weatherArray[((tap.view?.tag)! - 1000)]  as! WeatherModel
-        self.myFunc!(cityName: (weatherModel.realtime?.city_name)!);
+        self.myFunc!(weatherModel: weatherModel);
         self.navigationController?.popViewControllerAnimated(true)
     }
     override func didReceiveMemoryWarning() {
