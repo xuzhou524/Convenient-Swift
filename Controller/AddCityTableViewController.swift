@@ -16,6 +16,7 @@ typealias callbackfunc=(weatherModel:WeatherModel)->Void
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
     var myFunc = callbackfunc?()
+     var alamofireManager : Manager?
     
     func initBack(mathFunction:(weatherModel:WeatherModel)->Void ){
         myFunc = mathFunction
@@ -78,8 +79,12 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 "timespan" : "1457518656000",
                 "type" : "search"
             ]
+            
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            config.timeoutIntervalForRequest = 30    // 秒
+            self.alamofireManager = Manager(configuration: config)
             SVProgressHUD.show()
-            Alamofire.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("") {
+            self.alamofireManager!.request(.GET, urlString, parameters:prames, encoding: .URL, headers: nil).responseObject("") {
                 (response : Response<CityMdoel,NSError>) in
                 if let model = response.result.value{
                     if model.data?.count > 0{
