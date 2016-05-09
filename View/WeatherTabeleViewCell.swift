@@ -97,6 +97,11 @@ class WeatherTabeleViewCell: UITableViewCell {
     var weatherLabel : UILabel?
     var weatherCurrentLabel : UILabel?
     
+    var bgView : UIView?
+    var oneNambelLabel : UILabel?
+    var twoNambelLabel : UILabel?
+    
+    
     var windLabel : UILabel?
     var humidityLabel : UILabel?
     var warmPromptLabel : UILabel?
@@ -113,12 +118,106 @@ class WeatherTabeleViewCell: UITableViewCell {
     
     func subView()->Void{
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        self.bgView = UIView()
+        self.bgView?.hidden = true
+        self.bgView!.backgroundColor = XZSwiftColor.clearColor()
+        self.contentView.addSubview(self.bgView!)
+        self.bgView!.snp_makeConstraints(closure: { (make) -> Void in
+            make.right.equalTo(self.contentView).offset(-15)
+            make.top.equalTo(self.contentView).offset(10)
+            make.height.equalTo(60)
+            make.width.equalTo(85)
+        });
         
+        let xianXingGrayView = UIView()
+        xianXingGrayView.layer.cornerRadius = 5;
+        xianXingGrayView.backgroundColor = XZSwiftColor.xzGlay230
+        self.bgView!.addSubview(xianXingGrayView)
+        xianXingGrayView.snp_makeConstraints(closure: { (make) -> Void in
+            
+            make.right.equalTo(self.contentView).offset(-15)
+            make.top.equalTo(self.contentView).offset(10)
+            make.height.equalTo(28)
+            make.width.equalTo(85)
+        });
+        
+        let xianXingWView = UIView()
+        xianXingWView.backgroundColor = XZSwiftColor.whiteColor()
+        self.bgView!.addSubview(xianXingWView)
+        xianXingWView.snp_makeConstraints(closure: { (make) -> Void in
+            make.left.right.equalTo(xianXingGrayView)
+            make.top.equalTo(xianXingGrayView.snp_bottom).offset(-3)
+            make.height.equalTo(33.5)
+        });
+        
+        let xianXingbgView = UIView()
+        xianXingbgView.layer.borderWidth = 1.0
+        xianXingbgView.layer.cornerRadius = 3.0;
+        xianXingbgView.layer.borderColor = XZSwiftColor.xzGlay230.CGColor
+        xianXingbgView.backgroundColor = XZSwiftColor.clearColor()
+        self.bgView!.addSubview(xianXingbgView)
+        xianXingbgView.snp_makeConstraints(closure: { (make) -> Void in
+            make.left.right.top.bottom.equalTo(self.bgView!)
+        });
+        
+        let linView = UIView()
+        linView.layer.cornerRadius = 5;
+        linView.backgroundColor = XZSwiftColor.xzGlay230
+        xianXingWView.addSubview(linView)
+        linView.snp_makeConstraints(closure: { (make) -> Void in
+            make.center.equalTo(xianXingWView)
+            make.height.equalTo(25)
+            make.width.equalTo(1)
+        });
+        
+        let xianXingLabel = UILabel()
+        xianXingLabel.font = XZFont2(13)
+        xianXingLabel.text = "今日限行"
+        xianXingLabel.textColor = XZSwiftColor.textColor
+        xianXingGrayView.addSubview(xianXingLabel)
+        xianXingLabel.snp_makeConstraints(closure: { (make) -> Void in
+            make.center.equalTo(xianXingGrayView)
+        });
+        
+        let oneView = UIView()
+        oneView.backgroundColor = XZSwiftColor.clearColor()
+        xianXingWView.addSubview(oneView)
+        oneView.snp_makeConstraints(closure: { (make) -> Void in
+            make.left.top.bottom.equalTo(xianXingWView)
+            make.right.equalTo(xianXingWView.snp_centerX).offset(-0.5)
+        });
+        
+        self.oneNambelLabel = UILabel()
+        self.oneNambelLabel!.font = XZFont3(25)
+        self.oneNambelLabel!.text = "0"
+        self.oneNambelLabel!.textColor = XZSwiftColor.textColor
+        oneView.addSubview(self.oneNambelLabel!)
+        self.oneNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
+            make.center.equalTo(oneView)
+        });
+        
+        let twoView = UIView()
+        twoView.backgroundColor = XZSwiftColor.clearColor()
+        xianXingWView.addSubview(twoView)
+        twoView.snp_makeConstraints(closure: { (make) -> Void in
+            make.right.top.bottom.equalTo(xianXingWView)
+            make.left.equalTo(xianXingWView.snp_centerX).offset(0.5)
+        });
+        
+        self.twoNambelLabel = UILabel()
+        self.twoNambelLabel!.font = XZFont3(25)
+        self.twoNambelLabel!.text = "1"
+        self.twoNambelLabel!.textColor = XZSwiftColor.textColor
+        twoView.addSubview(self.twoNambelLabel!)
+        self.twoNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
+            make.center.equalTo(twoView)
+        });
+    
         self.weatherIconIamgeView = UIImageView()
         self.contentView.addSubview(self.weatherIconIamgeView!)
         self.weatherIconIamgeView?.snp_makeConstraints(closure: { (make) -> Void in
-            make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.contentView).offset(20)
+            make.centerX.equalTo(self.contentView).offset(-10)
+            make.top.equalTo(self.contentView).offset(30)
             make.height.equalTo(80)
             make.width.equalTo(80)
         });
@@ -223,6 +322,16 @@ class WeatherTabeleViewCell: UITableViewCell {
             self.humidityLabel?.text = "湿度  " + (weathermodel!.realtime?.weather?.humidity)! + "%"
             self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
             self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
+            
+            if ((weathermodel?.xxweihao) != nil) {
+                self.bgView?.hidden = false
+                let oneStr = weathermodel?.xxweihao![0] as! NSNumber
+                self.oneNambelLabel?.text = oneStr.stringValue
+                let twoStr = weathermodel?.xxweihao![1] as! NSNumber
+                self.twoNambelLabel?.text = twoStr.stringValue
+            }else{
+               self.bgView?.hidden = true
+            }
         }
     }
 }

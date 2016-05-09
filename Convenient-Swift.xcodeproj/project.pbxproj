@@ -226,6 +226,8 @@
 		53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */; };
 		53F86B3A1CB6475300B8FE07 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53F86B381CB6475300B8FE07 /* Icon-60@2x.png */; };
 		53F86B3B1CB6475300B8FE07 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53F86B391CB6475300B8FE07 /* Icon-60@3x.png */; };
+		53FA88B61CE073590078CCDA /* pmBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA88B41CE073590078CCDA /* pmBg@3x.png */; };
+		53FA88B71CE073590078CCDA /* pmBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA88B51CE073590078CCDA /* pmBg@2x.png */; };
 		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
 		53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */; };
 		53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD858B1C91647900BCF3EF /* CityMdoel.swift */; };
@@ -491,6 +493,8 @@
 		53EF6C1E1C910D6900307BAE /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		53F86B381CB6475300B8FE07 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		53F86B391CB6475300B8FE07 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		53FA88B41CE073590078CCDA /* pmBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pmBg@3x.png"; sourceTree = "<group>"; };
+		53FA88B51CE073590078CCDA /* pmBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pmBg@2x.png"; sourceTree = "<group>"; };
 		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
 		53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
 		53FD858B1C91647900BCF3EF /* CityMdoel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMdoel.swift; sourceTree = "<group>"; };
@@ -644,6 +648,8 @@
 				532406A81CA158CA00CE03CD /* fenxiang_pengyouquan@3x.png */,
 				532406A91CA158CA00CE03CD /* fenxiang_QQ@2x.png */,
 				532406AA1CA158CA00CE03CD /* fenxiang_QQ@3x.png */,
+				53FA88B41CE073590078CCDA /* pmBg@3x.png */,
+				53FA88B51CE073590078CCDA /* pmBg@2x.png */,
 				532406AB1CA158CA00CE03CD /* fenxiang_weibo@2x.png */,
 				532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */,
 				532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */,
@@ -1224,6 +1230,7 @@
 				53B7B9CD1CAA349400072029 /* cm_weathericon_1@3x.png in Resources */,
 				53B7B9F21CAA349400072029 /* cm_weathericon_7@2x.png in Resources */,
 				531BA04E1C8E7AA60019FFA9 /* 重_彩色@2x.png in Resources */,
+				53FA88B71CE073590078CCDA /* pmBg@2x.png in Resources */,
 				53B7B9D41CAA349400072029 /* cm_weathericon_23@2x.png in Resources */,
 				53B7B9E11CAA349400072029 /* cm_weathericon_29@3x.png in Resources */,
 				53B7B9E91CAA349400072029 /* cm_weathericon_33@3x.png in Resources */,
@@ -1285,6 +1292,7 @@
 				530D953D1C8D6B64005342BF /* w36.png in Resources */,
 				532406B81CA158CA00CE03CD /* fenxiang_weibo@3x.png in Resources */,
 				53B7B9ED1CAA349400072029 /* cm_weathericon_4@3x.png in Resources */,
+				53FA88B61CE073590078CCDA /* pmBg@3x.png in Resources */,
 				53B7B9C11CAA349400072029 /* cm_weathericon_14@3x.png in Resources */,
 				530D95381C8D6B64005342BF /* w31.png in Resources */,
 			);

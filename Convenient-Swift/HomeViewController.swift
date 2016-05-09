@@ -26,6 +26,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     var weatherlocalArray = NSMutableArray()
     var cycle : DGElasticPullToRefreshLoadingViewCircle?
     
+    var alamofireManager : Manager?
+    var xxWeiHaoArray = NSMutableArray()
+    
     private var _tableView : UITableView!
     private var tableView :UITableView{
         get{
@@ -187,12 +190,55 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
             XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
             
+            self.asyncRequestXianXingData()
             self.tableView.dg_stopLoading()
             self.tableView .reloadData()
+            
             }, failure: { (error) -> Void in
-                self.tableView.reloadData()
                 self.tableView.dg_stopLoading()
          })
+    }
+    func asyncRequestXianXingData() {
+            let str = NSMutableString(string:self.requCityName) as CFMutableString
+            var pingYin = "";
+            if CFStringTransform(str, nil, kCFStringTransformToLatin, false)  {
+               if CFStringTransform(str, nil, kCFStringTransformStripDiacritics, false) {
+                  pingYin = str as String
+               }
+             }
+            var tempArray = pingYin.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            pingYin = tempArray[0] as String
+            for i in 1  ..< tempArray.count  {
+                pingYin = pingYin.stringByAppendingString(tempArray[i] as String)
+            }
+            let urlString = "http://v.juhe.cn/xianxing/index?"
+            let prames = [
+                "key" : "4c5e32ce5726136069ece29f59b989da",
+                "city" : pingYin,
+                "type" : "1"
+            ]
+            
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            config.timeoutIntervalForRequest = 30    // 秒
+            self.alamofireManager = Manager(configuration: config)
+        
+            self.alamofireManager!.request(.POST, urlString , parameters: prames, encoding: .URL).responseJSON{ (response) -> Void in
+            if response.result.error == nil {
+                if let dict = response.result.value as? NSDictionary {
+                    if let dicts = dict["result"] as? NSDictionary {
+                        if let dictss = dicts["xxweihao"] as? NSMutableArray {
+                            let tempSet = self.weatherArray.indexOfObject(self.HomeWeatherMdoel)
+                            self.weatherArray.removeObject(self.HomeWeatherMdoel)
+                            self.HomeWeatherMdoel.xxweihao = dictss
+                            self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempSet)
+                            
+                            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                            self.tableView .reloadData()
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
