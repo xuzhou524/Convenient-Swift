@@ -94,6 +94,8 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                     }else{
                         SVProgressHUD.showErrorWithStatus("请输入正确城市")
                     }
+                }else{
+                    SVProgressHUD.showErrorWithStatus("请检查网络")
                 }
             }
         }
