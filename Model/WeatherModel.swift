@@ -16,7 +16,7 @@ class WeatherModel: BaseModel {
     var pm25 : Weather_pm25Model?
     var realtime : Weather_realtimeModel?
     var weather : NSMutableArray = [weather_weatherModel()]
-    
+    var xxweihao : NSMutableArray?
 
     
    
