@@ -87,6 +87,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
     
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
+            self!.requCityName = XZClient.sharedInstance.username!
+            self!.navigationItem.title = XZClient.sharedInstance.username!
             self!.asyncRequestData()
         }
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
