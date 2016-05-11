@@ -323,12 +323,15 @@ class WeatherTabeleViewCell: UITableViewCell {
             self.windLabel?.text = (weathermodel?.realtime!.wind!.direct!)! + "  " + weathermodel!.realtime!.wind!.power!
             self.warmPromptLabel?.text = weathermodel?.pm25!.pm25!.des
             
-            if ((weathermodel?.xxweihao) != nil) {
+            if (weathermodel?.xxweihao?.Lenght > 0) {
                 self.bgView?.hidden = false
-                let oneStr = weathermodel?.xxweihao![0] as! NSNumber
-                self.oneNambelLabel?.text = oneStr.stringValue
-                let twoStr = weathermodel?.xxweihao![1] as! NSNumber
-                self.twoNambelLabel?.text = twoStr.stringValue
+                
+                let rang = weathermodel?.xxweihao?.rangeOfString(",")
+            
+                let oneStr = weathermodel?.xxweihao?.substringToIndex((rang?.startIndex)!)
+                self.oneNambelLabel?.text = oneStr
+                let twoStr = weathermodel?.xxweihao?.substringFromIndex((rang?.endIndex)!)
+                self.twoNambelLabel?.text = twoStr
             }else{
                self.bgView?.hidden = true
             }
