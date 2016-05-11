@@ -226,13 +226,13 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                     self.HomeWeatherMdoel.xxweihao = temp.content
                     self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempInt)
                     TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-                    self.tableView .reloadData()
                 }
                 break
             case .Failure(let error):
                 debugPrint(error)
                 break
             }
+            self.tableView .reloadData()
             self.tableView.dg_stopLoading()
         }
     }
