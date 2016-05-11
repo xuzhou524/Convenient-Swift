@@ -15,6 +15,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import "TFHpple.h"
 
 #define ScreenWidth     [[UIScreen mainScreen] bounds].size.width
 #define ScreenHeight    [[UIScreen mainScreen] bounds].size.height

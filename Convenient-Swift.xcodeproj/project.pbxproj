@@ -211,6 +211,10 @@
 		53B7B9F51CAA349400072029 /* cm_weathericon_8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B31CAA349400072029 /* cm_weathericon_8@3x.png */; };
 		53B7B9F61CAA349400072029 /* cm_weathericon_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B41CAA349400072029 /* cm_weathericon_9@2x.png */; };
 		53B7B9F71CAA349400072029 /* cm_weathericon_9@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B51CAA349400072029 /* cm_weathericon_9@3x.png */; };
+		53C81DD81CE1EAB80092BEF3 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD31CE1EAB80092BEF3 /* TFHpple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		53C81DD91CE1EAB80092BEF3 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD51CE1EAB80092BEF3 /* TFHppleElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		53C81DDA1CE1EAB80092BEF3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD71CE1EAB80092BEF3 /* XPathQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		53C81DDC1CE1EAF90092BEF3 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C81DDB1CE1EAF90092BEF3 /* libxml2.2.tbd */; };
 		53E713081C8FBDEA002D4238 /* fujindizhi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */; };
 		53E7130A1C8FBE10002D4238 /* fujindizhi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713091C8FBE10002D4238 /* fujindizhi@2x.png */; };
 		53E713151C8FC5DF002D4238 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53E713131C8FC5DF002D4238 /* share@2x.png */; };
@@ -226,6 +230,7 @@
 		53FA88B61CE073590078CCDA /* pmBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA88B41CE073590078CCDA /* pmBg@3x.png */; };
 		53FA88B71CE073590078CCDA /* pmBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA88B51CE073590078CCDA /* pmBg@2x.png */; };
 		53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */; };
+		53FBBE0D1CE30570007796D8 /* TailRestrictions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBE0C1CE30570007796D8 /* TailRestrictions.plist */; };
 		53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */; };
 		53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FD858B1C91647900BCF3EF /* CityMdoel.swift */; };
 /* End PBXBuildFile section */
@@ -468,6 +473,13 @@
 		53B7B9B31CAA349400072029 /* cm_weathericon_8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_8@3x.png"; sourceTree = "<group>"; };
 		53B7B9B41CAA349400072029 /* cm_weathericon_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_9@2x.png"; sourceTree = "<group>"; };
 		53B7B9B51CAA349400072029 /* cm_weathericon_9@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_9@3x.png"; sourceTree = "<group>"; };
+		53C81DD21CE1EAB80092BEF3 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		53C81DD31CE1EAB80092BEF3 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		53C81DD41CE1EAB80092BEF3 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		53C81DD51CE1EAB80092BEF3 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		53C81DD61CE1EAB80092BEF3 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		53C81DD71CE1EAB80092BEF3 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		53C81DDB1CE1EAF90092BEF3 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		53E712FE1C8FB800002D4238 /* webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = webfont.ttf; sourceTree = "<group>"; };
 		53E713071C8FBDEA002D4238 /* fujindizhi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fujindizhi@3x.png"; sourceTree = "<group>"; };
 		53E713091C8FBE10002D4238 /* fujindizhi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fujindizhi@2x.png"; sourceTree = "<group>"; };
@@ -484,6 +496,7 @@
 		53FA88B41CE073590078CCDA /* pmBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pmBg@3x.png"; sourceTree = "<group>"; };
 		53FA88B51CE073590078CCDA /* pmBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pmBg@2x.png"; sourceTree = "<group>"; };
 		53FBB90E1C880F990076C002 /* WeatherTabeleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTabeleViewCell.swift; sourceTree = "<group>"; };
+		53FBBE0C1CE30570007796D8 /* TailRestrictions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TailRestrictions.plist; sourceTree = "<group>"; };
 		53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
 		53FD858B1C91647900BCF3EF /* CityMdoel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMdoel.swift; sourceTree = "<group>"; };
 		5687926651BA603ADEE9E172 /* Pods-Convenient-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Convenient-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -496,6 +509,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C81DDC1CE1EAF90092BEF3 /* libxml2.2.tbd in Frameworks */,
 				53B502871C99451C00A024DE /* MessageUI.framework in Frameworks */,
 				5382DEC81C9BC2DC00F08BAD /* MailConnection.framework in Frameworks */,
 				5382DECD1C9BC2DC00F08BAD /* WeChatConnection.framework in Frameworks */,
@@ -916,6 +930,13 @@
 		53917E431C89619C002200C1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				53FBBE0C1CE30570007796D8 /* TailRestrictions.plist */,
+				53C81DD21CE1EAB80092BEF3 /* TFHpple.h */,
+				53C81DD31CE1EAB80092BEF3 /* TFHpple.m */,
+				53C81DD41CE1EAB80092BEF3 /* TFHppleElement.h */,
+				53C81DD51CE1EAB80092BEF3 /* TFHppleElement.m */,
+				53C81DD61CE1EAB80092BEF3 /* XPathQuery.h */,
+				53C81DD71CE1EAB80092BEF3 /* XPathQuery.m */,
 				5382DE971C9BC2DC00F08BAD /* ShareSDK */,
 				530D95521C8D7F91005342BF /* DGElasticPullToRefresh */,
 				53917E591C897B85002200C1 /* UUChart */,
@@ -1019,6 +1040,7 @@
 		C74482A3D9F72EF11F6AE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53C81DDB1CE1EAF90092BEF3 /* libxml2.2.tbd */,
 				53B502861C99451C00A024DE /* MessageUI.framework */,
 				53B502841C99450400A024DE /* JavaScriptCore.framework */,
 				53B502821C9944F900A024DE /* libstdc++.tbd */,
@@ -1147,6 +1169,7 @@
 				53B7B9D11CAA349400072029 /* cm_weathericon_21@3x.png in Resources */,
 				530D952E1C8D6B64005342BF /* w22.png in Resources */,
 				530D952C1C8D6B64005342BF /* w20.png in Resources */,
+				53FBBE0D1CE30570007796D8 /* TailRestrictions.plist in Resources */,
 				53B7B9CF1CAA349400072029 /* cm_weathericon_20@3x.png in Resources */,
 				53B7B9B81CAA349400072029 /* cm_weathericon_10@2x.png in Resources */,
 				53B7B9C01CAA349400072029 /* cm_weathericon_14@2x.png in Resources */,
@@ -1329,6 +1352,7 @@
 				530778561C92BAF60010E65C /* JSONHTTPClient.m in Sources */,
 				530778531C92BAF60010E65C /* JSONModelError.m in Sources */,
 				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
+				53C81DD81CE1EAB80092BEF3 /* TFHpple.m in Sources */,
 				5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
@@ -1347,6 +1371,7 @@
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
 				53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */,
 				530778511C92BAF60010E65C /* JSONModelArray.m in Sources */,
+				53C81DDA1CE1EAB80092BEF3 /* XPathQuery.m in Sources */,
 				531C23F01C8599420009E0E6 /* AppDelegate.swift in Sources */,
 				534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */,
 				53917E661C897B85002200C1 /* UUBar.m in Sources */,
@@ -1357,6 +1382,7 @@
 				53917E6B1C897B85002200C1 /* UULineChart.m in Sources */,
 				530778591C92BAF60010E65C /* JSONValueTransformer.m in Sources */,
 				530D955B1C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
+				53C81DD91CE1EAB80092BEF3 /* TFHppleElement.m in Sources */,
 				530778581C92BAF60010E65C /* JSONKeyMapper.m in Sources */,
 				5307785B1C92BAF60010E65C /* README.md in Sources */,
 				53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */,
@@ -1504,6 +1530,13 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1553,6 +1586,13 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Core",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
