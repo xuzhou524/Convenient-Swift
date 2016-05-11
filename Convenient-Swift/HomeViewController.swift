@@ -126,9 +126,10 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         
         let str: String = "  " + (nightArray[2] as? String)! + "℃ ~ " + (dayArray[2] as? String)! + "℃  想容易，就用易"
-        
-        shareView.content = modelDic.objectForKey("date") as! String  + (self.HomeWeatherMdoel.realtime?.city_name)! + " " + (self.HomeWeatherMdoel.realtime?.weather?.info)! + str
-        shareView.showInWindowAnimated(true)
+        if (modelDic.objectForKey("date") != nil) {
+            shareView.content = modelDic.objectForKey("date") as! String  + (self.HomeWeatherMdoel.realtime?.city_name)! + " " + (self.HomeWeatherMdoel.realtime?.weather?.info)! + str
+            shareView.showInWindowAnimated(true)
+        }
     }
     
     func rightMoreClick(){
