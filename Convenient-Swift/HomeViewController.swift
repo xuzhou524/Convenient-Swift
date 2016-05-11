@@ -159,66 +159,59 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         //获取天气信息
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
         WeatherModel.like(self.requCityName, success: { (model) -> Void in
-            self.HomeWeatherMdoel = model
-            if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
-                self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
-            }
-            //去重
-            var tempBool = true
-            for  i in 0  ..< self.weatherArray.count {
-                let model = self.weatherArray[i] as! WeatherModel
-                if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code{
-                    self.weatherArray.removeObjectAtIndex(i)
-                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
-                    tempBool = false
-                    break
+                self.HomeWeatherMdoel = model
+                if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
+                    self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
                 }
-            }
-            if tempBool{
-                self.weatherArray.addObject(self.HomeWeatherMdoel)
-            }
-            
-            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-            
-            let date = NSDate()
-            let timeFormatter = NSDateFormatter()
-            timeFormatter.dateFormat = "MM-dd HH:mm"
-            let strNowTime = timeFormatter.stringFromDate(date) as String
-            
-            XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
-            var listData: NSDictionary = NSDictionary()
-            let filePath = NSBundle.mainBundle().pathForResource("TailRestrictions.plist", ofType:nil )
-            listData = NSDictionary(contentsOfFile: filePath!)!
-            debugPrint(listData)
-            let cityId = listData.objectForKey(self.requCityName) as! String
-            if cityId.Lenght > 0{
-                self.asyncRequestXianXingData(cityId)
-            }else{
-               self.tableView .reloadData()
-               self.tableView.dg_stopLoading()
-            }
-            
+                //去重
+                var tempBool = true
+                for  i in 0  ..< self.weatherArray.count {
+                    let model = self.weatherArray[i] as! WeatherModel
+                    if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code{
+                        self.weatherArray.removeObjectAtIndex(i)
+                        self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
+                        tempBool = false
+                        break
+                    }
+                }
+                if tempBool{
+                    self.weatherArray.addObject(self.HomeWeatherMdoel)
+                }
+                
+                TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                
+                let date = NSDate()
+                let timeFormatter = NSDateFormatter()
+                timeFormatter.dateFormat = "MM-dd HH:mm"
+                let strNowTime = timeFormatter.stringFromDate(date) as String
+                
+                XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
+                var listData: NSDictionary = NSDictionary()
+                let filePath = NSBundle.mainBundle().pathForResource("TailRestrictions.plist", ofType:nil )
+                listData = NSDictionary(contentsOfFile: filePath!)!
+                let cityId = listData.objectForKey(self.requCityName) as? String
+                if (cityId != nil) {
+                    self.asyncRequestXianXingData(cityId!)
+                }else{
+                   self.tableView .reloadData()
+                   self.tableView.dg_stopLoading()
+                }
             }, failure: { (error) -> Void in
                 self.tableView.dg_stopLoading()
          })
     }
+    
     func asyncRequestXianXingData(string:String) -> Void{
-        
-        
-            let urlString = "http://forecast.sina.cn/app/lifedex/v3/html/channel.php?"
-            let prames = [
-                "ch_id" : "3",
-                "citycode" : string,
-                "pt" : "3010"
-            ]
-            
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            config.timeoutIntervalForRequest = 30    // 秒
-            self.alamofireManager = Manager(configuration: config)
-        
-        
-         self.alamofireManager!.request(.GET, urlString, parameters:prames ).responseString {response in
-            
+        let urlString = "http://forecast.sina.cn/app/lifedex/v3/html/channel.php?"
+        let prames = [
+            "ch_id" : "3",
+            "citycode" : string,
+            "pt" : "3010"
+        ]
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        config.timeoutIntervalForRequest = 30    // 秒
+        self.alamofireManager = Manager(configuration: config)
+        self.alamofireManager!.request(.GET, urlString, parameters:prames ).responseString {response in
             switch response.result {
             case .Success:
                 debugPrint(response.result)
