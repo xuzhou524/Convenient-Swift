@@ -132,16 +132,16 @@ class CityTableViewCell: UITableViewCell {
     
     func bind(weathermodel:WeatherModel) ->Void{
         let modelDic = weathermodel.weather[0]
-        let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
-        let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
-        let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
-        
-        self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
-        self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
-        self.cityNameLabel?.text = weathermodel.realtime!.city_name
-        
-        
-        self.weatherSLabel?.text =  (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
+        if (modelDic.objectForKey("info") != nil) {
+            let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
+            let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
+            
+            self.weatherImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
+            self.weatherLabel?.text = (weathermodel.realtime?.weather?.temperature)!  + "°"
+            self.cityNameLabel?.text = weathermodel.realtime!.city_name
+            self.weatherSLabel?.text =  (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
+        }
     }
 }
 
@@ -256,7 +256,9 @@ class citySearch_ResultsTabelView: UITableViewCell {
     }
     
     func bind(model: CityDataMdoel) ->Void{
-        self.searchNameLabel?.text = model.name! + " - " + model.prov!
+        if (model.name != nil  && model.prov != nil ) {
+            self.searchNameLabel?.text = model.name! + " - " + model.prov!
+        }
     }
 }
 
