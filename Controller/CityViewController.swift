@@ -43,13 +43,15 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationItem.title = "城市管理"
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
-            make.top.right.bottom.left.equalTo(self.view);
+            make.top.right.left.equalTo(self.view)
+            make.bottom.equalTo(self.view).offset(-60)
         }
         
         self.bannerImageView = GADBannerView()
+        self.bannerImageView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.view.addSubview(self.bannerImageView)
         self.bannerImageView.snp_makeConstraints { (make) in
-            make.right.bottom.left.equalTo(self.view);
+            make.right.bottom.left.equalTo(self.view)
             make.height.equalTo(60)
         }
         self.bannerImageView.delegate = self
