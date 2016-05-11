@@ -197,6 +197,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                    self.tableView.dg_stopLoading()
                 }
             }, failure: { (error) -> Void in
+                self.tableView .reloadData()
                 self.tableView.dg_stopLoading()
          })
     }
