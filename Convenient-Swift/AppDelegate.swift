@@ -76,8 +76,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
                 
                 let lenght :Int = ((p?.locality)! as String).Lenght - 1
                 if p?.locality?.Lenght > 0 {
-                   XZSetting.sharedInstance[KplacemarkName] = ((p?.locality)! as NSString).substringToIndex(lenght)
-                   XZClient.sharedInstance.username = XZSetting.sharedInstance[KplacemarkName]
+                    XZSetting.sharedInstance[KplacemarkName] = ((p?.locality)! as NSString).substringToIndex(lenght)
+                    if XZClient.sharedInstance.username != XZSetting.sharedInstance[KplacemarkName]{
+                      XZClient.sharedInstance.username = XZSetting.sharedInstance[KplacemarkName]
+                    }
                 }
             }
         }
