@@ -15,7 +15,7 @@ class XZClient: NSObject {
    static let sharedInstance = XZClient()
     
    dynamic var username: String?
-    dynamic var weatherTefurbishTime: String?
+   dynamic var weatherTefurbishTime: String?
     
     
    private override init() {

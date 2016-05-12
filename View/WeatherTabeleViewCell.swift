@@ -188,7 +188,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         self.oneNambelLabel = UILabel()
         self.oneNambelLabel!.font = XZFont3(25)
-        self.oneNambelLabel!.text = "0"
+        self.oneNambelLabel!.text = "-"
         self.oneNambelLabel!.textColor = XZSwiftColor.textColor
         oneView.addSubview(self.oneNambelLabel!)
         self.oneNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
@@ -205,7 +205,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         
         self.twoNambelLabel = UILabel()
         self.twoNambelLabel!.font = XZFont3(25)
-        self.twoNambelLabel!.text = "1"
+        self.twoNambelLabel!.text = "-"
         self.twoNambelLabel!.textColor = XZSwiftColor.textColor
         twoView.addSubview(self.twoNambelLabel!)
         self.twoNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
