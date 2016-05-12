@@ -119,7 +119,6 @@ class WeatherTabeleViewCell: UITableViewCell {
     func subView()->Void{
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.bgView = UIView()
-        self.bgView?.hidden = true
         self.bgView!.backgroundColor = XZSwiftColor.clearColor()
         self.contentView.addSubview(self.bgView!)
         self.bgView!.snp_makeConstraints(closure: { (make) -> Void in
@@ -327,7 +326,6 @@ class WeatherTabeleViewCell: UITableViewCell {
                 self.bgView?.hidden = false
                 
                 let rang = weathermodel?.xxweihao?.rangeOfString(",")
-            
                 let oneStr = weathermodel?.xxweihao?.substringToIndex((rang?.startIndex)!)
                 self.oneNambelLabel?.text = oneStr
                 let twoStr = weathermodel?.xxweihao?.substringFromIndex((rang?.endIndex)!)
