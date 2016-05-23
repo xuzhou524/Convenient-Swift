@@ -26,7 +26,7 @@ class MoreTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 7
+       return 6
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -65,20 +65,15 @@ class MoreTableViewController: UITableViewController {
         let baseCell = getCell(tableView, cell: BaseTableViewCell.self, indexPath: indexPath)
         baseCell.selectionStyle = .None
         baseCell.rightImage?.hidden = false
-        
         if indexPath.row == 3 {
-            baseCell.titleLabel?.text = "服务热线"
-            baseCell.detaileLabel?.text = "185 1423 5240"
-        }
-        if indexPath.row == 4 {
             baseCell.titleLabel?.text = "新浪微博"
             baseCell.detaileLabel?.text = "徐_Aaron"
         }
-        if indexPath.row == 5 {
+        if indexPath.row == 4 {
             baseCell.titleLabel?.text = "服务QQ"
             baseCell.detaileLabel?.text = "1043037904"
         }
-        if indexPath.row == 6 {
+        if indexPath.row == 5 {
             let infoDict = NSBundle.mainBundle().infoDictionary
             if let info = infoDict {
                 // app版本
