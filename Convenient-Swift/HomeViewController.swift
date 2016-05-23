@@ -126,7 +126,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
         let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
         
-        
         let str: String = "  " + (nightArray[2] as? String)! + "℃ ~ " + (dayArray[2] as? String)! + "℃  想容易，就用易"
         if (modelDic.objectForKey("date") != nil) {
             shareView.content = modelDic.objectForKey("date") as! String  + (self.HomeWeatherMdoel.realtime?.city_name)! + " " + (self.HomeWeatherMdoel.realtime?.weather?.info)! + str
