@@ -85,19 +85,16 @@ class MoreTableViewController: UITableViewController {
         return baseCell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 3{
-            UIApplication.sharedApplication().openURL(NSURL(string:"tel://18514235240")!);
-        }
-        if indexPath.row == 5{
-            UIApplication.sharedApplication().openURL(NSURL(string:"mqq://im/chat?chat_type=wpa&uin=1107521185&version=1&src_type=web")!);
+        if indexPath.row == 4{
+            UIApplication.sharedApplication().openURL(NSURL(string:"mqq://im/chat?chat_type=wpa&uin=1043037904&version=1&src_type=web")!);
         }
     }
     
     func zanImageViewTap(){
-        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/app/id1107521185")!);
+        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/app/id1106215431")!);
     }
     func tuImageView(){
-        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1107521185")!);
+        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1106215431")!);
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
