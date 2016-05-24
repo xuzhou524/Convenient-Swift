@@ -1507,8 +1507,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xu zhou xu zhou (34VU8KRVF8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xu zhou xu zhou (34VU8KRVF8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1554,7 +1554,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYi.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "451d9e3b-71b3-4ea0-a0ab-fefc1ad1ab88";
+				PROVISIONING_PROFILE = "fd13208d-03c8-450c-b1e1-de69589306bf";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Debug;
@@ -1565,7 +1565,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xu zhou xu zhou (34VU8KRVF8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1611,7 +1612,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYi.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "451d9e3b-71b3-4ea0-a0ab-fefc1ad1ab88";
+				PROVISIONING_PROFILE = "fd13208d-03c8-450c-b1e1-de69589306bf";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Release;
