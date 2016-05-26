@@ -172,7 +172,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 var tempBool = true
                 for  i in 0  ..< self.weatherArray.count {
                     let model = self.weatherArray[i] as! WeatherModel
-                    if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code{
+                    if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code || model.realtime?.city_name == self.HomeWeatherMdoel.realtime?.city_name{
                         self.weatherArray.removeObjectAtIndex(i)
                         self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
                         tempBool = false
