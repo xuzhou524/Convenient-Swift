@@ -135,9 +135,9 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
             //去重
             var tempBool = true
-            for  i in 0  ..< self.weatherArray.count - 1 {
+            for  i in 0  ..< self.weatherArray.count {
                 let models = self.weatherArray[i] as! WeatherModel
-                if models.realtime?.city_code == model.realtime?.city_code{
+                if models.realtime?.city_code == model.realtime?.city_code || models.realtime?.city_name == model.realtime?.city_name{
                     self.weatherArray.removeObjectAtIndex(i)
                     self.weatherArray.insertObject(model, atIndex: i)
                     tempBool = false
