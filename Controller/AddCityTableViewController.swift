@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import TMCache
 import SVProgressHUD
+import CoreLocation
 
 typealias callbackfunc=(weatherModel:WeatherModel)->Void
 
@@ -59,16 +60,41 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             make.height.equalTo(40)
         });
         
+        let location = UIView()
+        location.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(location)
+        location.snp_makeConstraints { (make) -> Void in
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(40)
+            make.top.equalTo((self.citySearchBar?.snp_bottom)!).offset(5)
+        }
+        
+        let titleLabel = UILabel()
+        titleLabel.font = XZFont2(13)
+        titleLabel.textColor = XZSwiftColor.xzGlay142
+        
+        if CLLocationManager.authorizationStatus() == .Denied {
+            titleLabel.text = "定位未开启，手机“设置” - “隐私”中打开定位服务"
+        }else{
+            titleLabel.text = "定位成功,你当前位置 北京 "
+        }
+        location.addSubview(titleLabel)
+        titleLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(location).offset(15)
+            make.centerY.equalTo(location)
+        }
+    
         self.view.addSubview(self.tableView)
         self.tableView.snp_makeConstraints { (make) -> Void in
             make.left.right.bottom.equalTo(self.view)
-            make.top.equalTo((self.citySearchBar?.snp_bottom)!).offset(5)
+            make.top.equalTo(location.snp_bottom).offset(5)
         }
     
         let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(AddCityTableViewController.backupgroupTap))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGestureRecognizer)
         tapGestureRecognizer.cancelsTouchesInView = false
+        
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
