@@ -70,13 +70,17 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         }
         
         let titleLabel = UILabel()
-        titleLabel.font = XZFont2(13)
+        titleLabel.font = XZFont2(14)
         titleLabel.textColor = XZSwiftColor.xzGlay142
         
-        if CLLocationManager.authorizationStatus() == .Denied {
-            titleLabel.text = "定位未开启，手机“设置” - “隐私”中打开定位服务"
+        if CLLocationManager.authorizationStatus() == .Denied || XZClient.sharedInstance.username == nil{
+            if CLLocationManager.authorizationStatus() == .Denied {
+                titleLabel.text = "定位未开启，手机“设置” - “隐私”中打开定位服务"
+            }else{
+                titleLabel.text = "定位失败，请检查网络，重新打开程序"
+            }
         }else{
-            titleLabel.text = "定位成功,你当前位置 北京 "
+            titleLabel.text = "定位成功,你当前位置   " + XZClient.sharedInstance.username!
         }
         location.addSubview(titleLabel)
         titleLabel.snp_makeConstraints { (make) -> Void in
