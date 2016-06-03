@@ -125,27 +125,24 @@ class ShareView: UIView {
     }
     
     func WXShare(){
-       self.share(ShareTypeWeixiSession)
+       self.share(.SubTypeWechatSession)
     }
     func WXPShare(){
-         self.share(ShareTypeWeixiTimeline)
+         self.share(.SubTypeWechatTimeline)
     }
     func SinaWeiBoShare(){
-         self.share(ShareTypeSinaWeibo)
+         self.share(.TypeSinaWeibo)
     }
     func QQShare(){
-         self.share(ShareTypeQQ)
+         self.share(.SubTypeQQFriend)
     }
     func QZoneShare(){
-         self.share(ShareTypeQQSpace)
+         self.share(.SubTypeQZone)
     }
-    func share(type: ShareType) -> Void{
+    func share(type: SSDKPlatformType) -> Void{
         self.removeFromWindowAnmated(true)
-        if type == ShareTypeSMS{
-            
-        }
-        var publishContent: ISSContent
         
+        let shareParames = NSMutableDictionary()
         if (self.content == nil) {
             self.content = "想容易，就用易"
         }
@@ -153,37 +150,27 @@ class ShareView: UIView {
              self.url = "https://itunes.apple.com/cn/app/id1106215431"
         }
         
-        if type == ShareTypeWeixiTimeline || type == ShareTypeQQ {
- 
-             publishContent = ShareSDK.content(self.content! as String,
-                defaultContent: self.content! as String,
-                image:ShareSDK.pngImageWithImage(self.image),
-                title: self.title! as String,
-                url: self.url! as String,
-                description: self.content! as String,
-                mediaType:SSPublishContentMediaTypeNews)
-        }else if type == ShareTypeWeixiSession{
-             publishContent = ShareSDK.content(self.content! as String,
-                defaultContent: self.content! as String,
-                image:ShareSDK.pngImageWithImage(self.image),
-                title:"用易",
-                url: self.url! as String,
-                description: self.content! as String,
-                mediaType:SSPublishContentMediaTypeNews)
-        }else{
-            publishContent = ShareSDK.content(self.content! as String,
-                defaultContent: "用易",
-                image:ShareSDK.pngImageWithImage(self.image),
-                title:"用易分享",
-                url: self.url! as String,
-                description: self.content! as String,
-                mediaType:SSPublishContentMediaTypeText)
+        if type == .SubTypeWechatTimeline{
+            shareParames.SSDKSetupWeChatParamsByText(self.content! as String, title: self.content! as String, url: NSURL(string:self.url! as String), thumbImage: self.image, image: nil, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, type: .Auto, forPlatformSubType: .SubTypeWechatTimeline)
+        } else{
+            shareParames.SSDKSetupShareParamsByText(self.content! as String,
+                                                    images : self.image,
+                                                    url : NSURL(string:self.url! as String),
+                                                    title : self.title! as String,
+                                                    type : SSDKContentType.Auto)
         }
-        ShareSDK.clientShareContent(publishContent, type: type, statusBarTips: true) { (type:ShareType,state:SSResponseState,statusInfo:ISSPlatformShareInfo!,error:ICMErrorInfo!,end:Bool) -> Void in
-            if state == SSResponseStateSuccess{
-               
-            }else if state == SSResponseStateFail {
-                
+
+        ShareSDK.share(type, parameters: shareParames) { (state : SSDKResponseState, userData : [NSObject : AnyObject]!, contentEntity :SSDKContentEntity!, error : NSError!) -> Void in
+            switch state{
+            case SSDKResponseState.Success:
+                if type == .TypeSinaWeibo{
+                    SVProgressHUD.showSuccessWithStatus("新浪微博分享成功");
+                }
+            break
+            case SSDKResponseState.Fail: break
+            case SSDKResponseState.Cancel: break
+            default:
+                break
             }
         }
     }

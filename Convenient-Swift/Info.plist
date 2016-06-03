@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>用易会在获取您当前位置天气等服务中使用您的位置信息。</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>用易会在获取您当前位置天气等服务中使用您的位置信息。</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -69,6 +65,9 @@
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>weibosdk2.5</string>
+		<string>weibosdk</string>
+		<string>sinaweibohdsso</string>
 		<string>mqzone</string>
 		<string>mqzoneopensdkapiV2</string>
 		<string>weibosdk2.5</string>
@@ -90,6 +89,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>用易会在获取您当前位置天气等服务中使用您的位置信息。</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>用易会在获取您当前位置天气等服务中使用您的位置信息。</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

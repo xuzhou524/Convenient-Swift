@@ -50,17 +50,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         return true
     }
     func shareSetup(){
-        ShareSDK.registerApp("10ceb4d796c88")
-        //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
-        ShareSDK.connectSinaWeiboWithAppKey("3112753426", appSecret: "8d827d8c5849b1d763f2d077d20e109e", redirectUri: "http://www.xzzai.com")
-        
-        //添加QQ  注册网址  http://open.qq.com/
-        ShareSDK.connectQQWithQZoneAppKey("1105277654",qqApiInterfaceCls:QQApiInterface.self,tencentOAuthCls:TencentOAuth.self)
-        ShareSDK.connectQZoneWithAppKey("1105277654", appSecret: "bQcT8M8lTt9MATbY")
-
-        //添加微信应用 注册网址 http://open.weixin.qq.com
-        ShareSDK.connectWeChatWithAppId("wx88234dc1246eb81b",appSecret:"1c4d416db0008c17e01d616cb3866db7",wechatCls:WXApi.self)
-        
+        ShareSDK.registerApp("10ceb4d796c88",
+                             activePlatforms:
+                [SSDKPlatformType.TypeSinaWeibo.rawValue,
+                SSDKPlatformType.TypeQQ.rawValue,
+                SSDKPlatformType.TypeWechat.rawValue,],
+                             onImport: {
+                                (platform : SSDKPlatformType) -> Void in
+                                switch platform{
+                                case SSDKPlatformType.TypeWechat:
+                                    ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                                case SSDKPlatformType.TypeSinaWeibo:
+                                    ShareSDKConnector.connectWeibo(WeiboSDK.classForCoder())
+                                case SSDKPlatformType.TypeQQ:
+                                    ShareSDKConnector.connectQQ(QQApiInterface.classForCoder(), tencentOAuthClass: TencentOAuth.classForCoder())
+                                default:
+                                    break
+                                }
+            },
+                onConfiguration: {(platform : SSDKPlatformType,appInfo : NSMutableDictionary!) -> Void in
+                    switch platform {
+                    case SSDKPlatformType.TypeSinaWeibo:
+                        //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+                            appInfo.SSDKSetupSinaWeiboByAppKey("3112753426",
+                            appSecret : "8d827d8c5849b1d763f2d077d20e109e",
+                            redirectUri : "http://www.xzzai.com",
+                            authType : SSDKAuthTypeBoth)
+                    break
+                    case SSDKPlatformType.TypeWechat:
+                        //设置微信应用信息
+                        appInfo.SSDKSetupWeChatByAppId("wx88234dc1246eb81b", appSecret: "1c4d416db0008c17e01d616cb3866db7")
+                    break
+                    case SSDKPlatformType.TypeQQ:
+                        appInfo.SSDKSetupQQByAppId("1105277654", appKey: "bQcT8M8lTt9MATbY", authType: SSDKAuthTypeBoth)
+                        break
+                    default:
+                        break
+                    }
+        })
     }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currLocation = locations.last! as CLLocation

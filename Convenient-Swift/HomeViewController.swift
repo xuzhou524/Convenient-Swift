@@ -118,7 +118,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
    
         let shareView = ShareView()
-        shareView.title = "用易"
+        shareView.title = "用易分享"
         shareView.image = viewImage
         
         let modelDic = self.HomeWeatherMdoel.weather[0]
