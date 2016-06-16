@@ -21,7 +21,7 @@ class WeatherModel: BaseModel {
     
    
    class func like(cityname: String, success: (WeatherModel) -> Void, failure: (NSError?) -> Void) {
-        let urlString = "http://op.juhe.cn/onebox/weather/query"
+        let urlString = "https://op.juhe.cn/onebox/weather/query"
         let prames = [
             "cityname" : cityname,
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
