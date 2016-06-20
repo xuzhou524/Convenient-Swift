@@ -8,12 +8,13 @@
 
 import UIKit
 import TMCache
-
+import GoogleMobileAds
 typealias cityViewbackfunc=(weatherModel:WeatherModel)->Void
 
-class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate  ,GADBannerViewDelegate{
     
     var myFunc = cityViewbackfunc?()
+    var bannerImageView: GADBannerView!
     
     func cityViewBack(mathFunction:(weatherModel:WeatherModel)->Void ){
         myFunc = mathFunction
@@ -41,8 +42,24 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationItem.title = "城市管理"
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
-            make.top.right.bottom.left.equalTo(self.view);
+            make.top.right.left.equalTo(self.view);
+            make.bottom.equalTo(self.view).offset(60);
         }
+        
+        self.bannerImageView = GADBannerView()
+        self.bannerImageView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        self.view.addSubview(self.bannerImageView)
+        self.bannerImageView.snp_makeConstraints{ (make) -> Void in
+            make.bottom.right.left.equalTo(self.view);
+            make.height.equalTo(60);
+        }
+        
+        self.bannerImageView.delegate = self
+        self.bannerImageView.adUnitID = "ca-app-pub-3469552292226288/9081240452";
+        self.bannerImageView.rootViewController = self
+        self.bannerImageView.loadRequest(GADRequest())
+        
+    
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
         }
