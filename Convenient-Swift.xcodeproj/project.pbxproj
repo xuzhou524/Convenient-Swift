@@ -100,6 +100,7 @@
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
+		535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CBFF61D20E04B00D12589 /* RootViewController.swift */; };
 		5382DE961C9BA37D00F08BAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382DE951C9BA37D00F08BAD /* ShareView.swift */; };
 		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
 		53917E671C897B85002200C1 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5D1C897B85002200C1 /* UUBarChart.m */; };
@@ -186,6 +187,18 @@
 		53B7B9F51CAA349400072029 /* cm_weathericon_8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B31CAA349400072029 /* cm_weathericon_8@3x.png */; };
 		53B7B9F61CAA349400072029 /* cm_weathericon_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B41CAA349400072029 /* cm_weathericon_9@2x.png */; };
 		53B7B9F71CAA349400072029 /* cm_weathericon_9@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53B7B9B51CAA349400072029 /* cm_weathericon_9@3x.png */; };
+		53C70A7F1D23CC2D0059FB68 /* DateDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A671D23CC2D0059FB68 /* DateDetailView.m */; };
+		53C70A801D23CC2D0059FB68 /* DateMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A691D23CC2D0059FB68 /* DateMessageView.m */; };
+		53C70A811D23CC2D0059FB68 /* DateSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A6B1D23CC2D0059FB68 /* DateSelectView.m */; };
+		53C70A821D23CC2D0059FB68 /* LBCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A6D1D23CC2D0059FB68 /* LBCalendar.m */; };
+		53C70A831D23CC2D0059FB68 /* LBCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A6F1D23CC2D0059FB68 /* LBCalendarAppearance.m */; };
+		53C70A841D23CC2D0059FB68 /* LBCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A711D23CC2D0059FB68 /* LBCalendarContentView.m */; };
+		53C70A851D23CC2D0059FB68 /* LBCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A741D23CC2D0059FB68 /* LBCalendarDayView.m */; };
+		53C70A861D23CC2D0059FB68 /* LBCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A761D23CC2D0059FB68 /* LBCalendarMonthView.m */; };
+		53C70A871D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A781D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.m */; };
+		53C70A881D23CC2D0059FB68 /* LBCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A7A1D23CC2D0059FB68 /* LBCalendarWeekView.m */; };
+		53C70A891D23CC2D0059FB68 /* LBRectangularView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A7C1D23CC2D0059FB68 /* LBRectangularView.m */; };
+		53C70A8A1D23CC2D0059FB68 /* LBStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C70A7E1D23CC2D0059FB68 /* LBStarView.m */; };
 		53C81DD81CE1EAB80092BEF3 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD31CE1EAB80092BEF3 /* TFHpple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		53C81DD91CE1EAB80092BEF3 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD51CE1EAB80092BEF3 /* TFHppleElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		53C81DDA1CE1EAB80092BEF3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C81DD71CE1EAB80092BEF3 /* XPathQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -331,6 +344,7 @@
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
+		535CBFF61D20E04B00D12589 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5382DE951C9BA37D00F08BAD /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
 		53917E5A1C897B85002200C1 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
@@ -424,6 +438,31 @@
 		53B7B9B31CAA349400072029 /* cm_weathericon_8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_8@3x.png"; sourceTree = "<group>"; };
 		53B7B9B41CAA349400072029 /* cm_weathericon_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_9@2x.png"; sourceTree = "<group>"; };
 		53B7B9B51CAA349400072029 /* cm_weathericon_9@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm_weathericon_9@3x.png"; sourceTree = "<group>"; };
+		53C70A661D23CC2D0059FB68 /* DateDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateDetailView.h; sourceTree = "<group>"; };
+		53C70A671D23CC2D0059FB68 /* DateDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateDetailView.m; sourceTree = "<group>"; };
+		53C70A681D23CC2D0059FB68 /* DateMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateMessageView.h; sourceTree = "<group>"; };
+		53C70A691D23CC2D0059FB68 /* DateMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateMessageView.m; sourceTree = "<group>"; };
+		53C70A6A1D23CC2D0059FB68 /* DateSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectView.h; sourceTree = "<group>"; };
+		53C70A6B1D23CC2D0059FB68 /* DateSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectView.m; sourceTree = "<group>"; };
+		53C70A6C1D23CC2D0059FB68 /* LBCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendar.h; sourceTree = "<group>"; };
+		53C70A6D1D23CC2D0059FB68 /* LBCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendar.m; sourceTree = "<group>"; };
+		53C70A6E1D23CC2D0059FB68 /* LBCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarAppearance.h; sourceTree = "<group>"; };
+		53C70A6F1D23CC2D0059FB68 /* LBCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarAppearance.m; sourceTree = "<group>"; };
+		53C70A701D23CC2D0059FB68 /* LBCalendarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarContentView.h; sourceTree = "<group>"; };
+		53C70A711D23CC2D0059FB68 /* LBCalendarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarContentView.m; sourceTree = "<group>"; };
+		53C70A721D23CC2D0059FB68 /* LBCalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarDataSource.h; sourceTree = "<group>"; };
+		53C70A731D23CC2D0059FB68 /* LBCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarDayView.h; sourceTree = "<group>"; };
+		53C70A741D23CC2D0059FB68 /* LBCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarDayView.m; sourceTree = "<group>"; };
+		53C70A751D23CC2D0059FB68 /* LBCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarMonthView.h; sourceTree = "<group>"; };
+		53C70A761D23CC2D0059FB68 /* LBCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarMonthView.m; sourceTree = "<group>"; };
+		53C70A771D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
+		53C70A781D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
+		53C70A791D23CC2D0059FB68 /* LBCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCalendarWeekView.h; sourceTree = "<group>"; };
+		53C70A7A1D23CC2D0059FB68 /* LBCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCalendarWeekView.m; sourceTree = "<group>"; };
+		53C70A7B1D23CC2D0059FB68 /* LBRectangularView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBRectangularView.h; sourceTree = "<group>"; };
+		53C70A7C1D23CC2D0059FB68 /* LBRectangularView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBRectangularView.m; sourceTree = "<group>"; };
+		53C70A7D1D23CC2D0059FB68 /* LBStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBStarView.h; sourceTree = "<group>"; };
+		53C70A7E1D23CC2D0059FB68 /* LBStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBStarView.m; sourceTree = "<group>"; };
 		53C81DD21CE1EAB80092BEF3 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		53C81DD31CE1EAB80092BEF3 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		53C81DD41CE1EAB80092BEF3 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -752,6 +791,7 @@
 				53EF6C1A1C910CB500307BAE /* CityViewController.swift */,
 				53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */,
 				53B5029B1C99577000A024DE /* MoreTableViewController.swift */,
+				535CBFF61D20E04B00D12589 /* RootViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -799,6 +839,7 @@
 		53917E431C89619C002200C1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				53C70A491D23CBB10059FB68 /* LBCalendar */,
 				53D97ED71D0126D600DBA748 /* ShareSDK */,
 				53FBBE0C1CE30570007796D8 /* TailRestrictions.plist */,
 				53C81DD21CE1EAB80092BEF3 /* TFHpple.h */,
@@ -904,6 +945,38 @@
 				53B7B9B51CAA349400072029 /* cm_weathericon_9@3x.png */,
 			);
 			path = day;
+			sourceTree = "<group>";
+		};
+		53C70A491D23CBB10059FB68 /* LBCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				53C70A661D23CC2D0059FB68 /* DateDetailView.h */,
+				53C70A671D23CC2D0059FB68 /* DateDetailView.m */,
+				53C70A681D23CC2D0059FB68 /* DateMessageView.h */,
+				53C70A691D23CC2D0059FB68 /* DateMessageView.m */,
+				53C70A6A1D23CC2D0059FB68 /* DateSelectView.h */,
+				53C70A6B1D23CC2D0059FB68 /* DateSelectView.m */,
+				53C70A6C1D23CC2D0059FB68 /* LBCalendar.h */,
+				53C70A6D1D23CC2D0059FB68 /* LBCalendar.m */,
+				53C70A6E1D23CC2D0059FB68 /* LBCalendarAppearance.h */,
+				53C70A6F1D23CC2D0059FB68 /* LBCalendarAppearance.m */,
+				53C70A701D23CC2D0059FB68 /* LBCalendarContentView.h */,
+				53C70A711D23CC2D0059FB68 /* LBCalendarContentView.m */,
+				53C70A721D23CC2D0059FB68 /* LBCalendarDataSource.h */,
+				53C70A731D23CC2D0059FB68 /* LBCalendarDayView.h */,
+				53C70A741D23CC2D0059FB68 /* LBCalendarDayView.m */,
+				53C70A751D23CC2D0059FB68 /* LBCalendarMonthView.h */,
+				53C70A761D23CC2D0059FB68 /* LBCalendarMonthView.m */,
+				53C70A771D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.h */,
+				53C70A781D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.m */,
+				53C70A791D23CC2D0059FB68 /* LBCalendarWeekView.h */,
+				53C70A7A1D23CC2D0059FB68 /* LBCalendarWeekView.m */,
+				53C70A7B1D23CC2D0059FB68 /* LBRectangularView.h */,
+				53C70A7C1D23CC2D0059FB68 /* LBRectangularView.m */,
+				53C70A7D1D23CC2D0059FB68 /* LBStarView.h */,
+				53C70A7E1D23CC2D0059FB68 /* LBStarView.m */,
+			);
+			path = LBCalendar;
 			sourceTree = "<group>";
 		};
 		53D97ED71D0126D600DBA748 /* ShareSDK */ = {
@@ -1313,21 +1386,30 @@
 				53FD858A1C91494400BCF3EF /* AddCityTableViewController.swift in Sources */,
 				53C81DD81CE1EAB80092BEF3 /* TFHpple.m in Sources */,
 				5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */,
+				53C70A861D23CC2D0059FB68 /* LBCalendarMonthView.m in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,
 				530778551C92BAF60010E65C /* JSONAPI.m in Sources */,
 				53917E6A1C897B85002200C1 /* UUChartLabel.m in Sources */,
+				53C70A801D23CC2D0059FB68 /* DateMessageView.m in Sources */,
 				530778541C92BAF60010E65C /* NSArray+JSONModel.m in Sources */,
 				530D95591C8D7F91005342BF /* DGElasticPullToRefreshExtensions.swift in Sources */,
+				53C70A8A1D23CC2D0059FB68 /* LBStarView.m in Sources */,
+				535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */,
 				530D955C1C8D7F91005342BF /* DGElasticPullToRefreshView.swift in Sources */,
+				53C70A891D23CC2D0059FB68 /* LBRectangularView.m in Sources */,
 				530D946B1C8D3308005342BF /* BaseJsonModel.swift in Sources */,
+				53C70A831D23CC2D0059FB68 /* LBCalendarAppearance.m in Sources */,
 				53917E711C89811D002200C1 /* WeatherModel.swift in Sources */,
 				530778521C92BAF60010E65C /* JSONModelClassProperty.m in Sources */,
 				530778321C92B9B40010E65C /* BaseModel.m in Sources */,
+				53C70A811D23CC2D0059FB68 /* DateSelectView.m in Sources */,
 				53E713181C8FF68C002D4238 /* XZSetting.swift in Sources */,
+				53C70A871D23CC2D0059FB68 /* LBCalendarMonthWeekDaysView.m in Sources */,
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
+				53C70A821D23CC2D0059FB68 /* LBCalendar.m in Sources */,
 				53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */,
 				530778511C92BAF60010E65C /* JSONModelArray.m in Sources */,
 				53C81DDA1CE1EAB80092BEF3 /* XPathQuery.m in Sources */,
@@ -1343,15 +1425,19 @@
 				530D955B1C8D7F91005342BF /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
 				53C81DD91CE1EAB80092BEF3 /* TFHppleElement.m in Sources */,
 				530778581C92BAF60010E65C /* JSONKeyMapper.m in Sources */,
+				53C70A841D23CC2D0059FB68 /* LBCalendarContentView.m in Sources */,
 				5307785B1C92BAF60010E65C /* README.md in Sources */,
 				53FD858C1C91647900BCF3EF /* CityMdoel.swift in Sources */,
 				530D955A1C8D7F91005342BF /* DGElasticPullToRefreshLoadingView.swift in Sources */,
 				53FBB90F1C880F990076C002 /* WeatherTabeleViewCell.swift in Sources */,
+				53C70A851D23CC2D0059FB68 /* LBCalendarDayView.m in Sources */,
 				53B5029C1C99577000A024DE /* MoreTableViewController.swift in Sources */,
+				53C70A7F1D23CC2D0059FB68 /* DateDetailView.m in Sources */,
 				530778571C92BAF60010E65C /* JSONModel+networking.m in Sources */,
 				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,
 				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
 				530778501C92BAF60010E65C /* JSONModel.m in Sources */,
+				53C70A881D23CC2D0059FB68 /* LBCalendarWeekView.m in Sources */,
 				530D95581C8D7F91005342BF /* DGElasticPullToRefreshConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

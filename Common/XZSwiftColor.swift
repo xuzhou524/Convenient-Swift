@@ -68,4 +68,16 @@ class XZSwiftColor: UIColor{
             return colorWith255RGB(255, g: 194, b: 50);
         }
     }
+    
+    
+    static var barTintColor : UIColor{
+        get{
+            return colorWith255RGB(7, g: 37, b: 59);
+        }
+    }
+    static var weekBgColor : UIColor{
+        get{
+            return colorWith255RGB(215, g: 215, b: 215);
+        }
+    }
 }
