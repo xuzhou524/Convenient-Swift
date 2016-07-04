@@ -209,6 +209,7 @@ class addCitySearchTabelView: UITableViewCell {
     func sebView(){
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.searchBar = UISearchBar()
+        self.searchBar?.tintColor = UIColor.redColor()
         self.searchBar?.autoresizingMask = .FlexibleWidth
         self.searchBar?.placeholder = "请输入城市名称"
         self.contentView.addSubview(self.searchBar!)

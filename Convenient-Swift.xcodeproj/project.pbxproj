@@ -100,6 +100,7 @@
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
+		5359D53F1D2A60AB003E719C /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5359D53E1D2A60AB003E719C /* Transparent.png */; };
 		535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CBFF61D20E04B00D12589 /* RootViewController.swift */; };
 		5382DE961C9BA37D00F08BAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382DE951C9BA37D00F08BAD /* ShareView.swift */; };
 		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
@@ -344,6 +345,7 @@
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
+		5359D53E1D2A60AB003E719C /* Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transparent.png; sourceTree = "<group>"; };
 		535CBFF61D20E04B00D12589 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5382DE951C9BA37D00F08BAD /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 				532406AA1CA158CA00CE03CD /* fenxiang_QQ@3x.png */,
 				53FA88B41CE073590078CCDA /* pmBg@3x.png */,
 				53FA88B51CE073590078CCDA /* pmBg@2x.png */,
+				5359D53E1D2A60AB003E719C /* Transparent.png */,
 				532406AB1CA158CA00CE03CD /* fenxiang_weibo@2x.png */,
 				532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */,
 				532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */,
@@ -1275,6 +1278,7 @@
 				530D95241C8D6B64005342BF /* w13.png in Resources */,
 				530D95461C8D6B64005342BF /* w99.png in Resources */,
 				530D951F1C8D6B64005342BF /* w0.png in Resources */,
+				5359D53F1D2A60AB003E719C /* Transparent.png in Resources */,
 				532406B51CA158CA00CE03CD /* fenxiang_QQ@2x.png in Resources */,
 				5329A9FE1C996329003B7364 /* about_praise.png in Resources */,
 				530D95431C8D6B64005342BF /* w7.png in Resources */,
