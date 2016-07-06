@@ -102,6 +102,7 @@
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
 		5359D53F1D2A60AB003E719C /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5359D53E1D2A60AB003E719C /* Transparent.png */; };
 		535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CBFF61D20E04B00D12589 /* RootViewController.swift */; };
+		5363DAF21D2B54D800B43F29 /* RootWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */; };
 		5382DE961C9BA37D00F08BAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382DE951C9BA37D00F08BAD /* ShareView.swift */; };
 		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
 		53917E671C897B85002200C1 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5D1C897B85002200C1 /* UUBarChart.m */; };
@@ -347,6 +348,7 @@
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
 		5359D53E1D2A60AB003E719C /* Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transparent.png; sourceTree = "<group>"; };
 		535CBFF61D20E04B00D12589 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		5382DE951C9BA37D00F08BAD /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
 		53917E5A1C897B85002200C1 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
@@ -819,6 +821,7 @@
 				53B5029D1C99580100A024DE /* MoreTableViewCell.swift */,
 				5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */,
 				5382DE951C9BA37D00F08BAD /* ShareView.swift */,
+				5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1391,6 +1394,7 @@
 				53C81DD81CE1EAB80092BEF3 /* TFHpple.m in Sources */,
 				5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */,
 				53C70A861D23CC2D0059FB68 /* LBCalendarMonthView.m in Sources */,
+				5363DAF21D2B54D800B43F29 /* RootWeatherTableViewCell.swift in Sources */,
 				53917E681C897B85002200C1 /* UUChart.m in Sources */,
 				53EF6C1F1C910D6900307BAE /* CityTableViewCell.swift in Sources */,
 				531C24241C86BAD10009E0E6 /* XZSwiftColor.swift in Sources */,

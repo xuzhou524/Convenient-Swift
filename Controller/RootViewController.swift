@@ -18,17 +18,20 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
     var SelectionMonthBt : UIBarButtonItem?
     var calendar : LBCalendar!
     var dsView : DateSelectView?
-
+    
+    var rootWeatherView : RootWeatherTableViewCell?
+    
     var toolBarHairlineImageView : UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = XZSwiftColor.barTintColor
+        //self.navigationController?.navigationBar.barTintColor = XZSwiftColor.navignationColor
         
         self.createCalendarheaderView()
         self.createBGScrollview()
         
-        calendarContentView = LBCalendarContentView.init(frame: CGRectMake(0, 5, self.view.frame.size.width, 300))
+        calendarContentView = LBCalendarContentView.init(frame: CGRectMake(0, 0, self.view.frame.size.width, 300))
+        calendarContentView?.backgroundColor = XZSwiftColor.whiteColor()
         BGScrollview?.addSubview(calendarContentView!)
         
         self.calendar = LBCalendar.init()
@@ -45,6 +48,15 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         
         let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
+        
+        
+        rootWeatherView = RootWeatherTableViewCell()
+        rootWeatherView?.frame = CGRectMake(0, 310, self.view.frame.size.width, 100)
+        BGScrollview?.addSubview(rootWeatherView!)
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapWeatherClick))
+        rootWeatherView!.addGestureRecognizer(tapGestureRecognizer)
+        
+        
 
     }
     
@@ -87,6 +99,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         BGScrollview?.contentSize = CGSizeMake(self.view.frame.size.width,  self.view.frame.height)
         BGScrollview?.pagingEnabled = true
         BGScrollview?.showsVerticalScrollIndicator = false
+        BGScrollview?.backgroundColor = XZSwiftColor.convenientBackgroundColor
         BGScrollview?.delegate = self
         self.view.addSubview(BGScrollview!)
     }
@@ -115,7 +128,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         
         let  mycustomButtons = [backBt,spaceItem,spaceItem,SelectionMonthBt!,spaceItem,TodayTouchBT,MoreBt]
         
-        let  mycustomToolBar = UIToolbar.init(frame: CGRectMake(0, 0, self.view.bounds.size.width, 44))
+        let  mycustomToolBar = UIToolbar.init(frame: CGRectMake(0, -1, self.view.bounds.size.width, 44 + 1))
         mycustomToolBar.barStyle = .BlackTranslucent
         mycustomToolBar.items = mycustomButtons
         mycustomToolBar.sizeToFit()
@@ -220,7 +233,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         }
     
         UIView.animateWithDuration(0.5){
-            self.calendarContentView?.frame = CGRectMake(0, 5, self.view.bounds.size.width, newHeight!)
+            self.calendarContentView?.frame = CGRectMake(0, 0, self.view.bounds.size.width, newHeight!)
             self.view.layoutIfNeeded()
         }
         
@@ -232,6 +245,14 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
                    self.calendarContentView?.layer.opacity = 1
                 }
         }
+    }
+    
+    func tapWeatherClick() {
+        
+        let centerNav = XZSwiftNavigationController(rootViewController: HomeViewController());
+        self.presentViewController(centerNav, animated: true, completion: nil)
+        
+        //self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

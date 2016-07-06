@@ -58,7 +58,7 @@ class XZSwiftNavigationController: UINavigationController {
             NSFontAttributeName : XZFont2(18),
             NSForegroundColorAttributeName : UIColor.whiteColor()
         ]
-        self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.barTintColor), forBarMetrics: .Default)
+        self.navigationBar.setBackgroundImage(createImageWithColor(XZSwiftColor.navignationColor), forBarMetrics: .Default)
         self.navigationBar.barStyle = .Default;
         self.navigationBar.tintColor = XZSwiftColor.whiteColor()
     }
