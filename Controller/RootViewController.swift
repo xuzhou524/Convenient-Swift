@@ -120,7 +120,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         let TodayTouchBT = UIBarButtonItem.init(title: "今", style: .Plain, target: self, action: #selector(RootViewController.didGoTodayTouch))
         TodayTouchBT.width = 40
         
-        let MoreBt = UIBarButtonItem.init(title: "更多", style: .Plain, target: self, action: #selector(RootViewController.moreBtTap))
+        let MoreBt = UIBarButtonItem.init(image: UIImage.init(named: "gengduo"), style: .Plain, target: self, action: #selector(RootViewController.moreBtTap))
         MoreBt.width = 40
         
         
@@ -136,7 +136,6 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         mycustomToolBar.setBackgroundImage(UIImage.init(named:"Transparent.png"), forToolbarPosition: .Any, barMetrics: .Default)
         
         toolBarHairlineImageView = self.findHairlineImageViewtop(mycustomToolBar)
-        
         self.navigationController?.navigationBar.addSubview(mycustomToolBar)
     }
     
@@ -158,6 +157,8 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
     }
     func moreBtTap(){
         dsView?.cancelBtTap()
+        let centerNav = XZSwiftNavigationController(rootViewController: MoreTableViewController());
+        self.presentViewController(centerNav, animated: true, completion: nil)
     }
     func action(){
         

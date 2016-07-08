@@ -93,6 +93,7 @@
 		532406B81CA158CA00CE03CD /* fenxiang_weibo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */; };
 		532406B91CA158CA00CE03CD /* fenxiang_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */; };
 		532406BA1CA158CA00CE03CD /* fenxiang_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */; };
+		5326DC171D2CC3C8007D7CD4 /* RootWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326DC161D2CC3C8007D7CD4 /* RootWeatherViewController.swift */; };
 		5329A9FD1C996329003B7364 /* about_criticism.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FB1C996329003B7364 /* about_criticism.png */; };
 		5329A9FE1C996329003B7364 /* about_praise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5329A9FC1C996329003B7364 /* about_praise.png */; };
 		5329AA001C99652A003B7364 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */; };
@@ -339,6 +340,7 @@
 		532406AC1CA158CA00CE03CD /* fenxiang_weibo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weibo@3x.png"; sourceTree = "<group>"; };
 		532406AD1CA158CA00CE03CD /* fenxiang_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@2x.png"; sourceTree = "<group>"; };
 		532406AE1CA158CA00CE03CD /* fenxiang_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_weixin@3x.png"; sourceTree = "<group>"; };
+		5326DC161D2CC3C8007D7CD4 /* RootWeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeatherViewController.swift; sourceTree = "<group>"; };
 		5329A9FB1C996329003B7364 /* about_criticism.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_criticism.png; sourceTree = "<group>"; };
 		5329A9FC1C996329003B7364 /* about_praise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_praise.png; sourceTree = "<group>"; };
 		5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				53FD85891C91494400BCF3EF /* AddCityTableViewController.swift */,
 				53B5029B1C99577000A024DE /* MoreTableViewController.swift */,
 				535CBFF61D20E04B00D12589 /* RootViewController.swift */,
+				5326DC161D2CC3C8007D7CD4 /* RootWeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1441,6 +1444,7 @@
 				53C70A851D23CC2D0059FB68 /* LBCalendarDayView.m in Sources */,
 				53B5029C1C99577000A024DE /* MoreTableViewController.swift in Sources */,
 				53C70A7F1D23CC2D0059FB68 /* DateDetailView.m in Sources */,
+				5326DC171D2CC3C8007D7CD4 /* RootWeatherViewController.swift in Sources */,
 				530778571C92BAF60010E65C /* JSONModel+networking.m in Sources */,
 				53917E671C897B85002200C1 /* UUBarChart.m in Sources */,
 				534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */,
