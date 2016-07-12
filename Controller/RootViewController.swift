@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import TMCache
+import ObjectMapper
+import AlamofireObjectMapper
+import Alamofire
+import SnapKit
+import KVOController
 
 class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDelegate,ChangeBGScrollviewAlphaDelegate{
     
     var navItem : UINavigationItem?
     var todayTouchButton : UIButton?
-    
+    var requCityName = XZClient.sharedInstance.username!
     var calendarContentView : LBCalendarContentView?
     var BGScrollview : UIScrollView?
     var SelectionMonthBt : UIBarButtonItem?
     var calendar : LBCalendar!
     var dsView : DateSelectView?
-    
+    var HomeWeatherMdoel = WeatherModel()
+    var weatherArray = NSMutableArray()
+    var alamofireManager : Manager?
     var rootWeatherView : RootWeatherTableViewCell?
     
     var toolBarHairlineImageView : UIImageView?
@@ -45,21 +53,109 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.updateym), name: "currentYearMonth", object: nil)
         
-        
         let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
-        
-        
+        self.requCityName = XZClient.sharedInstance.username!
+        self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
+            self!.asyncRequestData()
+        }
+    }
+    
+    func  sebViews(){
         rootWeatherView = RootWeatherTableViewCell()
         rootWeatherView?.frame = CGRectMake(0, 310, self.view.frame.size.width, 100)
         BGScrollview?.addSubview(rootWeatherView!)
         let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapWeatherClick))
         rootWeatherView!.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-
+        rootWeatherView?.bind(self.HomeWeatherMdoel)
     }
     
+    func asyncRequestData() -> Void{
+        //根据城市名称  获取城市ID
+        //http://apistore.baidu.com/microservice/cityinfo?cityname=北京
+        
+        //得到ID  获取天气图标对应的值
+        //http://tq.91.com/api/?act=210&city=101180712&sv=3.15.3
+        
+        //搜索城市
+        //http://zhwnlapi.etouch.cn/Ecalender/api/city?keyword=%E6%B8%85%E8%BF%9C&timespan=1457518656.715996&type=search
+        
+        //获取天气信息
+        WeatherModel.like(self.requCityName, success: { (model) -> Void in
+            self.HomeWeatherMdoel = model
+            if (TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil){
+                self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+            }
+            //去重
+            var tempBool = true
+            for  i in 0  ..< self.weatherArray.count {
+                let model = self.weatherArray[i] as! WeatherModel
+                if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code || model.realtime?.city_name == self.HomeWeatherMdoel.realtime?.city_name{
+                    self.weatherArray.removeObjectAtIndex(i)
+                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
+                    tempBool = false
+                    break
+                }
+            }
+            if tempBool{
+                self.weatherArray.addObject(self.HomeWeatherMdoel)
+            }
+            
+            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+            
+            let date = NSDate()
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "MM-dd HH:mm"
+            let strNowTime = timeFormatter.stringFromDate(date) as String
+            
+            XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
+            var listData: NSDictionary = NSDictionary()
+            let filePath = NSBundle.mainBundle().pathForResource("TailRestrictions.plist", ofType:nil )
+            listData = NSDictionary(contentsOfFile: filePath!)!
+            let cityId = listData.objectForKey(self.requCityName) as? String
+            if (cityId != nil) {
+                self.asyncRequestXianXingData(cityId!)
+            }else{
+                self.sebViews()
+            }
+            }, failure: { (error) -> Void in
+    
+        })
+    }
+    func asyncRequestXianXingData(string:String) -> Void{
+        let urlString = "http://forecast.sina.cn/app/lifedex/v3/html/channel.php?"
+        let prames = [
+            "ch_id" : "3",
+            "citycode" : string,
+            "pt" : "3010"
+        ]
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        config.timeoutIntervalForRequest = 30    // 秒
+        self.alamofireManager = Manager(configuration: config)
+        self.alamofireManager!.request(.GET, urlString, parameters:prames ).responseString {response in
+            switch response.result {
+            case .Success:
+                debugPrint(response.result)
+                
+                let dataImage = response.result.value?.dataUsingEncoding(NSUTF8StringEncoding)
+                let xpathParser = TFHpple().dynamicType.init(HTMLData: dataImage)
+                let elements = xpathParser.searchWithXPathQuery("//html//body//div//div//div//div[@class='number']")
+                if elements.count > 0{
+                    let temp = elements.first as! TFHppleElement
+                    let tempInt = self.weatherArray.indexOfObject(self.HomeWeatherMdoel)
+                    self.weatherArray.removeObject(self.HomeWeatherMdoel)
+                    self.HomeWeatherMdoel.xxweihao = temp.content
+                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempInt)
+                    TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                }
+                break
+            case .Failure(let error):
+                debugPrint(error)
+                break
+            }
+            self.sebViews()
+        }
+    }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.calendar?.reloadData()
@@ -112,28 +208,35 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
         let defaultDateStr = dateFormatter.stringFromDate(defaultDate) as String
 
         let backBt = UIBarButtonItem.init(title: "返回", style: .Plain, target: self, action: #selector(RootViewController.backBtTap))
-        backBt.width = 40
+        backBt.width = 30
         
         SelectionMonthBt = UIBarButtonItem.init(title: defaultDateStr, style: .Plain, target: self, action: #selector(RootViewController.action))
-        SelectionMonthBt?.width = 40
+        SelectionMonthBt?.width = 30
         
         let TodayTouchBT = UIBarButtonItem.init(title: "今", style: .Plain, target: self, action: #selector(RootViewController.didGoTodayTouch))
-        TodayTouchBT.width = 40
+        TodayTouchBT.width = 30
         
-        let MoreBt = UIBarButtonItem.init(image: UIImage.init(named: "gengduo"), style: .Plain, target: self, action: #selector(RootViewController.moreBtTap))
-        MoreBt.width = 40
-        
+        let MoreBt = UIBarButtonItem.init(title: "更多", style: .Plain, target: self, action: #selector(RootViewController.moreBtTap))
+        MoreBt.width = 25
         
         let spaceItem = UIBarButtonItem.init(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
         
-        let  mycustomButtons = [backBt,spaceItem,spaceItem,SelectionMonthBt!,spaceItem,TodayTouchBT,MoreBt]
+        let  mycustomButtons = [TodayTouchBT,spaceItem,spaceItem,SelectionMonthBt!,spaceItem,spaceItem,MoreBt]
         
-        let  mycustomToolBar = UIToolbar.init(frame: CGRectMake(0, -1, self.view.bounds.size.width, 44 + 1))
+        let  mycustomToolBar = UIToolbar.init(frame: CGRectMake(0, 0, self.view.bounds.size.width, 44))
         mycustomToolBar.barStyle = .BlackTranslucent
         mycustomToolBar.items = mycustomButtons
         mycustomToolBar.sizeToFit()
         mycustomToolBar.tintColor = XZSwiftColor.whiteColor()
         mycustomToolBar.setBackgroundImage(UIImage.init(named:"Transparent.png"), forToolbarPosition: .Any, barMetrics: .Default)
+        let bgview = UIView()
+        bgview.backgroundColor = XZSwiftColor.navignationColor
+        mycustomToolBar.addSubview(bgview)
+        bgview.snp_makeConstraints { (make) in
+            make.left.right.equalTo(mycustomToolBar)
+            make.bottom.equalTo(mycustomToolBar.snp_top).offset(2)
+            make.height.equalTo(4)
+        };
         
         toolBarHairlineImageView = self.findHairlineImageViewtop(mycustomToolBar)
         self.navigationController?.navigationBar.addSubview(mycustomToolBar)
@@ -196,6 +299,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
     }
     
     func calendarHaveEvent(calendar: LBCalendar!, date: NSDate!) -> Bool {
+        return false
         return (rand() % 10) == 1
     }
     
@@ -214,6 +318,7 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        return
         if self.calendar.calendarAppearance().isWeekMode {
             if BGScrollview?.contentOffset.y < -10 {
                 self.calendar.calendarAppearance().isWeekMode = false
@@ -249,8 +354,15 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
     }
     
     func tapWeatherClick() {
+        let homeViewVC = HomeViewController()
+        homeViewVC.HomeWeatherMdoel = self.HomeWeatherMdoel
+        homeViewVC.cityHomeViewBack { (weatherModel) -> Void in
+            self.HomeWeatherMdoel = weatherModel
+            self.requCityName = weatherModel.realtime!.city_name! as String
+            self.asyncRequestData()
+        }
         
-        let centerNav = XZSwiftNavigationController(rootViewController: HomeViewController());
+        let centerNav = XZSwiftNavigationController(rootViewController: homeViewVC);
         self.presentViewController(centerNav, animated: true, completion: nil)
         
         //self.navigationController?.pushViewController(homeVC, animated: true)

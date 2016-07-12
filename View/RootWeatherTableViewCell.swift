@@ -20,6 +20,8 @@ class RootWeatherTableViewCell: UITableViewCell {
     var oneNambelLabel : UILabel?
     var twoNambelLabel : UILabel?
     
+    var HomeWeatherMdoel = WeatherModel()
+    
     override  init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebViewS()
@@ -29,14 +31,11 @@ class RootWeatherTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
         self.sebViewS()
     }
-
-    
     
     func sebViewS(){
         self.contentView.backgroundColor = XZSwiftColor.whiteColor()
         
         iconImageView = UIImageView()
-        iconImageView?.backgroundColor = UIColor.grayColor()
         self.contentView.addSubview(iconImageView!)
         iconImageView?.snp_makeConstraints(closure: { (make) in
             make.left.equalTo(self.contentView).offset(15)
@@ -87,9 +86,9 @@ class RootWeatherTableViewCell: UITableViewCell {
         summaryLabel?.snp_makeConstraints(closure: { (make) in
             make.top.equalTo((self.iconImageView?.snp_bottom)!).offset(15)
             make.left.equalTo(self.iconImageView!)
+            make.right.equalTo(self.contentView).offset(-95)
         })
         
-
         self.bgView = UIView()
         self.bgView!.backgroundColor = XZSwiftColor.clearColor()
         self.contentView.addSubview(self.bgView!)
@@ -183,8 +182,60 @@ class RootWeatherTableViewCell: UITableViewCell {
         self.twoNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.center.equalTo(twoView)
         });
-        
     }
+
+    func bind(weathermodel:WeatherModel?)->Void{
+        if weathermodel != nil{
+            
+            let modelDic = weathermodel!.weather[0]
+            let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
+            let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
+            let nightArray =  (infoDic.objectForKey("night"))! as! NSMutableArray
+            
+            //当前时间戳
+            let date = NSDate()
+            let dateStamp:NSTimeInterval = date.timeIntervalSince1970
+            let dateSt:Int = Int(dateStamp)
+            
+            let dfmatter = NSDateFormatter()
+            dfmatter.dateFormat="yyyy-MM-dd HH:mm"
+            //日出时间戳
+            let dayStr = dfmatter.dateFromString(modelDic.objectForKey("date") as! String + " " + (dayArray[5] as! String))
+            let dayStamp:NSTimeInterval = dayStr!.timeIntervalSince1970
+            let daySt:Int = Int(dayStamp)
+            
+            //日落时间戳
+            let nightStr = dfmatter.dateFromString(modelDic.objectForKey("date") as! String + " " + (nightArray[5] as! String))
+            let nightStamp:NSTimeInterval = nightStr!.timeIntervalSince1970
+            let nightSt:Int = Int(nightStamp)
+            
+            if dateSt >= daySt && dateSt <= nightSt {
+                iconImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
+                weatherCurrentLabel?.text = (dayArray[1] as? String)! + " " + (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
+            }else{
+                iconImageView!.image = UIImage(named:"cm_weathericon_" + (nightArray[0] as! String))
+                weatherCurrentLabel?.text = (nightArray[1] as? String)! + " " + (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
+            }
+            
+            cityNameLabel?.text = weathermodel!.realtime?.city_name
+            pm25Label?.text = "PM2.5: " + (weathermodel?.pm25?.pm25?.pm25)!
+            summaryLabel?.text = weathermodel?.pm25!.pm25!.des
+            weatherLabel?.text = (weathermodel!.realtime?.weather?.temperature)!  + "°"
+        
+            if (weathermodel?.xxweihao?.Lenght > 0) {
+                self.bgView?.hidden = false
+                
+                let rang = weathermodel?.xxweihao?.rangeOfString(",")
+                let oneStr = weathermodel?.xxweihao?.substringToIndex((rang?.startIndex)!)
+                self.oneNambelLabel?.text = oneStr
+                let twoStr = weathermodel?.xxweihao?.substringFromIndex((rang?.endIndex)!)
+                self.twoNambelLabel?.text = twoStr
+            }else{
+                self.bgView?.hidden = true
+            }
+        }
+    }
+
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

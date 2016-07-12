@@ -17,10 +17,20 @@ import TMCache
 import SVProgressHUD
 
 let kTMCacheWeatherArray = "kTMCacheWeatherArray"
+typealias cityHomeViewbackfunc=(weatherModel:WeatherModel)->Void
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
+    var myHomeFunc = cityHomeViewbackfunc?()
+    
+    func cityHomeViewBack(mathFunction:(weatherModel:WeatherModel)->Void ){
+        myHomeFunc = mathFunction
+    }
+    
     var HomeWeatherMdoel = WeatherModel()
+
+    var requCityName = HomeWeatherMdoel.realtime!.city_name! as String
+    
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
     var weatherlocalArray = NSMutableArray()
@@ -28,6 +38,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var alamofireManager : Manager?
     var xxWeiHaoArray = NSMutableArray()
+    var cityNameLabel : UILabel?
+    var cityIconImageView : UIImageView?
     
     private var _tableView : UITableView!
     private var tableView :UITableView{
@@ -51,7 +63,35 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = XZClient.sharedInstance.username
+        let titleView = UIView()
+        titleView.backgroundColor = XZSwiftColor.clearColor()
+        titleView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:#selector(HomeViewController.cityClick) ))
+        
+        cityNameLabel = UILabel()
+        cityNameLabel!.font = XZFont2(16)
+        cityNameLabel?.userInteractionEnabled = true
+        if (HomeWeatherMdoel.life == nil) {
+            cityNameLabel?.text = XZClient.sharedInstance.username!
+        }else{
+            cityNameLabel?.text = HomeWeatherMdoel.realtime!.city_name! as String
+        }
+        cityNameLabel!.textColor = XZSwiftColor.whiteColor()
+        titleView.addSubview(cityNameLabel!)
+        cityNameLabel!.snp_makeConstraints { (make) in
+            make.centerY.equalTo(titleView)
+            make.left.equalTo(titleView.snp_centerX)
+        };
+        
+        cityIconImageView = UIImageView()
+        cityIconImageView?.userInteractionEnabled = true
+        cityIconImageView?.image = UIImage.init(named: "fujindizhi")
+        titleView.addSubview(cityIconImageView!)
+        cityIconImageView?.snp_makeConstraints(closure: { (make) in
+            make.centerY.equalTo(titleView);
+            make.right.equalTo(titleView.snp_centerX)
+            make.width.height.equalTo(30)
+        });
+        self.navigationItem.titleView = titleView
         
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
@@ -61,9 +101,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.setupPullToRefreshView(self.tableView)
         
         let leftButton = UIButton()
-        leftButton.frame = CGRectMake(0, 0, 40, 40)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
-        leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
+        leftButton.frame = CGRectMake(0, 0, 35, 30)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        leftButton.setImage(UIImage(named: "bank"), forState: .Normal)
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
@@ -71,24 +111,21 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let rightShareButton = UIButton()
         rightShareButton.frame = CGRectMake(0, 0, 21, 21)
         rightShareButton.contentMode = .Center
-        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         rightShareButton.adjustsImageWhenHighlighted = false
         rightShareButton.setImage(UIImage(named: "share"), forState: .Normal)
         rightShareButton.addTarget(self, action: #selector(HomeViewController.rightShareClick), forControlEvents: .TouchUpInside)
+    
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightShareButton)]
         
-        let rightMoreButton = UIButton()
-        rightMoreButton.frame = CGRectMake(0, 0, 21, 21)
-        rightMoreButton.contentMode = .Center
-        rightMoreButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
-        rightMoreButton.setImage(UIImage(named: "gengduo"), forState: .Normal)
-        rightMoreButton.adjustsImageWhenHighlighted = false
-        rightMoreButton.addTarget(self, action: #selector(HomeViewController.rightMoreClick), forControlEvents: .TouchUpInside)
-        
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
     
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
-            self!.requCityName = XZClient.sharedInstance.username!
-            self!.navigationItem.title = XZClient.sharedInstance.username!
+            if (self!.HomeWeatherMdoel.life == nil) {
+                self!.requCityName = XZClient.sharedInstance.username!
+            }else{
+                self!.requCityName = self!.HomeWeatherMdoel.realtime!.city_name! as String
+            }
+            self!.cityNameLabel?.text = XZClient.sharedInstance.username!
             self!.asyncRequestData()
         }
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
@@ -100,13 +137,18 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func leftClick(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    func cityClick(){
         let cityVC = CityViewController()
-        
+
         cityVC.cityViewBack { (weatherModel) -> Void in
             self.HomeWeatherMdoel = weatherModel
             self.requCityName = weatherModel.realtime!.city_name! as String
-            self.navigationItem.title = self.requCityName
+            self.cityNameLabel?.text = weatherModel.realtime!.city_name! as String
             self.asyncRequestData()
+            self.myHomeFunc!(weatherModel: weatherModel);
+            
         }
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
@@ -132,12 +174,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             shareView.showInWindowAnimated(true)
         }
     }
-    
-    func rightMoreClick(){
-        let moreVC = MoreTableViewController()
-        self.navigationController?.pushViewController(moreVC, animated: true)
-    }
-    
+
     func setupPullToRefreshView(tableView:UITableView) -> Void{
         
         self.cycle = DGElasticPullToRefreshLoadingViewCircle()

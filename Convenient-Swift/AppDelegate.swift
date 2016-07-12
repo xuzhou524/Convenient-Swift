@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         self.window?.backgroundColor = XZSwiftColor.convenientBackgroundColor;
         self.window?.makeKeyAndVisible();
         
-        centerNav = XZSwiftNavigationController(rootViewController: RootWeatherViewController());
+        centerNav = XZSwiftNavigationController(rootViewController: RootViewController());
     
         self.window?.rootViewController = centerNav;
     
