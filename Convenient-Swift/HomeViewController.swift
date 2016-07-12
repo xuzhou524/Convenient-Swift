@@ -29,8 +29,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var HomeWeatherMdoel = WeatherModel()
 
-    var requCityName = HomeWeatherMdoel.realtime!.city_name! as String
-    
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
     var weatherlocalArray = NSMutableArray()
@@ -125,7 +123,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }else{
                 self!.requCityName = self!.HomeWeatherMdoel.realtime!.city_name! as String
             }
-            self!.cityNameLabel?.text = XZClient.sharedInstance.username!
+            self!.cityNameLabel?.text = self!.requCityName
             self!.asyncRequestData()
         }
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
