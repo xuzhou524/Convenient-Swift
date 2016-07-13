@@ -101,9 +101,7 @@
 		534926161C86E29E0077A8A6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926101C86E29E0077A8A6 /* UITableView+Extension.swift */; };
 		534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */; };
 		534926191C86E3A80077A8A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534926181C86E3A80077A8A6 /* HomeViewController.swift */; };
-		5359D53F1D2A60AB003E719C /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5359D53E1D2A60AB003E719C /* Transparent.png */; };
-		535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CBFF61D20E04B00D12589 /* RootViewController.swift */; };
-		5363DAF21D2B54D800B43F29 /* RootWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */; };
+		5376D55F1D17F0EC00881C14 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5376D5571D17F0EC00881C14 /* GoogleMobileAds.framework */; };
 		5382DE961C9BA37D00F08BAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382DE951C9BA37D00F08BAD /* ShareView.swift */; };
 		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
 		53917E671C897B85002200C1 /* UUBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5D1C897B85002200C1 /* UUBarChart.m */; };
@@ -350,9 +348,13 @@
 		534926101C86E29E0077A8A6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		534926121C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+FINAutomaticHeightCell.swift"; sourceTree = "<group>"; };
 		534926181C86E3A80077A8A6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../Convenient-Swift/HomeViewController.swift"; sourceTree = "<group>"; };
-		5359D53E1D2A60AB003E719C /* Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transparent.png; sourceTree = "<group>"; };
-		535CBFF61D20E04B00D12589 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		5376D5571D17F0EC00881C14 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		5376D5591D17F0EC00881C14 /* GADMAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		5376D55A1D17F0EC00881C14 /* GADMAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
+		5376D55B1D17F0EC00881C14 /* GADMediationAdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMediationAdRequest.h; sourceTree = "<group>"; };
+		5376D55C1D17F0EC00881C14 /* GADMEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMEnums.h; sourceTree = "<group>"; };
+		5376D55D1D17F0EC00881C14 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkAdapterProtocol.h; sourceTree = "<group>"; };
+		5376D55E1D17F0EC00881C14 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMRewardBasedVideoAdNetworkConnectorProtocol.h; sourceTree = "<group>"; };
 		5382DE951C9BA37D00F08BAD /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
 		53917E5A1C897B85002200C1 /* UUBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUBar.h; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 			files = (
 				53D97EFD1D0126D600DBA748 /* ShareSDKInterfaceAdapter.framework in Frameworks */,
 				53D97F041D0126D600DBA748 /* libWeChatSDK.a in Frameworks */,
+				5376D55F1D17F0EC00881C14 /* GoogleMobileAds.framework in Frameworks */,
 				53C81DDC1CE1EAF90092BEF3 /* libxml2.2.tbd in Frameworks */,
 				53B502871C99451C00A024DE /* MessageUI.framework in Frameworks */,
 				53D97F081D0126D600DBA748 /* ShareSDKConnector.framework in Frameworks */,
@@ -851,10 +854,32 @@
 			path = "UITableView+FINAutomaticHeightCell";
 			sourceTree = "<group>";
 		};
+		5376D5561D17F0EC00881C14 /* GoogleMobileAdsSdkiOS-7.8.1 */ = {
+			isa = PBXGroup;
+			children = (
+				5376D5571D17F0EC00881C14 /* GoogleMobileAds.framework */,
+				5376D5581D17F0EC00881C14 /* Mediation Adapters */,
+			);
+			path = "GoogleMobileAdsSdkiOS-7.8.1";
+			sourceTree = "<group>";
+		};
+		5376D5581D17F0EC00881C14 /* Mediation Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				5376D5591D17F0EC00881C14 /* GADMAdNetworkAdapterProtocol.h */,
+				5376D55A1D17F0EC00881C14 /* GADMAdNetworkConnectorProtocol.h */,
+				5376D55B1D17F0EC00881C14 /* GADMediationAdRequest.h */,
+				5376D55C1D17F0EC00881C14 /* GADMEnums.h */,
+				5376D55D1D17F0EC00881C14 /* GADMRewardBasedVideoAdNetworkAdapterProtocol.h */,
+				5376D55E1D17F0EC00881C14 /* GADMRewardBasedVideoAdNetworkConnectorProtocol.h */,
+			);
+			path = "Mediation Adapters";
+			sourceTree = "<group>";
+		};
 		53917E431C89619C002200C1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				53C70A491D23CBB10059FB68 /* LBCalendar */,
+				5376D5561D17F0EC00881C14 /* GoogleMobileAdsSdkiOS-7.8.1 */,
 				53D97ED71D0126D600DBA748 /* ShareSDK */,
 				53FBBE0C1CE30570007796D8 /* TailRestrictions.plist */,
 				53C81DD21CE1EAB80092BEF3 /* TFHpple.h */,
@@ -1586,6 +1611,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenAPI.framework",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.8.1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1645,6 +1671,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/Libs/ShareSDK/UI",
 					"$(PROJECT_DIR)/Libs/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenAPI.framework",
+					"$(PROJECT_DIR)/Libs/GoogleMobileAdsSdkiOS-7.8.1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
