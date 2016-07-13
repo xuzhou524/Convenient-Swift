@@ -19,6 +19,7 @@ class RootWeatherTableViewCell: UITableViewCell {
     var bgView : UIView?
     var oneNambelLabel : UILabel?
     var twoNambelLabel : UILabel?
+    var cityDetailLabel : UILabel?
     
     var HomeWeatherMdoel = WeatherModel()
     
@@ -45,6 +46,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         
         cityNameLabel = UILabel()
         cityNameLabel?.text = "北京"
+        cityNameLabel?.textColor = XZSwiftColor.xzGlay100
         cityNameLabel?.font = XZFont2(16)
         self.contentView.addSubview(cityNameLabel!)
         cityNameLabel?.snp_makeConstraints(closure: { (make) in
@@ -54,6 +56,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         
         pm25Label = UILabel()
         pm25Label?.text = "PM2.5 250"
+        pm25Label?.textColor = XZSwiftColor.xzGlay100
         pm25Label?.font = XZFont2(14)
         self.contentView.addSubview(pm25Label!)
         pm25Label?.snp_makeConstraints(closure: { (make) in
@@ -63,6 +66,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         
         weatherCurrentLabel = UILabel()
         weatherCurrentLabel?.text = "晴 12 ~ 18℃"
+        weatherCurrentLabel?.textColor = XZSwiftColor.xzGlay100
         weatherCurrentLabel?.font = XZFont2(15)
         self.contentView.addSubview(weatherCurrentLabel!)
         weatherCurrentLabel?.snp_makeConstraints(closure: { (make) in
@@ -73,20 +77,32 @@ class RootWeatherTableViewCell: UITableViewCell {
         weatherLabel = UILabel()
         weatherLabel?.text = "28°"
         weatherLabel?.font = XZFont3(40)
+        weatherLabel?.textColor = XZSwiftColor.xzGlay100
         self.contentView.addSubview(weatherLabel!)
         weatherLabel?.snp_makeConstraints(closure: { (make) in
-            make.top.equalTo(self.contentView).offset(15)
-            make.centerX.equalTo(self.contentView).offset(35)
+            make.top.equalTo(self.contentView).offset(23)
+            make.centerX.equalTo(self.contentView).offset(50)
         })
         
         summaryLabel = UILabel()
         summaryLabel?.text = "绵绵的云朵，形成千变万化绵绵的云朵"
+        summaryLabel?.textColor = XZSwiftColor.xzGlay100
         summaryLabel?.font = XZFont2(14)
         self.contentView.addSubview(summaryLabel!)
         summaryLabel?.snp_makeConstraints(closure: { (make) in
             make.top.equalTo((self.iconImageView?.snp_bottom)!).offset(15)
             make.left.equalTo(self.iconImageView!)
-            make.right.equalTo(self.contentView).offset(-95)
+            make.right.equalTo(self.contentView).offset(-120)
+        })
+        
+        cityDetailLabel = UILabel()
+        cityDetailLabel?.text = "更多预报 >"
+        cityDetailLabel?.textColor = XZSwiftColor.xzGlay100
+        cityDetailLabel?.font = XZFont2(14)
+        self.contentView.addSubview(cityDetailLabel!)
+        cityDetailLabel?.snp_makeConstraints(closure: { (make) in
+            make.top.equalTo((self.iconImageView?.snp_bottom)!).offset(15)
+            make.right.equalTo(self.contentView).offset(-15)
         })
         
         self.bgView = UIView()
@@ -182,6 +198,9 @@ class RootWeatherTableViewCell: UITableViewCell {
         self.twoNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.center.equalTo(twoView)
         });
+        
+     
+
     }
 
     func bind(weathermodel:WeatherModel?)->Void{

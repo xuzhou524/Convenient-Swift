@@ -46,6 +46,16 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
         }
+        let leftButton = UIButton()
+        leftButton.frame = CGRectMake(0, 0, 35, 30)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        leftButton.setImage(UIImage(named: "bank"), forState: .Normal)
+        leftButton.adjustsImageWhenHighlighted = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
+    }
+    func leftClick(){
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

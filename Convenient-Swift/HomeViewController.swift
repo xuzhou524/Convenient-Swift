@@ -36,7 +36,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var alamofireManager : Manager?
     var xxWeiHaoArray = NSMutableArray()
-    var cityNameLabel : UILabel?
+
+    var cityNameButton : UIButton?
     var cityIconImageView : UIImageView?
     
     private var _tableView : UITableView!
@@ -61,35 +62,28 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titleView = UIView()
-        titleView.backgroundColor = XZSwiftColor.clearColor()
-        titleView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:#selector(HomeViewController.cityClick) ))
-        
-        cityNameLabel = UILabel()
-        cityNameLabel!.font = XZFont2(16)
-        cityNameLabel?.userInteractionEnabled = true
+        cityNameButton = UIButton()
+        cityNameButton!.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        cityNameButton!.setImage(UIImage(named: "bank"), forState: .Normal)
+        cityNameButton!.adjustsImageWhenHighlighted = false
         if (HomeWeatherMdoel.life == nil) {
-            cityNameLabel?.text = XZClient.sharedInstance.username!
+            cityNameButton!.setTitle(XZClient.sharedInstance.username!, forState: .Normal)
         }else{
-            cityNameLabel?.text = HomeWeatherMdoel.realtime!.city_name! as String
+            cityNameButton!.setTitle(HomeWeatherMdoel.realtime!.city_name! as String, forState: .Normal)
         }
-        cityNameLabel!.textColor = XZSwiftColor.whiteColor()
-        titleView.addSubview(cityNameLabel!)
-        cityNameLabel!.snp_makeConstraints { (make) in
-            make.centerY.equalTo(titleView)
-            make.left.equalTo(titleView.snp_centerX)
-        };
+        cityNameButton!.addTarget(self, action: #selector(HomeViewController.cityClick), forControlEvents: .TouchUpInside)
         
         cityIconImageView = UIImageView()
         cityIconImageView?.userInteractionEnabled = true
         cityIconImageView?.image = UIImage.init(named: "fujindizhi")
-        titleView.addSubview(cityIconImageView!)
+        cityNameButton!.addSubview(cityIconImageView!)
         cityIconImageView?.snp_makeConstraints(closure: { (make) in
-            make.centerY.equalTo(titleView);
-            make.right.equalTo(titleView.snp_centerX)
-            make.width.height.equalTo(30)
+            make.centerY.equalTo(cityNameButton!);
+            make.left.equalTo(cityNameButton!)
+            make.width.height.equalTo(28)
         });
-        self.navigationItem.titleView = titleView
+        
+        self.navigationItem.titleView = cityNameButton
         
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
@@ -123,7 +117,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }else{
                 self!.requCityName = self!.HomeWeatherMdoel.realtime!.city_name! as String
             }
-            self!.cityNameLabel?.text = self!.requCityName
+            self!.cityNameButton!.setTitle(self!.requCityName, forState: .Normal)
             self!.asyncRequestData()
         }
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
@@ -143,7 +137,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityVC.cityViewBack { (weatherModel) -> Void in
             self.HomeWeatherMdoel = weatherModel
             self.requCityName = weatherModel.realtime!.city_name! as String
-            self.cityNameLabel?.text = weatherModel.realtime!.city_name! as String
+            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, forState: .Normal)
             self.asyncRequestData()
             self.myHomeFunc!(weatherModel: weatherModel);
             
@@ -259,11 +253,15 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 let elements = xpathParser.searchWithXPathQuery("//html//body//div//div//div//div[@class='number']")
                 if elements.count > 0{
                     let temp = elements.first as! TFHppleElement
-                    let tempInt = self.weatherArray.indexOfObject(self.HomeWeatherMdoel)
-                    self.weatherArray.removeObject(self.HomeWeatherMdoel)
-                    self.HomeWeatherMdoel.xxweihao = temp.content
-                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempInt)
-                    TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                    for i in 0  ..< self.weatherArray.count - 1 {
+                        let model = self.weatherArray[i] as! WeatherModel
+                        if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
+                            self.weatherArray.removeObjectAtIndex(i)
+                            self.HomeWeatherMdoel.xxweihao = temp.content
+                            self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
+                            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                        }
+                    }
                 }
                 break
             case .Failure(let error):

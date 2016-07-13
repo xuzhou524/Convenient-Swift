@@ -142,11 +142,16 @@ class RootViewController: UIViewController,LBCalendarDataSource,UIScrollViewDele
                 let elements = xpathParser.searchWithXPathQuery("//html//body//div//div//div//div[@class='number']")
                 if elements.count > 0{
                     let temp = elements.first as! TFHppleElement
-                    let tempInt = self.weatherArray.indexOfObject(self.HomeWeatherMdoel)
-                    self.weatherArray.removeObject(self.HomeWeatherMdoel)
-                    self.HomeWeatherMdoel.xxweihao = temp.content
-                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempInt)
-                    TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                    for i in 0  ..< self.weatherArray.count - 1 {
+                        let model = self.weatherArray[i] as! WeatherModel
+                        if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
+                            self.weatherArray.removeObjectAtIndex(i)
+                            self.HomeWeatherMdoel.xxweihao = temp.content
+                            self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
+                            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                        }
+                    }
+
                 }
                 break
             case .Failure(let error):
