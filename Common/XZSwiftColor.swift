@@ -62,10 +62,27 @@ class XZSwiftColor: UIColor{
             return colorWith255RGB(142, g: 142, b: 142);
         }
     }
+    static var xzGlay100 : UIColor{
+        get{
+            return colorWith255RGB(100, g: 100, b: 100);
+        }
+    }
     
     static var yellow255_194_50 : UIColor{
         get{
             return colorWith255RGB(255, g: 194, b: 50);
+        }
+    }
+    
+    
+    static var barTintColor : UIColor{
+        get{
+            return colorWith255RGB(7, g: 37, b: 59);
+        }
+    }
+    static var weekBgColor : UIColor{
+        get{
+            return colorWith255RGB(215, g: 215, b: 215);
         }
     }
 }

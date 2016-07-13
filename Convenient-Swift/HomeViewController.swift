@@ -17,10 +17,18 @@ import TMCache
 import SVProgressHUD
 
 let kTMCacheWeatherArray = "kTMCacheWeatherArray"
+typealias cityHomeViewbackfunc=(weatherModel:WeatherModel)->Void
 
 class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
+    var myHomeFunc = cityHomeViewbackfunc?()
+    
+    func cityHomeViewBack(mathFunction:(weatherModel:WeatherModel)->Void ){
+        myHomeFunc = mathFunction
+    }
+    
     var HomeWeatherMdoel = WeatherModel()
+
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
     var weatherlocalArray = NSMutableArray()
@@ -28,6 +36,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     var alamofireManager : Manager?
     var xxWeiHaoArray = NSMutableArray()
+
+    var cityNameButton : UIButton?
+    var cityIconImageView : UIImageView?
     
     private var _tableView : UITableView!
     private var tableView :UITableView{
@@ -51,7 +62,28 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = XZClient.sharedInstance.username
+        cityNameButton = UIButton()
+        cityNameButton!.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        cityNameButton!.setImage(UIImage(named: "bank"), forState: .Normal)
+        cityNameButton!.adjustsImageWhenHighlighted = false
+        if (HomeWeatherMdoel.life == nil) {
+            cityNameButton!.setTitle(XZClient.sharedInstance.username!, forState: .Normal)
+        }else{
+            cityNameButton!.setTitle(HomeWeatherMdoel.realtime!.city_name! as String, forState: .Normal)
+        }
+        cityNameButton!.addTarget(self, action: #selector(HomeViewController.cityClick), forControlEvents: .TouchUpInside)
+        
+        cityIconImageView = UIImageView()
+        cityIconImageView?.userInteractionEnabled = true
+        cityIconImageView?.image = UIImage.init(named: "fujindizhi")
+        cityNameButton!.addSubview(cityIconImageView!)
+        cityIconImageView?.snp_makeConstraints(closure: { (make) in
+            make.centerY.equalTo(cityNameButton!);
+            make.left.equalTo(cityNameButton!)
+            make.width.height.equalTo(28)
+        });
+        
+        self.navigationItem.titleView = cityNameButton
         
         self.view.addSubview(self.tableView);
         self.tableView.snp_makeConstraints{ (make) -> Void in
@@ -61,9 +93,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.setupPullToRefreshView(self.tableView)
         
         let leftButton = UIButton()
-        leftButton.frame = CGRectMake(0, 0, 40, 40)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
-        leftButton.setImage(UIImage(named: "fujindizhi"), forState: .Normal)
+        leftButton.frame = CGRectMake(0, 0, 35, 30)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        leftButton.setImage(UIImage(named: "bank"), forState: .Normal)
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
@@ -71,24 +103,21 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let rightShareButton = UIButton()
         rightShareButton.frame = CGRectMake(0, 0, 21, 21)
         rightShareButton.contentMode = .Center
-        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
+        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         rightShareButton.adjustsImageWhenHighlighted = false
         rightShareButton.setImage(UIImage(named: "share"), forState: .Normal)
         rightShareButton.addTarget(self, action: #selector(HomeViewController.rightShareClick), forControlEvents: .TouchUpInside)
+    
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightShareButton)]
         
-        let rightMoreButton = UIButton()
-        rightMoreButton.frame = CGRectMake(0, 0, 21, 21)
-        rightMoreButton.contentMode = .Center
-        rightMoreButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -0)
-        rightMoreButton.setImage(UIImage(named: "gengduo"), forState: .Normal)
-        rightMoreButton.adjustsImageWhenHighlighted = false
-        rightMoreButton.addTarget(self, action: #selector(HomeViewController.rightMoreClick), forControlEvents: .TouchUpInside)
-        
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightMoreButton),UIBarButtonItem(customView: rightShareButton)]
     
         self.KVOController .observe(XZClient.sharedInstance, keyPath:"username", options: [.Initial,.New]){[weak self] (nav, color, change) -> Void in
-            self!.requCityName = XZClient.sharedInstance.username!
-            self!.navigationItem.title = XZClient.sharedInstance.username!
+            if (self!.HomeWeatherMdoel.life == nil) {
+                self!.requCityName = XZClient.sharedInstance.username!
+            }else{
+                self!.requCityName = self!.HomeWeatherMdoel.realtime!.city_name! as String
+            }
+            self!.cityNameButton!.setTitle(self!.requCityName, forState: .Normal)
             self!.asyncRequestData()
         }
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
@@ -100,13 +129,18 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     func leftClick(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    func cityClick(){
         let cityVC = CityViewController()
-        
+
         cityVC.cityViewBack { (weatherModel) -> Void in
             self.HomeWeatherMdoel = weatherModel
             self.requCityName = weatherModel.realtime!.city_name! as String
-            self.navigationItem.title = self.requCityName
+            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, forState: .Normal)
             self.asyncRequestData()
+            self.myHomeFunc!(weatherModel: weatherModel);
+            
         }
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
@@ -132,12 +166,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             shareView.showInWindowAnimated(true)
         }
     }
-    
-    func rightMoreClick(){
-        let moreVC = MoreTableViewController()
-        self.navigationController?.pushViewController(moreVC, animated: true)
-    }
-    
+
     func setupPullToRefreshView(tableView:UITableView) -> Void{
         
         self.cycle = DGElasticPullToRefreshLoadingViewCircle()
@@ -224,11 +253,15 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 let elements = xpathParser.searchWithXPathQuery("//html//body//div//div//div//div[@class='number']")
                 if elements.count > 0{
                     let temp = elements.first as! TFHppleElement
-                    let tempInt = self.weatherArray.indexOfObject(self.HomeWeatherMdoel)
-                    self.weatherArray.removeObject(self.HomeWeatherMdoel)
-                    self.HomeWeatherMdoel.xxweihao = temp.content
-                    self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: tempInt)
-                    TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                    for i in 0  ..< self.weatherArray.count - 1 {
+                        let model = self.weatherArray[i] as! WeatherModel
+                        if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
+                            self.weatherArray.removeObjectAtIndex(i)
+                            self.HomeWeatherMdoel.xxweihao = temp.content
+                            self.weatherArray.insertObject(self.HomeWeatherMdoel, atIndex: i)
+                            TMCache.sharedCache().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+                        }
+                    }
                 }
                 break
             case .Failure(let error):

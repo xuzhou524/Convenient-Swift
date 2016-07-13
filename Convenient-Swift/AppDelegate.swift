@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
     var window: UIWindow?
     var currLocation : CLLocation!
+    
+    var centerNav : XZSwiftNavigationController?
+    
     //用于定位服务管理类，它能够给我们提供位置信息和高度信息，也可以监控设备进入或离开某个区域，还可以获得设备的运行方向
     var locationManager : CLLocationManager = CLLocationManager()
     
@@ -35,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         self.window?.backgroundColor = XZSwiftColor.convenientBackgroundColor;
         self.window?.makeKeyAndVisible();
         
-        let centerNav = XZSwiftNavigationController(rootViewController: HomeViewController());
+        centerNav = XZSwiftNavigationController(rootViewController: RootViewController());
     
         self.window?.rootViewController = centerNav;
     

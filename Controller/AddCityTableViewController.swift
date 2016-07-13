@@ -99,8 +99,17 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         self.view.addGestureRecognizer(tapGestureRecognizer)
         tapGestureRecognizer.cancelsTouchesInView = false
         
+        let leftButton = UIButton()
+        leftButton.frame = CGRectMake(0, 0, 35, 30)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        leftButton.setImage(UIImage(named: "bank"), forState: .Normal)
+        leftButton.adjustsImageWhenHighlighted = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
     }
-
+    func leftClick(){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if self.citySearchBar?.searchBar?.text?.Lenght > 0{
             let urlString = "http://zhwnlapi.etouch.cn/Ecalender/api/city"

@@ -19,8 +19,18 @@ class MoreTableViewController: UITableViewController {
         regClass(self.tableView, cell: MoreTableViewCell.self)
         regClass(self.tableView, cell: More_InterTableViewCell.self)
         regClass(self.tableView, cell: BaseTableViewCell.self)
+        
+        let leftButton = UIButton()
+        leftButton.frame = CGRectMake(0, 0, 35, 30)
+        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
+        leftButton.setImage(UIImage(named: "bank"), forState: .Normal)
+        leftButton.adjustsImageWhenHighlighted = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), forControlEvents: .TouchUpInside)
     }
-
+    func leftClick(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
