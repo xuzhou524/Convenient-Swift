@@ -17,7 +17,7 @@
         return nil;
     }
     
-    self.backgroundColor = [UIColor yellowColor];
+    self.backgroundColor = [UIColor colorWithRed:215/255.0 green:215/255.0 blue:215/255.0 alpha:1];
  
     _datePicker = [[UIDatePicker alloc]init];
     _datePicker.frame = CGRectMake(0, 44, frame.size.width, frame.size.height-88);

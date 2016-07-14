@@ -63,7 +63,6 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameButton = UIButton()
-        cityNameButton!.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
         cityNameButton!.setImage(UIImage(named: "bank"), forState: .Normal)
         cityNameButton!.adjustsImageWhenHighlighted = false
         if (HomeWeatherMdoel.life == nil) {
