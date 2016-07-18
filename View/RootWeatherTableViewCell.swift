@@ -36,11 +36,19 @@ class RootWeatherTableViewCell: UITableViewCell {
     func sebViewS(){
         self.contentView.backgroundColor = XZSwiftColor.whiteColor()
         
+        let topBGView = UIView()
+        topBGView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        self.contentView.addSubview(topBGView)
+        topBGView.snp_makeConstraints { (make) in
+            make.left.top.right.equalTo(self.contentView)
+            make.height.equalTo(10)
+        };
+
         iconImageView = UIImageView()
         self.contentView.addSubview(iconImageView!)
         iconImageView?.snp_makeConstraints(closure: { (make) in
             make.left.equalTo(self.contentView).offset(15)
-            make.top.equalTo(self.contentView).offset(10)
+            make.top.equalTo(topBGView.snp_bottom).offset(10)
             make.width.height.equalTo(45)
         })
         
@@ -50,7 +58,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         cityNameLabel?.font = XZFont2(16)
         self.contentView.addSubview(cityNameLabel!)
         cityNameLabel?.snp_makeConstraints(closure: { (make) in
-            make.top.equalTo(self.contentView).offset(10)
+            make.top.equalTo(topBGView.snp_bottom).offset(10)
             make.left.equalTo((self.iconImageView?.snp_right)!).offset(10)
         })
         
@@ -80,7 +88,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         weatherLabel?.textColor = XZSwiftColor.xzGlay100
         self.contentView.addSubview(weatherLabel!)
         weatherLabel?.snp_makeConstraints(closure: { (make) in
-            make.top.equalTo(self.contentView).offset(23)
+            make.top.equalTo(topBGView.snp_bottom).offset(23)
             make.centerX.equalTo(self.contentView).offset(50)
         })
         
@@ -110,7 +118,7 @@ class RootWeatherTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.bgView!)
         self.bgView!.snp_makeConstraints(closure: { (make) -> Void in
             make.right.equalTo(self.contentView).offset(-15)
-            make.top.equalTo(self.contentView).offset(10)
+            make.top.equalTo(topBGView.snp_bottom).offset(10)
             make.height.equalTo(50)
             make.width.equalTo(75)
         });
@@ -120,9 +128,8 @@ class RootWeatherTableViewCell: UITableViewCell {
         xianXingGrayView.backgroundColor = XZSwiftColor.xzGlay230
         self.bgView!.addSubview(xianXingGrayView)
         xianXingGrayView.snp_makeConstraints(closure: { (make) -> Void in
-            
             make.right.equalTo(self.contentView).offset(-15)
-            make.top.equalTo(self.contentView).offset(10)
+            make.top.equalTo(topBGView.snp_bottom).offset(10)
             make.height.equalTo(20)
             make.width.equalTo(75)
         });
@@ -198,13 +205,10 @@ class RootWeatherTableViewCell: UITableViewCell {
         self.twoNambelLabel!.snp_makeConstraints(closure: { (make) -> Void in
             make.center.equalTo(twoView)
         });
-        
-     
-
     }
 
     func bind(weathermodel:WeatherModel?)->Void{
-        if weathermodel != nil{
+        if (weathermodel != nil && weathermodel!.realtime?.city_code != nil){
             
             let modelDic = weathermodel!.weather[0]
             let infoDic =  (modelDic.objectForKey("info"))! as! NSMutableDictionary
@@ -254,8 +258,6 @@ class RootWeatherTableViewCell: UITableViewCell {
             }
         }
     }
-
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
