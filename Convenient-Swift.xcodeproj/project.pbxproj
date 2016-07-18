@@ -104,7 +104,6 @@
 		5359D53F1D2A60AB003E719C /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5359D53E1D2A60AB003E719C /* Transparent.png */; };
 		535CBFF71D20E04B00D12589 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CBFF61D20E04B00D12589 /* RootViewController.swift */; };
 		5363DAF21D2B54D800B43F29 /* RootWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */; };
-		536FE1981D3CB564008FBA90 /* RootWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FE1971D3CB564008FBA90 /* RootWeekTableViewCell.swift */; };
 		536FE19A1D3CD8D7008FBA90 /* RootCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FE1991D3CD8D7008FBA90 /* RootCalendarTableViewCell.swift */; };
 		5382DE961C9BA37D00F08BAD /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382DE951C9BA37D00F08BAD /* ShareView.swift */; };
 		53917E661C897B85002200C1 /* UUBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53917E5B1C897B85002200C1 /* UUBar.m */; };
@@ -355,7 +354,6 @@
 		5359D53E1D2A60AB003E719C /* Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Transparent.png; sourceTree = "<group>"; };
 		535CBFF61D20E04B00D12589 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeatherTableViewCell.swift; sourceTree = "<group>"; };
-		536FE1971D3CB564008FBA90 /* RootWeekTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWeekTableViewCell.swift; sourceTree = "<group>"; };
 		536FE1991D3CD8D7008FBA90 /* RootCalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootCalendarTableViewCell.swift; sourceTree = "<group>"; };
 		5382DE951C9BA37D00F08BAD /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		53917E581C896371002200C1 /* Convenient-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Convenient-Header.h"; sourceTree = "<group>"; };
@@ -835,7 +833,6 @@
 				5329A9FF1C99652A003B7364 /* BaseTableViewCell.swift */,
 				5382DE951C9BA37D00F08BAD /* ShareView.swift */,
 				5363DAF11D2B54D800B43F29 /* RootWeatherTableViewCell.swift */,
-				536FE1971D3CB564008FBA90 /* RootWeekTableViewCell.swift */,
 				536FE1991D3CD8D7008FBA90 /* RootCalendarTableViewCell.swift */,
 			);
 			path = View;
@@ -1435,7 +1432,6 @@
 				531C24221C869BB90009E0E6 /* XZSwiftNavigationController.swift in Sources */,
 				534926171C86E29E0077A8A6 /* UITableView+FINAutomaticHeightCell.swift in Sources */,
 				53C70A821D23CC2D0059FB68 /* LBCalendar.m in Sources */,
-				536FE1981D3CB564008FBA90 /* RootWeekTableViewCell.swift in Sources */,
 				53EF6C1B1C910CB500307BAE /* CityViewController.swift in Sources */,
 				530778511C92BAF60010E65C /* JSONModelArray.m in Sources */,
 				53C81DDA1CE1EAB80092BEF3 /* XPathQuery.m in Sources */,

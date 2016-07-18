@@ -172,8 +172,22 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         return 44
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let rootWeekView = RootWeekTableViewCell.init()
-        return rootWeekView
+        //星期
+        let itemW  = UIScreen.mainScreen().bounds.size.width / 7.00
+        let array = ["周一", "周二", "周三", "周四", "周五", "周六","周日"]
+        let weekBg = UIView.init()
+        weekBg.backgroundColor = XZSwiftColor.weekBgColor
+        for  i in 0  ..< 7{
+            let week = UILabel.init()
+            week.text = array[i]
+            week.font = UIFont.systemFontOfSize(14)
+            week.frame = CGRectMake(itemW * CGFloat(i), 6, itemW, 32)
+            week.textAlignment = .Center
+            week.textColor = XZSwiftColor.blackColor()
+            week.backgroundColor = XZSwiftColor.clearColor()
+            weekBg.addSubview(week)
+        }
+        return weekBg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
