@@ -252,7 +252,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 let elements = xpathParser.searchWithXPathQuery("//html//body//div//div//div//div[@class='number']")
                 if elements.count > 0{
                     let temp = elements.first as! TFHppleElement
-                    for i in 0  ..< self.weatherArray.count - 1 {
+                    for i in 0  ..< self.weatherArray.count {
                         let model = self.weatherArray[i] as! WeatherModel
                         if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
                             self.weatherArray.removeObjectAtIndex(i)
