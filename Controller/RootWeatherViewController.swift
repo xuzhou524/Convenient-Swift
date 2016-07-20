@@ -22,6 +22,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     var BGScrollview : UIScrollView?
     var rootCalendarCell : RootCalendarTableViewCell?
     var HomeWeatherMdoel = WeatherModel()
+    var weatherlocalArray = NSMutableArray()
     
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
@@ -54,9 +55,13 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.updateym), name: "currentYearMonth", object: nil)
         let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
-        
+        if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
+            self.weatherlocalArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
+        }
+        if self.weatherlocalArray.count > 0 {
+            self.HomeWeatherMdoel = self.weatherlocalArray[0] as! WeatherModel
+        }
         self.asyncRequestData()
-        
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
