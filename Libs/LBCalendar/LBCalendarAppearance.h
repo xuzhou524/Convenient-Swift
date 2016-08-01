@@ -51,6 +51,7 @@ typedef NS_ENUM(NSInteger, LBCalendarWeekDayFormat) {
 @property (strong, nonatomic) UIColor *dayTextColorTodayOtherMonth;
 
 @property (strong, nonatomic) UIFont *dayTextFont;
+@property (strong, nonatomic) UIFont *dateTextFont;
 
 @property (assign, nonatomic) CGFloat dayRectangularRatio;
 @property (assign, nonatomic) CGFloat dayDotRatio;

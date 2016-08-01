@@ -33,6 +33,7 @@
     
     self.weekDayTextFont = [UIFont systemFontOfSize:11];
     self.dayTextFont = [UIFont systemFontOfSize:18];
+    self.dateTextFont = [UIFont systemFontOfSize:12];
     
     self.weekDayTextColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:0];
     

@@ -30,7 +30,7 @@ class RootCalendarTableViewCell: UITableViewCell {
         });
         
         self.calendar = LBCalendar.init()
-        self.calendar?.calendarAppearance().calendar().firstWeekday = 2  //Sunday ==1,Saturday == 7
+        self.calendar?.calendarAppearance().calendar().firstWeekday = 1  //Sunday ==1,Saturday == 7
         self.calendar?.calendarAppearance().dayRectangularRatio = 9.00 / 10.00
         self.calendar?.contentView = calendarContentView
         

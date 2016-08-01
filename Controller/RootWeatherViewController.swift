@@ -52,8 +52,8 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
             make.top.right.bottom.left.equalTo(self.view);
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.updateym), name: "currentYearMonth", object: nil)
-        let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapGestureRecognizer))
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootWeatherViewController.updateym), name: "currentYearMonth", object: nil)
+        let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootWeatherViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
         if  TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) != nil{
             self.weatherlocalArray = TMCache.sharedCache().objectForKey(kTMCacheWeatherArray) as! NSMutableArray
@@ -179,7 +179,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //星期
         let itemW  = UIScreen.mainScreen().bounds.size.width / 7.00
-        let array = ["周一", "周二", "周三", "周四", "周五", "周六","周日"]
+        let array = ["周日", "周一", "周二", "周三", "周四", "周五","周六"]
         let weekBg = UIView.init()
         weekBg.backgroundColor = XZSwiftColor.weekBgColor
         for  i in 0  ..< 7{
@@ -206,7 +206,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         let rootWeatherCell = getCell(tableView, cell: RootWeatherTableViewCell.self, indexPath: indexPath)
         rootWeatherCell.selectionStyle = .None
         rootWeatherCell.bind(self.HomeWeatherMdoel)
-        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootViewController.tapWeatherClick))
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootWeatherViewController.tapWeatherClick))
         rootWeatherCell.addGestureRecognizer(tapGestureRecognizer)
         return rootWeatherCell
     }
@@ -217,13 +217,13 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         dateFormatter.dateFormat = "yyyy-MM"
         let defaultDateStr = dateFormatter.stringFromDate(defaultDate) as String
         
-        SelectionMonthBt = UIBarButtonItem.init(title: defaultDateStr, style: .Plain, target: self, action: #selector(RootViewController.action))
+        SelectionMonthBt = UIBarButtonItem.init(title: defaultDateStr, style: .Plain, target: self, action: #selector(RootWeatherViewController.action))
         SelectionMonthBt?.width = 30
         
-        let TodayTouchBT = UIBarButtonItem.init(title: "今", style: .Plain, target: self, action: #selector(RootViewController.didGoTodayTouch))
+        let TodayTouchBT = UIBarButtonItem.init(title: "今", style: .Plain, target: self, action: #selector(RootWeatherViewController.didGoTodayTouch))
         TodayTouchBT.width = 15
         
-        let MoreBt = UIBarButtonItem.init(title: "更多", style: .Plain, target: self, action: #selector(RootViewController.moreBtTap))
+        let MoreBt = UIBarButtonItem.init(title: "更多", style: .Plain, target: self, action: #selector(RootWeatherViewController.moreBtTap))
         MoreBt.width = 25
         
         let spaceItem = UIBarButtonItem.init(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)

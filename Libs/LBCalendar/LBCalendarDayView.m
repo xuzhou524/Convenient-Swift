@@ -13,6 +13,7 @@
 @interface LBCalendarDayView (){
     LBRectangularView *rectangularView;
     UILabel *textLabel;
+    UILabel *dateLabel;
     LBRectangularView *dotView;
     LBStarView * starView;
     
@@ -69,6 +70,9 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     {
         textLabel = [UILabel new];
         [self addSubview:textLabel];
+        
+        dateLabel = [UILabel new];
+        [self addSubview:dateLabel];
     }
     
     {
@@ -105,6 +109,7 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
 - (void)configureConstraintsForSubviews
 {
     textLabel.frame = CGRectMake(0, -5, self.frame.size.width, self.frame.size.height);
+    dateLabel.frame = CGRectMake(0, 10, self.frame.size.width, self.frame.size.height);
     
     CGFloat sizeRectangular = MIN(self.frame.size.width, self.frame.size.height);
     CGFloat sizeDot = sizeRectangular;
@@ -142,6 +147,7 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     self->_date = date;
     
     textLabel.text = [dateFormatter stringFromDate:date];
+    dateLabel.text = [self chineseCalendarOfDate:date];
     
     cacheIsToday = -1;
     cacheCurrentDateText = nil;
@@ -204,12 +210,14 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
         if(!self.isOtherMonth){
             rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelected];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelected];
             starView.color = [self.calendarManager.calendarAppearance dayStarColorSelected];
         }
         else{
             rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelectedOtherMonth];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelectedOtherMonth];
             starView.color  = [self.calendarManager.calendarAppearance dayStarColorSelectedOtherMonth];
         }
@@ -221,12 +229,14 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
         if(!self.isOtherMonth){
             rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorToday];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorToday];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorToday];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorToday];
             starView.color  = [self.calendarManager.calendarAppearance dayStarColorToday];
         }
         else{
             rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorTodayOtherMonth];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorTodayOtherMonth];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorTodayOtherMonth];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorTodayOtherMonth];
             starView.color = [self.calendarManager.calendarAppearance dayStarColorTodayOtherMonth];
         }
@@ -234,11 +244,13 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     else{
         if(!self.isOtherMonth){
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColor];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColor];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColor];
             starView.color = [self.calendarManager.calendarAppearance dayStarColor];
         }
         else{
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorOtherMonth];
+            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorOtherMonth];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorOtherMonth];
             starView.color = [self.calendarManager.calendarAppearance dayStarColorOtherMonth];
         }
@@ -327,8 +339,67 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.font = self.calendarManager.calendarAppearance.dayTextFont;
     
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.font = self.calendarManager.calendarAppearance.dateTextFont;
+    
     [self configureConstraintsForSubviews];
     [self setSelected:isSelected animated:NO];
 }
 
+
+// 获取date当天的农历
+- (NSString *)chineseCalendarOfDate:(NSDate *)date {
+    NSString * _day;
+    //农历日期名
+    NSArray *ChineseDays =  [NSArray arrayWithObjects:@"初一",@"初二",@"初三",@"初四",@"初五",@"初六",@"初七",@"初八",@"初九",@"初十",@"十一",@"十二",@"十三",@"十四",@"十五",@"十六",@"十七",@"十八",@"十九",@"二十",@"廿一",@"廿二",@"廿三",@"廿四",@"廿五",@"廿六",@"廿七",@"廿八",@"廿九",@"三十",nil];
+    //农历月份名
+    NSArray *ChineseMonths =  [NSArray arrayWithObjects:@"正月",@"二月",@"三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"冬月",@"腊月",nil];
+    NSArray * ChineseFestival = @[@"除夕",@"春节",@"中秋",@"五一",@"国庆",@"儿童",@"圣诞",@"七夕",@"端午"];
+    
+    NSCalendar *chineseCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese];
+    
+    NSDateComponents *components = [chineseCalendar components:NSCalendarUnitYear |NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+    
+    NSCalendar *normalDate = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *Datecomponents = [normalDate components:NSCalendarUnitYear |NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
+    
+    if (components.day ==1 ) {
+        _day =ChineseMonths[components.month -1];
+    } else {
+        _day =ChineseDays[components.day -1];
+    }
+    
+    //农历节日
+    if (components.day ==1 && components.month ==1) {
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[1]]; //春节
+    } if(components.month ==8 && components.day ==15){
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[2]];//中秋
+    }else if(components.month ==7 && components.day ==7){
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[7]];//七夕
+    }else if(components.month ==5 && components.day ==5){
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[8]];//端午
+    }
+    
+    //阳历节日
+    if (Datecomponents.month ==6 && Datecomponents.day ==1) {       //儿童节
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[5]];
+    }else if(Datecomponents.month ==10 && Datecomponents.day ==1){  //国庆节
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[4]];
+    }else if(Datecomponents.month ==5 && Datecomponents.day ==1){   //劳动节
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[3]];
+    }else if(Datecomponents.month ==12 && Datecomponents.day ==25){ //圣诞节
+        _day = [NSString stringWithFormat:@"%@",ChineseFestival[6]];
+    }
+    
+    NSTimeInterval timeInterval_day = 60 *60 * 24;
+    
+    NSDate *nextDay_date = [NSDate dateWithTimeInterval:timeInterval_day sinceDate:date];
+    components = [chineseCalendar components:NSCalendarUnitYear |NSCalendarUnitMonth | NSCalendarUnitDay fromDate:nextDay_date];
+    
+    if ( 1 == components.month && 1 == components.day ) {
+        return@"除夕";
+    }
+    return _day;
+}
 @end

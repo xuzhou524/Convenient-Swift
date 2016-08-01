@@ -21,7 +21,6 @@
 
 #import "LBCalendar.h"
 #import "LBStarView.h"
-#import "DateDetailView.h"
 #import "DateSelectView.h"
 
 #import "TFHpple.h"
