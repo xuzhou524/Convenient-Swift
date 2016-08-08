@@ -1603,9 +1603,9 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYiWeather.Convenient-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cffab42f-29c0-4e25-922f-ccb960bf70da";
+				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Debug;
@@ -1662,9 +1662,9 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYiWeather.Convenient-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cffab42f-29c0-4e25-922f-ccb960bf70da";
+				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Release;

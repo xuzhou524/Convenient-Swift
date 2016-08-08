@@ -32,8 +32,8 @@
     self.dayDotRatio = 1. / 8.;
     
     self.weekDayTextFont = [UIFont systemFontOfSize:11];
-    self.dayTextFont = [UIFont systemFontOfSize:18];
-    self.dateTextFont = [UIFont systemFontOfSize:12];
+    self.dayTextFont = [UIFont systemFontOfSize:20];
+    self.dateTextFont = [UIFont systemFontOfSize:11];
     
     self.weekDayTextColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:0];
     
@@ -52,6 +52,7 @@
     self.dayTextColorSelectedOtherMonth = self.dayTextColorSelected;
     self.dayDotColorSelectedOtherMonth = self.dayDotColorSelected;
     self.dayStarColorSelectedOtherMonth = self.dayStarColorSelected;
+    self.dateTextColor = [UIColor colorWithRed:142./256. green:103./256. blue:118./256. alpha:1.];
     
     self.dayRectangularColorToday = [UIColor colorWithRed:0x33/256. green:0xB3/256. blue:0xEC/256. alpha:.5];
     self.dayTextColorToday = [UIColor whiteColor];

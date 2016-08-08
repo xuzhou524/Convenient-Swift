@@ -135,18 +135,13 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
 
 - (void)setDate:(NSDate *)date
 {
-    static NSDateFormatter *dateFormatter;
-    if(!dateFormatter){
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.timeZone = self.calendarManager.calendarAppearance.calendar.timeZone;
-        [dateFormatter setDateFormat:@"dd"];
-    }
-    
-    
-    
+
     self->_date = date;
     
-    textLabel.text = [dateFormatter stringFromDate:date];
+    NSCalendar *calendar = self.calendarManager.calendarAppearance.calendar;
+    NSDateComponents *comps = [calendar components: NSCalendarUnitDay fromDate:date];
+    
+    textLabel.text = [NSString stringWithFormat:@"%ld",comps.day];
     dateLabel.text = [self chineseCalendarOfDate:date];
     
     cacheIsToday = -1;
