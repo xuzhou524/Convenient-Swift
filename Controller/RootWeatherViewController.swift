@@ -220,7 +220,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         SelectionMonthBt = UIBarButtonItem.init(title: defaultDateStr, style: .Plain, target: self, action: #selector(RootWeatherViewController.action))
         SelectionMonthBt?.width = 30
         
-        let TodayTouchBT = UIBarButtonItem.init(title: "今", style: .Plain, target: self, action: #selector(RootWeatherViewController.didGoTodayTouch))
+        let TodayTouchBT = UIBarButtonItem.init(image: UIImage.init(named: "today"), style: .Plain, target: self, action: #selector(RootWeatherViewController.didGoTodayTouch))
         TodayTouchBT.width = 15
         
         let MoreBt = UIBarButtonItem.init(title: "更多", style: .Plain, target: self, action: #selector(RootWeatherViewController.moreBtTap))

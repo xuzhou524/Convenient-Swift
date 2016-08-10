@@ -54,7 +54,7 @@
     self.dayStarColorSelectedOtherMonth = self.dayStarColorSelected;
     self.dateTextColor = [UIColor colorWithRed:142./256. green:103./256. blue:118./256. alpha:1.];
     
-    self.dayRectangularColorToday = [UIColor colorWithRed:0x33/256. green:0xB3/256. blue:0xEC/256. alpha:.5];
+    self.dayRectangularColorToday = [UIColor colorWithRed:235/255. green:85/255. blue:90/255. alpha:1.];
     self.dayTextColorToday = [UIColor whiteColor];
     self.dayDotColorToday = [UIColor whiteColor];
     self.dayStarColorToday = [UIColor whiteColor];

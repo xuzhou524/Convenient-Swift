@@ -122,7 +122,8 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     
     rectangularView.frame = CGRectMake(0, 0, sizeRectangular, sizeRectangular);
     rectangularView.center = CGPointMake(self.frame.size.width / 2., self.frame.size.height / 2.);
-    rectangularView.layer.cornerRadius = 6.0;
+    rectangularView.layer.cornerRadius = sizeRectangular / 2.;
+    rectangularView.layer.masksToBounds = YES;
     
     dotView.frame = CGRectMake(0, 0, sizeDot, sizeDot);
     dotView.center = CGPointMake(self.frame.size.width / 2.+12, (self.frame.size.height / 2.) + sizeDot * 1.8);
@@ -203,18 +204,18 @@ static NSString *kLBCalendarDaySelected = @"kLBCalendarDaySelected";
     
     if(selected){
         if(!self.isOtherMonth){
-            rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelected];
-            textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
-            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
-            dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelected];
-            starView.color = [self.calendarManager.calendarAppearance dayStarColorSelected];
+            //rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelected];
+            //textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
+            //dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
+            //dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelected];
+            //starView.color = [self.calendarManager.calendarAppearance dayStarColorSelected];
         }
         else{
-            rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelectedOtherMonth];
-            textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
-            dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
-            dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelectedOtherMonth];
-            starView.color  = [self.calendarManager.calendarAppearance dayStarColorSelectedOtherMonth];
+            //rectangularView.color = [self.calendarManager.calendarAppearance dayRectangularColorSelectedOtherMonth];
+           // textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
+            //dateLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelectedOtherMonth];
+           // dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelectedOtherMonth];
+           // starView.color  = [self.calendarManager.calendarAppearance dayStarColorSelectedOtherMonth];
         }
         
         rectangularView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
