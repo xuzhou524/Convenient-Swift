@@ -1565,8 +1565,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu zhou xu zhou (6JC78V6G2N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu zhou xu zhou (6JC78V6G2N)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1613,7 +1613,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd13208d-03c8-450c-b1e1-de69589306bf";
+				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Debug;
@@ -1624,8 +1624,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Huang (LB7HG8QNCY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu zhou xu zhou (6JC78V6G2N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu zhou xu zhou (6JC78V6G2N)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1672,7 +1672,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd13208d-03c8-450c-b1e1-de69589306bf";
+				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 			};
 			name = Release;
