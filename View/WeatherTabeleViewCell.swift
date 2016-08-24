@@ -376,14 +376,14 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     
    //pragma mark - @required
     func chartConfigAxisXLabel(chart: UUChart) -> [AnyObject] {
-        return self.getXTitles(6)
+        return self.getXTitles(5)
     }
     
     func chartConfigAxisYValue(chart: UUChart) -> [AnyObject] {
         
         self.minWeatherArray = NSMutableArray()
         self.maxWeatherArray = NSMutableArray()
-        for i in 0  ..< self.weakWeatherArray.count - 1 {
+        for i in 0  ..< self.weakWeatherArray.count {
             let model = self.weakWeatherArray[i]
             let infoDic =  (model.objectForKey("info"))! as! NSMutableDictionary
             let dayArray =  (infoDic.objectForKey("day"))! as! NSMutableArray
@@ -487,7 +487,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
         self.weatherLabelArray = NSMutableArray()
         let xLabelWidth : CGFloat
         
-        xLabelWidth = (UIScreen.mainScreen().bounds.size.width)/6.0;
+        xLabelWidth = (UIScreen.mainScreen().bounds.size.width)/5.0;
         for i in 0 ..< 6 {
             self.tiltileLabel = UILabel.init(frame: CGRectMake(CGFloat(i) * xLabelWidth, self.frame.origin.y, xLabelWidth,15))
             self.tiltileLabel?.font = XZFont2(13)
@@ -507,10 +507,10 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
     }
     func bind(weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
-            for var i = 0; i < self.tiltileLabelArray?.count; i++ {
+            for var i = 0; i < weathermodel?.weather.count; i++ {
                 var label =  UILabel()
                 label = self.tiltileLabelArray![i] as! UILabel
-                
+        
                 let model = weathermodel?.weather[i]
 
                 let str = (model?.objectForKey("date") as! NSString).substringFromIndex(5)
@@ -538,7 +538,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
 class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
   func binde(weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
-            for var i = 0; i < self.weatherLabelArray?.count; i++ {
+            for var i = 0; i < weathermodel?.weather.count; i++ {
                 var label =  UILabel()
                 label = self.weatherLabelArray![i] as! UILabel
                 
