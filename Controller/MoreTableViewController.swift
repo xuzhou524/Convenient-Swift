@@ -104,7 +104,7 @@ class MoreTableViewController: UITableViewController {
         UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/app/id1106215431")!);
     }
     func tuImageView(){
-        UIApplication.sharedApplication().openURL(NSURL(string:"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1106215431")!);
+        UIApplication.sharedApplication().openURL(NSURL(string:"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1106215431&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!);
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
