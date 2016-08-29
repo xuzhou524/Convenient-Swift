@@ -75,9 +75,6 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         //得到ID  获取天气图标对应的值
         //http://tq.91.com/api/?act=210&city=101180712&sv=3.15.3
         
-        //搜索城市
-        //http://zhwnlapi.etouch.cn/Ecalender/api/city?keyword=%E6%B8%85%E8%BF%9C&timespan=1457518656.715996&type=search
-        
         //获取天气信息
         WeatherModel.like(self.requCityName, success: { (model) -> Void in
             self.HomeWeatherMdoel = model
