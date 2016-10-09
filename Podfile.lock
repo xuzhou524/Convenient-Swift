@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (4.0.1)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.9)
+  - jastor (0.2.1)
+  - KVOController (1.0.3)
+  - ObjectMapper (2.0.0)
+  - SnapKit (3.0.1)
+  - SVProgressHUD (1.1.3)
+  - TMCache (1.2.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0.0)
+  - AlamofireObjectMapper (~> 4.0.0)
+  - Crashlytics
+  - Fabric
+  - jastor (~> 0.2.1)
+  - KVOController (~> 1.0.3)
+  - ObjectMapper (~> 2.0.0)
+  - SnapKit (~> 3.0.1)
+  - SVProgressHUD (~> 1.1.3)
+  - TMCache (~> 1.2.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
+  Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
+  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
+
+COCOAPODS: 0.39.0

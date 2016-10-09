@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>北京</key>
+	<string>CHXX0008</string>
+	<key>成都</key>
+	<string>CHXX0016</string>
+	<key>天津</key>
+	<string>CHXX0133</string>
+	<key>杭州</key>
+	<string>CHXX0044</string>
+	<key>兰州</key>
+	<string>CHXX0079</string>
+	<key>贵阳</key>
+	<string>CHXX0039</string>
+	<key>南昌</key>
+	<string>CHXX0097</string>
+	<key>长春</key>
+	<string>CHXX0010</string>
+	<key>哈尔滨</key>
+	<string>CHXX0046</string>
+	<key>武汉</key>
+	<string>CHXX0138</string>
+	<key>上海</key>
+	<string>CHXX0116</string>
+	<key>深圳</key>
+	<string>CHXX0120</string>
+</dict>
+</plist>
