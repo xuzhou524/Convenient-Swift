@@ -308,7 +308,7 @@ class WeatherTabeleViewCell: UITableViewCell {
         if weathermodel != nil{
 
             let modelDic = weathermodel!.weather[0]
-            let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+            let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
             let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
             
@@ -357,24 +357,24 @@ class WeatherTabeleViewCell: UITableViewCell {
     }
 }
 
-class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
+class Weather_LineTabeleViewCell: UITableViewCell, UUChartDataSource {
     
-    internal var weakWeatherArray =  []
+    internal var weakWeatherArray : NSMutableArray = []
     
     var chartView : UUChart?
     var maxWeatherArray : NSMutableArray?
     var minWeatherArray : NSMutableArray?
     var maxWeatherStr : String?
     var minWeatherStr : String?
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+
     func configUI()->Void{
         self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         if (chartView  != nil){
@@ -395,17 +395,18 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
     }
     
    //pragma mark - @required
-    func chartConfigAxisXLabel(_ chart: UUChart) -> [AnyObject] {
+    func chartConfigAxisXLabel(_ chart: UUChart!) -> [Any]! {
         return self.getXTitles(5)
     }
     
-    func chartConfigAxisYValue(_ chart: UUChart) -> [AnyObject] {
+    
+    func chartConfigAxisYValue(_ chart: UUChart!) -> [Any]!{
         
         self.minWeatherArray = NSMutableArray()
         self.maxWeatherArray = NSMutableArray()
         for i in 0  ..< self.weakWeatherArray.count {
             let model = self.weakWeatherArray[i]
-            let infoDic =  ((model as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+            let infoDic =  ((model as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
             let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
             self.maxWeatherArray?.add(dayArray[2])
@@ -432,7 +433,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
         return [self.minWeatherArray!,self.maxWeatherArray!]
     }
     //pragma mark - @optional
-     func chartConfigColors(_ chart: UUChart) ->  [AnyObject] {
+     func chartConfigColors(_ chart: UUChart!) -> [Any]! {
 
         return [XZSwiftColor.textColor,XZSwiftColor.yellow255_194_50,UUColor.green()];
     }
@@ -442,7 +443,7 @@ class Weather_LineTabeleViewCell: UITableViewCell ,UUChartDataSource{
         for i in 0  ..< self.weakWeatherArray.count - 1 {
             let model = self.weakWeatherArray[i]
             
-            let infoDic =  ((model as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+            let infoDic =  ((model as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
             let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
             
@@ -531,9 +532,8 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
                 var label =  UILabel()
                 label = self.tiltileLabelArray![i] as! UILabel
         
-                let model = weathermodel?.weather[i]
-
-                let str = ((model as AnyObject).object(forKey: "date") as! NSString).substring(from: 5)
+                let modelDic = weathermodel!.weather[0]
+                let str = ((modelDic as AnyObject).object(forKey: "date") as! NSString).substring(from: 5)
                 
                 switch (i) {
                     case 0:
@@ -547,7 +547,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
                         break;
                 }
                 label = self.weatherLabelArray![i] as! UILabel
-                let infoDic =  ((model as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+                let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
                 let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
                 label.text = dayArray[1] as? String
             }
@@ -558,12 +558,12 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
 class Weather_WeekTabeleViewCell: Weather_TimeTabeleViewCell {
   func binde(_ weathermodel:WeatherModel?)->Void{
         if weathermodel != nil{
-            for var i = 0; i < weathermodel?.weather.count; i += 1 {
+             for  i in 0 ..< 5{
                 var label =  UILabel()
                 label = self.weatherLabelArray![i] as! UILabel
                 
                 let model = weathermodel?.weather[i]
-                let infoDic =  ((model! as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+                let infoDic =  ((model! as AnyObject).object(forKey: "info"))! as! NSDictionary
                 let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
                 
                 label.text = "周" + ((model! as AnyObject).object(forKey: "week") as? String)!

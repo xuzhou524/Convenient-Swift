@@ -32,24 +32,25 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-typealias callbackfunc=(_ weatherModel:WeatherModel)->Void
+typealias callbackfunc = (_ weatherModel:WeatherModel)->Void
 
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
-
+    //let myFunc = callbackfunc
+    //var alamofireManager : Manager?
     
-    func initBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
-        myFunc = mathFunction
-    }
-    let myFunc = callbackfunc()
-    var alamofireManager : Manager?
+    //func initBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
+    //    myFunc = mathFunction
+   // }
 
-    var citySearchBar: addCitySearchTabelView?
+
+    var citySearchBar: UISearchBar?
     var weatherArray = NSMutableArray()
     var cityMdoel: CityMdoel?
     fileprivate var _tableView: UITableView!
     fileprivate var tableView: UITableView{
         get{
             if _tableView == nil{
+                
                 _tableView = UITableView()
                 _tableView?.backgroundColor = XZSwiftColor.convenientBackgroundColor
                 _tableView?.separatorStyle = .none
@@ -71,8 +72,12 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         super.viewDidLoad()
         self.navigationItem.title = "选择城市"
         self.view.backgroundColor = XZSwiftColor.convenientBackgroundColor
-        self.citySearchBar = addCitySearchTabelView()
-        self.citySearchBar?.searchBar?.delegate = self
+        
+        self.citySearchBar = UISearchBar()
+        self.citySearchBar?.tintColor = UIColor.red
+        self.citySearchBar?.autoresizingMask = .flexibleWidth
+        self.citySearchBar?.delegate = self
+        self.citySearchBar?.placeholder = "请输入城市名称"
         self.view.addSubview(self.citySearchBar!)
         self.citySearchBar?.snp.makeConstraints({ (make) -> Void in
             make.left.right.equalTo(self.view)
@@ -131,28 +136,24 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         self.navigationController?.popViewController(animated: true)
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if self.citySearchBar?.searchBar?.text?.Lenght > 0{
+        if self.citySearchBar?.text?.Lenght > 0{
             let urlString = "http://zhwnlapi.etouch.cn/Ecalender/api/city"
             let prames = [
-                "keyword" : (self.citySearchBar?.searchBar?.text)! as String,
+                "keyword" : (self.citySearchBar?.text)! as String,
                 "timespan" : "1457518656000",
                 "type" : "search"
             ]
-            
-            let config = URLSessionConfiguration.default
-            config.timeoutIntervalForRequest = 30    // 秒
-            self.alamofireManager = Manager(configuration: config)
             SVProgressHUD.show()
-            self.alamofireManager!.request(.GET, urlString, parameters:prames, encoding: .url, headers: nil).responseObject("") {
-                (response : Response<CityMdoel,NSError>) in
+            
+             Alamofire.request(urlString, method: .post, parameters: prames).responseJSON{ (response) -> Void in
                 if let model = response.result.value{
-                    if model.data?.count > 0{
-                        self.cityMdoel = model
-                         SVProgressHUD.dismiss()
-                        self.tableView .reloadData()
-                    }else{
-                        SVProgressHUD.showError(withStatus: "请输入正确城市")
-                    }
+//                    if model.data?.count > 0{
+//                        self.cityMdoel = model
+//                         SVProgressHUD.dismiss()
+//                        self.tableView .reloadData()
+//                    }else{
+//                        SVProgressHUD.showError(withStatus: "请输入正确城市")
+//                    }
                 }else{
                     SVProgressHUD.showError(withStatus: "请检查网络")
                 }
@@ -183,35 +184,35 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         let cell = getCell(tableView, cell: citySearch_ResultsTabelView.self, indexPath: indexPath)
         cell.selectionStyle = .none
         if self.cityMdoel?.data?.count > 0{
-            cell.bind((self.cityMdoel?.data![(indexPath as NSIndexPath).row])!)
+            cell.bind((self.cityMdoel?.data![indexPath.row])!)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.cityMdoel?.data![(indexPath as NSIndexPath).row]
-        WeatherModel.like((model?.name)!, success: { (model) -> Void in
-            self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-            //去重
-            var tempBool = true
-            for  i in 0  ..< self.weatherArray.count {
-                let models = self.weatherArray[i] as! WeatherModel
-                if models.realtime?.city_code == model.realtime?.city_code || models.realtime?.city_name == model.realtime?.city_name{
-                    self.weatherArray.removeObject(at: i)
-                    self.weatherArray.insert(model, at: i)
-                    tempBool = false
-                }
-            }
-            if tempBool{
-                self.weatherArray.add(model)
-            }
-            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-            
-            self.myFunc!(weatherModel:model);
-            self.navigationController?.popViewController(animated: true)
-            
-            }, failure: { (error) -> Void in
-        })
+//        let model = self.cityMdoel?.data![(indexPath as NSIndexPath).row]
+//        WeatherModel.like((model?.name)!, success: { (model) -> Void in
+//            self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+//            //去重
+//            var tempBool = true
+//            for  i in 0  ..< self.weatherArray.count {
+//                let models = self.weatherArray[i] as! WeatherModel
+//                if models.realtime?.city_code == model.realtime?.city_code || models.realtime?.city_name == model.realtime?.city_name{
+//                    self.weatherArray.removeObject(at: i)
+//                    self.weatherArray.insert(model, at: i)
+//                    tempBool = false
+//                }
+//            }
+//            if tempBool{
+//                self.weatherArray.add(model)
+//            }
+//            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+//            
+//            self.myFunc(weatherModel:model);
+//            self.navigationController?.popViewController(animated: true)
+//            
+//            }, failure: { (error) -> Void in
+//        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

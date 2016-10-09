@@ -26,7 +26,7 @@ class MoreTableViewController: UITableViewController {
         leftButton.setImage(UIImage(named: "bank"), for: UIControlState())
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), for: .touchUpInside)
+        leftButton.addTarget(self, action: #selector(MoreTableViewController.leftClick), for: .touchUpInside)
     }
     func leftClick(){
         self.dismiss(animated: true, completion: nil)
@@ -53,12 +53,12 @@ class MoreTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath as NSIndexPath).row == 0 {
+        if indexPath.row == 0 {
             let moreCell = getCell(tableView, cell: MoreTableViewCell.self, indexPath: indexPath)
             moreCell.selectionStyle = .none
             return moreCell
         }
-        if (indexPath as NSIndexPath).row == 1{
+        if indexPath.row == 1{
             let interCell = getCell(tableView, cell: More_InterTableViewCell.self, indexPath: indexPath)
             interCell.zanImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(MoreTableViewController.zanImageViewTap)))
             interCell.tuImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(MoreTableViewController.tuImageView)))
@@ -66,7 +66,7 @@ class MoreTableViewController: UITableViewController {
             return interCell
         }
         
-        if (indexPath as NSIndexPath).row == 2{
+        if indexPath.row == 2{
             let cell = UITableViewCell()
             cell.backgroundColor = XZSwiftColor.convenientBackgroundColor
             cell.selectionStyle = .none
@@ -95,7 +95,7 @@ class MoreTableViewController: UITableViewController {
         return baseCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath as NSIndexPath).row == 4{
+        if indexPath.row == 4{
             UIApplication.shared.openURL(URL(string:"mqq://im/chat?chat_type=wpa&uin=1043037904&version=1&src_type=web")!);
         }
     }

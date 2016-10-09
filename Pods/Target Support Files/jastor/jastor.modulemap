@@ -1,0 +1,6 @@
+framework module jastor {
+  umbrella header "jastor-umbrella.h"
+
+  export *
+  module * { export * }
+}

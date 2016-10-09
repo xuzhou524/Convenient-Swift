@@ -133,7 +133,7 @@ class CityTableViewCell: UITableViewCell {
     func bind(_ weathermodel:WeatherModel) ->Void{
         let modelDic = weathermodel.weather[0]
         if ((modelDic as AnyObject).object(forKey: "info") != nil) {
-            let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSMutableDictionary
+            let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
             let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
             
@@ -207,7 +207,7 @@ class addCitySearchTabelView: UITableViewCell {
     }
     
     func sebView(){
-        self.contentView.backgroundColor = XZSwiftColor.convenientBackgroundColor
+        self.contentView.backgroundColor = XZSwiftColor.gray
         self.searchBar = UISearchBar()
         self.searchBar?.tintColor = UIColor.red
         self.searchBar?.autoresizingMask = .flexibleWidth

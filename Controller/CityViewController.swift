@@ -9,18 +9,17 @@
 import UIKit
 import TMCache
 
-typealias cityViewbackfunc=(_ weatherModel:WeatherModel)->Void
+typealias cityViewbackfunc = (_ weatherModel:WeatherModel)->Void
 
 class CityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-   
-    
-    func cityViewBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
-        myFunc = mathFunction
-    }
+    //var myFunc = cityViewbackfunc
+    //func cityViewBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
+    //    myFunc = mathFunction
+   // }
     
     var weatherArray = NSMutableArray()
-     var myFunc = cityViewbackfunc?()
+    
     fileprivate var _tableView: UITableView!
     fileprivate var tableView: UITableView{
         get{
@@ -91,16 +90,15 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityCell.bgScrollView!.addGestureRecognizer(scrollViewRecognizer)
         
         return cityCell
-
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath as NSIndexPath).row == self.weatherArray.count{
             let addCityVC = AddCityTableViewController()
-            addCityVC.initBack({ (weatherModel) -> Void in
-                self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-                self.tableView.reloadData()
-                self.myFunc!(weatherModel: weatherModel);
-            })
+//            addCityVC.initBack({ (weatherModel) -> Void in
+//                self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+//                self.tableView.reloadData()
+//                self.myFunc!(weatherModel: weatherModel);
+//            })
             self.navigationController?.pushViewController(addCityVC, animated: true)
         }
     }
@@ -114,7 +112,7 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func selectModel(_ tap:UITapGestureRecognizer){
         let weatherModel = self.weatherArray[((tap.view?.tag)! - 1000)]  as! WeatherModel
-        self.myFunc!(weatherModel: weatherModel);
+        //self.myFunc!(weatherModel: weatherModel);
         self.navigationController?.popViewController(animated: true)
     }
     override func didReceiveMemoryWarning() {
