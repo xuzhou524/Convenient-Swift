@@ -26,7 +26,6 @@ If you have questions about any aspect of this project, please feel free to cont
 <br/>or Weibo: <a href = 'http://weibo.com/u/2305459493' >@徐_Aaron</a>
 <br/>
 
-##Screenshots
 ![](http://ww4.sinaimg.cn/large/0060lm7Tgw1f6nna5v24jj30af0ijq42.jpg)
 ![](http://ww3.sinaimg.cn/large/0060lm7Tgw1f5z0e88a03j30af0ij3zw.jpg)
 ![](http://ww2.sinaimg.cn/large/0060lm7Tgw1f5z0e7wel5j30af0ij3yy.jpg)
