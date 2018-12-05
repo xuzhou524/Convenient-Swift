@@ -68,12 +68,6 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func asyncRequestData() -> Void{
-        //根据城市名称  获取城市ID
-        //http://apistore.baidu.com/microservice/cityinfo?cityname=北京
-        
-        //得到ID  获取天气图标对应的值
-        //http://tq.91.com/api/?act=210&city=101180712&sv=3.15.3
-        
         //获取天气信息
         let urlString = "https://op.juhe.cn/onebox/weather/query"
         let prames = [
