@@ -1,42 +1,55 @@
 PODS:
-  - Alamofire (4.0.1)
-  - AlamofireObjectMapper (4.0.0):
-    - Alamofire (~> 4.0)
-    - ObjectMapper (~> 2.0)
-  - Crashlytics (3.8.2):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.9)
+  - Alamofire (4.8.0)
+  - AlamofireObjectMapper (5.2.0):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - jastor (0.2.1)
   - KVOController (1.0.3)
-  - ObjectMapper (2.1.0)
+  - ObjectMapper (3.4.1)
   - SnapKit (3.0.2)
   - SVProgressHUD (1.1.3)
   - TMCache (1.2.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0.0)
-  - AlamofireObjectMapper (~> 4.0.0)
+  - Alamofire
+  - AlamofireObjectMapper
   - Crashlytics
   - Fabric
   - jastor (~> 0.2.1)
   - KVOController (~> 1.0.3)
-  - ObjectMapper (~> 2.1.0)
+  - ObjectMapper
   - SnapKit (~> 3.0.2)
   - SVProgressHUD (~> 1.1.3)
   - TMCache (~> 1.2.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireObjectMapper
+    - Crashlytics
+    - Fabric
+    - jastor
+    - KVOController
+    - ObjectMapper
+    - SnapKit
+    - SVProgressHUD
+    - TMCache
+
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
-  Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  ObjectMapper: e5e0f8aef8590fc2ddcde7f27eddb255863ee6e9
+  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
 
-PODFILE CHECKSUM: 2f3722c2f4f3da3d689eb001b3863e5f8229b08d
+PODFILE CHECKSUM: 3b8a9d8b69bfbd30dcae36274c024d82a0bc29ef
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.5.3

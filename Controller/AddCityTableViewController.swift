@@ -56,8 +56,9 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 _tableView?.separatorStyle = .none
                 _tableView?.delegate = self
                 _tableView?.dataSource = self
-                
-                regClass(_tableView, cell:citySearch_ResultsTabelView.self)
+
+                self.tableView.register(citySearch_ResultsTabelView.self, forCellReuseIdentifier: "citySearch_ResultsTabelView")
+
             }
             return _tableView
         }

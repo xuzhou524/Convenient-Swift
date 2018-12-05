@@ -23,19 +23,19 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     //var myHomeFunc = cityHomeViewbackfunc?()
     
-//    func cityHomeViewBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
-//        myHomeFunc = mathFunction
-//    }
+    //    func cityHomeViewBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
+    //        myHomeFunc = mathFunction
+    //    }
     
     var HomeWeatherMdoel = WeatherModel()
-
+    
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
     var weatherlocalArray = NSMutableArray()
     
     //var alamofireManager : Manager?
     var xxWeiHaoArray = NSMutableArray()
-
+    
     var cityNameButton : UIButton?
     var cityIconImageView : UIImageView?
     
@@ -48,21 +48,21 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 _tableView.separatorStyle = UITableViewCellSeparatorStyle.none
                 _tableView.delegate = self
                 _tableView.dataSource = self
-            
-                regClass(self.tableView, cell: Weather_titleTabeleViewCell.self)
-                regClass(self.tableView, cell: WeatherTabeleViewCell.self)
-                regClass(self.tableView, cell: Weather_LineTabeleViewCell.self)
-                regClass(self.tableView, cell: Weather_TimeTabeleViewCell.self)
-                regClass(self.tableView, cell: Weather_WeekTabeleViewCell.self)
+                
+                self.tableView.register(Weather_titleTabeleViewCell.self, forCellReuseIdentifier: "Weather_titleTabeleViewCell")
+                self.tableView.register(WeatherTabeleViewCell.self, forCellReuseIdentifier: "WeatherTabeleViewCell")
+                self.tableView.register(Weather_LineTabeleViewCell.self, forCellReuseIdentifier: "Weather_LineTabeleViewCell")
+                self.tableView.register(Weather_TimeTabeleViewCell.self, forCellReuseIdentifier: "Weather_TimeTabeleViewCell")
+                self.tableView.register(Weather_WeekTabeleViewCell.self, forCellReuseIdentifier: "Weather_WeekTabeleViewCell")
             }
-          return _tableView
+            return _tableView
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameButton = UIButton()
-        cityNameButton!.setImage(UIImage(named: "bank"), for: UIControlState())
+        cityNameButton!.setImage(UIImage(named: ""), for: UIControlState())
         cityNameButton!.adjustsImageWhenHighlighted = false
         if (HomeWeatherMdoel.life == nil) {
             cityNameButton!.setTitle(XZClient.sharedInstance.username!, for: UIControlState())
@@ -77,7 +77,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cityNameButton!.addSubview(cityIconImageView!)
         cityIconImageView?.snp.makeConstraints({ (make) in
             make.centerY.equalTo(cityNameButton!);
-            make.left.equalTo(cityNameButton!)
+            make.right.equalTo(cityNameButton!.snp.left).offset(-5)
             make.width.height.equalTo(28)
         });
         
@@ -97,16 +97,16 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), for: .touchUpInside)
         
         let rightShareButton = UIButton()
-        rightShareButton.frame = CGRect(x: 0, y: 0, width: 21, height: 21)
+        rightShareButton.frame = CGRect(x: 0, y: 0, width: 16, height: 16)
         rightShareButton.contentMode = .center
-        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
         rightShareButton.adjustsImageWhenHighlighted = false
         rightShareButton.setImage(UIImage(named: "share"), for: UIControlState())
         rightShareButton.addTarget(self, action: #selector(HomeViewController.rightShareClick), for: .touchUpInside)
-    
+        
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightShareButton)]
         
-    
+        
         self.kvoController .observe(XZClient.sharedInstance, keyPath:"username", options: [.initial,.new]){[weak self] (nav, color, change) -> Void in
             if (self!.HomeWeatherMdoel.life == nil) {
                 self!.requCityName = XZClient.sharedInstance.username!
@@ -129,24 +129,24 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     func cityClick(){
         let cityVC = CityViewController()
-
-//        cityVC.cityViewBack { (weatherModel) -> Void in
-//            self.HomeWeatherMdoel = weatherModel
-//            self.requCityName = weatherModel.realtime!.city_name! as String
-//            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, for: UIControlState())
-//            self.asyncRequestData()
-//            self.myHomeFunc!(weatherModel: weatherModel);
-//            
-//        }
+        
+        //        cityVC.cityViewBack { (weatherModel) -> Void in
+        //            self.HomeWeatherMdoel = weatherModel
+        //            self.requCityName = weatherModel.realtime!.city_name! as String
+        //            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, for: UIControlState())
+        //            self.asyncRequestData()
+        //            self.myHomeFunc!(weatherModel: weatherModel);
+        //
+        //        }
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
     
     func rightShareClick(){
-       UIGraphicsBeginImageContextWithOptions(CGSize(width: UIApplication.shared.keyWindow!.frame.width, height: UIApplication.shared.keyWindow!.frame.height), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: UIApplication.shared.keyWindow!.frame.width, height: UIApplication.shared.keyWindow!.frame.height), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
         UIApplication.shared.keyWindow!.layer.render(in: UIGraphicsGetCurrentContext()!)
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();//移除栈顶的基于当前位图的图形上下文
-   
+        
         let shareView = ShareView()
         shareView.title = "用易分享"
         shareView.image = viewImage
@@ -162,7 +162,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             shareView.showInWindowAnimated(true)
         }
     }
-
+    
     func asyncRequestData() -> Void{
         //根据城市名称  获取城市ID
         //http://apistore.baidu.com/microservice/cityinfo?cityname=北京
@@ -238,8 +238,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             "citycode" : string,
             "pt" : "3010"
         ]
-
-         Alamofire.request(urlString, method: .get, parameters: prames).responseString {response in
+        
+        Alamofire.request(urlString, method: .get, parameters: prames).responseString {response in
             switch response.result {
             case .success:
                 debugPrint(response.result)
@@ -293,7 +293,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             return titleCell
         }else if indexPath.row == 1 {
             let weatherCell = getCell(tableView, cell: WeatherTabeleViewCell.self, indexPath: indexPath)
-             weatherCell.selectionStyle = .none
+            weatherCell.selectionStyle = .none
             weatherCell.bind(self.HomeWeatherMdoel)
             return weatherCell
         }else if indexPath.row == 2 {

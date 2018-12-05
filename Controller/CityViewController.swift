@@ -30,8 +30,8 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
                 _tableView.separatorStyle = .none
                 _tableView.backgroundColor = XZSwiftColor.convenientBackgroundColor
                 
-                regClass(_tableView, cell: CityTableViewCell.self)
-                regClass(_tableView, cell: addCityNullTabelView.self)
+                self.tableView.register(CityTableViewCell.self, forCellReuseIdentifier: "CityTableViewCell")
+                self.tableView.register(addCityNullTabelView.self, forCellReuseIdentifier: "addCityNullTabelView")
             }
             return _tableView
         }

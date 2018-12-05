@@ -16,9 +16,10 @@ class MoreTableViewController: UITableViewController {
         self.tableView.backgroundColor = XZSwiftColor.convenientBackgroundColor
         self.tableView.separatorStyle = .none
 
-        regClass(self.tableView, cell: MoreTableViewCell.self)
-        regClass(self.tableView, cell: More_InterTableViewCell.self)
-        regClass(self.tableView, cell: BaseTableViewCell.self)
+        self.tableView.register(MoreTableViewCell.self, forCellReuseIdentifier: "MoreTableViewCell")
+        self.tableView.register(More_InterTableViewCell.self, forCellReuseIdentifier: "More_InterTableViewCell")
+        self.tableView.register(BaseTableViewCell.self, forCellReuseIdentifier: "BaseTableViewCell")
+
         
         let leftButton = UIButton()
         leftButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)

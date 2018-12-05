@@ -26,7 +26,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     
     var requCityName = XZClient.sharedInstance.username!
     var weatherArray = NSMutableArray()
-
+    
     fileprivate var _tableView : UITableView!
     fileprivate var tableView :UITableView{
         get{
@@ -37,8 +37,8 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
                 _tableView.delegate = self
                 _tableView.dataSource = self
                 
-                regClass(self.tableView, cell: RootCalendarTableViewCell.self)
-                regClass(self.tableView, cell: RootWeatherTableViewCell.self)
+                _tableView.register(RootCalendarTableViewCell.self, forCellReuseIdentifier: "RootCalendarTableViewCell")
+                _tableView.register(RootWeatherTableViewCell.self, forCellReuseIdentifier: "RootWeatherTableViewCell")
             }
             return _tableView
         }
@@ -51,12 +51,12 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
             make.top.right.bottom.left.equalTo(self.view);
         }
         
-       NotificationCenter.default.addObserver(self, selector: #selector(RootWeatherViewController.updateym), name: NSNotification.Name(rawValue: "currentYearMonth"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RootWeatherViewController.updateym), name: NSNotification.Name(rawValue: "currentYearMonth"), object: nil)
         let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootWeatherViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
-//        if  TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil{
-//            self.weatherlocalArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-//        }
+        //        if  TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil{
+        //            self.weatherlocalArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+        //        }
         if self.weatherlocalArray.count > 0 {
             self.HomeWeatherMdoel = self.weatherlocalArray[0] as! WeatherModel
         }
@@ -286,7 +286,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tapGestureRecognizer(){
-         dsView?.cancelBtTap()
+        dsView?.cancelBtTap()
     }
     
     func calendarDidDateSelected(_ calendar: LBCalendar!, date: Date!) {
@@ -313,15 +313,15 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
     func tapWeatherClick() {
         let homeViewVC = HomeViewController()
         homeViewVC.HomeWeatherMdoel = self.HomeWeatherMdoel
-//        homeViewVC.cityHomeViewBack { (weatherModel) -> Void in
-//            self.HomeWeatherMdoel = weatherModel
-//            self.requCityName = weatherModel.realtime!.city_name! as String
-//            self.asyncRequestData()
-//        }
+        //        homeViewVC.cityHomeViewBack { (weatherModel) -> Void in
+        //            self.HomeWeatherMdoel = weatherModel
+        //            self.requCityName = weatherModel.realtime!.city_name! as String
+        //            self.asyncRequestData()
+        //        }
         let centerNav = XZSwiftNavigationController(rootViewController: homeViewVC);
         self.present(centerNav, animated: true, completion: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
