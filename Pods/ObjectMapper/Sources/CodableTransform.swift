@@ -1,12 +1,12 @@
 //
-//  TransformOf.swift
+//  CodableTransform.swift
 //  ObjectMapper
 //
-//  Created by Tristan Himmelman on 8/22/16.
+//  Created by Jari Kalinainen on 10/10/2018.
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,24 +28,38 @@
 
 import Foundation
 
-open class NSDecimalNumberTransform: TransformType {
-    public typealias Object = NSDecimalNumber
-    public typealias JSON = String
+/// Transforms JSON dictionary to Codable type T and back
+open class CodableTransform<T: Codable>: TransformType {
+
+    public typealias Object = T
+    public typealias JSON = Any
 
     public init() {}
 
-    open func transformFromJSON(_ value: Any?) -> NSDecimalNumber? {
-        if let string = value as? String {
-            return NSDecimalNumber(string: string)
+    open func transformFromJSON(_ value: Any?) -> Object? {
+        guard let dict = value as? [String: Any], let data = try? JSONSerialization.data(withJSONObject: dict, options: []) else {
+            return nil
         }
-        if let double = value as? Double {
-            return NSDecimalNumber(value: double)
+        do {
+            let decoder = JSONDecoder()
+            let item = try decoder.decode(T.self, from: data)
+            return item
+        } catch {
+            return nil
         }
-        return nil
     }
 
-    open func transformToJSON(_ value: NSDecimalNumber?) -> String? {
-        guard let value = value else { return nil }
-        return value.description
+    open func transformToJSON(_ value: T?) -> JSON? {
+        guard let item = value else {
+            return nil
+        }
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(item)
+            let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+            return dictionary
+        } catch {
+            return nil
+        }
     }
 }

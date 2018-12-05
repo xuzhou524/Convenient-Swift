@@ -1,12 +1,10 @@
 //
-//  DataTransform.swift
+//  DictionaryTransform.swift
 //  ObjectMapper
 //
-//  Created by Yagrushkin, Evgeny on 8/30/16.
+//  Created by Milen Halachev on 7/20/16.
 //
-//  The MIT License (MIT)
-//
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,23 +26,51 @@
 
 import Foundation
 
-open class DataTransform: TransformType {
-	public typealias Object = Data
-	public typealias JSON = String
+///Transforms [String: AnyObject] <-> [Key: Value] where Key is RawRepresentable as String, Value is Mappable
+public struct DictionaryTransform<Key, Value>: TransformType where Key: Hashable, Key: RawRepresentable, Key.RawValue == String, Value: Mappable {
 	
-	public init() {}
-	
-	open func transformFromJSON(_ value: Any?) -> Data? {
-		guard let string = value as? String else{
-			return nil
-		}
-		return Data(base64Encoded: string)
+	public init() {
+		
 	}
 	
-	open func transformToJSON(_ value: Data?) -> String? {
-		guard let data = value else{
+	public func transformFromJSON(_ value: Any?) -> [Key: Value]? {
+		
+		guard let json = value as? [String: Any] else {
+			
 			return nil
 		}
-		return data.base64EncodedString()
+		
+		let result = json.reduce([:]) { (result, element) -> [Key: Value] in
+			
+			guard
+			let key = Key(rawValue: element.0),
+			let valueJSON = element.1 as? [String: Any],
+			let value = Value(JSON: valueJSON)
+			else {
+				
+				return result
+			}
+			
+			var result = result
+			result[key] = value
+			return result
+		}
+		
+		return result
+	}
+	
+	public func transformToJSON(_ value: [Key: Value]?) -> Any? {
+		
+		let result = value?.reduce([:]) { (result, element) -> [String: Any] in
+			
+			let key = element.0.rawValue
+			let value = element.1.toJSON()
+			
+			var result = result
+			result[key] = value
+			return result
+		}
+		
+		return result
 	}
 }

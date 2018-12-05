@@ -1,12 +1,12 @@
 //
-//  DateFormatterTransform.swift
+//  TransformOf.swift
 //  ObjectMapper
 //
-//  Created by Tristan Himmelman on 2015-03-09.
+//  Created by Tristan Himmelman on 8/22/16.
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,27 +28,25 @@
 
 import Foundation
 
-open class DateFormatterTransform: TransformType {
-	public typealias Object = Date
-	public typealias JSON = String
-	
-	let dateFormatter: DateFormatter
-	
-	public init(dateFormatter: DateFormatter) {
-		self.dateFormatter = dateFormatter
-	}
-	
-	open func transformFromJSON(_ value: Any?) -> Date? {
-		if let dateString = value as? String {
-			return dateFormatter.date(from: dateString)
-		}
-		return nil
-	}
-	
-	open func transformToJSON(_ value: Date?) -> String? {
-		if let date = value {
-			return dateFormatter.string(from: date)
-		}
-		return nil
-	}
+open class NSDecimalNumberTransform: TransformType {
+    public typealias Object = NSDecimalNumber
+    public typealias JSON = String
+
+    public init() {}
+
+    open func transformFromJSON(_ value: Any?) -> NSDecimalNumber? {
+        if let string = value as? String {
+            return NSDecimalNumber(string: string)
+        } else if let number = value as? NSNumber {
+            return NSDecimalNumber(decimal: number.decimalValue)
+        } else if let double = value as? Double {
+            return NSDecimalNumber(floatLiteral: double)
+        }
+        return nil
+    }
+
+    open func transformToJSON(_ value: NSDecimalNumber?) -> String? {
+        guard let value = value else { return nil }
+        return value.description
+    }
 }

@@ -1,12 +1,12 @@
 //
-//  ISO8601DateTransform.swift
+//  DataTransform.swift
 //  ObjectMapper
 //
-//  Created by Jean-Pierre Mouilleseaux on 21 Nov 2014.
+//  Created by Yagrushkin, Evgeny on 8/30/16.
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,14 +28,23 @@
 
 import Foundation
 
-open class ISO8601DateTransform: DateFormatterTransform {
-
-	public init() {
-		let formatter = DateFormatter()
-		formatter.locale = Locale(identifier: "en_US_POSIX")
-		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-		
-		super.init(dateFormatter: formatter)
+open class DataTransform: TransformType {
+	public typealias Object = Data
+	public typealias JSON = String
+	
+	public init() {}
+	
+	open func transformFromJSON(_ value: Any?) -> Data? {
+		guard let string = value as? String else{
+			return nil
+		}
+		return Data(base64Encoded: string)
 	}
 	
+	open func transformToJSON(_ value: Data?) -> String? {
+		guard let data = value else{
+			return nil
+		}
+		return data.base64EncodedString()
+	}
 }

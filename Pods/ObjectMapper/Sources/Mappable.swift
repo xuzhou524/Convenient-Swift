@@ -6,7 +6,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -42,7 +42,7 @@ public protocol Mappable: BaseMappable {
 public protocol StaticMappable: BaseMappable {
 	/// This is function that can be used to:
 	///		1) provide an existing cached object to be used for mapping
-	///		2) return an object of another class (which conforms to Mappable) to be used for mapping. For instance, you may inspect the JSON to infer the type of object that should be used for any given mapping
+	///		2) return an object of another class (which conforms to BaseMappable) to be used for mapping. For instance, you may inspect the JSON to infer the type of object that should be used for any given mapping
 	static func objectForMapping(map: Map) -> BaseMappable?
 }
 
@@ -89,12 +89,9 @@ public extension Array where Element: BaseMappable {
 	}
 	
 	/// Initialize Array from a JSON Array
-	public init?(JSONArray: [[String: Any]], context: MapContext? = nil) {
-		if let obj: [Element] = Mapper(context: context).mapArray(JSONArray: JSONArray) {
-			self = obj
-		} else {
-			return nil
-		}
+	public init(JSONArray: [[String: Any]], context: MapContext? = nil) {
+		let obj: [Element] = Mapper(context: context).mapArray(JSONArray: JSONArray)
+		self = obj
 	}
 	
 	/// Returns the JSON Array

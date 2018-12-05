@@ -1,12 +1,12 @@
 //
-//  TransformOf.swift
+//  DateTransform.swift
 //  ObjectMapper
 //
-//  Created by Syo Ikeda on 1/23/15.
+//  Created by Tristan Himmelman on 2014-10-13.
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,23 +26,50 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-open class TransformOf<ObjectType, JSONType>: TransformType {
-	public typealias Object = ObjectType
-	public typealias JSON = JSONType
+import Foundation
 
-	private let fromJSON: (JSONType?) -> ObjectType?
-	private let toJSON: (ObjectType?) -> JSONType?
+open class DateTransform: TransformType {
+	public typealias Object = Date
+	public typealias JSON = Double
 
-	public init(fromJSON: @escaping(JSONType?) -> ObjectType?, toJSON: @escaping(ObjectType?) -> JSONType?) {
-		self.fromJSON = fromJSON
-		self.toJSON = toJSON
+	public enum Unit: TimeInterval {
+		case seconds = 1
+		case milliseconds = 1_000
+		
+		func addScale(to interval: TimeInterval) -> TimeInterval {
+			return interval * rawValue
+		}
+		
+		func removeScale(from interval: TimeInterval) -> TimeInterval {
+			return interval / rawValue
+		}
+	}
+	
+	private let unit: Unit
+	
+	public init(unit: Unit = .seconds) {
+		self.unit = unit
 	}
 
-	open func transformFromJSON(_ value: Any?) -> ObjectType? {
-		return fromJSON(value as? JSONType)
+	open func transformFromJSON(_ value: Any?) -> Date? {
+		var timeInterval: TimeInterval?
+		if let timeInt = value as? Double {
+			timeInterval = TimeInterval(timeInt)
+		}
+		
+		if let timeStr = value as? String {
+			timeInterval = TimeInterval(atof(timeStr))
+		}
+		
+		return timeInterval.flatMap {
+			return Date(timeIntervalSince1970: unit.removeScale(from: $0))
+		}
 	}
 
-	open func transformToJSON(_ value: ObjectType?) -> JSONType? {
-		return toJSON(value)
+	open func transformToJSON(_ value: Date?) -> Double? {
+		if let date = value {
+			return Double(unit.addScale(to: date.timeIntervalSince1970))
+		}
+		return nil
 	}
 }
