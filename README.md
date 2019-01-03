@@ -4,7 +4,7 @@ This is a simple, concise, and fool the weather.All individual work is available
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/xuzhou524/Convenient-Swift/master/LICENSE)
 <br/>
 
-##How to build
+## How to build
 1)  Clone the repository
 ```
 $ git clone https://github.com/xuzhou524/Convenient-Swift.git
@@ -15,7 +15,7 @@ $ open "Convenient-Swift.xcworkspace"
 ```
 3) Compile and run the app in your simulator or iOS device
 
-##Requirements
+## Requirements
 * Xcode 7.2+
 * iOS8+
 
