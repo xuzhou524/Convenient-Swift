@@ -35,14 +35,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 typealias callbackfunc = (_ weatherModel:WeatherModel)->Void
 
 class AddCityTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
-    //let myFunc = callbackfunc
-    //var alamofireManager : Manager?
-    
-    //func initBack(_ mathFunction:(_ weatherModel:WeatherModel)->Void ){
-    //    myFunc = mathFunction
-   // }
-
-
     var citySearchBar: UISearchBar?
     var weatherArray = NSMutableArray()
     var cityMdoel: CityMdoel?
@@ -141,20 +133,26 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
             let urlString = "http://zhwnlapi.etouch.cn/Ecalender/api/city"
             let prames = [
                 "keyword" : (self.citySearchBar?.text)! as String,
-                "timespan" : "1457518656000",
+                "timespan" : "1544060771000",
                 "type" : "search"
             ]
             SVProgressHUD.show()
             
-             Alamofire.request(urlString, method: .post, parameters: prames).responseJSON{ (response) -> Void in
+             Alamofire.request(urlString, method: .get, parameters: prames).responseJSON{ (response) -> Void in
                 if let model = response.result.value{
-//                    if model.data?.count > 0{
-//                        self.cityMdoel = model
-//                         SVProgressHUD.dismiss()
-//                        self.tableView .reloadData()
-//                    }else{
-//                        SVProgressHUD.showError(withStatus: "请输入正确城市")
-//                    }
+                    let modelDic = model as! NSDictionary
+                
+                    if modelDic.count > 0{
+//                        CityMdoel.init(dictionary: <#T##[AnyHashable : Any]!#>)
+//                        self.cityMdoel =
+//                        let dataDic = modelDic["data"] as! NSMutableDictionary
+//                        var dataStr = dataDic["cityid"]
+                        self.cityMdoel = CityMdoel.init(dictionary: model as? [AnyHashable : Any])
+                         SVProgressHUD.dismiss()
+                        self.tableView .reloadData()
+                    }else{
+                        SVProgressHUD.showError(withStatus: "请输入正确城市")
+                    }
                 }else{
                     SVProgressHUD.showError(withStatus: "请检查网络")
                 }
@@ -185,35 +183,36 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         let cell = getCell(tableView, cell: citySearch_ResultsTabelView.self, indexPath: indexPath)
         cell.selectionStyle = .none
         if self.cityMdoel?.data?.count > 0{
-            cell.bind((self.cityMdoel?.data![indexPath.row])!)
+            let cityDataMdoelArray = self.cityMdoel?.data! as! NSArray
+            let cityDataMdoel = CityDataMdoel.init(dictionary: (cityDataMdoelArray[indexPath.row] as! [AnyHashable : Any]))
+            cell.bind(cityDataMdoel!)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let model = self.cityMdoel?.data![(indexPath as NSIndexPath).row]
-//        WeatherModel.like((model?.name)!, success: { (model) -> Void in
-//            self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-//            //去重
-//            var tempBool = true
-//            for  i in 0  ..< self.weatherArray.count {
-//                let models = self.weatherArray[i] as! WeatherModel
-//                if models.realtime?.city_code == model.realtime?.city_code || models.realtime?.city_name == model.realtime?.city_name{
-//                    self.weatherArray.removeObject(at: i)
-//                    self.weatherArray.insert(model, at: i)
-//                    tempBool = false
-//                }
-//            }
-//            if tempBool{
-//                self.weatherArray.add(model)
-//            }
-//            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-//            
-//            self.myFunc(weatherModel:model);
-//            self.navigationController?.popViewController(animated: true)
-//            
-//            }, failure: { (error) -> Void in
-//        })
+        let cityDataMdoelArray = self.cityMdoel?.data! as! NSArray
+        let model = CityDataMdoel.init(dictionary: (cityDataMdoelArray[indexPath.row] as! [AnyHashable : Any]))
+        WeatherModel.like((model?.name)!, success: { (model) -> Void in
+            self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+            //去重
+            var tempBool = true
+            for  i in 0  ..< self.weatherArray.count {
+                let models = self.weatherArray[i] as! WeatherModel
+                if models.realtime?.city_code == model.realtime?.city_code || models.realtime?.city_name == model.realtime?.city_name{
+                    self.weatherArray.removeObject(at: i)
+                    self.weatherArray.insert(model, at: i)
+                    tempBool = false
+                }
+            }
+            if tempBool{
+                self.weatherArray.add(model)
+            }
+            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+            self.navigationController?.popViewController(animated: true)
+            
+            }, failure: { (error) -> Void in
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -54,9 +54,9 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(RootWeatherViewController.updateym), name: NSNotification.Name(rawValue: "currentYearMonth"), object: nil)
         let tapGesturRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootWeatherViewController.tapGestureRecognizer))
         self.view.addGestureRecognizer(tapGesturRecognizer)
-        //        if  TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil{
-        //            self.weatherlocalArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-        //        }
+        if  TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil{
+            self.weatherlocalArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+        }
         if self.weatherlocalArray.count > 0 {
             self.HomeWeatherMdoel = self.weatherlocalArray[0] as! WeatherModel
         }
@@ -82,9 +82,9 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
                             if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
                                 print(model);
                                 self.HomeWeatherMdoel = model
-                                //            if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
-                                //                self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-                                //            }
+                                if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
+                                    self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+                                }
                                 //去重
                                 var tempBool = true
                                 for  i in 0  ..< self.weatherArray.count {

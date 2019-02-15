@@ -129,15 +129,13 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     func cityClick(){
         let cityVC = CityViewController()
-        
-        //        cityVC.cityViewBack { (weatherModel) -> Void in
-        //            self.HomeWeatherMdoel = weatherModel
-        //            self.requCityName = weatherModel.realtime!.city_name! as String
-        //            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, for: UIControlState())
-        //            self.asyncRequestData()
-        //            self.myHomeFunc!(weatherModel: weatherModel);
-        //
-        //        }
+//        cityVC.cityViewBack { (weatherModel) -> Void in
+//            self.HomeWeatherMdoel = weatherModel
+//            self.requCityName = weatherModel.realtime!.city_name! as String
+//            self.cityNameButton!.setTitle(self.HomeWeatherMdoel.realtime!.city_name! as String, for: UIControlState())
+//            self.asyncRequestData()
+//            self.myHomeFunc!(weatherModel: weatherModel);
+//        }
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
     
@@ -188,9 +186,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
                             if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
                                 print(model);
                                 self.HomeWeatherMdoel = model
-                                //            if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
-                                //                self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-                                //            }
+                                if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
+                                    self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+                                }
                                 //去重
                                 var tempBool = true
                                 for  i in 0  ..< self.weatherArray.count {
