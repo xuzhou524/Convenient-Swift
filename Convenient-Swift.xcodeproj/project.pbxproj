@@ -1124,8 +1124,9 @@
 				TargetAttributes = {
 					531C23EB1C8599420009E0E6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6JC78V6G2N;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1545,8 +1546,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JC78V6G2N;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1591,7 +1592,7 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYiWeather.Convenient-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1608,7 +1609,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6JC78V6G2N;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1654,10 +1655,10 @@
 					"$(PROJECT_DIR)/Libs/ShareSDK/Extend/WeChatSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.YongYiWeather.Convenient-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.YongYiWeatherAd.weatherAd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
-				PROVISIONING_PROFILE_SPECIFIER = com.YongYiWeather;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
