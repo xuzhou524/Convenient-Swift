@@ -231,9 +231,9 @@ class RootWeatherTableViewCell: UITableViewCell {
         if (weathermodel != nil && weathermodel!.realtime?.city_code != nil){
             
             let modelDic = weathermodel!.weather?[0]
-            let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
-            let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
-            let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray
+            let infoDic =  modelDic?.info
+            let dayArray =  infoDic?.day
+            let nightArray =  infoDic?.night
             
             //当前时间戳
             let date = Date()
@@ -243,23 +243,28 @@ class RootWeatherTableViewCell: UITableViewCell {
             let dfmatter = DateFormatter()
             dfmatter.dateFormat="yyyy-MM-dd HH:mm"
             //日出时间戳
-            let dayStr = dfmatter.date(from: (modelDic as AnyObject).object(forKey: "date") as! String + " " + (dayArray[5] as! String))
+            let day = "\(modelDic?.date ?? "") \(dayArray?[5] ?? "")"
+            let dayStr = dfmatter.date(from: day)
             let dayStamp:TimeInterval = dayStr!.timeIntervalSince1970
             let daySt:Int = Int(dayStamp)
             
             //日落时间戳
-            let nightStr = dfmatter.date(from: (modelDic as AnyObject).object(forKey: "date") as! String + " " + (nightArray[5] as! String))
+            let night = "\(modelDic?.date ?? "") \(nightArray?[5] ?? "")"
+            let nightStr = dfmatter.date(from: night)
             let nightStamp:TimeInterval = nightStr!.timeIntervalSince1970
             let nightSt:Int = Int(nightStamp)
             
-            if dateSt >= daySt && dateSt <= nightSt {
-                iconImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray[0] as! String))
-                weatherCurrentLabel?.text = (dayArray[1] as? String)! + " " + (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
-            }else{
-                iconImageView!.image = UIImage(named:"cm_weathericon_" + (nightArray[0] as! String))
-                weatherCurrentLabel?.text = (nightArray[1] as? String)! + " " + (nightArray[2] as? String)! + "° ~ " + (dayArray[2] as? String)! + "°"
-            }
             
+            if dateSt >= daySt && dateSt <= nightSt {
+                iconImageView?.image = UIImage(named:"cm_weathericon_" + (dayArray?[0] ?? ""))
+                let day = "\(dayArray?[1] ?? "") \(nightArray?[2] ?? "") ~ \(dayArray?[2] ?? "")°"
+                weatherCurrentLabel?.text = day
+            }else{
+                iconImageView!.image = UIImage(named:"cm_weathericon_" + (nightArray?[0] ?? ""))
+                let night = "\(nightArray?[1] ?? "") \(nightArray?[2] ?? "") ~ \(dayArray?[2] ?? "")°"
+                weatherCurrentLabel?.text = night
+            }
+
             cityNameLabel?.text = weathermodel!.realtime?.city_name
             pm25Label?.text = "PM2.5: " + (weathermodel?.pm25?.pm25?.pm25)!
             summaryLabel?.text = weathermodel?.pm25!.pm25!.des
