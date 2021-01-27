@@ -277,22 +277,6 @@ class weather_infoModel: NSObject, Mappable {
     }
 }
 
-//class weather_info_itemModel: NSObject, Mappable {
-//    var day : NSMutableArray?
-//    var night : NSMutableArray?
-//    class func newInstance(map: Map) -> Mappable?{
-//        return weather_info_itemModel()
-//    }
-//    required init?(map: Map){}
-//    override init(){}
-//    
-//    func mapping(map: Map){
-//        day <- map["day"]
-//        night <- map["night"]
-//
-//    }
-//}
-
 //func requestModel< T: BaseModel >(_ uRLString: String, parameters: [String: AnyObject]? = nil, success: @escaping (T) -> Void, failure: @escaping (NSError?) -> Void) {
 //
 //    //注释一下下

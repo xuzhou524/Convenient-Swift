@@ -184,7 +184,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         cell.selectionStyle = .none
         if self.cityMdoel?.data?.count > 0{
             let cityDataMdoelArray = self.cityMdoel?.data! as! NSArray
-            let cityDataMdoel = CityDataMdoel.init(dictionary: (cityDataMdoelArray[indexPath.row] as! [AnyHashable : Any]))
+            let cityDataMdoel = CityDataMdoel.init(JSON: cityDataMdoelArray[indexPath.row] as! [String : Any])
             cell.bind(cityDataMdoel!)
         }
         return cell
@@ -192,7 +192,7 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cityDataMdoelArray = self.cityMdoel?.data! as! NSArray
-        let model = CityDataMdoel.init(dictionary: (cityDataMdoelArray[indexPath.row] as! [AnyHashable : Any]))
+        let model = CityDataMdoel.init(JSON: cityDataMdoelArray[indexPath.row] as! [String : Any])
         WeatherModel.like((model?.name)!, success: { (model) -> Void in
             self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
             //去重

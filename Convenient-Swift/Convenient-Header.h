@@ -7,8 +7,6 @@
 //
 
 #import "UUChart.h"
-#import "BaseModel.h"
-#import "JSONModel.h"
 
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
