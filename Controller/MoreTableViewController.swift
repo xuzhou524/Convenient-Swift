@@ -23,13 +23,13 @@ class MoreTableViewController: UITableViewController {
         
         let leftButton = UIButton()
         leftButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
-        leftButton.setImage(UIImage(named: "bank"), for: UIControlState())
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        leftButton.setImage(UIImage(named: "bank"), for: UIControl.State())
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(MoreTableViewController.leftClick), for: .touchUpInside)
     }
-    func leftClick(){
+    @objc func leftClick(){
         self.dismiss(animated: true, completion: nil)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,7 +88,7 @@ class MoreTableViewController: UITableViewController {
             let infoDict = Bundle.main.infoDictionary
             if let info = infoDict {
                 // app版本
-                let appVersion = info["CFBundleShortVersionString"] as! String!
+                let appVersion = info["CFBundleShortVersionString"] as! String?
                 baseCell.detaileLabel?.text = "v" + appVersion!
                 baseCell.rightImage?.isHidden = true
             }
@@ -101,10 +101,10 @@ class MoreTableViewController: UITableViewController {
         }
     }
     
-    func zanImageViewTap(){
+    @objc func zanImageViewTap(){
         UIApplication.shared.openURL(URL(string:"itms-apps://itunes.apple.com/app/id1106215431")!);
     }
-    func tuImageView(){
+    @objc func tuImageView(){
         UIApplication.shared.openURL(URL(string:"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1106215431&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!);
     }
     override func didReceiveMemoryWarning() {

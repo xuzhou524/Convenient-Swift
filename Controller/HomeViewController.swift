@@ -45,7 +45,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             if _tableView == nil{
                 _tableView = UITableView()
                 _tableView.backgroundColor = XZSwiftColor.convenientBackgroundColor
-                _tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+                _tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
                 _tableView.delegate = self
                 _tableView.dataSource = self
                 
@@ -62,12 +62,12 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameButton = UIButton()
-        cityNameButton!.setImage(UIImage(named: ""), for: UIControlState())
+        cityNameButton!.setImage(UIImage(named: ""), for: UIControl.State())
         cityNameButton!.adjustsImageWhenHighlighted = false
         if (HomeWeatherMdoel.life == nil) {
-            cityNameButton!.setTitle(XZClient.sharedInstance.username!, for: UIControlState())
+            cityNameButton!.setTitle(XZClient.sharedInstance.username!, for: UIControl.State())
         }else{
-            cityNameButton!.setTitle(HomeWeatherMdoel.realtime!.city_name! as String, for: UIControlState())
+            cityNameButton!.setTitle(HomeWeatherMdoel.realtime!.city_name! as String, for: UIControl.State())
         }
         cityNameButton!.addTarget(self, action: #selector(HomeViewController.cityClick), for: .touchUpInside)
         
@@ -90,8 +90,8 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let leftButton = UIButton()
         leftButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
-        leftButton.setImage(UIImage(named: "bank"), for: UIControlState())
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        leftButton.setImage(UIImage(named: "bank"), for: UIControl.State())
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), for: .touchUpInside)
@@ -99,9 +99,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         let rightShareButton = UIButton()
         rightShareButton.frame = CGRect(x: 0, y: 0, width: 16, height: 16)
         rightShareButton.contentMode = .center
-        rightShareButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        rightShareButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         rightShareButton.adjustsImageWhenHighlighted = false
-        rightShareButton.setImage(UIImage(named: "share"), for: UIControlState())
+        rightShareButton.setImage(UIImage(named: "share"), for: UIControl.State())
         rightShareButton.addTarget(self, action: #selector(HomeViewController.rightShareClick), for: .touchUpInside)
         
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightShareButton)]
@@ -113,7 +113,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             }else{
                 self!.requCityName = self!.HomeWeatherMdoel.realtime!.city_name! as String
             }
-            self!.cityNameButton!.setTitle(self!.requCityName, for: UIControlState())
+            self!.cityNameButton!.setTitle(self!.requCityName, for: UIControl.State())
             self!.asyncRequestData()
         }
         if  TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil{
@@ -124,10 +124,10 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
     }
     
-    func leftClick(){
+    @objc func leftClick(){
         self.dismiss(animated: true, completion: nil)
     }
-    func cityClick(){
+    @objc func cityClick(){
         let cityVC = CityViewController()
 //        cityVC.cityViewBack { (weatherModel) -> Void in
 //            self.HomeWeatherMdoel = weatherModel
@@ -139,7 +139,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.navigationController?.pushViewController(cityVC, animated: true)
     }
     
-    func rightShareClick(){
+    @objc func rightShareClick(){
         UIGraphicsBeginImageContextWithOptions(CGSize(width: UIApplication.shared.keyWindow!.frame.width, height: UIApplication.shared.keyWindow!.frame.height), true, 0.0); //currentView 当前的view  创建一个基于位图的图形上下文并指定大小为
         UIApplication.shared.keyWindow!.layer.render(in: UIGraphicsGetCurrentContext()!)
         let viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
@@ -177,56 +177,57 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             "cityname" : self.requCityName,
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
         ]
-        Alamofire.request(urlString, method: .post, parameters: prames).responseJSON{ (response) -> Void in
-            
-            if response.result.error == nil {
-                if let dict = response.result.value as? NSDictionary {
-                    if let dicts = dict["result"] as? NSDictionary {
-                        if let dictss = dicts["data"] as? NSDictionary {
-                            if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
-                                print(model);
-                                self.HomeWeatherMdoel = model
-                                if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
-                                    self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
-                                }
-                                //去重
-                                var tempBool = true
-                                for  i in 0  ..< self.weatherArray.count {
-                                    let model = self.weatherArray[i] as! WeatherModel
-                                    if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code || model.realtime?.city_name == self.HomeWeatherMdoel.realtime?.city_name{
-                                        self.weatherArray.removeObject(at: i)
-                                        self.weatherArray.insert(self.HomeWeatherMdoel, at: i)
-                                        tempBool = false
-                                        break
-                                    }
-                                }
-                                if tempBool{
-                                    self.weatherArray.add(self.HomeWeatherMdoel)
-                                }
-                                
-                                //  TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-                                
-                                let date = Date()
-                                let timeFormatter = DateFormatter()
-                                timeFormatter.dateFormat = "MM-dd HH:mm"
-                                let strNowTime = timeFormatter.string(from: date) as String
-                                
-                                XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
-                                var listData: NSDictionary = NSDictionary()
-                                let filePath = Bundle.main.path(forResource: "TailRestrictions.plist", ofType:nil )
-                                listData = NSDictionary(contentsOfFile: filePath!)!
-                                let cityId = listData.object(forKey: self.requCityName) as? String
-                                if (cityId != nil) {
-                                    self.asyncRequestXianXingData(cityId!)
-                                }else{
-                                    self.tableView.reloadData()
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //注释一下下
+//        Alamofire.request(urlString, method: .post, parameters: prames).responseJSON{ (response) -> Void in
+//
+//            if response.result.error == nil {
+//                if let dict = response.result.value as? NSDictionary {
+//                    if let dicts = dict["result"] as? NSDictionary {
+//                        if let dictss = dicts["data"] as? NSDictionary {
+//                            if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
+//                                print(model);
+//                                self.HomeWeatherMdoel = model
+//                                if (TMCache.shared().object(forKey: kTMCacheWeatherArray) != nil){
+//                                    self.weatherArray = TMCache.shared().object(forKey: kTMCacheWeatherArray) as! NSMutableArray
+//                                }
+//                                //去重
+//                                var tempBool = true
+//                                for  i in 0  ..< self.weatherArray.count {
+//                                    let model = self.weatherArray[i] as! WeatherModel
+//                                    if model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code || model.realtime?.city_name == self.HomeWeatherMdoel.realtime?.city_name{
+//                                        self.weatherArray.removeObject(at: i)
+//                                        self.weatherArray.insert(self.HomeWeatherMdoel, at: i)
+//                                        tempBool = false
+//                                        break
+//                                    }
+//                                }
+//                                if tempBool{
+//                                    self.weatherArray.add(self.HomeWeatherMdoel)
+//                                }
+//
+//                                //  TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+//
+//                                let date = Date()
+//                                let timeFormatter = DateFormatter()
+//                                timeFormatter.dateFormat = "MM-dd HH:mm"
+//                                let strNowTime = timeFormatter.string(from: date) as String
+//
+//                                XZSetting.sharedInstance[KweatherTefurbishTime] = strNowTime;
+//                                var listData: NSDictionary = NSDictionary()
+//                                let filePath = Bundle.main.path(forResource: "TailRestrictions.plist", ofType:nil )
+//                                listData = NSDictionary(contentsOfFile: filePath!)!
+//                                let cityId = listData.object(forKey: self.requCityName) as? String
+//                                if (cityId != nil) {
+//                                    self.asyncRequestXianXingData(cityId!)
+//                                }else{
+//                                    self.tableView.reloadData()
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
     func asyncRequestXianXingData(_ string:String) -> Void{
@@ -236,35 +237,35 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             "citycode" : string,
             "pt" : "3010"
         ]
-        
-        Alamofire.request(urlString, method: .get, parameters: prames).responseString {response in
-            switch response.result {
-            case .success:
-                debugPrint(response.result)
-                
-                let dataImage = response.result.value?.data(using: String.Encoding.utf8)
-                let xpathParser = type(of: TFHpple()).init(htmlData: dataImage)
-                let elements = xpathParser?.search(withXPathQuery: "//html//body//div//div//div//div[@class='number']")
-                if (elements?.count)! > 0{
-                    let temp = elements?.first as! TFHppleElement
-                    for i in 0  ..< self.weatherArray.count {
-                        let model = self.weatherArray[i] as! WeatherModel
-                        if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
-                            self.weatherArray.removeObject(at: i)
-                            self.HomeWeatherMdoel.xxweihao = temp.content
-                            self.weatherArray.insert(self.HomeWeatherMdoel, at: i)
-                            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
-                        }
-                    }
-                }
-                break
-            case .failure(let error):
-                debugPrint(error)
-                break
-            }
-            self.tableView .reloadData()
-            //self.tableView.dg_stopLoading()
-        }
+        //注释一下下
+//        Alamofire.request(urlString, method: .get, parameters: prames).responseString {response in
+//            switch response.result {
+//            case .success:
+//                debugPrint(response.result)
+//
+//                let dataImage = response.result.value?.data(using: String.Encoding.utf8)
+//                let xpathParser = type(of: TFHpple()).init(htmlData: dataImage)
+//                let elements = xpathParser?.search(withXPathQuery: "//html//body//div//div//div//div[@class='number']")
+//                if (elements?.count)! > 0{
+//                    let temp = elements?.first as! TFHppleElement
+//                    for i in 0  ..< self.weatherArray.count {
+//                        let model = self.weatherArray[i] as! WeatherModel
+//                        if (model.realtime?.city_code == self.HomeWeatherMdoel.realtime?.city_code){
+//                            self.weatherArray.removeObject(at: i)
+//                            self.HomeWeatherMdoel.xxweihao = temp.content
+//                            self.weatherArray.insert(self.HomeWeatherMdoel, at: i)
+//                            TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
+//                        }
+//                    }
+//                }
+//                break
+//            case .failure(let error):
+//                debugPrint(error)
+//                break
+//            }
+//            self.tableView .reloadData()
+//            //self.tableView.dg_stopLoading()
+//        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

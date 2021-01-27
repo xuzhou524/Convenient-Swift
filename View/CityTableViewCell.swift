@@ -19,7 +19,7 @@ class CityTableViewCell: UITableViewCell {
     var bgScrollView: UIScrollView?
     var shanChuView: UIView?
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebView()
     }
@@ -50,7 +50,7 @@ class CityTableViewCell: UITableViewCell {
         let bagBGview = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 20,  height: hight))
         bagBGview.backgroundColor = XZSwiftColor.white
         self.bgScrollView?.addSubview(bagBGview)
-        self.bgScrollView?.sendSubview(toBack: bagBGview)
+        self.bgScrollView?.sendSubviewToBack(bagBGview)
         
         let bgView = UIView()
         bgView.backgroundColor = XZSwiftColor.white
@@ -118,7 +118,7 @@ class CityTableViewCell: UITableViewCell {
             make.right.equalTo(self.contentView).offset(-10)
             make.top.equalTo(self.contentView).offset(10)
         });
-        self.bgScrollView?.sendSubview(toBack: self.shanChuView!)
+        self.bgScrollView?.sendSubviewToBack(self.shanChuView!)
         let shanChuLabel = UILabel()
     
         shanChuLabel.text = "删除"
@@ -147,7 +147,7 @@ class CityTableViewCell: UITableViewCell {
 
 class addCityNullTabelView: UITableViewCell {
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebView()
     }
@@ -196,7 +196,7 @@ class addCityNullTabelView: UITableViewCell {
 class addCitySearchTabelView: UITableViewCell {
     var searchBar: UISearchBar?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebView()
     }
@@ -224,7 +224,7 @@ class addCitySearchTabelView: UITableViewCell {
 class citySearch_ResultsTabelView: UITableViewCell {
     var searchNameLabel: UILabel?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.sebView()
     }

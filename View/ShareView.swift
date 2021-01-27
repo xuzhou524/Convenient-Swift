@@ -94,7 +94,7 @@ class ShareView: UIView {
             let btn = ShareBaseView()
             btn.label?.text = btnTitleArray[i]
             btn.label?.font = XZFont2(12)
-            btn.btn?.setImage(UIImage(named: btnIamgeArray[i]), for:UIControlState())
+            btn.btn?.setImage(UIImage(named: btnIamgeArray[i]), for:UIControl.State())
             btn.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action:Selector(btnActionArray[i])))
             panel.addSubview(btn)
             
@@ -175,7 +175,7 @@ class ShareView: UIView {
 //        }
     }
     
-    func cancelClick(){
+    @objc func cancelClick(){
         self.removeFromWindowAnmated(true)
     }
     
@@ -185,7 +185,7 @@ class ShareView: UIView {
         if animated {
             var frames:CGRect = (self.panelView?.frame)!
             frames.origin.y = UIScreen.main.bounds.size.height - frames.size.height;
-            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: { () -> Void in
                 self.backGroundView?.alpha = 0.3
                 self.panelView?.frame = frames
                 }, completion: nil)
@@ -196,7 +196,7 @@ class ShareView: UIView {
         var frame = self.panelView?.frame
         frame?.origin.y  = UIScreen.main.bounds.size.height
         if animated {
-            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: { () -> Void in
                 self.backGroundView?.alpha = 0
                 self.panelView?.frame = frame!
                 }, completion: { (finished) -> Void in
@@ -269,7 +269,7 @@ class ShareBaseView: UIView {
                 self.transform = CGAffineTransform(scaleX: 1, y: 0.01)
             }, completion: { (finished) -> Void in
                 if let image = self.buttonIconArray?.object(at: selectedIndex){
-                    self.btn?.setImage(image as? UIImage, for: UIControlState())
+                    self.btn?.setImage(image as? UIImage, for: UIControl.State())
                     UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseOut, animations: { () -> Void in
                         self.transform = CGAffineTransform(scaleX: 1, y: 1)
                     }, completion: nil)
@@ -277,7 +277,7 @@ class ShareBaseView: UIView {
             })
         }else{
             if let image = self.buttonIconArray?.object(at: selectedIndex){
-                self.btn?.setImage(image as? UIImage, for: UIControlState())
+                self.btn?.setImage(image as? UIImage, for: UIControl.State())
             }
         }
     }

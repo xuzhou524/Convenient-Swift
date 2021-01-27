@@ -33,7 +33,7 @@ class Weather_titleTabeleViewCell: UITableViewCell {
     var pm25TiltileLabel : UILabel?
     var weatherRefreshLabel : UILabel?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.subView()
     }
@@ -126,7 +126,7 @@ class WeatherTabeleViewCell: UITableViewCell {
     var humidityLabel : UILabel?
     var warmPromptLabel : UILabel?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.subView()
     }
@@ -370,7 +370,7 @@ class Weather_LineTabeleViewCell: UITableViewCell, UUChartDataSource {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -491,7 +491,7 @@ class Weather_TimeTabeleViewCell: UITableViewCell {
     var weatherLabel : UILabel?
     var weatherLabelArray :NSMutableArray?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.subView()
     }

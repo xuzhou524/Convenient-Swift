@@ -24,23 +24,23 @@ class WeatherModel: BaseModel {
             "cityname" : cityname,
             "key" : "af34bbdd7948b379a0d218fc2c59c8ba"
         ]
-        
-        Alamofire.request(urlString, method:.post, parameters: prames).responseJSON{ (response) -> Void in
-            if response.result.error == nil {
-                if let dict = response.result.value as? NSDictionary {
-                    if let dicts = dict["result"] as? NSDictionary {
-                        if let dictss = dicts["data"] as? NSDictionary {
-                            if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
-                                success(model)
-                                return
-                            }
-                        }
-                    }
-                }
-            }else{
-                failure(response.result.error as! NSError)
-            }
-        }
+        //注释一下下
+//        Alamofire.request(urlString, method:.post, parameters: prames).responseJSON{ (response) -> Void in
+//            if response.result.error == nil {
+//                if let dict = response.result.value as? NSDictionary {
+//                    if let dicts = dict["result"] as? NSDictionary {
+//                        if let dictss = dicts["data"] as? NSDictionary {
+//                            if let model = WeatherModel(dictionary: dictss as! [AnyHashable: Any]) {
+//                                success(model)
+//                                return
+//                            }
+//                        }
+//                    }
+//                }
+//            }else{
+//                failure(response.result.error as! NSError)
+//            }
+//        }
     
 //        requestModel(String(format: urlString), parameters: prames as [String : AnyObject], success: success as! (BaseModel) -> Void, failure: failure)
     }
@@ -120,22 +120,23 @@ class weather_infoModel: BaseModel {
 
 func requestModel< T: BaseModel >(_ uRLString: String, parameters: [String: AnyObject]? = nil, success: @escaping (T) -> Void, failure: @escaping (NSError?) -> Void) {
     
-    Alamofire.request(uRLString, method:.post, parameters: parameters).responseJSON{ (response) -> Void in
-        if response.result.error == nil {
-            if let dict = response.result.value as? NSDictionary {
-                if let dicts = dict["result"] as? NSDictionary {
-                    if let dictss = dicts["data"] as? NSDictionary {
-                        if let model = T(dictionary: dictss as! [AnyHashable: Any]) {
-                            success(model)
-                            return
-                        }
-                    }
-                }
-            }
-        }else{
-            failure(response.result.error as! NSError)
-        }
-    }
+    //注释一下下
+//    Alamofire.request(uRLString, method:.post, parameters: parameters).responseJSON{ (response) -> Void in
+//        if response.result.error == nil {
+//            if let dict = response.result.value as? NSDictionary {
+//                if let dicts = dict["result"] as? NSDictionary {
+//                    if let dictss = dicts["data"] as? NSDictionary {
+//                        if let model = T(dictionary: dictss as! [AnyHashable: Any]) {
+//                            success(model)
+//                            return
+//                        }
+//                    }
+//                }
+//            }
+//        }else{
+//            failure(response.result.error as! NSError)
+//        }
+//    }
 }
 
 

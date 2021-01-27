@@ -43,8 +43,8 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
         let leftButton = UIButton()
         leftButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
-        leftButton.setImage(UIImage(named: "bank"), for: UIControlState())
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        leftButton.setImage(UIImage(named: "bank"), for: UIControl.State())
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), for: .touchUpInside)
@@ -93,14 +93,14 @@ class CityViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
     }
     
-    func deleteLocalCity(_ tap:UITapGestureRecognizer){
+    @objc func deleteLocalCity(_ tap:UITapGestureRecognizer){
         self.weatherArray.removeObject(at: ((tap.view?.tag)! - 100))
         TMCache.shared().setObject(self.weatherArray, forKey: kTMCacheWeatherArray)
         self.tableView.reloadData()
         
     }
     
-    func selectModel(_ tap:UITapGestureRecognizer){
+    @objc func selectModel(_ tap:UITapGestureRecognizer){
         let weatherModel = self.weatherArray[((tap.view?.tag)! - 1000)]  as! WeatherModel
         self.navigationController?.popViewController(animated: true)
     }

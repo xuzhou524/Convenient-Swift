@@ -1,36 +1,29 @@
 PODS:
-  - Alamofire (4.8.0)
-  - AlamofireObjectMapper (5.2.0):
-    - Alamofire (~> 4.7)
-    - ObjectMapper (~> 3.4)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - Fabric (1.9.0)
+  - Alamofire (5.0.0-rc.2)
+  - AlamofireObjectMapper (6.2.0):
+    - Alamofire (= 5.0.0-rc.2)
+    - ObjectMapper (~> 3.5.1)
   - jastor (0.2.1)
-  - KVOController (1.0.3)
-  - ObjectMapper (3.4.1)
-  - SnapKit (3.0.2)
-  - SVProgressHUD (1.1.3)
-  - TMCache (1.2.4)
+  - KVOController (1.2.0)
+  - ObjectMapper (3.5.3)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - TMCache (2.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
-  - Crashlytics
-  - Fabric
-  - jastor (~> 0.2.1)
-  - KVOController (~> 1.0.3)
+  - jastor
+  - KVOController
   - ObjectMapper
-  - SnapKit (~> 3.0.2)
-  - SVProgressHUD (~> 1.1.3)
-  - TMCache (~> 1.2.0)
+  - SnapKit
+  - SVProgressHUD
+  - TMCache
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - AlamofireObjectMapper
-    - Crashlytics
-    - Fabric
     - jastor
     - KVOController
     - ObjectMapper
@@ -39,17 +32,15 @@ SPEC REPOS:
     - TMCache
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
-  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
-  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
-  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
-  TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
-PODFILE CHECKSUM: 3b8a9d8b69bfbd30dcae36274c024d82a0bc29ef
+PODFILE CHECKSUM: 7372e9e5b31f5b7a0d55dc0fb5f994a3cf75a9ba
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.0

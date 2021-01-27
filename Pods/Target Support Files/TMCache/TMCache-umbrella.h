@@ -11,6 +11,7 @@
 #endif
 
 #import "TMCache.h"
+#import "TMCacheBackgroundTaskManager.h"
 #import "TMDiskCache.h"
 #import "TMMemoryCache.h"
 

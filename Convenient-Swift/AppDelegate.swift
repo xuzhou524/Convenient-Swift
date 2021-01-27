@@ -8,8 +8,7 @@
 
 import UIKit
 import CoreLocation
-import Fabric
-import Crashlytics
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -43,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     //用于定位服务管理类，它能够给我们提供位置信息和高度信息，也可以监控设备进入或离开某个区域，还可以获得设备的运行方向
     var locationManager : CLLocationManager = CLLocationManager()
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         locationManager.delegate = self
         //设备使用电池供电时最高的精度
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -61,12 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         centerNav = XZSwiftNavigationController(rootViewController: RootWeatherViewController());
     
         self.window?.rootViewController = centerNav;
-    
-        #if DEBUG
-        #else
-            Fabric.with([Crashlytics.self])
-        #endif
-        
+
         WXApi.registerApp("wx88234dc1246eb81b", withDescription: "用易")
         //self.shareSetup()
         

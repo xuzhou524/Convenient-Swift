@@ -1101,7 +1101,7 @@
 				531C23E91C8599420009E0E6 /* Frameworks */,
 				531C23EA1C8599420009E0E6 /* Resources */,
 				53E9861D1C990143005BE32F /* ShellScript */,
-				0059CC17CE3E704DC6528010 /* [CP] Embed Pods Frameworks */,
+				6B14057735C23B196D2FEB3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1135,6 +1135,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -1316,13 +1317,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0059CC17CE3E704DC6528010 /* [CP] Embed Pods Frameworks */ = {
+		53E9861D1C990143005BE32F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-frameworks.sh",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run e5a51bcb1d2c3bfc5e7b43c7a3a9cd6cffe7f0b8 eb38756f0e57b9048d3c1e112eb0d53f92817a9149c333ab5b6f3c59ff6bc9d7";
+		};
+		6B14057735C23B196D2FEB3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
@@ -1345,21 +1359,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Convenient-Swift/Pods-Convenient-Swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		53E9861D1C990143005BE32F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run e5a51bcb1d2c3bfc5e7b43c7a3a9cd6cffe7f0b8 eb38756f0e57b9048d3c1e112eb0d53f92817a9149c333ab5b6f3c59ff6bc9d7";
 		};
 		97BF0630A478E7BEE8AD562C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1578,7 +1579,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1597,7 +1598,7 @@
 				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1641,7 +1642,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Convenient-Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1660,7 +1661,7 @@
 				PROVISIONING_PROFILE = "af0fee92-1cb5-42f6-800f-81c4195135d3";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Convenient-Swift/Convenient-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

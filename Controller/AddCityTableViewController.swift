@@ -119,8 +119,8 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
         
         let leftButton = UIButton()
         leftButton.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-        leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0)
-        leftButton.setImage(UIImage(named: "bank"), for: UIControlState())
+        leftButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        leftButton.setImage(UIImage(named: "bank"), for: UIControl.State())
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
         leftButton.addTarget(self, action: #selector(HomeViewController.leftClick), for: .touchUpInside)
@@ -137,30 +137,30 @@ class AddCityTableViewController: UIViewController,UITableViewDataSource,UITable
                 "type" : "search"
             ]
             SVProgressHUD.show()
-            
-             Alamofire.request(urlString, method: .get, parameters: prames).responseJSON{ (response) -> Void in
-                if let model = response.result.value{
-                    let modelDic = model as! NSDictionary
-                
-                    if modelDic.count > 0{
-//                        CityMdoel.init(dictionary: <#T##[AnyHashable : Any]!#>)
-//                        self.cityMdoel =
-//                        let dataDic = modelDic["data"] as! NSMutableDictionary
-//                        var dataStr = dataDic["cityid"]
-                        self.cityMdoel = CityMdoel.init(dictionary: model as? [AnyHashable : Any])
-                         SVProgressHUD.dismiss()
-                        self.tableView .reloadData()
-                    }else{
-                        SVProgressHUD.showError(withStatus: "请输入正确城市")
-                    }
-                }else{
-                    SVProgressHUD.showError(withStatus: "请检查网络")
-                }
-            }
+           //先注释一下下
+//             Alamofire.request(urlString, method: .get, parameters: prames).responseJSON{ (response) -> Void in
+//                if let model = response.result.value{
+//                    let modelDic = model as! NSDictionary
+//
+//                    if modelDic.count > 0{
+////                        CityMdoel.init(dictionary: <#T##[AnyHashable : Any]!#>)
+////                        self.cityMdoel =
+////                        let dataDic = modelDic["data"] as! NSMutableDictionary
+////                        var dataStr = dataDic["cityid"]
+//                        self.cityMdoel = CityMdoel.init(dictionary: model as? [AnyHashable : Any])
+//                         SVProgressHUD.dismiss()
+//                        self.tableView .reloadData()
+//                    }else{
+//                        SVProgressHUD.showError(withStatus: "请输入正确城市")
+//                    }
+//                }else{
+//                    SVProgressHUD.showError(withStatus: "请检查网络")
+//                }
+//            }
         }
     }
     
-    func backupgroupTap(){
+    @objc func backupgroupTap(){
         UIApplication.shared .sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
