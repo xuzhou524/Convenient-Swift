@@ -209,7 +209,7 @@ class RootWeatherViewController: UIViewController,UITableViewDataSource,UITableV
         let rootWeatherCell = getCell(tableView, cell: RootWeatherTableViewCell.self, indexPath: indexPath)
         rootWeatherCell.selectionStyle = .none
         rootWeatherCell.bind(self.HomeWeatherMdoel)
-        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(RootWeatherViewController.tapWeatherClick))
+        let tapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(tapWeatherClick))
         rootWeatherCell.addGestureRecognizer(tapGestureRecognizer)
         return rootWeatherCell
     }

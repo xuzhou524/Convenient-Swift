@@ -230,7 +230,7 @@ class RootWeatherTableViewCell: UITableViewCell {
     func bind(_ weathermodel:WeatherModel?)->Void{
         if (weathermodel != nil && weathermodel!.realtime?.city_code != nil){
             
-            let modelDic = weathermodel!.weather[0]
+            let modelDic = weathermodel!.weather?[0]
             let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray
             let nightArray =  (infoDic.object(forKey: "night"))! as! NSArray

@@ -8,16 +8,17 @@ PODS:
   - ObjectMapper (3.5.3)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.0)
   - TMCache (2.1.0)
 
 DEPENDENCIES:
-  - Alamofire
   - AlamofireObjectMapper
   - jastor
   - KVOController
   - ObjectMapper
   - SnapKit
   - SVProgressHUD
+  - SwiftyJSON
   - TMCache
 
 SPEC REPOS:
@@ -29,6 +30,7 @@ SPEC REPOS:
     - ObjectMapper
     - SnapKit
     - SVProgressHUD
+    - SwiftyJSON
     - TMCache
 
 SPEC CHECKSUMS:
@@ -39,8 +41,9 @@ SPEC CHECKSUMS:
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
 
-PODFILE CHECKSUM: 7372e9e5b31f5b7a0d55dc0fb5f994a3cf75a9ba
+PODFILE CHECKSUM: c0a845adf573192b5360af4eab22a307874c755b
 
 COCOAPODS: 1.10.0

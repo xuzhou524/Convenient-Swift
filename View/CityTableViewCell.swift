@@ -131,7 +131,7 @@ class CityTableViewCell: UITableViewCell {
     }
     
     func bind(_ weathermodel:WeatherModel) ->Void{
-        let modelDic = weathermodel.weather[0]
+        let modelDic = weathermodel.weather?[0]
         if ((modelDic as AnyObject).object(forKey: "info") != nil) {
             let infoDic =  ((modelDic as AnyObject).object(forKey: "info"))! as! NSDictionary
             let dayArray =  (infoDic.object(forKey: "day"))! as! NSArray

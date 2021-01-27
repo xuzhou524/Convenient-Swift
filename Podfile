@@ -3,11 +3,12 @@ platform:ios,’13.0’
 use_frameworks!
 
 def pods
-   pod 'Alamofire'
+#   pod 'Alamofire'
    pod 'SnapKit'
    pod 'KVOController'
    pod 'jastor'
    pod 'ObjectMapper'
+   pod 'SwiftyJSON'
    pod 'AlamofireObjectMapper'
    pod 'TMCache'
 

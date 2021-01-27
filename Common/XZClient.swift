@@ -14,7 +14,7 @@ let KweatherTefurbishTime = "me.XZ.weatherTefurbishTime"
 class XZClient: NSObject {
    static let sharedInstance = XZClient()
     
-   dynamic var username: String?
+   var username: String?
    dynamic var weatherTefurbishTime: String?
     
     
